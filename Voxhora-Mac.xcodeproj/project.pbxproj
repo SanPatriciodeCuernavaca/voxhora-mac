@@ -26,7 +26,6 @@
 		61944459F7E4A86E6AEF4977 /* GenericCSVImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47958C68799AE2979D027653 /* GenericCSVImporter.swift */; };
 		68C8E92568A9493BB12CA7A2 /* ClientFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8250A7251CDE96BC1083907A /* ClientFilterSheet.swift */; };
 		6DD173FBCF1D016C1FF153ED /* AuditLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AB9777FAC1A6297B4C217A /* AuditLogEntry.swift */; };
-		6E80E3BED0BB32622A538374 /* EntryReplicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C79F13EC777E1F2752134 /* EntryReplicator.swift */; };
 		714F6AC9DDA4F40B657286A1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B71D14071DD2E7A0DBDF8 /* Colors.swift */; };
 		7959675DA1A757B045960032 /* AuditLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595C2C4B41DA5B58D1BCDFB5 /* AuditLogger.swift */; };
 		7B5E9375AB21CACDF1C764DE /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8A3F63A2040573248F50F /* TodayView.swift */; };
@@ -100,7 +99,6 @@
 		998A1628A332504B82459282 /* BillTimeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BillTimeButton.swift; path = "../voxhora-ios/Voxhora/Views/BillTimeButton.swift"; sourceTree = "<group>"; };
 		9A92818F1B337F438AFC0601 /* VoxSpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoxSpeechRecognizer.swift; sourceTree = "<group>"; };
 		9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HapticFeedback.swift; path = "../voxhora-ios/Voxhora/Engine/HapticFeedback.swift"; sourceTree = "<group>"; };
-		9F5C79F13EC777E1F2752134 /* EntryReplicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReplicator.swift; sourceTree = "<group>"; };
 		A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoneyCounter.swift; path = "../voxhora-ios/Voxhora/Views/MoneyCounter.swift"; sourceTree = "<group>"; };
 		A307B1CCF2CDD028620A2F9B /* RatePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatePickerSheet.swift; path = "../voxhora-ios/Voxhora/Views/RatePickerSheet.swift"; sourceTree = "<group>"; };
 		AEE2C3F3931EE39184443BBC /* VoucherCSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherCSVExporter.swift; sourceTree = "<group>"; };
@@ -281,7 +279,6 @@
 		F20F1B14B91C56508039AF8E /* Sync */ = {
 			isa = PBXGroup;
 			children = (
-				9F5C79F13EC777E1F2752134 /* EntryReplicator.swift */,
 				E26596725B5427C5008818B5 /* HistoricalCSVImporter.swift */,
 			);
 			path = Sync;
@@ -416,7 +413,6 @@
 				98C49AC7C4621A25B476DE00 /* CommaParser.swift in Sources */,
 				30DD0AE1379560820FFF7421 /* EditEntrySheet.swift in Sources */,
 				87BB6E5E075B1308636BD729 /* Entry.swift in Sources */,
-				6E80E3BED0BB32622A538374 /* EntryReplicator.swift in Sources */,
 				ED432477B3D03648A83BAAE1 /* EntryRow.swift in Sources */,
 				541F0BD632C2EA104301E8C2 /* ExportAdapter.swift in Sources */,
 				069760821762C79BC069EF9E /* ExportAdapterRegistry.swift in Sources */,

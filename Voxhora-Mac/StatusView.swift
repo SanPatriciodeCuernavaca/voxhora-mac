@@ -1,11 +1,12 @@
 //
 //  StatusView.swift
-//  Voxhora-Mac — Phase 2 v0.3.2
+//  Voxhora-Mac
 //
-//  Minimal status window. Shows: how many entries are in the local
-//  CloudKit-backed cache, when each artifact was last regenerated,
-//  and a quick "open dashboard" link. The actual sync work is driven
-//  by `EntryReplicator` — this view just observes and triggers.
+//  Diagnostics drawer reachable from MacMainView's stethoscope toolbar
+//  button. Shows CloudKit sync state, the count of entries in the
+//  local cache, and the historical-CSV importer for migrating pre-
+//  Voxhora time records. Renders as a sheet over the main attorney
+//  surface; doesn't interrupt billing flow.
 //
 
 import SwiftUI
@@ -15,7 +16,6 @@ struct StatusView: View {
     @Query(sort: \Entry.loggedAt, order: .reverse) private var entries: [Entry]
     @Environment(\.modelContext) private var modelContext
 
-    @StateObject private var replicator = EntryReplicator()
     @ObservedObject private var cloudSync = CloudSyncMonitor.shared
 
     @State private var importStatus: String? = nil
@@ -27,7 +27,7 @@ struct StatusView: View {
                 Image(systemName: cloudSyncIcon)
                     .foregroundStyle(cloudSyncColor)
                     .font(.system(size: 24))
-                Text("Voxhora — Mac CloudKit subscriber")
+                Text("Voxhora — Diagnostics")
                     .font(.system(size: 18, weight: .semibold))
             }
 
@@ -68,42 +68,11 @@ struct StatusView: View {
                     Text("\(entries.count)")
                         .font(.system(.body, design: .monospaced).weight(.semibold))
                 }
-                HStack {
-                    Text("entries.json last written:")
-                        .foregroundStyle(.secondary)
-                    Spacer()
-                    Text(replicator.entriesJsonStatus)
-                        .font(.system(.body, design: .monospaced))
-                }
-                HStack {
-                    Text("today.html last rendered:")
-                        .foregroundStyle(.secondary)
-                    Spacer()
-                    Text(replicator.dashboardStatus)
-                        .font(.system(.body, design: .monospaced))
-                }
-                if let err = replicator.lastError {
-                    Text(err)
-                        .font(.system(.caption, design: .monospaced))
-                        .foregroundStyle(.red)
-                        .padding(.top, 4)
-                }
             }
 
             Divider()
 
             HStack {
-                Button("Regenerate now") {
-                    replicator.replicate(entries: entries)
-                }
-                .keyboardShortcut("r", modifiers: .command)
-
-                Button("Open dashboard") {
-                    let url = URL(fileURLWithPath: NSHomeDirectory())
-                        .appendingPathComponent("Dropbox/Voxhora/today.html")
-                    NSWorkspace.shared.open(url)
-                }
-
                 Button(isImporting ? "Importing…" : "Import historical CSVs") {
                     isImporting = true
                     importStatus = nil
@@ -134,33 +103,6 @@ struct StatusView: View {
             }
         }
         .padding(20)
-        // .onChange(of: entries) only fires on array SHAPE changes (insert/delete),
-        // not on field-level edits to existing entries — SwiftData @Model objects
-        // use identity-based Equatable so mutating one entry doesn't make the
-        // array "different". We trigger on a content digest instead, plus the
-        // CloudKit remote-change notification as a safety net.
-        .onChange(of: entryDigest) { _, _ in
-            replicator.replicate(entries: entries)
-        }
-        .onReceive(NotificationCenter.default.publisher(for: .NSPersistentStoreRemoteChange)) { _ in
-            replicator.replicate(entries: entries)
-        }
-        .task {
-            // Initial render on launch so dashboard reflects whatever's cached.
-            replicator.replicate(entries: entries)
-        }
-    }
-
-    // MARK: - Reactive digest
-
-    /// String representation of all editable entry fields. Changes when ANY
-    /// entry's content changes (clientName edit, quantity change, soft-delete,
-    /// etc.) — not just when the array shape changes. Used as the trigger for
-    /// .onChange so we regenerate Mac artifacts on every meaningful update.
-    private var entryDigest: String {
-        entries.map {
-            "\($0.entryId):\($0.clientName):\($0.date):\($0.category):\($0.subActivity):\($0.quantity):\($0.descriptionText):\($0.archived)"
-        }.joined(separator: "|")
     }
 
     // MARK: - CloudKit sync status helpers

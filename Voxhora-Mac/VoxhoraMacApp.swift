@@ -1,16 +1,12 @@
 //
 //  VoxhoraMacApp.swift
-//  Voxhora-Mac — Phase 2 v0.3.2
+//  Voxhora-Mac
 //
 //  Mac CloudKit subscriber. Subscribes to the same private CloudKit
 //  database the iOS app writes to (`iCloud.com.patrickfagerberg.voxhora`).
-//  When entries arrive (from any signed-in device), regenerates the
-//  Mac-side artifacts: ~/Dropbox/Voxhora/entries.json and today.html.
-//
-//  This app replaces the v0.1–v0.2 Python watcher.py that polled
-//  Inbox.txt. There is no longer any Dropbox-as-data-path; the trunk
-//  is CloudKit. Dropbox is now an OUTPUT location for the human-facing
-//  dashboard (today.html), not an input transport.
+//  Entries written on any device propagate here automatically. The
+//  native MacMainView (TODAY / CLIENTS / VOUCHERS / INSIGHTS) is the
+//  canonical Mac dashboard — no Dropbox bridge in either direction.
 //
 
 import SwiftUI
