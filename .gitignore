@@ -1,0 +1,56 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# Swift / SPM
+.build/
+.swiftpm/
+Package.resolved
+
+# CocoaPods (not used now, but defensive)
+Pods/
+*.xcconfig.local
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sensitive
+*.env
+.env.local
+*.secret
+secrets/
+*.pem
+*.p12
+*.cer
+*.mobileprovision
+
+# Logs / temp
+*.log
+*.tmp
+tmp/
+
+# fastlane (defensive)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Carthage (defensive)
+Carthage/Build/

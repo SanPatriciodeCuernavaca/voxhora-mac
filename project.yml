@@ -1,0 +1,159 @@
+name: Voxhora-Mac
+options:
+  bundleIdPrefix: com.patrickfagerberg
+  deploymentTarget:
+    macOS: "14.0"
+  developmentLanguage: en
+  groupSortPosition: top
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: S4GM27H6N5
+    SWIFT_VERSION: "5.0"
+    CODE_SIGN_STYLE: Automatic
+    PRODUCT_BUNDLE_IDENTIFIER: com.patrickfagerberg.voxhora.mac
+    INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.business
+    INFOPLIST_KEY_NSHumanReadableCopyright: "Voxhora — Patrick Fagerberg"
+    GENERATE_INFOPLIST_FILE: YES
+    CODE_SIGN_ENTITLEMENTS: Voxhora-Mac/Voxhora-Mac.entitlements
+    ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+
+targets:
+  Voxhora-Mac:
+    type: application
+    platform: macOS
+    sources:
+      # Mac-specific app code
+      - path: Voxhora-Mac
+        excludes:
+          - "Voxhora-Mac.entitlements"
+
+      # SHARED models — single source of truth lives in the iOS project.
+      # Direct references; no copy, no drift. CloudKit schema matches both
+      # platforms exactly because they compile against the same files.
+      - path: ../voxhora-ios/Voxhora/Models/Entry.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/Client.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/Case.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/AttorneyProfile.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/UserPreferences.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/AuditLogEntry.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/Voucher.swift
+        group: SharedModels
+
+      # Shared engine — every platform uses the same parser, jurisdiction,
+      # audit chain, sync monitor, etc. Mac needs all of these to support
+      # the same capture/edit/export functionality the iPhone has.
+      - path: ../voxhora-ios/Voxhora/Engine/AuditLogger.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/CloudSyncMonitor.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/HapticFeedback.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/PlatformViewHelpers.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/QuantityMigration.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Jurisdiction.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/JurisdictionMutator.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Jurisdictions
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/KeychainHelper.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/ExportAdapter.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/ExportAdapters
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/ClientRosterImporter.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/RosterImporters
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Parser
+        group: SharedEngine
+
+      # Shared theme — colors, fonts, brand language. Same look on both.
+      - path: ../voxhora-ios/Voxhora/Theme
+        group: SharedTheme
+
+      # Shared views — the lawyer-grade UI. Cross-platform via
+      # PlatformViewHelpers shims + HapticFeedback abstraction.
+      # CaptureView (voice) is excluded for now — Mac voice capture
+      # needs entitlements + UX work; ManualEntryForm covers Mac
+      # capture in this iteration.
+      - path: ../voxhora-ios/Voxhora/Views/MoneyCounter.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/RatePickerSheet.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/ClientFilterSheet.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/AppHeader.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/ComingSoonView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/TodayView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/EntryRow.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/EditEntrySheet.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/ManualEntryForm.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/ClientPickerView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/BillTimeButton.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/CaptureView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/VouchersView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/ClientsView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/AddClientSheet.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/ClientDetailView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Engine/Voice
+        group: SharedEngine
+
+      # Shared resources — jurisdiction JSON, LLM system prompt.
+      # NOTE: no `type: folder` — that would double-nest the bundle to
+      # Contents/Resources/Resources/Jurisdictions/. We want flat Bundle.main
+      # resolution: Bundle.main.url(forResource: "travis_county", withExtension: "json",
+      # subdirectory: "Jurisdictions"). xcodegen adds each file at the right depth.
+      - path: ../voxhora-ios/Voxhora/Resources
+        group: SharedResources
+
+    settings:
+      base:
+        ENABLE_HARDENED_RUNTIME: YES
+    # postBuildScripts intentionally disabled 2026-05-02 ~13:35.
+    #
+    # The "Refresh /Applications/Voxhora-Mac.app for Launchpad" script
+    # ran in the wrong phase order: xcodegen's `postBuildScripts` are
+    # appended to the target's `buildPhases` array, which Xcode
+    # processes BEFORE its implicit CodeSign pass. Result: the script
+    # ditto'd an unsigned binary into /Applications every rebuild, and
+    # Launchpad-launch failed with NSPOSIXErrorDomain Code 163
+    # ("Launchd job spawn failed") because macOS won't spawn an
+    # unsigned app from /Applications.
+    #
+    # Workaround for now: when Launchpad needs the latest build,
+    # manually run:
+    #
+    #   pkill -lf "Voxhora-Mac"
+    #   mv /Applications/Voxhora-Mac.app /tmp/voxmac-old-$(date +%H%M%S).app
+    #   ditto ~/Library/Developer/Xcode/DerivedData/Voxhora-Mac-*/Build/Products/Debug/Voxhora-Mac.app /Applications/Voxhora-Mac.app
+    #   open /Applications/Voxhora-Mac.app
+    #
+    # Proper fix (deferred to v0.4.x): use an xcodegen scheme
+    # `postActions` block — those run AFTER the entire build pipeline
+    # including CodeSign. Or have the in-script ditto run codesign
+    # --force --sign "${EXPANDED_CODE_SIGN_IDENTITY}" with the
+    # entitlements file so the resulting bundle is launchable.
