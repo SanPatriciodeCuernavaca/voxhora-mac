@@ -32,7 +32,7 @@ struct MacMainView: View {
     @State private var showingDiagnostics = false
 
     enum Section: Hashable {
-        case today, clients, vouchers, insights
+        case today, clients, vouchers, calendar
     }
 
     var body: some View {
@@ -44,7 +44,7 @@ struct MacMainView: View {
                     sidebarRow(.today, label: "Today", systemImage: "clock")
                     sidebarRow(.clients, label: "Clients", systemImage: "person.2")
                     sidebarRow(.vouchers, label: "Vouchers", systemImage: "doc.text")
-                    sidebarRow(.insights, label: "Insights", systemImage: "chart.line.uptrend.xyaxis")
+                    sidebarRow(.calendar, label: "Calendar", systemImage: "calendar")
                 }
                 .listStyle(.sidebar)
                 .navigationTitle("Voxhora")
@@ -90,13 +90,8 @@ struct MacMainView: View {
             ClientsView()
         case .vouchers:
             VouchersView()
-        case .insights:
-            ComingSoonView(
-                title: "Insights",
-                oneLiner: "End-of-day card, billing streak, personal-best, and the audit log — your Money Loop, sustained.",
-                version: "v0.4.4",
-                systemImage: "chart.line.uptrend.xyaxis"
-            )
+        case .calendar:
+            CalendarView()
         }
     }
 }

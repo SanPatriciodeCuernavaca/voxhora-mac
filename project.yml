@@ -125,6 +125,10 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/AppearBadge.swift
         group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/CalendarEventRow.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/CalendarView.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Engine/Voice
         group: SharedEngine
 

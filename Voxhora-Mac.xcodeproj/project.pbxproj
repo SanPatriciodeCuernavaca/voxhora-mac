@@ -16,6 +16,7 @@
 		24E1504EA610166EB3926A04 /* QuantityMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B0456B9F84AEC7DC6EE67 /* QuantityMigration.swift */; };
 		25D2C54FDB742F4D29433770 /* travis_county_courts.json in Resources */ = {isa = PBXBuildFile; fileRef = DF942744E0FB96851CE6FADB /* travis_county_courts.json */; };
 		30DD0AE1379560820FFF7421 /* EditEntrySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CF2380930335B04C6E1634 /* EditEntrySheet.swift */; };
+		319B0C2F43AA17F25A1CB843 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC4FD229E96BA1ABA5F164 /* CalendarView.swift */; };
 		3383EA608D9E54F1832D6C9A /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BF4F34B672795ECBEDF44D /* UserPreferences.swift */; };
 		40CC4FD86E2CD92007882B76 /* travis_county.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F5E24AA1CA60519F9616870 /* travis_county.json */; };
 		42384CA3FD156F8FD64B9F57 /* VouchersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0493A23B7C235DD52BFA5AB /* VouchersView.swift */; };
@@ -53,6 +54,7 @@
 		BFAC48314965E66BDB4DED2C /* ManualEntryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC034C1944EB53D7C9F589 /* ManualEntryForm.swift */; };
 		C85E21398CCBC0E46CACB615 /* LLMParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EF8E0FD981879F274CFD93 /* LLMParser.swift */; };
 		C9E90DF1C2F3375CC6E95E8F /* MoneyCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */; };
+		CC10B734CEC184046C887EBA /* CalendarEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B2877C23EBE85377EA7A0 /* CalendarEventRow.swift */; };
 		CCE72F1B8C92F9B9286378D8 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B4630C0FC2F0C8A52D98F /* ComingSoonView.swift */; };
 		D5A821150B1B1820901AA78A /* AnthropicClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD557B103B7A12205BBD67 /* AnthropicClient.swift */; };
 		DA6D8DD8CCB98E5A910D4519 /* AppHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896CB6847B5B61EA108ACAF /* AppHeader.swift */; };
@@ -88,6 +90,7 @@
 		5673B747584289E2B2E2A5B0 /* TCCaseListImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCaseListImporter.swift; sourceTree = "<group>"; };
 		595C2C4B41DA5B58D1BCDFB5 /* AuditLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuditLogger.swift; path = "../voxhora-ios/Voxhora/Engine/AuditLogger.swift"; sourceTree = "<group>"; };
 		5A9ADEB131B32F3B2E06FE10 /* JurisdictionMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JurisdictionMutator.swift; path = "../voxhora-ios/Voxhora/Engine/JurisdictionMutator.swift"; sourceTree = "<group>"; };
+		5CCC4FD229E96BA1ABA5F164 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = "../voxhora-ios/Voxhora/Views/CalendarView.swift"; sourceTree = "<group>"; };
 		5F5E24AA1CA60519F9616870 /* travis_county.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = travis_county.json; sourceTree = "<group>"; };
 		60311776BEA2710C9537636A /* EntryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntryRow.swift; path = "../voxhora-ios/Voxhora/Views/EntryRow.swift"; sourceTree = "<group>"; };
 		60CD557B103B7A12205BBD67 /* AnthropicClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnthropicClient.swift; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 		998A1628A332504B82459282 /* BillTimeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BillTimeButton.swift; path = "../voxhora-ios/Voxhora/Views/BillTimeButton.swift"; sourceTree = "<group>"; };
 		9A92818F1B337F438AFC0601 /* VoxSpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoxSpeechRecognizer.swift; sourceTree = "<group>"; };
 		9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HapticFeedback.swift; path = "../voxhora-ios/Voxhora/Engine/HapticFeedback.swift"; sourceTree = "<group>"; };
+		9E8B2877C23EBE85377EA7A0 /* CalendarEventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarEventRow.swift; path = "../voxhora-ios/Voxhora/Views/CalendarEventRow.swift"; sourceTree = "<group>"; };
 		A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoneyCounter.swift; path = "../voxhora-ios/Voxhora/Views/MoneyCounter.swift"; sourceTree = "<group>"; };
 		A307B1CCF2CDD028620A2F9B /* RatePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatePickerSheet.swift; path = "../voxhora-ios/Voxhora/Views/RatePickerSheet.swift"; sourceTree = "<group>"; };
 		AEE2C3F3931EE39184443BBC /* VoucherCSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherCSVExporter.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				4EE4B351DAD437B011FF5EFD /* AppearBadge.swift */,
 				6896CB6847B5B61EA108ACAF /* AppHeader.swift */,
 				998A1628A332504B82459282 /* BillTimeButton.swift */,
+				9E8B2877C23EBE85377EA7A0 /* CalendarEventRow.swift */,
+				5CCC4FD229E96BA1ABA5F164 /* CalendarView.swift */,
 				3CE155F1BF556A4A62C8C711 /* CaptureView.swift */,
 				D003F636532917B30878C52A /* ClientDetailView.swift */,
 				8250A7251CDE96BC1083907A /* ClientFilterSheet.swift */,
@@ -413,7 +419,9 @@
 				7959675DA1A757B045960032 /* AuditLogger.swift in Sources */,
 				88E03E87887BCC8648004BCD /* BillTimeButton.swift in Sources */,
 				4EB2C37E7F9C77A10525C809 /* CalendarEvent.swift in Sources */,
+				CC10B734CEC184046C887EBA /* CalendarEventRow.swift in Sources */,
 				E53B940D5321A342A637D2C7 /* CalendarSource.swift in Sources */,
+				319B0C2F43AA17F25A1CB843 /* CalendarView.swift in Sources */,
 				55A195F1DB0904FB851CED87 /* CaptureView.swift in Sources */,
 				0ED17C72FE7D78FE11D335B5 /* Case.swift in Sources */,
 				E5EE216F6FBFB1F88A003708 /* Client.swift in Sources */,
