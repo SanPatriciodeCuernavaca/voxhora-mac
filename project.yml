@@ -45,6 +45,8 @@ targets:
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/Voucher.swift
         group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/CalendarEvent.swift
+        group: SharedModels
 
       # Shared engine — every platform uses the same parser, jurisdiction,
       # audit chain, sync monitor, etc. Mac needs all of these to support
