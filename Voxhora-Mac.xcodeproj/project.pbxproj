@@ -18,6 +18,7 @@
 		30DD0AE1379560820FFF7421 /* EditEntrySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CF2380930335B04C6E1634 /* EditEntrySheet.swift */; };
 		319B0C2F43AA17F25A1CB843 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC4FD229E96BA1ABA5F164 /* CalendarView.swift */; };
 		3383EA608D9E54F1832D6C9A /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BF4F34B672795ECBEDF44D /* UserPreferences.swift */; };
+		3BFC547158E0F0D2A86DBCF6 /* DSAFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C22FC2EA827A2019EA10B26 /* DSAFetcher.swift */; };
 		40CC4FD86E2CD92007882B76 /* travis_county.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F5E24AA1CA60519F9616870 /* travis_county.json */; };
 		42384CA3FD156F8FD64B9F57 /* VouchersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0493A23B7C235DD52BFA5AB /* VouchersView.swift */; };
 		4EB2C37E7F9C77A10525C809 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7D0508231B9BABFBE314D6 /* CalendarEvent.swift */; };
@@ -86,6 +87,7 @@
 		47958C68799AE2979D027653 /* GenericCSVImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCSVImporter.swift; sourceTree = "<group>"; };
 		49949EB86CEDA3CB012FEF0E /* VoxhoraMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoxhoraMacApp.swift; sourceTree = "<group>"; };
 		4B952A83D3149FE7C966E5CF /* CloudSyncMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudSyncMonitor.swift; path = "../voxhora-ios/Voxhora/Engine/CloudSyncMonitor.swift"; sourceTree = "<group>"; };
+		4C22FC2EA827A2019EA10B26 /* DSAFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSAFetcher.swift; sourceTree = "<group>"; };
 		4EE4B351DAD437B011FF5EFD /* AppearBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppearBadge.swift; path = "../voxhora-ios/Voxhora/Views/AppearBadge.swift"; sourceTree = "<group>"; };
 		544A79FD4FEF82E09A643D4C /* Jurisdiction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Jurisdiction.swift; path = "../voxhora-ios/Voxhora/Engine/Jurisdiction.swift"; sourceTree = "<group>"; };
 		5673B747584289E2B2E2A5B0 /* TCCaseListImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCaseListImporter.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		0160C1DC4F0F83CC7C54FB41 /* SharedEngine */ = {
 			isa = PBXGroup;
 			children = (
+				F3EABFF4C5C6C134A8FC577B /* CalendarSources */,
 				EC54188A83ED317B9C10F2DF /* ExportAdapters */,
 				48F919F69A10714E2EF13520 /* Jurisdictions */,
 				995BBE6048C60ECF3A39AEFA /* Parser */,
@@ -305,6 +308,15 @@
 			path = Sync;
 			sourceTree = "<group>";
 		};
+		F3EABFF4C5C6C134A8FC577B /* CalendarSources */ = {
+			isa = PBXGroup;
+			children = (
+				4C22FC2EA827A2019EA10B26 /* DSAFetcher.swift */,
+			);
+			name = CalendarSources;
+			path = "../voxhora-ios/Voxhora/Engine/CalendarSources";
+			sourceTree = "<group>";
+		};
 		F80EBEE893CA46D34D6FA6A2 = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +451,7 @@
 				714F6AC9DDA4F40B657286A1 /* Colors.swift in Sources */,
 				CCE72F1B8C92F9B9286378D8 /* ComingSoonView.swift in Sources */,
 				98C49AC7C4621A25B476DE00 /* CommaParser.swift in Sources */,
+				3BFC547158E0F0D2A86DBCF6 /* DSAFetcher.swift in Sources */,
 				30DD0AE1379560820FFF7421 /* EditEntrySheet.swift in Sources */,
 				87BB6E5E075B1308636BD729 /* Entry.swift in Sources */,
 				ED432477B3D03648A83BAAE1 /* EntryRow.swift in Sources */,
