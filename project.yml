@@ -61,6 +61,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/QuantityMigration.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileBootstrap.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Jurisdiction.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CalendarSource.swift

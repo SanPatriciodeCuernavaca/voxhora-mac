@@ -52,6 +52,13 @@ struct VoxhoraMacApp: App {
                         // Money-precision invariant we ship on iPhone.
                         // Idempotent + audit-logged + UserDefaults-gated.
                         QuantityMigration.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 023 Correction-log #1 / Step 8a — same
+                        // structured-court-name bootstrap as iPhone side, in
+                        // lockstep so both platforms populate Patrick's
+                        // AttorneyProfile fields without waiting for CloudKit
+                        // sync from the other device.
+                        AttorneyProfileBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                     }
                     CloudSyncMonitor.shared.start()
                 }
