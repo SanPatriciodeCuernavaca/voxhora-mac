@@ -123,6 +123,8 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientDetailView.swift
         group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/AppearBadge.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Engine/Voice
         group: SharedEngine
 
