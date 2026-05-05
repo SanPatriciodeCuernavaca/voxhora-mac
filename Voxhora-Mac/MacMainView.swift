@@ -32,7 +32,7 @@ struct MacMainView: View {
     @State private var showingDiagnostics = false
 
     enum Section: Hashable {
-        case today, clients, vouchers, calendar
+        case today, clients, calendar, intake, vouchers
     }
 
     var body: some View {
@@ -43,8 +43,13 @@ struct MacMainView: View {
                 List(selection: $selection) {
                     sidebarRow(.today, label: "Today", systemImage: "clock")
                     sidebarRow(.clients, label: "Clients", systemImage: "person.2")
-                    sidebarRow(.vouchers, label: "Vouchers", systemImage: "doc.text")
                     sidebarRow(.calendar, label: "Calendar", systemImage: "calendar")
+                    // DECISION 025 (PDF intake portal, 2026-05-04 night) —
+                    // drag-drop entry surface for court-appointment-letter
+                    // PDFs. Mac is the primary drop target; iPhone uses
+                    // the iOS Share-sheet path.
+                    sidebarRow(.intake, label: "Intake", systemImage: "tray.and.arrow.down")
+                    sidebarRow(.vouchers, label: "Vouchers", systemImage: "doc.text")
                 }
                 .listStyle(.sidebar)
                 .navigationTitle("Voxhora")
@@ -88,10 +93,12 @@ struct MacMainView: View {
             TodayView()
         case .clients:
             ClientsView()
-        case .vouchers:
-            VouchersView()
         case .calendar:
             CalendarView()
+        case .intake:
+            IntakeView()
+        case .vouchers:
+            VouchersView()
         }
     }
 }
