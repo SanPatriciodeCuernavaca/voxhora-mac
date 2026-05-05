@@ -59,6 +59,26 @@ struct VoxhoraMacApp: App {
                         // AttorneyProfile fields without waiting for CloudKit
                         // sync from the other device.
                         AttorneyProfileBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // Client info schema v5 (Client info screen feature,
+                        // 2026-05-04 evening) — same intakeDate ← createdAt
+                        // backfill as iPhone side. Idempotent + UserDefaults-
+                        // gated. Runs on Mac independently because Mac's
+                        // local SwiftData mirror also reads `intakeDate` from
+                        // every Client UI surface.
+                        ClientSchemaV5Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // SIP custody-status foreground re-check (Client
+                        // info screen feature, 2026-05-04 evening). Mac
+                        // doesn't ship BGAppRefreshTask scheduling (no
+                        // BackgroundTasks framework on macOS); it relies
+                        // on the foreground re-check at app launch +
+                        // CloudKit sync of inmate* fields from iOS so the
+                        // IN CUSTODY indicators stay accurate without
+                        // independent Mac polling. SIPInmateFetcher runs
+                        // identically on both platforms (no platform-
+                        // specific code path).
+                        SIPPollScheduler.runForegroundCheckIfStale(modelContext: modelContainer.mainContext)
                     }
                     CloudSyncMonitor.shared.start()
                 }
