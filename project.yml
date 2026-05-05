@@ -73,6 +73,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParser.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/PDFIntakeRouter.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AutoBillingHelper.swift
