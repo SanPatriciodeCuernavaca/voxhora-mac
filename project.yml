@@ -55,6 +55,8 @@ targets:
       # the same capture/edit/export functionality the iPhone has.
       - path: ../voxhora-ios/Voxhora/Engine/AuditLogger.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/TabRegistry.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CloudSyncMonitor.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/HapticFeedback.swift
