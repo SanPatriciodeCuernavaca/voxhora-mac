@@ -47,6 +47,8 @@ targets:
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/CalendarEvent.swift
         group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/ParsedAppointmentIntake.swift
+        group: SharedModels
 
       # Shared engine — every platform uses the same parser, jurisdiction,
       # audit chain, sync monitor, etc. Mac needs all of these to support
@@ -64,6 +66,14 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileBootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV5Bootstrap.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV6Bootstrap.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AppointmentPDFParser.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/PDFIntakeRouter.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AutoBillingHelper.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SIPInmateFetcher.swift
         group: SharedEngine
@@ -134,6 +144,12 @@ targets:
       - path: ../voxhora-ios/Voxhora/Views/ClientDetailView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientInfoSheet.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/IntakeView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/PDFImportSheet.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/IntroEmailComposer.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/AppearBadge.swift
         group: SharedViews

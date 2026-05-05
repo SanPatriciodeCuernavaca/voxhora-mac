@@ -68,6 +68,12 @@ struct VoxhoraMacApp: App {
                         // every Client UI surface.
                         ClientSchemaV5Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // Client info schema v6 (PDF intake portal + SMS
+                        // reminders, DECISION 025 + 026, 2026-05-04 night) —
+                        // same v6 sanity-pass as iPhone side. Idempotent +
+                        // UserDefaults-gated.
+                        ClientSchemaV6Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // SIP custody-status foreground re-check (Client
                         // info screen feature, 2026-05-04 evening). Mac
                         // doesn't ship BGAppRefreshTask scheduling (no
