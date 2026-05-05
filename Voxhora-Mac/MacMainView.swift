@@ -64,6 +64,22 @@ struct MacMainView: View {
             .tabViewCustomization($prefs.macCustomization)
             .tint(.voxInk)
             .navigationTitle("Voxhora")
+            // DECISION 030 Step 9 — same audit-event wiring as iPhone.
+            // Fires when the Mac sidebar customization changes (right-
+            // click → reorder/hide). `oldValue.isEmpty` guard suppresses
+            // the CloudKit-hydration event so only user-driven changes
+            // hit the audit chain.
+            .onChange(of: prefs.macTabCustomizationData) { oldValue, newValue in
+                guard !oldValue.isEmpty else { return }
+                AuditLogger.shared.log(
+                    eventType: .tabConfigurationChanged,
+                    payload: [
+                        "platform": "Mac",
+                        "blobByteCount": newValue.count
+                    ],
+                    attorneyId: prefs.attorneyId
+                )
+            }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
