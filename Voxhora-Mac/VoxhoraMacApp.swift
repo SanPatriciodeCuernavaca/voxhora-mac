@@ -97,6 +97,14 @@ struct VoxhoraMacApp: App {
                         // UserDefaults-gated.
                         ClientSchemaV6Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // AttorneyProfile schema v4 → v5 (DECISION 027 Step 10,
+                        // 2026-05-05 night) — same v5 sanity-pass as iPhone
+                        // side. 4 reminder-config fields populated with
+                        // defaults that match the prior hardcoded
+                        // SMSReminderScheduler constants byte-for-byte.
+                        // Idempotent + UserDefaults-gated.
+                        AttorneyProfileSchemaV5Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // SIP custody-status foreground re-check (Client
                         // info screen feature, 2026-05-04 evening). Mac
                         // doesn't ship BGAppRefreshTask scheduling (no
