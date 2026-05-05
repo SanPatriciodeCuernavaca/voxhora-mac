@@ -81,8 +81,6 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CallTrackingService.swift
         group: SharedEngine
-      - path: ../voxhora-ios/Voxhora/Engine/SIPInmateFetcher.swift
-        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SIPPollScheduler.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CustodyStatusSource.swift
