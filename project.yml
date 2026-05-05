@@ -87,6 +87,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CustodyStatusSource.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/CustodyStatusSources
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CalendarSources
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Jurisdiction.swift

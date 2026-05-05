@@ -10,6 +10,7 @@
 		06367BC34D99EEE5A86556BB /* JurisdictionMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9ADEB131B32F3B2E06FE10 /* JurisdictionMutator.swift */; };
 		069760821762C79BC069EF9E /* ExportAdapterRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4468BAB6C25FC9144965B /* ExportAdapterRegistry.swift */; };
 		07A89A0C26968A48C33233D2 /* IntakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BB8AC5D0764DDC0DBB7769 /* IntakeView.swift */; };
+		0B69D04F0D23FA07CD9CB9E4 /* TravisCountySIPSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DA8B1B466B568BC29F2AEF /* TravisCountySIPSource.swift */; };
 		0C9B8C1D6498C46C303866C2 /* ClientPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A14C24E3DAAF84900AE12 /* ClientPickerView.swift */; };
 		0ED17C72FE7D78FE11D335B5 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2092AC7EBC40033CF8F72FE /* Case.swift */; };
 		140909679FFA617BC89F7E0A /* AddClientSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2731F9AB15C10BD113EB514 /* AddClientSheet.swift */; };
@@ -95,6 +96,7 @@
 		06CF2380930335B04C6E1634 /* EditEntrySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditEntrySheet.swift; path = "../voxhora-ios/Voxhora/Views/EditEntrySheet.swift"; sourceTree = "<group>"; };
 		0829DF9A4CDD2914AF81C0DF /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		0985A6B27CDC5622E9019A33 /* ClientSchemaV6Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV6Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV6Bootstrap.swift"; sourceTree = "<group>"; };
+		09DA8B1B466B568BC29F2AEF /* TravisCountySIPSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravisCountySIPSource.swift; sourceTree = "<group>"; };
 		10992B90E1518B51995BCD06 /* PlatformViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlatformViewHelpers.swift; path = "../voxhora-ios/Voxhora/Engine/PlatformViewHelpers.swift"; sourceTree = "<group>"; };
 		10E26B57CAD6A087F0862F26 /* Voxhora-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voxhora-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4A14C24E3DAAF84900AE12 /* ClientPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientPickerView.swift; path = "../voxhora-ios/Voxhora/Views/ClientPickerView.swift"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				F3EABFF4C5C6C134A8FC577B /* CalendarSources */,
+				1D2DE84433CB1309752C5612 /* CustodyStatusSources */,
 				EC54188A83ED317B9C10F2DF /* ExportAdapters */,
 				48F919F69A10714E2EF13520 /* Jurisdictions */,
 				995BBE6048C60ECF3A39AEFA /* Parser */,
@@ -208,6 +211,15 @@
 				38D5F64BD11709E1D7F8844C /* SMSReminderScheduler.swift */,
 			);
 			name = SharedEngine;
+			sourceTree = "<group>";
+		};
+		1D2DE84433CB1309752C5612 /* CustodyStatusSources */ = {
+			isa = PBXGroup;
+			children = (
+				09DA8B1B466B568BC29F2AEF /* TravisCountySIPSource.swift */,
+			);
+			name = CustodyStatusSources;
+			path = "../voxhora-ios/Voxhora/Engine/CustodyStatusSources";
 			sourceTree = "<group>";
 		};
 		235B5F6628FFE1CC5A0E9827 /* Theme */ = {
@@ -549,6 +561,7 @@
 				AE6E047D38D8377D6C7F4694 /* TCCaseListImporter.swift in Sources */,
 				7B5E9375AB21CACDF1C764DE /* TodayView.swift in Sources */,
 				F7FEFCD2E8EE9F42AC71EEFF /* TravisCounty.swift in Sources */,
+				0B69D04F0D23FA07CD9CB9E4 /* TravisCountySIPSource.swift in Sources */,
 				3383EA608D9E54F1832D6C9A /* UserPreferences.swift in Sources */,
 				2368AF9129C3FD1CB07CD959 /* Voucher.swift in Sources */,
 				EE728C9B4A4D758BDFD6537C /* VoucherCSVExporter.swift in Sources */,
