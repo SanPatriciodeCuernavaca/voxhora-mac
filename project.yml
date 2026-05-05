@@ -69,7 +69,11 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV6Bootstrap.swift
         group: SharedEngine
-      - path: ../voxhora-ios/Voxhora/Engine/AppointmentPDFParser.swift
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV5Bootstrap.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParser.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/PDFIntakeRouter.swift
         group: SharedEngine
@@ -81,9 +85,11 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CallTrackingService.swift
         group: SharedEngine
-      - path: ../voxhora-ios/Voxhora/Engine/SIPInmateFetcher.swift
-        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SIPPollScheduler.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/CustodyStatusSource.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/CustodyStatusSources
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CalendarSources
         group: SharedEngine
