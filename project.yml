@@ -69,8 +69,6 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV6Bootstrap.swift
         group: SharedEngine
-      - path: ../voxhora-ios/Voxhora/Engine/AppointmentPDFParser.swift
-        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParser.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers
