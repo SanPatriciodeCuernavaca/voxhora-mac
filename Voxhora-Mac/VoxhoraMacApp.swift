@@ -11,11 +11,24 @@
 
 import SwiftUI
 import SwiftData
+import UserNotifications
 
 @main
 struct VoxhoraMacApp: App {
     /// Shared schema with iOS. Same container ID. Same models.
     let modelContainer: ModelContainer
+
+    /// DECISION 025 (PDF intake portal) — shared state holder for
+    /// drag-drop + file-picker PDF arrivals. IntakeView observes;
+    /// PDFImportSheet presents when pendingPDF becomes non-nil.
+    @StateObject private var pdfIntakeRouter = PDFIntakeRouter()
+
+    /// DECISION 026 (SMS reminders) — shared state holder for "user
+    /// tapped a reminder notification" on Mac. Mac uses the same
+    /// UNUserNotificationCenter scheduling + delegate pattern as
+    /// iOS; Mac-specific compose path is NSSharingService.composeMessage
+    /// inside SendReminderSheet.
+    @StateObject private var reminderActionRouter = ReminderActionRouter()
 
     init() {
         do {
@@ -38,11 +51,21 @@ struct VoxhoraMacApp: App {
         } catch {
             fatalError("Failed to create ModelContainer: \(error)")
         }
+
+        // DECISION 026 — wire VoxhoraNotificationDelegate so reminder
+        // notification taps route into the ReminderActionRouter on Mac.
+        UNUserNotificationCenter.current().delegate = VoxhoraNotificationDelegate.shared
     }
 
     var body: some Scene {
         WindowGroup {
             MacMainView()
+                .environmentObject(pdfIntakeRouter)
+                .environmentObject(reminderActionRouter)
+                .sheet(item: $reminderActionRouter.pending) { pending in
+                    SendReminderSheet(pending: pending)
+                        .environmentObject(reminderActionRouter)
+                }
                 .frame(minWidth: 980, minHeight: 680)
                 .onAppear {
                     Task { @MainActor in
@@ -85,6 +108,15 @@ struct VoxhoraMacApp: App {
                         // identically on both platforms (no platform-
                         // specific code path).
                         SIPPollScheduler.runForegroundCheckIfStale(modelContext: modelContainer.mainContext)
+
+                        // DECISION 026 — SMS reminder rebuild on Mac.
+                        // Mac doesn't have BGAppRefreshTask but
+                        // UNUserNotificationCenter scheduling works
+                        // identically. Mac fires notifications
+                        // independently of iPhone (no cross-device
+                        // dismiss coordination in v1).
+                        VoxhoraNotificationDelegate.shared.router = reminderActionRouter
+                        await SMSReminderScheduler.rescheduleAllOnLaunch(modelContext: modelContainer.mainContext)
                     }
                     CloudSyncMonitor.shared.start()
                 }

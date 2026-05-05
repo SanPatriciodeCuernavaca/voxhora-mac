@@ -75,6 +75,12 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AutoBillingHelper.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/ReminderActionRouter.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/CallTrackingService.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SIPInmateFetcher.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SIPPollScheduler.swift
@@ -150,6 +156,10 @@ targets:
       - path: ../voxhora-ios/Voxhora/Views/PDFImportSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/IntroEmailComposer.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/SendReminderSheet.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/CallDurationSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/AppearBadge.swift
         group: SharedViews
