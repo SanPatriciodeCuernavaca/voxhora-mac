@@ -2,7 +2,7 @@ name: Voxhora-Mac
 options:
   bundleIdPrefix: com.patrickfagerberg
   deploymentTarget:
-    macOS: "14.0"
+    macOS: "15.1"
   developmentLanguage: en
   groupSortPosition: top
 
