@@ -2,7 +2,7 @@ name: Voxhora-Mac
 options:
   bundleIdPrefix: com.patrickfagerberg
   deploymentTarget:
-    macOS: "14.0"
+    macOS: "15.1"
   developmentLanguage: en
   groupSortPosition: top
 
@@ -55,6 +55,8 @@ targets:
       # the same capture/edit/export functionality the iPhone has.
       - path: ../voxhora-ios/Voxhora/Engine/AuditLogger.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/TabRegistry.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CloudSyncMonitor.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/HapticFeedback.swift
@@ -70,6 +72,8 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV6Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV5Bootstrap.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV7Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParser.swift
         group: SharedEngine

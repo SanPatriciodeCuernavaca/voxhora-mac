@@ -1,25 +1,34 @@
 //
 //  MacMainView.swift
-//  Voxhora-Mac — Phase 2 v0.4.2
+//  Voxhora-Mac — Phase 2 v0.5 (DECISION 030 Step 5 — iOS 18 declarative TabView)
 //
-//  The Mac primary attorney workstation. Replaces `StatusView` as the
-//  root. Provides full functional parity with the iPhone app: the
-//  attorney can capture (manual entry today; voice in v0.4.x), review,
-//  edit, and export voucher CSVs to drag into the county portal.
+//  The Mac primary attorney workstation. Replaces the previous
+//  `NavigationSplitView` + `List(selection:)` sidebar with the same
+//  iOS 18 declarative `Tab(...)` API the iPhone uses (DECISION 030
+//  Step 4). On macOS, `.tabViewStyle(.sidebarAdaptable)` renders the
+//  TabView as a sidebar — visually similar to the prior
+//  NavigationSplitView, plus drag-to-reorder + hide tabs via Apple's
+//  native customize sheet (which NavigationSplitView lacked).
 //
-//  Layout:
+//  Layout (functional-identity-preserving on first launch):
 //    AppHeader (V wordmark + LIVE/OFFLINE)
-//    NavigationSplitView
-//      sidebar — TODAY / CLIENTS / VOUCHERS / INSIGHTS
-//      detail  — selected section (TODAY shows TodayView; others show
-//                ComingSoonView placeholders honestly stating the
-//                target version)
+//    TabView (iOS 18 declarative)
+//      sidebar — TODAY / CLIENTS / CALENDAR / INTAKE / VOUCHERS
+//                (default order from TabRegistry.tabs(for: .mac);
+//                 attorney can reorder/hide via right-click → customize)
+//      detail  — selected tab's content view
+//    Window toolbar — stethoscope diagnostics button (StatusView sheet)
 //
 //  StatusView is preserved as a developer-debug drawer reachable from
-//  the toolbar (`...` menu → "Diagnostics") so the CloudKit sync state,
-//  entry count, regenerate, and historical-CSV-import buttons stay
-//  one tap away during the v0.4.x build-out without cluttering the
-//  attorney-facing surface.
+//  the toolbar's stethoscope button (`...` menu in v0.4 → primary
+//  toolbar button in v0.5+) so CloudKit sync state, entry count,
+//  regenerate, and historical-CSV-import buttons stay one tap away.
+//
+//  Persistence: `$prefs.macCustomization` is a Codable round-trip into
+//  UserPreferences.macTabCustomizationData (DECISION 030 Step 3). The
+//  blob lives in CloudKit's private DB; same attorney's iPhone +
+//  iPad bind separate `iPhoneCustomization` / `iPadCustomization` so
+//  the three customizations don't contaminate each other.
 //
 
 import SwiftUI
@@ -27,44 +36,59 @@ import SwiftData
 
 struct MacMainView: View {
     @Environment(\.modelContext) private var modelContext
+    @Query private var allPreferences: [UserPreferences]
+    @Query private var profiles: [AttorneyProfile]
 
-    @State private var selection: Section = .today
     @State private var showingDiagnostics = false
 
-    enum Section: Hashable {
-        case today, clients, calendar, intake, vouchers
-    }
-
     var body: some View {
+        // @Bindable lets us derive a Binding<TabViewCustomization> from
+        // the @Model's computed `macCustomization` accessor, even
+        // though the underlying storage is the opaque
+        // `macTabCustomizationData` Data field. Writes flow through
+        // the setter → SwiftData → CloudKit.
+        @Bindable var prefs = ensuredPreferences
+
         VStack(spacing: 0) {
             AppHeader()
 
-            NavigationSplitView {
-                List(selection: $selection) {
-                    sidebarRow(.today, label: "Today", systemImage: "clock")
-                    sidebarRow(.clients, label: "Clients", systemImage: "person.2")
-                    sidebarRow(.calendar, label: "Calendar", systemImage: "calendar")
-                    // DECISION 025 (PDF intake portal, 2026-05-04 night) —
-                    // drag-drop entry surface for court-appointment-letter
-                    // PDFs. Mac is the primary drop target; iPhone uses
-                    // the iOS Share-sheet path.
-                    sidebarRow(.intake, label: "Intake", systemImage: "tray.and.arrow.down")
-                    sidebarRow(.vouchers, label: "Vouchers", systemImage: "doc.text")
-                }
-                .listStyle(.sidebar)
-                .navigationTitle("Voxhora")
-                .toolbar {
-                    ToolbarItem(placement: .primaryAction) {
-                        Button {
-                            showingDiagnostics = true
-                        } label: {
-                            Image(systemName: "stethoscope")
-                        }
-                        .help("Diagnostics — CloudKit sync, entry count, regenerate, historical import")
+            TabView {
+                ForEach(TabRegistry.tabs(for: .mac)) { def in
+                    Tab(def.title, systemImage: def.systemImage, role: def.role) {
+                        def.content()
                     }
+                    .customizationID(def.id.customizationID)
                 }
-            } detail: {
-                detailContent
+            }
+            .tabViewStyle(.sidebarAdaptable)
+            .tabViewCustomization($prefs.macCustomization)
+            .tint(.voxInk)
+            .navigationTitle("Voxhora")
+            // DECISION 030 Step 9 — same audit-event wiring as iPhone.
+            // Fires when the Mac sidebar customization changes (right-
+            // click → reorder/hide). `oldValue.isEmpty` guard suppresses
+            // the CloudKit-hydration event so only user-driven changes
+            // hit the audit chain.
+            .onChange(of: prefs.macTabCustomizationData) { oldValue, newValue in
+                guard !oldValue.isEmpty else { return }
+                AuditLogger.shared.log(
+                    eventType: .tabConfigurationChanged,
+                    payload: [
+                        "platform": "Mac",
+                        "blobByteCount": newValue.count
+                    ],
+                    attorneyId: prefs.attorneyId
+                )
+            }
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        showingDiagnostics = true
+                    } label: {
+                        Image(systemName: "stethoscope")
+                    }
+                    .help("Diagnostics — CloudKit sync, entry count, regenerate, historical import")
+                }
             }
         }
         .background(Color.voxPaper)
@@ -81,24 +105,20 @@ struct MacMainView: View {
         }
     }
 
-    private func sidebarRow(_ section: Section, label: String, systemImage: String) -> some View {
-        Label(label, systemImage: systemImage)
-            .tag(section)
-    }
-
-    @ViewBuilder
-    private var detailContent: some View {
-        switch selection {
-        case .today:
-            TodayView()
-        case .clients:
-            ClientsView()
-        case .calendar:
-            CalendarView()
-        case .intake:
-            IntakeView()
-        case .vouchers:
-            VouchersView()
-        }
+    /// Find-or-create the UserPreferences row. Mirrors TodayView's
+    /// `ensuredPreferences` pattern — SwiftData @Query returns an
+    /// empty array on a fresh install or before the row replicates
+    /// from CloudKit; we materialize a default so the
+    /// `.tabViewCustomization($binding)` modifier always has a real
+    /// `@Bindable` target.
+    private var ensuredPreferences: UserPreferences {
+        if let existing = allPreferences.first { return existing }
+        let prefs = UserPreferences(
+            attorneyId: profiles.first?.attorneyId ?? "",
+            displayUnit: "hours"
+        )
+        modelContext.insert(prefs)
+        try? modelContext.save()
+        return prefs
     }
 }

@@ -105,6 +105,19 @@ struct VoxhoraMacApp: App {
                         // Idempotent + UserDefaults-gated.
                         AttorneyProfileSchemaV5Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // UserPreferences schema → v7 (DECISION 030 Step 3,
+                        // 2026-05-05 night) — same v7 sanity-pass as iPhone
+                        // side. 5 new fields for cross-platform tab
+                        // customization (iPhone/iPad/Mac TabViewCustomization
+                        // blobs + Watch order/hidden JSON). Drill #5 additive
+                        // default-safe; empty blobs fall back to
+                        // TabRegistry.defaultVisibleTabs(for:) → byte-for-byte
+                        // identical UI on first launch. Idempotent +
+                        // UserDefaults-gated, with the DECISION 028.6 flag-
+                        // discipline pattern (fetch + save in do/catch; flag
+                        // set ONLY on success).
+                        UserPreferencesSchemaV7Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // SIP custody-status foreground re-check (Client
                         // info screen feature, 2026-05-04 evening). Mac
                         // doesn't ship BGAppRefreshTask scheduling (no
