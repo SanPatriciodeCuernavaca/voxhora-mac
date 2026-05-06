@@ -179,6 +179,8 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/SettingsView.swift
         group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/Settings
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Engine/Voice
         group: SharedEngine
 
