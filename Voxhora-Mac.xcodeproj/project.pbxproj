@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0466FA66EB9A99F8F70FBC6E /* CaseTypeFilterRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FED69476AFFE3DAAE67FE31 /* CaseTypeFilterRegistry.swift */; };
 		06367BC34D99EEE5A86556BB /* JurisdictionMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9ADEB131B32F3B2E06FE10 /* JurisdictionMutator.swift */; };
 		069760821762C79BC069EF9E /* ExportAdapterRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4468BAB6C25FC9144965B /* ExportAdapterRegistry.swift */; };
 		07A89A0C26968A48C33233D2 /* IntakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BB8AC5D0764DDC0DBB7769 /* IntakeView.swift */; };
@@ -54,6 +55,7 @@
 		7E2BB30F88F1D9F37C9654AD /* MacMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FDAB5E522875CB61749C4 /* MacMainView.swift */; };
 		7F625E7EFE92AE31A5E19437 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */; };
 		8439A9112E805AB9B95B9CEA /* CustodyStatusSourceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D75E4391268D063F546EF4D /* CustodyStatusSourceRegistry.swift */; };
+		8599D47F08071C507744A97C /* TravisCountyCaseTypeFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007E0CAC3AAD296A2316C412 /* TravisCountyCaseTypeFilters.swift */; };
 		86E53DB3D12D148AAED094A0 /* CloudSyncMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B952A83D3149FE7C966E5CF /* CloudSyncMonitor.swift */; };
 		87BB6E5E075B1308636BD729 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388E2CEE556B31DEE6733C16 /* Entry.swift */; };
 		88E03E87887BCC8648004BCD /* BillTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998A1628A332504B82459282 /* BillTimeButton.swift */; };
@@ -67,6 +69,7 @@
 		A1D81A4F358569B0CA7C5983 /* ClientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8658A67435BBE493CD2FBFF9 /* ClientsView.swift */; };
 		A4425E0026C43127AE57D0B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 692FFE1B87CF90C6D57353F6 /* Assets.xcassets */; };
 		A63D01AA9D91B6191B624F1A /* IntroEmailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2BDD0DDBE96A0A474B6B5 /* IntroEmailComposer.swift */; };
+		A9B5C68BF02AB9982DAEBD49 /* CaseTypeFilterPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70390562540199FCC88011 /* CaseTypeFilterPicker.swift */; };
 		AB710069C2AF5185D470B194 /* ReminderActionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356D52B161689F9379A36C6 /* ReminderActionRouter.swift */; };
 		AE6E047D38D8377D6C7F4694 /* TCCaseListImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673B747584289E2B2E2A5B0 /* TCCaseListImporter.swift */; };
 		B28B28051590FCC2517920CE /* AppearBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4B351DAD437B011FF5EFD /* AppearBadge.swift */; };
@@ -82,6 +85,7 @@
 		CA3D1D5C037341580BD31BAF /* TravisCountyAppointmentLetterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4DCD34803F412C0D0814A /* TravisCountyAppointmentLetterParser.swift */; };
 		CC10B734CEC184046C887EBA /* CalendarEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B2877C23EBE85377EA7A0 /* CalendarEventRow.swift */; };
 		CCE72F1B8C92F9B9286378D8 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B4630C0FC2F0C8A52D98F /* ComingSoonView.swift */; };
+		D4550C6A6DBCA9EB829108B8 /* CaseTypeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB7755BB55CE823BC38D0D /* CaseTypeFilter.swift */; };
 		D5A821150B1B1820901AA78A /* AnthropicClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD557B103B7A12205BBD67 /* AnthropicClient.swift */; };
 		D5B333C0F30945507055C98B /* ParsedAppointmentIntake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A10C326087E5D7119FB2D8D /* ParsedAppointmentIntake.swift */; };
 		DA6D8DD8CCB98E5A910D4519 /* AppHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896CB6847B5B61EA108ACAF /* AppHeader.swift */; };
@@ -103,6 +107,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		007E0CAC3AAD296A2316C412 /* TravisCountyCaseTypeFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravisCountyCaseTypeFilters.swift; sourceTree = "<group>"; };
 		00CCD14539D5E27D33C1166B /* ExportAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExportAdapter.swift; path = "../voxhora-ios/Voxhora/Engine/ExportAdapter.swift"; sourceTree = "<group>"; };
 		04C00C16DF42AFDF423D545D /* TravisCounty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravisCounty.swift; sourceTree = "<group>"; };
 		06CF2380930335B04C6E1634 /* EditEntrySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditEntrySheet.swift; path = "../voxhora-ios/Voxhora/Views/EditEntrySheet.swift"; sourceTree = "<group>"; };
@@ -142,7 +147,9 @@
 		595C2C4B41DA5B58D1BCDFB5 /* AuditLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuditLogger.swift; path = "../voxhora-ios/Voxhora/Engine/AuditLogger.swift"; sourceTree = "<group>"; };
 		5A2B73049054ABBF5A5D13F8 /* AboutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSection.swift; sourceTree = "<group>"; };
 		5A9ADEB131B32F3B2E06FE10 /* JurisdictionMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JurisdictionMutator.swift; path = "../voxhora-ios/Voxhora/Engine/JurisdictionMutator.swift"; sourceTree = "<group>"; };
+		5B70390562540199FCC88011 /* CaseTypeFilterPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTypeFilterPicker.swift; sourceTree = "<group>"; };
 		5CCC4FD229E96BA1ABA5F164 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = "../voxhora-ios/Voxhora/Views/CalendarView.swift"; sourceTree = "<group>"; };
+		5EEB7755BB55CE823BC38D0D /* CaseTypeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaseTypeFilter.swift; path = "../voxhora-ios/Voxhora/Engine/CaseTypeFilter.swift"; sourceTree = "<group>"; };
 		5F5E24AA1CA60519F9616870 /* travis_county.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = travis_county.json; sourceTree = "<group>"; };
 		60311776BEA2710C9537636A /* EntryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntryRow.swift; path = "../voxhora-ios/Voxhora/Views/EntryRow.swift"; sourceTree = "<group>"; };
 		60CD557B103B7A12205BBD67 /* AnthropicClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnthropicClient.swift; sourceTree = "<group>"; };
@@ -152,6 +159,7 @@
 		689B71D14071DD2E7A0DBDF8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		692FFE1B87CF90C6D57353F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F8A0986E172331CBECB1B9D /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Voucher.swift; path = "../voxhora-ios/Voxhora/Models/Voucher.swift"; sourceTree = "<group>"; };
+		6FED69476AFFE3DAAE67FE31 /* CaseTypeFilterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTypeFilterRegistry.swift; sourceTree = "<group>"; };
 		7D27C88B65F064C1C11028C5 /* AppointmentLetterParserRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentLetterParserRegistry.swift; sourceTree = "<group>"; };
 		7D75E4391268D063F546EF4D /* CustodyStatusSourceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustodyStatusSourceRegistry.swift; sourceTree = "<group>"; };
 		8250A7251CDE96BC1083907A /* ClientFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientFilterSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientFilterSheet.swift"; sourceTree = "<group>"; };
@@ -205,6 +213,7 @@
 			children = (
 				629DB5C2DBD3C42CCA637822 /* AppointmentLetterParsers */,
 				F3EABFF4C5C6C134A8FC577B /* CalendarSources */,
+				F42A206AA8ECE440934D8CC6 /* CaseTypeFilters */,
 				1D2DE84433CB1309752C5612 /* CustodyStatusSources */,
 				EC54188A83ED317B9C10F2DF /* ExportAdapters */,
 				48F919F69A10714E2EF13520 /* Jurisdictions */,
@@ -218,6 +227,7 @@
 				24FFA313513359941E81CCBC /* AutoBillingHelper.swift */,
 				B936E5F9A9CE63F58A36B07F /* CalendarSource.swift */,
 				9072662AFBE806732F9A22D0 /* CallTrackingService.swift */,
+				5EEB7755BB55CE823BC38D0D /* CaseTypeFilter.swift */,
 				D82BAB93F881F673C0D28328 /* ClientRosterImporter.swift */,
 				4FC9FFB134F07EB25CE61C4F /* ClientSchemaV5Bootstrap.swift */,
 				0985A6B27CDC5622E9019A33 /* ClientSchemaV6Bootstrap.swift */,
@@ -386,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				5A2B73049054ABBF5A5D13F8 /* AboutSection.swift */,
+				5B70390562540199FCC88011 /* CaseTypeFilterPicker.swift */,
 				16D53176921A4874B10754D5 /* DisplayPreferencesPicker.swift */,
 				4706AC8453DA9273FF2AF54E /* ReminderConfigPicker.swift */,
 				BB9AFF1D5204545AF349CA2A /* WatchTabOrderPicker.swift */,
@@ -435,6 +446,16 @@
 			);
 			name = CalendarSources;
 			path = "../voxhora-ios/Voxhora/Engine/CalendarSources";
+			sourceTree = "<group>";
+		};
+		F42A206AA8ECE440934D8CC6 /* CaseTypeFilters */ = {
+			isa = PBXGroup;
+			children = (
+				6FED69476AFFE3DAAE67FE31 /* CaseTypeFilterRegistry.swift */,
+				007E0CAC3AAD296A2316C412 /* TravisCountyCaseTypeFilters.swift */,
+			);
+			name = CaseTypeFilters;
+			path = "../voxhora-ios/Voxhora/Engine/CaseTypeFilters";
 			sourceTree = "<group>";
 		};
 		F80EBEE893CA46D34D6FA6A2 = {
@@ -567,6 +588,9 @@
 				EE74A69ED4C2DE91EA2F21FE /* CallTrackingService.swift in Sources */,
 				55A195F1DB0904FB851CED87 /* CaptureView.swift in Sources */,
 				0ED17C72FE7D78FE11D335B5 /* Case.swift in Sources */,
+				D4550C6A6DBCA9EB829108B8 /* CaseTypeFilter.swift in Sources */,
+				A9B5C68BF02AB9982DAEBD49 /* CaseTypeFilterPicker.swift in Sources */,
+				0466FA66EB9A99F8F70FBC6E /* CaseTypeFilterRegistry.swift in Sources */,
 				E5EE216F6FBFB1F88A003708 /* Client.swift in Sources */,
 				7BE57B8CCE0E16DBAD99F1AD /* ClientDetailView.swift in Sources */,
 				68C8E92568A9493BB12CA7A2 /* ClientFilterSheet.swift in Sources */,
@@ -625,6 +649,7 @@
 				7B5E9375AB21CACDF1C764DE /* TodayView.swift in Sources */,
 				F7FEFCD2E8EE9F42AC71EEFF /* TravisCounty.swift in Sources */,
 				CA3D1D5C037341580BD31BAF /* TravisCountyAppointmentLetterParser.swift in Sources */,
+				8599D47F08071C507744A97C /* TravisCountyCaseTypeFilters.swift in Sources */,
 				0B69D04F0D23FA07CD9CB9E4 /* TravisCountySIPSource.swift in Sources */,
 				3383EA608D9E54F1832D6C9A /* UserPreferences.swift in Sources */,
 				C967A62F1BC55F54B81C37EA /* UserPreferencesSchemaV7Bootstrap.swift in Sources */,
