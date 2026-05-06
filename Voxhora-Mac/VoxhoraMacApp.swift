@@ -127,6 +127,15 @@ struct VoxhoraMacApp: App {
                         // new row carries a real attorneyId.
                         UserPreferencesBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 043 (bilingual client communications,
+                        // 2026-05-06) — AttorneyProfile v6 → v7 sanity pass.
+                        // Same wiring as iPhone side.
+                        AttorneyProfileSchemaV7Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 043 + 044 — Client v6 → v7 sanity pass.
+                        // Same wiring as iPhone side.
+                        ClientSchemaV7Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 040 — one-shot cleanup of legacy
                         // CalendarEvent rows the new trunk discipline
                         // would have prevented. UserDefaults-gated;
