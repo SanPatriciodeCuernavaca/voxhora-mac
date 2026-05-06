@@ -89,6 +89,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV7Bootstrap.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesBootstrap.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParser.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers

@@ -123,20 +123,16 @@ struct MacMainView: View {
         }
     }
 
-    /// Find-or-create the UserPreferences row. Mirrors TodayView's
-    /// `ensuredPreferences` pattern — SwiftData @Query returns an
-    /// empty array on a fresh install or before the row replicates
-    /// from CloudKit; we materialize a default so the
-    /// `.tabViewCustomization($binding)` modifier always has a real
-    /// `@Bindable` target.
+    /// Render-only fallback. `UserPreferencesBootstrap` (DECISION
+    /// 036.5 Step 1) is the SOLE writer of UserPreferences row
+    /// insertion — wired in `VoxhoraMacApp.onAppear`'s bootstrap chain.
+    /// See `MainTabView.swift` (iOS) for the full rationale on why
+    /// this must NEVER `modelContext.insert` from inside `body`.
     private var ensuredPreferences: UserPreferences {
         if let existing = allPreferences.first { return existing }
-        let prefs = UserPreferences(
+        return UserPreferences(
             attorneyId: profiles.first?.attorneyId ?? "",
             displayUnit: "hours"
         )
-        modelContext.insert(prefs)
-        try? modelContext.save()
-        return prefs
     }
 }
