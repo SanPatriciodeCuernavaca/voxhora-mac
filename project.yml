@@ -183,6 +183,8 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/Settings
         group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/OnboardingView.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Engine/Voice
         group: SharedEngine
 

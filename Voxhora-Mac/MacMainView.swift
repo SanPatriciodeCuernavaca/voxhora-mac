@@ -42,6 +42,24 @@ struct MacMainView: View {
     @State private var showingDiagnostics = false
 
     var body: some View {
+        // DECISION 032 (Phase 4 onboarding wizard) — onboarding gate.
+        // When no AttorneyProfile exists, render OnboardingView FIRST
+        // to collect structured-name + jurisdiction + hourly rate.
+        // After completion (Save tap → AttorneyProfile inserted),
+        // @Query reactivity flips profiles.isEmpty to false and the
+        // normal sidebar + TabView surface appears. For Patrick's
+        // existing Mac install: AttorneyProfile already exists →
+        // gate falls through immediately → unchanged UX.
+        if profiles.isEmpty {
+            OnboardingView()
+                .background(Color.voxPaper)
+        } else {
+            mainContent
+        }
+    }
+
+    @ViewBuilder
+    private var mainContent: some View {
         // @Bindable lets us derive a Binding<TabViewCustomization> from
         // the @Model's computed `macCustomization` accessor, even
         // though the underlying storage is the opaque
