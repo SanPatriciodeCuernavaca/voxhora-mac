@@ -118,6 +118,13 @@ struct VoxhoraMacApp: App {
                         // set ONLY on success).
                         UserPreferencesSchemaV7Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 040 — one-shot cleanup of legacy
+                        // CalendarEvent rows the new trunk discipline
+                        // would have prevented. UserDefaults-gated;
+                        // runs once per device, no-ops on subsequent
+                        // launches.
+                        CalendarCleanupMigration.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // SIP custody-status foreground re-check (Client
                         // info screen feature, 2026-05-04 evening). Mac
                         // doesn't ship BGAppRefreshTask scheduling (no
