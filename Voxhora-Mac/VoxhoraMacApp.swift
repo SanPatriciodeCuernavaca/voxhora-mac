@@ -136,6 +136,11 @@ struct VoxhoraMacApp: App {
                         // Same wiring as iPhone side.
                         ClientSchemaV7Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 043 Step 2 (2026-05-06) — AttorneyProfile
+                        // schema v7 → v8 sanity pass + semantic migration +
+                        // QuickActions defaults seed. Same wiring as iPhone.
+                        AttorneyProfileSchemaV8Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 040 — one-shot cleanup of legacy
                         // CalendarEvent rows the new trunk discipline
                         // would have prevented. UserDefaults-gated;

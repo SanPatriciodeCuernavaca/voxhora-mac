@@ -97,6 +97,10 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientCommunicationRouter.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/QuickAction.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV8Bootstrap.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParser.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers
