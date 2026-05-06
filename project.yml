@@ -47,6 +47,8 @@ targets:
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/CalendarEvent.swift
         group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/ClientNote.swift
+        group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/ParsedAppointmentIntake.swift
         group: SharedModels
 
