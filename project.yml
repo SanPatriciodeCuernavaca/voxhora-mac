@@ -189,7 +189,7 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/CalendarView.swift
         group: SharedViews
-      - path: ../voxhora-ios/Voxhora/Views/CalendarSearchSheet.swift
+      - path: ../voxhora-ios/Voxhora/Views/CalendarRangeView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/SettingsView.swift
         group: SharedViews
