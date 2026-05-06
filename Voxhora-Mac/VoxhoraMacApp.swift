@@ -119,6 +119,14 @@ struct VoxhoraMacApp: App {
                         // set ONLY on success).
                         UserPreferencesSchemaV7Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 036.5 Step 1 (2026-05-06) — sole writer of
+                        // UserPreferences row insertion. Same wiring as iPhone
+                        // side. Closes the body-side multi-insert race that
+                        // would have bitten public-Voxhora users on fresh
+                        // installs. Runs AFTER AttorneyProfileBootstrap so the
+                        // new row carries a real attorneyId.
+                        UserPreferencesBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 040 — one-shot cleanup of legacy
                         // CalendarEvent rows the new trunk discipline
                         // would have prevented. UserDefaults-gated;
