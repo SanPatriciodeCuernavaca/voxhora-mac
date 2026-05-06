@@ -79,6 +79,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientTrunk.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/CalendarCleanupMigration.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CaseTypeFilter.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CaseTypeFilters
