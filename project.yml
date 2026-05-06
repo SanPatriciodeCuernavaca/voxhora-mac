@@ -183,6 +183,8 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientInfoSheet.swift
         group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/ContactClientSheet.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/IntakeView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/PDFImportSheet.swift
