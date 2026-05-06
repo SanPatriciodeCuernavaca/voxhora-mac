@@ -150,6 +150,10 @@ struct VoxhoraMacApp: App {
                     CloudSyncMonitor.shared.start()
                 }
                 .preferredColorScheme(.light)
+                // DECISION 040.5 (2026-05-06) — Voxhora's "blue plumbing"
+                // tint. See VoxhoraApp.swift for the full rationale.
+                // voxGold reserved for HERO; voxInk for PLUMBING.
+                .tint(.voxInk)
         }
         .modelContainer(modelContainer)
     }
