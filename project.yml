@@ -75,6 +75,10 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/RosterReconciler.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/CalendarEventTrunk.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/ClientTrunk.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CaseTypeFilter.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CaseTypeFilters
