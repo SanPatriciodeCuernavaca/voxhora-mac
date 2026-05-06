@@ -31,6 +31,7 @@
 		3383EA608D9E54F1832D6C9A /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BF4F34B672795ECBEDF44D /* UserPreferences.swift */; };
 		38E93E11F236375D5092E17E /* CalendarRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B419EBC1BF2FC6B2E0F9AAA5 /* CalendarRangeView.swift */; };
 		3BFC547158E0F0D2A86DBCF6 /* DSAFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C22FC2EA827A2019EA10B26 /* DSAFetcher.swift */; };
+		3DDBF61BE81EC68E8FBD8B30 /* ClientNotesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0611F5084F5E2F965D697 /* ClientNotesSheet.swift */; };
 		40CC4FD86E2CD92007882B76 /* travis_county.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F5E24AA1CA60519F9616870 /* travis_county.json */; };
 		42384CA3FD156F8FD64B9F57 /* VouchersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0493A23B7C235DD52BFA5AB /* VouchersView.swift */; };
 		498A7A7DB02C18FD1FD016AC /* AboutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B73049054ABBF5A5D13F8 /* AboutSection.swift */; };
@@ -58,6 +59,7 @@
 		7C4426A838417F9F3E6CCFC6 /* CallDurationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C26098F419D2519846A77A /* CallDurationSheet.swift */; };
 		7DE66386C78AA008ECD90160 /* llm_system_prompt.md in Resources */ = {isa = PBXBuildFile; fileRef = DF1232A2D896FCDCDE3D0D4C /* llm_system_prompt.md */; };
 		7E2BB30F88F1D9F37C9654AD /* MacMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FDAB5E522875CB61749C4 /* MacMainView.swift */; };
+		7E7712F93D77B6FBCF1FE557 /* NotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F97FF969DF9EC78F8EA64B /* NotesButton.swift */; };
 		7F625E7EFE92AE31A5E19437 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */; };
 		8439A9112E805AB9B95B9CEA /* CustodyStatusSourceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D75E4391268D063F546EF4D /* CustodyStatusSourceRegistry.swift */; };
 		8599D47F08071C507744A97C /* TravisCountyCaseTypeFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007E0CAC3AAD296A2316C412 /* TravisCountyCaseTypeFilters.swift */; };
@@ -187,6 +189,7 @@
 		A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoneyCounter.swift; path = "../voxhora-ios/Voxhora/Views/MoneyCounter.swift"; sourceTree = "<group>"; };
 		A307B1CCF2CDD028620A2F9B /* RatePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatePickerSheet.swift; path = "../voxhora-ios/Voxhora/Views/RatePickerSheet.swift"; sourceTree = "<group>"; };
 		AEE2C3F3931EE39184443BBC /* VoucherCSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherCSVExporter.swift; sourceTree = "<group>"; };
+		B0A0611F5084F5E2F965D697 /* ClientNotesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientNotesSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientNotesSheet.swift"; sourceTree = "<group>"; };
 		B419EBC1BF2FC6B2E0F9AAA5 /* CalendarRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarRangeView.swift; path = "../voxhora-ios/Voxhora/Views/CalendarRangeView.swift"; sourceTree = "<group>"; };
 		B936E5F9A9CE63F58A36B07F /* CalendarSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarSource.swift; path = "../voxhora-ios/Voxhora/Engine/CalendarSource.swift"; sourceTree = "<group>"; };
 		BB9AFF1D5204545AF349CA2A /* WatchTabOrderPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTabOrderPicker.swift; sourceTree = "<group>"; };
@@ -211,6 +214,7 @@
 		E7EAB84EF5EE57FAFA512932 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Client.swift; path = "../voxhora-ios/Voxhora/Models/Client.swift"; sourceTree = "<group>"; };
 		EFF4468BAB6C25FC9144965B /* ExportAdapterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAdapterRegistry.swift; sourceTree = "<group>"; };
 		F17FDAB5E522875CB61749C4 /* MacMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacMainView.swift; sourceTree = "<group>"; };
+		F6F97FF969DF9EC78F8EA64B /* NotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotesButton.swift; path = "../voxhora-ios/Voxhora/Views/NotesButton.swift"; sourceTree = "<group>"; };
 		FB8B185AF226D2D39E92C4F6 /* SIPPollScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SIPPollScheduler.swift; path = "../voxhora-ios/Voxhora/Engine/SIPPollScheduler.swift"; sourceTree = "<group>"; };
 		FC5CBFAA8C1FBE08F2893786 /* PDFIntakeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PDFIntakeRouter.swift; path = "../voxhora-ios/Voxhora/Engine/PDFIntakeRouter.swift"; sourceTree = "<group>"; };
 		FD2EF99A8DA837195B7DB106 /* CommaParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommaParser.swift; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 				D003F636532917B30878C52A /* ClientDetailView.swift */,
 				8250A7251CDE96BC1083907A /* ClientFilterSheet.swift */,
 				670A5DE312FB6615266B84BA /* ClientInfoSheet.swift */,
+				B0A0611F5084F5E2F965D697 /* ClientNotesSheet.swift */,
 				1A4A14C24E3DAAF84900AE12 /* ClientPickerView.swift */,
 				8658A67435BBE493CD2FBFF9 /* ClientsView.swift */,
 				8F5B4630C0FC2F0C8A52D98F /* ComingSoonView.swift */,
@@ -309,6 +314,7 @@
 				56A2BDD0DDBE96A0A474B6B5 /* IntroEmailComposer.swift */,
 				3BBC034C1944EB53D7C9F589 /* ManualEntryForm.swift */,
 				A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */,
+				F6F97FF969DF9EC78F8EA64B /* NotesButton.swift */,
 				3C83D8C9C38C7EEB56FB69B3 /* OnboardingView.swift */,
 				3B36373A57364B287B728BA8 /* PDFImportSheet.swift */,
 				A307B1CCF2CDD028620A2F9B /* RatePickerSheet.swift */,
@@ -614,6 +620,7 @@
 				68C8E92568A9493BB12CA7A2 /* ClientFilterSheet.swift in Sources */,
 				EA78392419752556D10E8ADE /* ClientInfoSheet.swift in Sources */,
 				0BFD0A09F3206928B2B16456 /* ClientNote.swift in Sources */,
+				3DDBF61BE81EC68E8FBD8B30 /* ClientNotesSheet.swift in Sources */,
 				0C9B8C1D6498C46C303866C2 /* ClientPickerView.swift in Sources */,
 				8E385E3F24AD8E208B325628 /* ClientRosterImporter.swift in Sources */,
 				FEAB6FE0191D19F7225B6FEE /* ClientRosterImporterRegistry.swift in Sources */,
@@ -648,6 +655,7 @@
 				7E2BB30F88F1D9F37C9654AD /* MacMainView.swift in Sources */,
 				BFAC48314965E66BDB4DED2C /* ManualEntryForm.swift in Sources */,
 				C9E90DF1C2F3375CC6E95E8F /* MoneyCounter.swift in Sources */,
+				7E7712F93D77B6FBCF1FE557 /* NotesButton.swift in Sources */,
 				F4840BC826C65ADA16C11B59 /* OnboardingView.swift in Sources */,
 				EB15EA9612C653CBB17DA9E4 /* PDFImportSheet.swift in Sources */,
 				517572988C9C9FDF326A992E /* PDFIntakeRouter.swift in Sources */,
