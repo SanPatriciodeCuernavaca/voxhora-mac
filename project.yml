@@ -47,6 +47,8 @@ targets:
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/CalendarEvent.swift
         group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/ClientNote.swift
+        group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/ParsedAppointmentIntake.swift
         group: SharedModels
 
@@ -190,6 +192,10 @@ targets:
       - path: ../voxhora-ios/Voxhora/Views/CalendarView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/CalendarRangeView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/NotesButton.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/ClientNotesSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/SettingsView.swift
         group: SharedViews

@@ -40,7 +40,8 @@ struct VoxhoraMacApp: App {
                 UserPreferences.self,
                 AuditLogEntry.self,
                 Voucher.self,                 // DECISION 012 — Phase C voucher state model
-                CalendarEvent.self            // DECISION 022 — Calendar feature (DSA-driven court schedule)
+                CalendarEvent.self,           // DECISION 022 — Calendar feature (DSA-driven court schedule)
+                ClientNote.self               // DECISION 040.2 — Client notes journal
             ])
             let configuration = ModelConfiguration(
                 schema: schema,
