@@ -11,6 +11,7 @@
 		06367BC34D99EEE5A86556BB /* JurisdictionMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9ADEB131B32F3B2E06FE10 /* JurisdictionMutator.swift */; };
 		069760821762C79BC069EF9E /* ExportAdapterRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4468BAB6C25FC9144965B /* ExportAdapterRegistry.swift */; };
 		07A89A0C26968A48C33233D2 /* IntakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BB8AC5D0764DDC0DBB7769 /* IntakeView.swift */; };
+		09360A098D30C9687B86A22C /* ClientContactsBackfillBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E8EA2D92FF70AAB9E6CEFA /* ClientContactsBackfillBootstrap.swift */; };
 		0B69D04F0D23FA07CD9CB9E4 /* TravisCountySIPSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DA8B1B466B568BC29F2AEF /* TravisCountySIPSource.swift */; };
 		0BFD0A09F3206928B2B16456 /* ClientNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC0EB8E919F40C19F92A9E /* ClientNote.swift */; };
 		0C9B8C1D6498C46C303866C2 /* ClientPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A14C24E3DAAF84900AE12 /* ClientPickerView.swift */; };
@@ -32,12 +33,14 @@
 		319B0C2F43AA17F25A1CB843 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC4FD229E96BA1ABA5F164 /* CalendarView.swift */; };
 		3383EA608D9E54F1832D6C9A /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BF4F34B672795ECBEDF44D /* UserPreferences.swift */; };
 		38E93E11F236375D5092E17E /* CalendarRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B419EBC1BF2FC6B2E0F9AAA5 /* CalendarRangeView.swift */; };
+		3AEB0E22B4B479FD34857519 /* AppleContactsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A760D13B3C6A6F693D84E42 /* AppleContactsSection.swift */; };
 		3BFC547158E0F0D2A86DBCF6 /* DSAFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C22FC2EA827A2019EA10B26 /* DSAFetcher.swift */; };
 		3DDBF61BE81EC68E8FBD8B30 /* ClientNotesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0611F5084F5E2F965D697 /* ClientNotesSheet.swift */; };
 		40CC4FD86E2CD92007882B76 /* travis_county.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F5E24AA1CA60519F9616870 /* travis_county.json */; };
 		40ECAEA09DDE0978CE34759B /* ClientSchemaV7Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4FE6AB4FB32535813FAE3 /* ClientSchemaV7Bootstrap.swift */; };
 		42384CA3FD156F8FD64B9F57 /* VouchersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0493A23B7C235DD52BFA5AB /* VouchersView.swift */; };
 		4259FB9B5F6D9F8619062C86 /* QuickAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C0900489FD4AD30369786 /* QuickAction.swift */; };
+		47FE833D5A83A2D2B62B0E5C /* ClientContactsBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B46A68E13A457501518B2 /* ClientContactsBridge.swift */; };
 		498A7A7DB02C18FD1FD016AC /* AboutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B73049054ABBF5A5D13F8 /* AboutSection.swift */; };
 		4EB2C37E7F9C77A10525C809 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7D0508231B9BABFBE314D6 /* CalendarEvent.swift */; };
 		517572988C9C9FDF326A992E /* PDFIntakeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5CBFAA8C1FBE08F2893786 /* PDFIntakeRouter.swift */; };
@@ -66,6 +69,7 @@
 		7E7712F93D77B6FBCF1FE557 /* NotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F97FF969DF9EC78F8EA64B /* NotesButton.swift */; };
 		7F625E7EFE92AE31A5E19437 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */; };
 		8439A9112E805AB9B95B9CEA /* CustodyStatusSourceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D75E4391268D063F546EF4D /* CustodyStatusSourceRegistry.swift */; };
+		84FEB95F35B4C5029F82E976 /* ContactsAuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325BD4C3F694CDF19C89D10 /* ContactsAuthorizationManager.swift */; };
 		8599D47F08071C507744A97C /* TravisCountyCaseTypeFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007E0CAC3AAD296A2316C412 /* TravisCountyCaseTypeFilters.swift */; };
 		86E53DB3D12D148AAED094A0 /* CloudSyncMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B952A83D3149FE7C966E5CF /* CloudSyncMonitor.swift */; };
 		87BB6E5E075B1308636BD729 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388E2CEE556B31DEE6733C16 /* Entry.swift */; };
@@ -130,6 +134,7 @@
 		0829DF9A4CDD2914AF81C0DF /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		0985A6B27CDC5622E9019A33 /* ClientSchemaV6Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV6Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV6Bootstrap.swift"; sourceTree = "<group>"; };
 		09DA8B1B466B568BC29F2AEF /* TravisCountySIPSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravisCountySIPSource.swift; sourceTree = "<group>"; };
+		0A760D13B3C6A6F693D84E42 /* AppleContactsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleContactsSection.swift; sourceTree = "<group>"; };
 		10992B90E1518B51995BCD06 /* PlatformViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlatformViewHelpers.swift; path = "../voxhora-ios/Voxhora/Engine/PlatformViewHelpers.swift"; sourceTree = "<group>"; };
 		10E26B57CAD6A087F0862F26 /* Voxhora-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voxhora-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		137C0900489FD4AD30369786 /* QuickAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuickAction.swift; path = "../voxhora-ios/Voxhora/Engine/QuickAction.swift"; sourceTree = "<group>"; };
@@ -160,6 +165,7 @@
 		4C22FC2EA827A2019EA10B26 /* DSAFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSAFetcher.swift; sourceTree = "<group>"; };
 		4EE4B351DAD437B011FF5EFD /* AppearBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppearBadge.swift; path = "../voxhora-ios/Voxhora/Views/AppearBadge.swift"; sourceTree = "<group>"; };
 		4FC9FFB134F07EB25CE61C4F /* ClientSchemaV5Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV5Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV5Bootstrap.swift"; sourceTree = "<group>"; };
+		5325BD4C3F694CDF19C89D10 /* ContactsAuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactsAuthorizationManager.swift; path = "../voxhora-ios/Voxhora/Engine/ContactsAuthorizationManager.swift"; sourceTree = "<group>"; };
 		544A79FD4FEF82E09A643D4C /* Jurisdiction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Jurisdiction.swift; path = "../voxhora-ios/Voxhora/Engine/Jurisdiction.swift"; sourceTree = "<group>"; };
 		5673B747584289E2B2E2A5B0 /* TCCaseListImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCaseListImporter.swift; sourceTree = "<group>"; };
 		56A2BDD0DDBE96A0A474B6B5 /* IntroEmailComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IntroEmailComposer.swift; path = "../voxhora-ios/Voxhora/Views/IntroEmailComposer.swift"; sourceTree = "<group>"; };
@@ -205,6 +211,7 @@
 		A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoneyCounter.swift; path = "../voxhora-ios/Voxhora/Views/MoneyCounter.swift"; sourceTree = "<group>"; };
 		A307B1CCF2CDD028620A2F9B /* RatePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatePickerSheet.swift; path = "../voxhora-ios/Voxhora/Views/RatePickerSheet.swift"; sourceTree = "<group>"; };
 		AEE2C3F3931EE39184443BBC /* VoucherCSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherCSVExporter.swift; sourceTree = "<group>"; };
+		AF0B46A68E13A457501518B2 /* ClientContactsBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientContactsBridge.swift; path = "../voxhora-ios/Voxhora/Engine/ClientContactsBridge.swift"; sourceTree = "<group>"; };
 		B0A0611F5084F5E2F965D697 /* ClientNotesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientNotesSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientNotesSheet.swift"; sourceTree = "<group>"; };
 		B419EBC1BF2FC6B2E0F9AAA5 /* CalendarRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarRangeView.swift; path = "../voxhora-ios/Voxhora/Views/CalendarRangeView.swift"; sourceTree = "<group>"; };
 		B936E5F9A9CE63F58A36B07F /* CalendarSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarSource.swift; path = "../voxhora-ios/Voxhora/Engine/CalendarSource.swift"; sourceTree = "<group>"; };
@@ -230,6 +237,7 @@
 		E7EAB84EF5EE57FAFA512932 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Client.swift; path = "../voxhora-ios/Voxhora/Models/Client.swift"; sourceTree = "<group>"; };
 		EFF4468BAB6C25FC9144965B /* ExportAdapterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAdapterRegistry.swift; sourceTree = "<group>"; };
 		F17FDAB5E522875CB61749C4 /* MacMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacMainView.swift; sourceTree = "<group>"; };
+		F5E8EA2D92FF70AAB9E6CEFA /* ClientContactsBackfillBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientContactsBackfillBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientContactsBackfillBootstrap.swift"; sourceTree = "<group>"; };
 		F6F97FF969DF9EC78F8EA64B /* NotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotesButton.swift; path = "../voxhora-ios/Voxhora/Views/NotesButton.swift"; sourceTree = "<group>"; };
 		FB8B185AF226D2D39E92C4F6 /* SIPPollScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SIPPollScheduler.swift; path = "../voxhora-ios/Voxhora/Engine/SIPPollScheduler.swift"; sourceTree = "<group>"; };
 		FC5CBFAA8C1FBE08F2893786 /* PDFIntakeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PDFIntakeRouter.swift; path = "../voxhora-ios/Voxhora/Engine/PDFIntakeRouter.swift"; sourceTree = "<group>"; };
@@ -263,12 +271,15 @@
 				9072662AFBE806732F9A22D0 /* CallTrackingService.swift */,
 				5EEB7755BB55CE823BC38D0D /* CaseTypeFilter.swift */,
 				2A026AA58A460630A9B852D5 /* ClientCommunicationRouter.swift */,
+				F5E8EA2D92FF70AAB9E6CEFA /* ClientContactsBackfillBootstrap.swift */,
+				AF0B46A68E13A457501518B2 /* ClientContactsBridge.swift */,
 				D82BAB93F881F673C0D28328 /* ClientRosterImporter.swift */,
 				4FC9FFB134F07EB25CE61C4F /* ClientSchemaV5Bootstrap.swift */,
 				0985A6B27CDC5622E9019A33 /* ClientSchemaV6Bootstrap.swift */,
 				5DE4FE6AB4FB32535813FAE3 /* ClientSchemaV7Bootstrap.swift */,
 				83AADBA0931A72085F12BFC5 /* ClientTrunk.swift */,
 				4B952A83D3149FE7C966E5CF /* CloudSyncMonitor.swift */,
+				5325BD4C3F694CDF19C89D10 /* ContactsAuthorizationManager.swift */,
 				C18574AB90EC96F2651788F1 /* CustodyStatusSource.swift */,
 				00CCD14539D5E27D33C1166B /* ExportAdapter.swift */,
 				9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */,
@@ -439,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				5A2B73049054ABBF5A5D13F8 /* AboutSection.swift */,
+				0A760D13B3C6A6F693D84E42 /* AppleContactsSection.swift */,
 				5B70390562540199FCC88011 /* CaseTypeFilterPicker.swift */,
 				68056ECFEC853917FC94535F /* CommunicationsSection.swift */,
 				16D53176921A4874B10754D5 /* DisplayPreferencesPicker.swift */,
@@ -616,6 +628,7 @@
 				D5A821150B1B1820901AA78A /* AnthropicClient.swift in Sources */,
 				DA6D8DD8CCB98E5A910D4519 /* AppHeader.swift in Sources */,
 				B28B28051590FCC2517920CE /* AppearBadge.swift in Sources */,
+				3AEB0E22B4B479FD34857519 /* AppleContactsSection.swift in Sources */,
 				659DC17B25487E0764C3CF53 /* AppointmentLetterParser.swift in Sources */,
 				104B028F91552D7235649D4C /* AppointmentLetterParserRegistry.swift in Sources */,
 				57F64E97E9285B48B29A055B /* AttorneyProfile.swift in Sources */,
@@ -643,6 +656,8 @@
 				0466FA66EB9A99F8F70FBC6E /* CaseTypeFilterRegistry.swift in Sources */,
 				E5EE216F6FBFB1F88A003708 /* Client.swift in Sources */,
 				B919ED7D7A7E9319468D0A68 /* ClientCommunicationRouter.swift in Sources */,
+				09360A098D30C9687B86A22C /* ClientContactsBackfillBootstrap.swift in Sources */,
+				47FE833D5A83A2D2B62B0E5C /* ClientContactsBridge.swift in Sources */,
 				7BE57B8CCE0E16DBAD99F1AD /* ClientDetailView.swift in Sources */,
 				68C8E92568A9493BB12CA7A2 /* ClientFilterSheet.swift in Sources */,
 				EA78392419752556D10E8ADE /* ClientInfoSheet.swift in Sources */,
@@ -662,6 +677,7 @@
 				98C49AC7C4621A25B476DE00 /* CommaParser.swift in Sources */,
 				B4B22AEE0FD4B40F5E7891DA /* CommunicationsSection.swift in Sources */,
 				9AE23D0D249272BBD818AFA7 /* ContactClientSheet.swift in Sources */,
+				84FEB95F35B4C5029F82E976 /* ContactsAuthorizationManager.swift in Sources */,
 				B8DC4239281111344D7CAEF8 /* CustodyStatusSource.swift in Sources */,
 				8439A9112E805AB9B95B9CEA /* CustodyStatusSourceRegistry.swift in Sources */,
 				3BFC547158E0F0D2A86DBCF6 /* DSAFetcher.swift in Sources */,
@@ -790,6 +806,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Voxhora syncs your client roster to Apple Contacts (one-way only) so phone numbers, addresses, and emails appear automatically across iPhone, iPad, Mac, and Apple Watch.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Voxhora — Patrick Fagerberg";
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -874,6 +891,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Voxhora syncs your client roster to Apple Contacts (one-way only) so phone numbers, addresses, and emails appear automatically across iPhone, iPad, Mac, and Apple Watch.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Voxhora — Patrick Fagerberg";
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;

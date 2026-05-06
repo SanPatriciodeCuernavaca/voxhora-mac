@@ -136,6 +136,16 @@ struct VoxhoraMacApp: App {
                         // Same wiring as iPhone side.
                         ClientSchemaV7Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 044 — Apple Contacts backfill on Mac.
+                        // Independent of iPhone (each device runs its own
+                        // backfill bootstrap; the Voxhora Clients CNGroup
+                        // is unified via iCloud Contacts so duplicate
+                        // pushes from both devices resolve to the same
+                        // CNContact). Lazy authorization on first run.
+                        Task { @MainActor in
+                            await ClientContactsBackfillBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        }
+
                         // DECISION 043 Step 2 (2026-05-06) — AttorneyProfile
                         // schema v7 → v8 sanity pass + semantic migration +
                         // QuickActions defaults seed. Same wiring as iPhone.
