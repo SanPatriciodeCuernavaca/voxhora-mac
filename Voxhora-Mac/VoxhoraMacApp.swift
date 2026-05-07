@@ -68,6 +68,24 @@ struct VoxhoraMacApp: App {
                         .environmentObject(reminderActionRouter)
                 }
                 .frame(minWidth: 980, minHeight: 680)
+                // 2026-05-07 — Mac PDF handler. Mirrors VoxhoraApp's iOS
+                // handler (DECISION 025). Fires when a PDF opens via:
+                //   - Right-click in Finder/Mail/Safari → Open With → Voxhora-Mac
+                //   - Drag PDF onto Voxhora-Mac Dock icon
+                //   - Mail's Share submenu → Voxhora-Mac
+                //   - `open -a Voxhora-Mac path/to/pdf` from Terminal
+                // Voxhora-Mac is registered as a `com.adobe.pdf` Default-
+                // rank handler in Info.plist's CFBundleDocumentTypes
+                // (project.yml info block).
+                .onOpenURL { url in
+                    guard url.pathExtension.lowercased() == "pdf" else { return }
+                    // Mac: no security-scoped resource bookkeeping needed
+                    // for non-sandboxed apps (Voxhora-Mac is not sandboxed
+                    // — verified Voxhora-Mac.entitlements has no
+                    // com.apple.security.app-sandbox key).
+                    guard let data = try? Data(contentsOf: url) else { return }
+                    pdfIntakeRouter.receivePDF(data: data, sourceMode: "mac_open_with")
+                }
                 .onAppear {
                     Task { @MainActor in
                         AuditLogger.shared.modelContext = modelContainer.mainContext
