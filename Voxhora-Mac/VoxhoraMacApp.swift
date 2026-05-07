@@ -142,8 +142,13 @@ struct VoxhoraMacApp: App {
                         // is unified via iCloud Contacts so duplicate
                         // pushes from both devices resolve to the same
                         // CNContact). Lazy authorization on first run.
+                        //
+                        // Then DECISION 044 hotfix — one-shot dedup of
+                        // the "Voxhora Clients" CNGroup. Same wiring as
+                        // iPhone side; runs once per device.
                         Task { @MainActor in
                             await ClientContactsBackfillBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                            await ClientContactsCleanupBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                         }
 
                         // DECISION 043 Step 2 (2026-05-06) — AttorneyProfile

@@ -109,6 +109,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientContactsBackfillBootstrap.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/ClientContactsCleanupBootstrap.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientCommunicationRouter.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/QuickAction.swift
