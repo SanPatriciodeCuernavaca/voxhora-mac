@@ -28,6 +28,17 @@ targets:
   Voxhora-Mac:
     type: application
     platform: macOS
+    dependencies:
+      # DECISION 045 Stage 5 — embed Voxhora-Mac-Share extension as
+      # Voxhora-Mac.app/Contents/PlugIns/Voxhora-Mac-Share.appex.
+      # Adds Voxhora-Mac to the macOS NSSharingService menu (Preview
+      # Share button, Mail attachment Share, Finder toolbar Share).
+      # The extension is self-contained: parses PDF + saves Client to
+      # the App-Group-shared SwiftData container. NEVER opens the main
+      # Voxhora-Mac app (same Niagara Falls discipline as iOS).
+      - target: Voxhora-Mac-Share
+        embed: true
+        codeSign: true
     sources:
       # Mac-specific app code
       - path: Voxhora-Mac
@@ -312,3 +323,110 @@ targets:
     # including CodeSign. Or have the in-script ditto run codesign
     # --force --sign "${EXPANDED_CODE_SIGN_IDENTITY}" with the
     # entitlements file so the resulting bundle is launchable.
+
+  # DECISION 045 Stage 5 — macOS Share Extension. Sibling target to
+  # Voxhora-Mac, embedded into Voxhora-Mac.app's Contents/PlugIns/.
+  # Adds Voxhora-Mac to the macOS NSSharingService menu (Preview's
+  # Share button, Mail attachment Share, Finder toolbar Share, etc.).
+  #
+  # ARCHITECTURE: Same self-contained mini-IntakeView as iOS Voxhora-
+  # Share — parses PDF + saves Client to App-Group-shared SwiftData
+  # IN the share sheet, never launches the main Voxhora-Mac app.
+  # AppKit version (NSViewController + NSSharingService activation
+  # rule) but uses the SAME shared SwiftUI PDFIntakeShareForm as iOS
+  # via cross-reference.
+  Voxhora-Mac-Share:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: Voxhora-Mac-Share
+        excludes:
+          - "Info.plist"
+          - "Voxhora-Mac-Share.entitlements"
+
+      # Cross-referenced shared SwiftUI form — single source of truth
+      # for the in-share intake form. iOS-specific modifiers (keyboard
+      # types, autocapitalization) are #if os(iOS)-gated so the file
+      # compiles cleanly on macOS too.
+      - path: ../voxhora-ios/Voxhora-Share/PDFIntakeShareForm.swift
+        group: SharedShare
+
+      # Shared @Model files — single source of truth lives in the iOS
+      # project. Same cross-reference pattern Voxhora-Mac uses for
+      # main-app SwiftData.
+      - path: ../voxhora-ios/Voxhora/Models/Entry.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/Client.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/Case.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/AttorneyProfile.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/UserPreferences.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/AuditLogEntry.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/Voucher.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/CalendarEvent.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/ClientNote.swift
+        group: SharedModels
+      - path: ../voxhora-ios/Voxhora/Models/ParsedAppointmentIntake.swift
+        group: SharedModels
+
+      # Shared engine — same files iOS Voxhora-Share uses. QuickAction
+      # is required by AttorneyProfile @Model; TabRegistry by
+      # UserPreferences (gated via VOXHORA_SHARE_EXTENSION flag);
+      # EmailTemplate by AttorneyProfile.
+      - path: ../voxhora-ios/Voxhora/Engine/QuickAction.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/TabRegistry.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/EmailTemplate.swift
+        group: SharedEngine
+
+      # PDF parser pipeline — same regex-based parser as iOS extension
+      # + main app's PDFImportSheet. Pure local parse, no network.
+      - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParser.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers/AppointmentLetterParserRegistry.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers/TravisCountyAppointmentLetterParser.swift
+        group: SharedEngine
+
+      # Save path engine — canonical ClientTrunk.findOrCreate.
+      # ClientContactsBridge calls in ClientTrunk are #if !VOXHORA_SHARE_EXTENSION
+      # gated (Apple Contacts mirror not invoked from extension sandbox).
+      - path: ../voxhora-ios/Voxhora/Engine/ClientTrunk.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/RosterReconciler.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AuditLogger.swift
+        group: SharedEngine
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.patrickfagerberg.voxhora.mac.shareextension
+        PRODUCT_NAME: Voxhora-Mac-Share
+        INFOPLIST_FILE: Voxhora-Mac-Share/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Voxhora-Mac-Share/Voxhora-Mac-Share.entitlements
+        GENERATE_INFOPLIST_FILE: NO
+        SKIP_INSTALL: YES   # Extensions install via embedding only
+        # Same Swift compilation flag as iOS Voxhora-Share — gates the
+        # iOS-app-only view references in TabRegistry + Apple Contacts
+        # call sites in ClientTrunk so the extension compiles cleanly.
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: VOXHORA_SHARE_EXTENSION
+    info:
+      path: Voxhora-Mac-Share/Info.plist
+      properties:
+        CFBundleDisplayName: Voxhora
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        # NSExtension declaration — share-services point + principal
+        # class. Activation rule (predicate string) restricts the
+        # extension to PDF attachments (com.adobe.pdf UTI conformance).
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.share-services
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShareViewController
+          NSExtensionAttributes:
+            NSExtensionActivationRule: "SUBQUERY(extensionItems, $extensionItem, SUBQUERY($extensionItem.attachments, $attachment, ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO \"com.adobe.pdf\").@count == 1).@count == 1"
