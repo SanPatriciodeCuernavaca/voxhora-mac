@@ -30,6 +30,12 @@ struct VoxhoraMacApp: App {
     /// inside SendReminderSheet.
     @StateObject private var reminderActionRouter = ReminderActionRouter()
 
+    /// DECISION 039 — drives `CalendarRefreshScheduler` Timer start /
+    /// stop on scenePhase transitions. Mac has no BGAppRefreshTask
+    /// equivalent (no BackgroundTasks framework on macOS); foreground
+    /// Timer covers Mac's always-on workflow.
+    @Environment(\.scenePhase) private var scenePhase
+
     init() {
         do {
             let schema = Schema([
@@ -198,6 +204,20 @@ struct VoxhoraMacApp: App {
                         // specific code path).
                         SIPPollScheduler.runForegroundCheckIfStale(modelContext: modelContainer.mainContext)
 
+                        // DECISION 039 — Calendar auto-refresh on Mac.
+                        // Mac doesn't ship BGAppRefreshTask (no
+                        // BackgroundTasks framework on macOS); the
+                        // hourly foreground Timer + scenePhase-driven
+                        // stale-check cover Mac's always-on workflow.
+                        // Defers to DSAFetcher.refreshAndPersist —
+                        // same canonical entry point iPhone uses.
+                        await CalendarRefreshScheduler.runIfStale(
+                            modelContext: modelContainer.mainContext
+                        )
+                        CalendarRefreshScheduler.startForegroundTimer(
+                            modelContext: modelContainer.mainContext
+                        )
+
                         // DECISION 026 — SMS reminder rebuild on Mac.
                         // Mac doesn't have BGAppRefreshTask but
                         // UNUserNotificationCenter scheduling works
@@ -208,6 +228,28 @@ struct VoxhoraMacApp: App {
                         await SMSReminderScheduler.rescheduleAllOnLaunch(modelContext: modelContainer.mainContext)
                     }
                     CloudSyncMonitor.shared.start()
+                }
+                // DECISION 039 — drive CalendarRefreshScheduler's
+                // foreground Timer on scenePhase transitions. Mac
+                // window comes back from being hidden/minimized →
+                // fire stale-check + restart Timer; window goes
+                // away → invalidate Timer.
+                .onChange(of: scenePhase) { _, newPhase in
+                    Task { @MainActor in
+                        switch newPhase {
+                        case .active:
+                            await CalendarRefreshScheduler.runIfStale(
+                                modelContext: modelContainer.mainContext
+                            )
+                            CalendarRefreshScheduler.startForegroundTimer(
+                                modelContext: modelContainer.mainContext
+                            )
+                        case .background, .inactive:
+                            CalendarRefreshScheduler.stopForegroundTimer()
+                        @unknown default:
+                            break
+                        }
+                    }
                 }
                 .preferredColorScheme(.light)
                 // DECISION 040.5 (2026-05-06) — Voxhora's "blue plumbing"

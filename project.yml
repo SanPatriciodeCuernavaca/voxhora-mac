@@ -139,6 +139,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SIPPollScheduler.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/CalendarRefreshScheduler.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CustodyStatusSource.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CustodyStatusSources
