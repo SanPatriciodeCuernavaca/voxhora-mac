@@ -234,6 +234,8 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/VouchersView.swift
         group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/ClientRosterRow.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientsView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/AddClientSheet.swift
