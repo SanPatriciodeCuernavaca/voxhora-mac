@@ -205,6 +205,11 @@ struct VoxhoraMacApp: App {
                         // R9 Travis defaults auto-seed.
                         AttorneyProfileSchemaV12Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // 2026-05-08 — UserPreferences v7 → v8. Adds
+                        // calendarSegment for cross-device Calendar
+                        // segment mirror. Same wiring as iPhone.
+                        UserPreferencesSchemaV8Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 040 — one-shot cleanup of legacy
                         // CalendarEvent rows the new trunk discipline
                         // would have prevented. UserDefaults-gated;
