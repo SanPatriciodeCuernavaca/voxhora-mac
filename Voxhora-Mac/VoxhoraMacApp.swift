@@ -199,6 +199,12 @@ struct VoxhoraMacApp: App {
                         // CloudKit-mirrored devices.
                         AttorneyProfileSchemaV11Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 048 (Watch status indicator
+                        // framework, 2026-05-07) — AttorneyProfile
+                        // v11 → v12. Adds watchStatusIndicatorsJSON +
+                        // R9 Travis defaults auto-seed.
+                        AttorneyProfileSchemaV12Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 040 — one-shot cleanup of legacy
                         // CalendarEvent rows the new trunk discipline
                         // would have prevented. UserDefaults-gated;
