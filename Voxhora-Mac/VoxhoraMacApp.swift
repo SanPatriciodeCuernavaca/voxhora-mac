@@ -190,6 +190,15 @@ struct VoxhoraMacApp: App {
                         // Same wiring as iPhone.
                         AttorneyProfileSchemaV10Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 047 (Watch rich experience,
+                        // 2026-05-07) — AttorneyProfile v10 → v11.
+                        // Adds 7 Watch customization fields. Same
+                        // wiring as iPhone. Mac doesn't render Watch
+                        // settings yet but must run the bootstrap so
+                        // schemaVersion stays in lockstep across
+                        // CloudKit-mirrored devices.
+                        AttorneyProfileSchemaV11Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 040 — one-shot cleanup of legacy
                         // CalendarEvent rows the new trunk discipline
                         // would have prevented. UserDefaults-gated;
