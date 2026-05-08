@@ -138,6 +138,18 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV11Bootstrap.swift
         group: SharedEngine
+      # DECISION 048 (Watch status indicator framework, 2026-05-07) —
+      # closed-palette predicate-driven indicator system. Mac uses the
+      # types via Settings UI (Stage 5 Settings sub-section) but does
+      # not render Watch indicators itself.
+      - path: ../voxhora-ios/Voxhora/Engine/WatchStatusIndicatorPredicate.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/WatchStatusIndicator.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/WatchIndicatorColor.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/WatchStatusIndicatorPredicateRegistry.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParser.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers
