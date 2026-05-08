@@ -185,6 +185,11 @@ struct VoxhoraMacApp: App {
                         // migration. Same wiring as iPhone.
                         AttorneyProfileSchemaV9Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 046 (voice resilience toggles,
+                        // 2026-05-07) — AttorneyProfile v9 → v10.
+                        // Same wiring as iPhone.
+                        AttorneyProfileSchemaV10Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 040 — one-shot cleanup of legacy
                         // CalendarEvent rows the new trunk discipline
                         // would have prevented. UserDefaults-gated;
