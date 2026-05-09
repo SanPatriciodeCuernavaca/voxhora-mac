@@ -16,5 +16,9 @@
 	<array>
 		<string>group.com.patrickfagerberg.voxhora</string>
 	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.patrickfagerberg.voxhora.shared</string>
+	</array>
 </dict>
 </plist>
