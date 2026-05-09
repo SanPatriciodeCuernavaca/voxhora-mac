@@ -30,6 +30,12 @@ struct VoxhoraMacApp: App {
     /// inside SendReminderSheet.
     @StateObject private var reminderActionRouter = ReminderActionRouter()
 
+    /// DECISION 039 — drives `CalendarRefreshScheduler` Timer start /
+    /// stop on scenePhase transitions. Mac has no BGAppRefreshTask
+    /// equivalent (no BackgroundTasks framework on macOS); foreground
+    /// Timer covers Mac's always-on workflow.
+    @Environment(\.scenePhase) private var scenePhase
+
     init() {
         do {
             let schema = Schema([
@@ -61,6 +67,7 @@ struct VoxhoraMacApp: App {
     var body: some Scene {
         WindowGroup {
             MacMainView()
+                .funModeOverlay()  // DECISION 051 — global Fun Mode visual overlay
                 .environmentObject(pdfIntakeRouter)
                 .environmentObject(reminderActionRouter)
                 .sheet(item: $reminderActionRouter.pending) { pending in
@@ -68,6 +75,24 @@ struct VoxhoraMacApp: App {
                         .environmentObject(reminderActionRouter)
                 }
                 .frame(minWidth: 980, minHeight: 680)
+                // 2026-05-07 — Mac PDF handler. Mirrors VoxhoraApp's iOS
+                // handler (DECISION 025). Fires when a PDF opens via:
+                //   - Right-click in Finder/Mail/Safari → Open With → Voxhora-Mac
+                //   - Drag PDF onto Voxhora-Mac Dock icon
+                //   - Mail's Share submenu → Voxhora-Mac
+                //   - `open -a Voxhora-Mac path/to/pdf` from Terminal
+                // Voxhora-Mac is registered as a `com.adobe.pdf` Default-
+                // rank handler in Info.plist's CFBundleDocumentTypes
+                // (project.yml info block).
+                .onOpenURL { url in
+                    guard url.pathExtension.lowercased() == "pdf" else { return }
+                    // Mac: no security-scoped resource bookkeeping needed
+                    // for non-sandboxed apps (Voxhora-Mac is not sandboxed
+                    // — verified Voxhora-Mac.entitlements has no
+                    // com.apple.security.app-sandbox key).
+                    guard let data = try? Data(contentsOf: url) else { return }
+                    pdfIntakeRouter.receivePDF(data: data, sourceMode: "mac_open_with")
+                }
                 .onAppear {
                     Task { @MainActor in
                         AuditLogger.shared.modelContext = modelContainer.mainContext
@@ -127,6 +152,95 @@ struct VoxhoraMacApp: App {
                         // new row carries a real attorneyId.
                         UserPreferencesBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 043 (bilingual client communications,
+                        // 2026-05-06) — AttorneyProfile v6 → v7 sanity pass.
+                        // Same wiring as iPhone side.
+                        AttorneyProfileSchemaV7Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 043 + 044 — Client v6 → v7 sanity pass.
+                        // Same wiring as iPhone side.
+                        ClientSchemaV7Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 044 — Apple Contacts backfill on Mac.
+                        // Independent of iPhone (each device runs its own
+                        // backfill bootstrap; the Voxhora Clients CNGroup
+                        // is unified via iCloud Contacts so duplicate
+                        // pushes from both devices resolve to the same
+                        // CNContact). Lazy authorization on first run.
+                        //
+                        // Then DECISION 044 hotfix — one-shot dedup of
+                        // the "Voxhora Clients" CNGroup. Same wiring as
+                        // iPhone side; runs once per device.
+                        Task { @MainActor in
+                            await ClientContactsBackfillBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                            await ClientContactsCleanupBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        }
+
+                        // DECISION 043 Step 2 (2026-05-06) — AttorneyProfile
+                        // schema v7 → v8 sanity pass + semantic migration +
+                        // QuickActions defaults seed. Same wiring as iPhone.
+                        AttorneyProfileSchemaV8Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 043 Step 3 (2026-05-06) — AttorneyProfile
+                        // schema v8 → v9 sanity pass + structured email
+                        // migration. Same wiring as iPhone.
+                        AttorneyProfileSchemaV9Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 046 (voice resilience toggles,
+                        // 2026-05-07) — AttorneyProfile v9 → v10.
+                        // Same wiring as iPhone.
+                        AttorneyProfileSchemaV10Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 047 (Watch rich experience,
+                        // 2026-05-07) — AttorneyProfile v10 → v11.
+                        // Adds 7 Watch customization fields. Same
+                        // wiring as iPhone. Mac doesn't render Watch
+                        // settings yet but must run the bootstrap so
+                        // schemaVersion stays in lockstep across
+                        // CloudKit-mirrored devices.
+                        AttorneyProfileSchemaV11Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 048 (Watch status indicator
+                        // framework, 2026-05-07) — AttorneyProfile
+                        // v11 → v12. Adds watchStatusIndicatorsJSON +
+                        // R9 Travis defaults auto-seed.
+                        AttorneyProfileSchemaV12Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 049 (Watch manual billing +
+                        // per-device Bill Time entry mode, 2026-05-08)
+                        // — AttorneyProfile v12 → v13. Adds
+                        // watchBillingPresetsJSON + 3 entry-mode +
+                        // 3 last-used fields. Drill #5 additive
+                        // default-safe; no seed data needed.
+                        AttorneyProfileSchemaV13Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 050 (cross-platform billing presets
+                        // + per-device Presets/Activities mode toggle,
+                        // 2026-05-08) — AttorneyProfile v13 → v14.
+                        // Adds 3 manualPickerMode<Platform> fields.
+                        // Drill #5 additive default-safe.
+                        AttorneyProfileSchemaV14Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // 2026-05-08 — UserPreferences v7 → v8. Adds
+                        // calendarSegment for cross-device Calendar
+                        // segment mirror. Same wiring as iPhone.
+                        UserPreferencesSchemaV8Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 051 (Fun Mode plugin architecture,
+                        // 2026-05-08 EOS-5+). Adds 3 Fun Mode fields
+                        // on UserPreferences. Drill #5 additive
+                        // default-safe.
+                        UserPreferencesSchemaV9Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 051 per-device addendum (2026-05-08
+                        // EOS-6) — UserPreferences v9 → v10. Adds 4
+                        // per-device Fun Mode fields. Drill #5 additive
+                        // default-safe.
+                        UserPreferencesSchemaV10Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // Register all Fun Mode visuals + sounds.
+                        FunModeBootstrap.registerAllEffects()
+
                         // DECISION 040 — one-shot cleanup of legacy
                         // CalendarEvent rows the new trunk discipline
                         // would have prevented. UserDefaults-gated;
@@ -146,6 +260,20 @@ struct VoxhoraMacApp: App {
                         // specific code path).
                         SIPPollScheduler.runForegroundCheckIfStale(modelContext: modelContainer.mainContext)
 
+                        // DECISION 039 — Calendar auto-refresh on Mac.
+                        // Mac doesn't ship BGAppRefreshTask (no
+                        // BackgroundTasks framework on macOS); the
+                        // hourly foreground Timer + scenePhase-driven
+                        // stale-check cover Mac's always-on workflow.
+                        // Defers to DSAFetcher.refreshAndPersist —
+                        // same canonical entry point iPhone uses.
+                        await CalendarRefreshScheduler.runIfStale(
+                            modelContext: modelContainer.mainContext
+                        )
+                        CalendarRefreshScheduler.startForegroundTimer(
+                            modelContext: modelContainer.mainContext
+                        )
+
                         // DECISION 026 — SMS reminder rebuild on Mac.
                         // Mac doesn't have BGAppRefreshTask but
                         // UNUserNotificationCenter scheduling works
@@ -156,6 +284,28 @@ struct VoxhoraMacApp: App {
                         await SMSReminderScheduler.rescheduleAllOnLaunch(modelContext: modelContainer.mainContext)
                     }
                     CloudSyncMonitor.shared.start()
+                }
+                // DECISION 039 — drive CalendarRefreshScheduler's
+                // foreground Timer on scenePhase transitions. Mac
+                // window comes back from being hidden/minimized →
+                // fire stale-check + restart Timer; window goes
+                // away → invalidate Timer.
+                .onChange(of: scenePhase) { _, newPhase in
+                    Task { @MainActor in
+                        switch newPhase {
+                        case .active:
+                            await CalendarRefreshScheduler.runIfStale(
+                                modelContext: modelContainer.mainContext
+                            )
+                            CalendarRefreshScheduler.startForegroundTimer(
+                                modelContext: modelContainer.mainContext
+                            )
+                        case .background, .inactive:
+                            CalendarRefreshScheduler.stopForegroundTimer()
+                        @unknown default:
+                            break
+                        }
+                    }
                 }
                 .preferredColorScheme(.light)
                 // DECISION 040.5 (2026-05-06) — Voxhora's "blue plumbing"

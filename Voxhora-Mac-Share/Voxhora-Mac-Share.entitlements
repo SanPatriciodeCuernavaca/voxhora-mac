@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- macOS REQUIRES app-sandbox = true for Share Extensions to be
+	     loaded by the system. Without this entitlement, the extension
+	     never appears in NSSharingService menus / Preview's Share
+	     button / Edit Extensions sheet. Confirmed via Apple's App
+	     Extension Programming Guide + 2026-05-07 web research after
+	     extension didn't show up in Patrick's Preview Share menu.
+	     The main Voxhora-Mac app is NOT sandboxed (different security
+	     posture); the extension is sandboxed independently. -->
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+	<!-- Allow the extension to read PDF files the user shares from
+	     Preview / Mail / Finder. Sandboxed extensions need this
+	     entitlement to access the file URL the system passes in via
+	     extensionContext.inputItems. -->
+	<key>com.apple.security.files.user-selected.read-only</key>
+	<true/>
+	<!-- Allow outgoing network for CloudKit + future Anthropic calls.
+	     SwiftData's CloudKit-backed ModelContainer requires this for
+	     sync. -->
+	<key>com.apple.security.network.client</key>
+	<true/>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.patrickfagerberg.voxhora</string>
+	</array>
+	<key>com.apple.developer.icloud-container-identifiers</key>
+	<array>
+		<string>iCloud.com.patrickfagerberg.voxhora</string>
+	</array>
+	<key>com.apple.developer.icloud-services</key>
+	<array>
+		<string>CloudKit</string>
+	</array>
+	<key>aps-environment</key>
+	<string>development</string>
+</dict>
+</plist>
