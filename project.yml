@@ -114,6 +114,10 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientTrunk.swift
         group: SharedEngine
+      # DECISION 041 (2026-05-09) — sole writer for ClientNote @Model.
+      # Mirrors ClientTrunk + CalendarEventTrunk pattern.
+      - path: ../voxhora-ios/Voxhora/Engine/ClientNoteTrunk.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CalendarCleanupMigration.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CaseTypeFilter.swift
