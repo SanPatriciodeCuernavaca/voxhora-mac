@@ -154,15 +154,18 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/WatchStatusIndicatorPredicateRegistry.swift
         group: SharedEngine
-      # DECISION 049 (Watch manual billing + per-device Bill Time
-      # entry mode, 2026-05-08) — Mac uses the value types in Settings
-      # UI (preset editor) and runs V13 bootstrap on first launch
-      # post-update.
-      - path: ../voxhora-ios/Voxhora/Engine/WatchBillingPreset.swift
-        group: SharedEngine
-      - path: ../voxhora-ios/Voxhora/Engine/ManualBillingActivity.swift
+      # DECISION 049 (Watch manual billing presets, 2026-05-08) +
+      # DECISION 050 (cross-platform billing presets, 2026-05-08).
+      # BillingPreset value type used by Settings UI and (in
+      # principle) ManualEntryForm on Mac. Bootstrap is iOS + Mac only.
+      # NOTE: ManualBillingActivity (DECISION 049's hallucinated 8-default
+      # struct) DELETED by DECISION 050 — see feedback memory
+      # `feedback_no_hallucination_mirror_existing_patterns.md`.
+      - path: ../voxhora-ios/Voxhora/Engine/BillingPreset.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV13Bootstrap.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV14Bootstrap.swift
         group: SharedEngine
       # Note: WatchBillingPresetsSection.swift + BillTimeEntryModeSection.swift
       # (DECISION 049 settings UI) are picked up automatically via the

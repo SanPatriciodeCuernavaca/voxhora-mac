@@ -213,6 +213,13 @@ struct VoxhoraMacApp: App {
                         // default-safe; no seed data needed.
                         AttorneyProfileSchemaV13Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 050 (cross-platform billing presets
+                        // + per-device Presets/Activities mode toggle,
+                        // 2026-05-08) — AttorneyProfile v13 → v14.
+                        // Adds 3 manualPickerMode<Platform> fields.
+                        // Drill #5 additive default-safe.
+                        AttorneyProfileSchemaV14Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // 2026-05-08 — UserPreferences v7 → v8. Adds
                         // calendarSegment for cross-device Calendar
                         // segment mirror. Same wiring as iPhone.
