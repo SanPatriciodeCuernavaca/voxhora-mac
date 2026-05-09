@@ -67,6 +67,7 @@ struct VoxhoraMacApp: App {
     var body: some Scene {
         WindowGroup {
             MacMainView()
+                .funModeOverlay()  // DECISION 051 — global Fun Mode visual overlay
                 .environmentObject(pdfIntakeRouter)
                 .environmentObject(reminderActionRouter)
                 .sheet(item: $reminderActionRouter.pending) { pending in
@@ -224,6 +225,15 @@ struct VoxhoraMacApp: App {
                         // calendarSegment for cross-device Calendar
                         // segment mirror. Same wiring as iPhone.
                         UserPreferencesSchemaV8Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 051 (Fun Mode plugin architecture,
+                        // 2026-05-08 EOS-5+). Adds 3 Fun Mode fields
+                        // on UserPreferences. Drill #5 additive
+                        // default-safe.
+                        UserPreferencesSchemaV9Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // Register all Fun Mode visuals + sounds.
+                        FunModeBootstrap.registerAllEffects()
 
                         // DECISION 040 — one-shot cleanup of legacy
                         // CalendarEvent rows the new trunk discipline

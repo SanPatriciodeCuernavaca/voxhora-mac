@@ -167,6 +167,15 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV14Bootstrap.swift
         group: SharedEngine
+      # DECISION 051 (Fun Mode plugin architecture, 2026-05-08 EOS-5+).
+      # Folder glob picks up all Visuals/ + Sounds/ + protocol/registry/
+      # orchestrator/bootstrap files. Adding a new effect = one file
+      # in the corresponding subfolder + one register line in
+      # FunModeBootstrap.swift; both projects auto-rebuild.
+      - path: ../voxhora-ios/Voxhora/Engine/FunMode
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV9Bootstrap.swift
+        group: SharedEngine
       # Note: WatchBillingPresetsSection.swift + BillTimeEntryModeSection.swift
       # (DECISION 049 settings UI) are picked up automatically via the
       # `../voxhora-ios/Voxhora/Views/Settings` folder glob below — no
