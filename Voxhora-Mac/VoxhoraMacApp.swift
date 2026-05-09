@@ -205,6 +205,14 @@ struct VoxhoraMacApp: App {
                         // R9 Travis defaults auto-seed.
                         AttorneyProfileSchemaV12Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 049 (Watch manual billing +
+                        // per-device Bill Time entry mode, 2026-05-08)
+                        // — AttorneyProfile v12 → v13. Adds
+                        // watchBillingPresetsJSON + 3 entry-mode +
+                        // 3 last-used fields. Drill #5 additive
+                        // default-safe; no seed data needed.
+                        AttorneyProfileSchemaV13Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // 2026-05-08 — UserPreferences v7 → v8. Adds
                         // calendarSegment for cross-device Calendar
                         // segment mirror. Same wiring as iPhone.
