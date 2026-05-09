@@ -6,6 +6,15 @@ options:
   developmentLanguage: en
   groupSortPosition: top
 
+# Visual quality bar (2026-05-09) — SPM packages mirror iOS project.yml.
+# Vortex is the foundation across all platforms (watchOS-native particle
+# engine). Inferno + Pow added at Stage 3 when premium-polish visuals
+# (Mac + iPhone + iPad only) land; Watch falls back to layers 1+2.
+packages:
+  Vortex:
+    url: https://github.com/twostraws/Vortex
+    from: "1.0.4"
+
 settings:
   base:
     DEVELOPMENT_TEAM: S4GM27H6N5
@@ -39,6 +48,8 @@ targets:
       - target: Voxhora-Mac-Share
         embed: true
         codeSign: true
+      # Visual quality bar 2026-05-09 — Vortex particle engine.
+      - package: Vortex
     sources:
       # Mac-specific app code
       - path: Voxhora-Mac
