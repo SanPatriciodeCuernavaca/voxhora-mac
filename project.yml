@@ -187,6 +187,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV14Bootstrap.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV15Bootstrap.swift
+        group: SharedEngine
       # DECISION 051 (Fun Mode plugin architecture, 2026-05-08 EOS-5+).
       # Folder glob picks up all Visuals/ + Sounds/ + protocol/registry/
       # orchestrator/bootstrap files. Adding a new effect = one file

@@ -221,6 +221,13 @@ struct VoxhoraMacApp: App {
                         // Drill #5 additive default-safe.
                         AttorneyProfileSchemaV14Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 052 (Watch comment-required entries,
+                        // 2026-05-09) — AttorneyProfile v14 → v15. Adds
+                        // watchAllowsCommentEntries. Drill #5 additive
+                        // default-safe (false default preserves byte-
+                        // for-byte current Watch behavior).
+                        AttorneyProfileSchemaV15Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // 2026-05-08 — UserPreferences v7 → v8. Adds
                         // calendarSegment for cross-device Calendar
                         // segment mirror. Same wiring as iPhone.
