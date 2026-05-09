@@ -14,6 +14,9 @@ packages:
   Vortex:
     url: https://github.com/twostraws/Vortex
     from: "1.0.4"
+  # Visual quality bar Beat D 2026-05-09 — Pow + Inferno excluded;
+  # native SwiftUI primitives replace both. See iOS project.yml
+  # packages section for rationale.
 
 settings:
   base:
@@ -50,6 +53,8 @@ targets:
         codeSign: true
       # Visual quality bar 2026-05-09 — Vortex particle engine.
       - package: Vortex
+      # Visual quality bar Beat D 2026-05-09 — premium polish via
+      # native SwiftUI (no extra deps).
     sources:
       # Mac-specific app code
       - path: Voxhora-Mac

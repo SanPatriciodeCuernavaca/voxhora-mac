@@ -148,6 +148,7 @@
 		B93940057B59B0BB67452361 /* RatePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307B1CCF2CDD028620A2F9B /* RatePickerSheet.swift */; };
 		BF4621719E6577999216E7C1 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C35F14697F4C491EAF62CC7 /* KeychainHelper.swift */; };
 		BFAC48314965E66BDB4DED2C /* ManualEntryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC034C1944EB53D7C9F589 /* ManualEntryForm.swift */; };
+		C23AE41EADAC081A1B310822 /* LiquidGoldSplashVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98396DF886F2886C551C5BA6 /* LiquidGoldSplashVisual.swift */; };
 		C26D0AE5D52FD44B5B76C66F /* AttorneyProfileSchemaV10Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028F65FF4663B7829AB17929 /* AttorneyProfileSchemaV10Bootstrap.swift */; };
 		C5F5D6089BB5D051CB9BAD5F /* FunModeImportPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D88781782F96E66BAF5D2A /* FunModeImportPicker.swift */; };
 		C65E9D1A80DA40B4E55B4330 /* RosterReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F98C329547921ED512F8 /* RosterReconciler.swift */; };
@@ -328,6 +329,7 @@
 		9072662AFBE806732F9A22D0 /* CallTrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CallTrackingService.swift; path = "../voxhora-ios/Voxhora/Engine/CallTrackingService.swift"; sourceTree = "<group>"; };
 		9494A405C15054196903FEF3 /* JurisdictionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JurisdictionRegistry.swift; sourceTree = "<group>"; };
 		96AB9777FAC1A6297B4C217A /* AuditLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuditLogEntry.swift; path = "../voxhora-ios/Voxhora/Models/AuditLogEntry.swift"; sourceTree = "<group>"; };
+		98396DF886F2886C551C5BA6 /* LiquidGoldSplashVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGoldSplashVisual.swift; sourceTree = "<group>"; };
 		998A1628A332504B82459282 /* BillTimeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BillTimeButton.swift; path = "../voxhora-ios/Voxhora/Views/BillTimeButton.swift"; sourceTree = "<group>"; };
 		9A92818F1B337F438AFC0601 /* VoxSpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoxSpeechRecognizer.swift; sourceTree = "<group>"; };
 		9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HapticFeedback.swift; path = "../voxhora-ios/Voxhora/Engine/HapticFeedback.swift"; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 				19449102B01AA6CA9CE54D04 /* ConfettiBurstVisual.swift */,
 				49AD3362FF6588790A7242E4 /* GoldCheckmarkBurstVisual.swift */,
 				85CE5FEA20C5EAA974D30175 /* GoldFlashVisual.swift */,
+				98396DF886F2886C551C5BA6 /* LiquidGoldSplashVisual.swift */,
 				C37CDAF797D77D53F793342C /* PorscheMoneyDropVisual.swift */,
 				A9F0822194C3E51A68C61CDC /* SimpleHapticVisual.swift */,
 				526DE1FDAFBBA58793FA1692 /* SlotMachineJackpotVisual.swift */,
@@ -1009,6 +1012,7 @@
 				8EF655845EEE6DB25370AB0A /* JurisdictionRegistry.swift in Sources */,
 				BF4621719E6577999216E7C1 /* KeychainHelper.swift in Sources */,
 				C85E21398CCBC0E46CACB615 /* LLMParser.swift in Sources */,
+				C23AE41EADAC081A1B310822 /* LiquidGoldSplashVisual.swift in Sources */,
 				7E2BB30F88F1D9F37C9654AD /* MacMainView.swift in Sources */,
 				BFAC48314965E66BDB4DED2C /* ManualEntryForm.swift in Sources */,
 				C9E90DF1C2F3375CC6E95E8F /* MoneyCounter.swift in Sources */,
