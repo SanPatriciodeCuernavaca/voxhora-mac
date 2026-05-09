@@ -176,6 +176,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV9Bootstrap.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV10Bootstrap.swift
+        group: SharedEngine
       # Note: WatchBillingPresetsSection.swift + BillTimeEntryModeSection.swift
       # (DECISION 049 settings UI) are picked up automatically via the
       # `../voxhora-ios/Voxhora/Views/Settings` folder glob below — no

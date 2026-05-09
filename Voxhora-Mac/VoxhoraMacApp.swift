@@ -232,6 +232,12 @@ struct VoxhoraMacApp: App {
                         // default-safe.
                         UserPreferencesSchemaV9Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 051 per-device addendum (2026-05-08
+                        // EOS-6) — UserPreferences v9 → v10. Adds 4
+                        // per-device Fun Mode fields. Drill #5 additive
+                        // default-safe.
+                        UserPreferencesSchemaV10Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // Register all Fun Mode visuals + sounds.
                         FunModeBootstrap.registerAllEffects()
 
