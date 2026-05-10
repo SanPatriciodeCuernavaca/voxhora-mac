@@ -245,6 +245,13 @@ struct VoxhoraMacApp: App {
                         // default-safe.
                         UserPreferencesSchemaV10Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 053 (Fun Mode sound-picker rip-out,
+                        // 2026-05-09 EOS-13) — UserPreferences v10 →
+                        // v11. Adds 3 per-device Sound effects ON/OFF
+                        // Bools (replaces sound picker). Drill #5
+                        // additive default-safe.
+                        UserPreferencesSchemaV11Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // Register all Fun Mode visuals + sounds.
                         FunModeBootstrap.registerAllEffects()
 
