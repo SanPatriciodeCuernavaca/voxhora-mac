@@ -36,6 +36,12 @@ struct VoxhoraMacApp: App {
     /// Timer covers Mac's always-on workflow.
     @Environment(\.scenePhase) private var scenePhase
 
+    /// DECISION 054 follow-up (2026-05-10) — shared @Observable
+    /// model. Same as iPhone's VoxhoraApp.swift. Injected into the
+    /// Mac SwiftUI environment so case-info sheets can mutate the
+    /// sidebar selection by writing `appState.selectedTab` directly.
+    @State private var appState = AppState()
+
     init() {
         do {
             let schema = Schema([
@@ -70,6 +76,7 @@ struct VoxhoraMacApp: App {
                 .funModeOverlay()  // DECISION 051 — global Fun Mode visual overlay
                 .environmentObject(pdfIntakeRouter)
                 .environmentObject(reminderActionRouter)
+                .environment(appState)  // DECISION 054 follow-up
                 .sheet(item: $reminderActionRouter.pending) { pending in
                     SendReminderSheet(pending: pending)
                         .environmentObject(reminderActionRouter)
@@ -91,7 +98,7 @@ struct VoxhoraMacApp: App {
                     // — verified Voxhora-Mac.entitlements has no
                     // com.apple.security.app-sandbox key).
                     guard let data = try? Data(contentsOf: url) else { return }
-                    pdfIntakeRouter.receivePDF(data: data, sourceMode: "mac_open_with")
+                    pdfIntakeRouter.receivePDF(data: data, sourceMode: "mac_open_with", filename: url.lastPathComponent)
                 }
                 .onAppear {
                     Task { @MainActor in
