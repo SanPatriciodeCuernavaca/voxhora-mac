@@ -252,6 +252,16 @@ struct VoxhoraMacApp: App {
                         // additive default-safe.
                         UserPreferencesSchemaV11Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 054 (2026-05-10) — same Cases-
+                        // promotion bootstrap as iPhone side. Mac
+                        // runs it independently (each device runs
+                        // its own UserDefaults-gated bootstrap; the
+                        // SwiftData rows themselves CloudKit-mirror
+                        // so the schema-bump-on-Case-rows side runs
+                        // once per device but converges to the same
+                        // canonical state).
+                        UserPreferencesSchemaV12Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // Register all Fun Mode visuals + sounds.
                         FunModeBootstrap.registerAllEffects()
 
