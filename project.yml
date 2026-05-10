@@ -118,6 +118,19 @@ targets:
       # Mirrors ClientTrunk + CalendarEventTrunk pattern.
       - path: ../voxhora-ios/Voxhora/Engine/ClientNoteTrunk.swift
         group: SharedEngine
+      # DECISION 054 (2026-05-10) — sole writer for user-visible Case
+      # @Model surfaces (CaseInfoSheet manual entry + agent-project
+      # Phase 1 synopsis / PC affidavit ingestion). Mirrors
+      # ClientTrunk + ClientNoteTrunk pattern.
+      - path: ../voxhora-ios/Voxhora/Engine/CaseTrunk.swift
+        group: SharedEngine
+      # DECISION 054 follow-up (2026-05-10) — shared
+      # jurisdiction-driven courts loader. Reads
+      # Voxhora/Resources/Jurisdictions/travis_county_courts.json
+      # (and future per-jurisdiction equivalents). Used by
+      # CaseEditSheet's Court picker.
+      - path: ../voxhora-ios/Voxhora/Engine/CourtsLookup.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CalendarCleanupMigration.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CaseTypeFilter.swift
@@ -201,6 +214,11 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV10Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV11Bootstrap.swift
+        group: SharedEngine
+      # DECISION 054 (2026-05-10) — UserPreferences v11 → v12 + Case
+      # model v1 → v2 (9 new agent-project storage fields + updatedAt
+      # backfill on existing Case rows).
+      - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV12Bootstrap.swift
         group: SharedEngine
       # Note: WatchBillingPresetsSection.swift + BillTimeEntryModeSection.swift
       # (DECISION 049 settings UI) are picked up automatically via the
@@ -319,6 +337,12 @@ targets:
       - path: ../voxhora-ios/Voxhora/Views/NotesButton.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientNotesSheet.swift
+        group: SharedViews
+      # DECISION 054 (2026-05-10) — user-visible Case Info screen.
+      # Cases list + per-case detail card with synopsis + Full PC
+      # Affidavit modal. Tap target for the new state-aware Case info
+      # pill on ClientDetailView.
+      - path: ../voxhora-ios/Voxhora/Views/CaseInfoSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/SettingsView.swift
         group: SharedViews
