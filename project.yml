@@ -131,6 +131,26 @@ targets:
       # CaseEditSheet's Court picker.
       - path: ../voxhora-ios/Voxhora/Engine/CourtsLookup.swift
         group: SharedEngine
+      # DECISION 054 follow-up round 2 (2026-05-10) — @Observable
+      # shared model held as @State at the App root + injected via
+      # `.environment(_:)`. Replaces the prior `TabSwitcher` singleton
+      # + Combine `@Published` observer pattern which had a documented
+      # iOS 18 / macOS 15 race with sheet dismissal (AttributeGraph
+      # drops binding writes mid-rebuild). Apple-canonical pattern
+      # per WWDC23 "Migrating to Observable macro" + Backyard Birds
+      # sample. Both MainTabView (iPhone) and MacMainView (Mac) read
+      # the SAME AppState via @Environment + @Bindable for the
+      # TabView selection binding.
+      - path: ../voxhora-ios/Voxhora/Engine/AppState.swift
+        group: SharedEngine
+      # DECISION 054 follow-up round 4 (2026-05-10) — wrapper view
+      # that applies `.id(appState.tabResetNonces[tabID])` to its
+      # content. Hero pills increment the target tab's nonce, which
+      # re-renders the wrapped tab from scratch — popping every
+      # NavigationLink push back to root. Used by TabRegistry's
+      # content closures.
+      - path: ../voxhora-ios/Voxhora/Views/TabResetGate.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Engine/CalendarCleanupMigration.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CaseTypeFilter.swift
@@ -343,6 +363,14 @@ targets:
       # Affidavit modal. Tap target for the new state-aware Case info
       # pill on ClientDetailView.
       - path: ../voxhora-ios/Voxhora/Views/CaseInfoSheet.swift
+        group: SharedViews
+      # DECISION 054 follow-up (2026-05-10) — manual PC affidavit
+      # import. Routed by IntakeView when an incoming PDF's filename
+      # matches `^(C1CR|D1DC)\d{8}\.pdf$`. PDFKit text extraction +
+      # Anthropic Haiku 4.5 synopsis + CaseTrunk write. Validates the
+      # full pipeline before the headless agent (Patrick Law Practice
+      # Agent Phase 1) ships.
+      - path: ../voxhora-ios/Voxhora/Views/PCAffidavitImportSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/SettingsView.swift
         group: SharedViews

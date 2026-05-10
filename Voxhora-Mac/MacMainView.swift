@@ -41,6 +41,13 @@ struct MacMainView: View {
 
     @State private var showingDiagnostics = false
 
+    /// DECISION 054 follow-up round 2 (2026-05-10) — replaced the
+    /// prior `@State selectedTab` + `TabSwitcher` Combine observer
+    /// pattern with `@Environment(AppState.self)` + `@Bindable`.
+    /// Same canonical Apple pattern as iPhone MainTabView. AppState
+    /// lives at the App root via .environment(_:) in VoxhoraMacApp.
+    @Environment(AppState.self) private var appState
+
     var body: some View {
         // DECISION 032 (Phase 4 onboarding wizard) — onboarding gate.
         // When no AttorneyProfile exists, render OnboardingView FIRST
@@ -70,9 +77,15 @@ struct MacMainView: View {
         VStack(spacing: 0) {
             AppHeader()
 
-            TabView {
+            // Apple's documented `@Bindable var x = x` same-name
+            // shadowing pattern. Projects `$appState.selectedTab` as
+            // a Binding<TabID> inside the body without polluting the
+            // surrounding scope with a renamed binding.
+            @Bindable var appState = appState
+
+            TabView(selection: $appState.selectedTab) {
                 ForEach(TabRegistry.tabs(for: .mac)) { def in
-                    Tab(def.title, systemImage: def.systemImage, role: def.role) {
+                    Tab(def.title, systemImage: def.systemImage, value: def.id, role: def.role) {
                         def.content()
                     }
                     .customizationID(def.id.customizationID)
