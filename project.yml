@@ -82,6 +82,14 @@ targets:
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/ClientNote.swift
         group: SharedModels
+      # DECISION 056 (Client Docs vault, 2026-05-11) — per-client
+      # document vault. Bytes live in iCloud Drive ubiquitous container;
+      # @Model ClientDoc holds metadata + relative path. Required in
+      # both Voxhora-Mac main target AND Voxhora-Mac-Share extension
+      # because Client.swift references ClientDoc via the docs:
+      # [ClientDoc]? relationship.
+      - path: ../voxhora-ios/Voxhora/Models/ClientDoc.swift
+        group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/ParsedAppointmentIntake.swift
         group: SharedModels
 
@@ -166,6 +174,17 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV7Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV7Bootstrap.swift
+        group: SharedEngine
+      # DECISION 056 (Client Docs vault, 2026-05-11) — actor-isolated
+      # façade for the iCloud Drive ubiquitous container + sole-writer
+      # trunk for ClientDoc @Model + v7 → v8 schema-bump bootstrap.
+      # Bytes live in iCloud Drive (NSFileCoordinator-wrapped writes);
+      # @Model row holds metadata + relative path only.
+      - path: ../voxhora-ios/Voxhora/Engine/iCloudContainerHelper.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/ClientDocTrunk.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV8Bootstrap.swift
         group: SharedEngine
       # DECISION 044 (Apple Contacts auto-sync, 2026-05-06) — one-way
       # push from Voxhora's canonical Client store to Apple Contacts.
@@ -539,6 +558,14 @@ targets:
       - path: ../voxhora-ios/Voxhora/Models/CalendarEvent.swift
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/ClientNote.swift
+        group: SharedModels
+      # DECISION 056 (Client Docs vault, 2026-05-11) — per-client
+      # document vault. Bytes live in iCloud Drive ubiquitous container;
+      # @Model ClientDoc holds metadata + relative path. Required in
+      # both Voxhora-Mac main target AND Voxhora-Mac-Share extension
+      # because Client.swift references ClientDoc via the docs:
+      # [ClientDoc]? relationship.
+      - path: ../voxhora-ios/Voxhora/Models/ClientDoc.swift
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/ParsedAppointmentIntake.swift
         group: SharedModels

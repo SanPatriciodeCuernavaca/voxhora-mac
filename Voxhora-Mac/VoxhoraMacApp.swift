@@ -53,7 +53,8 @@ struct VoxhoraMacApp: App {
                 AuditLogEntry.self,
                 Voucher.self,                 // DECISION 012 — Phase C voucher state model
                 CalendarEvent.self,           // DECISION 022 — Calendar feature (DSA-driven court schedule)
-                ClientNote.self               // DECISION 040.2 — Client notes journal
+                ClientNote.self,              // DECISION 040.2 — Client notes journal
+                ClientDoc.self                // DECISION 056 — Client Docs vault (Session 1 data plumbing, 2026-05-11)
             ])
             let configuration = ModelConfiguration(
                 schema: schema,
@@ -167,6 +168,14 @@ struct VoxhoraMacApp: App {
                         // DECISION 043 + 044 — Client v6 → v7 sanity pass.
                         // Same wiring as iPhone side.
                         ClientSchemaV7Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // DECISION 056 (Client Docs vault, 2026-05-11) —
+                        // Client v7 → v8 sanity pass. Adds docs:
+                        // [ClientDoc]? to-many relationship. Drill #5
+                        // additive default-safe. Same wiring as iPhone
+                        // side. Uses the do/catch save pattern (flag
+                        // flips ONLY on success).
+                        ClientSchemaV8Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
                         // DECISION 044 — Apple Contacts backfill on Mac.
                         // Independent of iPhone (each device runs its own
