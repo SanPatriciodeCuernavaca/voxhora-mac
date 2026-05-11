@@ -245,6 +245,14 @@ struct VoxhoraMacApp: App {
                         // correctly on the first PDF intake post-upgrade.
                         AttorneyProfileSchemaV16Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 055.8 (2026-05-10 EOS-9) — one-time
+                        // backfill: copy Client.inmateBookingNumber +
+                        // Client.arrestDate to every Case row owned by
+                        // that Client where the Case's own field is
+                        // empty. Fixes legacy appointment-letter imports
+                        // that landed pre-DECISION-054.
+                        ClientToCaseBackfillBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // 2026-05-08 — UserPreferences v7 → v8. Adds
                         // calendarSegment for cross-device Calendar
                         // segment mirror. Same wiring as iPhone.

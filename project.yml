@@ -230,6 +230,13 @@ targets:
       # post-upgrade PDF intake.
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV16Bootstrap.swift
         group: SharedEngine
+      # DECISION 055.8 (2026-05-10 EOS-9) — one-time backfill:
+      # copy Client.inmateBookingNumber + Client.arrestDate into the
+      # corresponding Case fields where Case-level values are empty.
+      # Fixes legacy appointment-letter imports that landed
+      # pre-DECISION-054 when Case @Model didn't exist yet.
+      - path: ../voxhora-ios/Voxhora/Engine/ClientToCaseBackfillBootstrap.swift
+        group: SharedEngine
       # DECISION 051 (Fun Mode plugin architecture, 2026-05-08 EOS-5+).
       # Folder glob picks up all Visuals/ + Sounds/ + protocol/registry/
       # orchestrator/bootstrap files. Adding a new effect = one file
