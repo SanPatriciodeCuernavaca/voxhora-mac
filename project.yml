@@ -267,6 +267,14 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/PCAffidavitDetectors
         group: SharedEngine
+      # DECISION 055.2 (post-hoc synopsis generation, 2026-05-10 EOS-6)
+      # — pure async helper wrapping the Anthropic Haiku 4.5 call.
+      # Used by PCAffidavitImportSheet AND CaseDetailView (the post-hoc
+      # "Generate synopsis" pill on CaseInfoSheet). Single canonical
+      # system prompt + model + maxTokens lives here so every callsite
+      # produces the same summary shape.
+      - path: ../voxhora-ios/Voxhora/Engine/CaseSynopsisGenerator.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/PDFIntakeRouter.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AutoBillingHelper.swift
