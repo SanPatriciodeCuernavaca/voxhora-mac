@@ -186,6 +186,20 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV8Bootstrap.swift
         group: SharedEngine
+      # DECISION 056 Session 2 (Client Docs UI surface, 2026-05-11) —
+      # cross-platform views for the per-client document vault.
+      # iOS-only picker bridges (PHPickerBridge / CameraPickerBridge /
+      # VNDocumentScannerBridge) stay in the iOS target only and are
+      # #if os(iOS)-gated; Mac uses .fileImporter + .dropDestination
+      # for upload (no bridges needed).
+      - path: ../voxhora-ios/Voxhora/Views/ClientDocsSheet.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/ClientDocsRow.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/ClientDocViewerSheet.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/DocsButton.swift
+        group: SharedViews
       # DECISION 044 (Apple Contacts auto-sync, 2026-05-06) — one-way
       # push from Voxhora's canonical Client store to Apple Contacts.
       # Same Contacts.framework on iOS + Mac; iCloud Contacts service
