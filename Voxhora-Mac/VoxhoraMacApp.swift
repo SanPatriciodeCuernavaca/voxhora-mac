@@ -235,6 +235,16 @@ struct VoxhoraMacApp: App {
                         // for-byte current Watch behavior).
                         AttorneyProfileSchemaV15Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 055 (practice-area pluggability,
+                        // 2026-05-10) — AttorneyProfile v15 → v16. Adds
+                        // practiceAreaKey (default "criminal_defense").
+                        // Drill #5 additive default-safe — bootstrap seeds
+                        // empty-after-migration values back to
+                        // criminal_defense so the (practice area ×
+                        // jurisdiction) detector registry resolves
+                        // correctly on the first PDF intake post-upgrade.
+                        AttorneyProfileSchemaV16Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // 2026-05-08 — UserPreferences v7 → v8. Adds
                         // calendarSegment for cross-device Calendar
                         // segment mirror. Same wiring as iPhone.

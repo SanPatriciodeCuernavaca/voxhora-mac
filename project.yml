@@ -222,6 +222,14 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV15Bootstrap.swift
         group: SharedEngine
+      # DECISION 055 (practice-area pluggability, 2026-05-10) —
+      # AttorneyProfile v15 → v16. Adds practiceAreaKey (default
+      # "criminal_defense"). Bootstrap seeds empty-after-migration
+      # values back to criminal_defense so the (practice area ×
+      # jurisdiction) detector registry resolves correctly on
+      # post-upgrade PDF intake.
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV16Bootstrap.swift
+        group: SharedEngine
       # DECISION 051 (Fun Mode plugin architecture, 2026-05-08 EOS-5+).
       # Folder glob picks up all Visuals/ + Sounds/ + protocol/registry/
       # orchestrator/bootstrap files. Adding a new effect = one file
@@ -247,6 +255,17 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParser.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers
+        group: SharedEngine
+      # DECISION 055 (practice-area pluggability, 2026-05-10) — PC
+      # affidavit detection layer. Mirrors the AppointmentLetterParser
+      # protocol+registry+impl-folder shape. IntakeView's PDF dispatch
+      # closure asks PCAffidavitDetectorRegistry for the conforming
+      # detector for the attorney's (practiceAreaKey × jurisdictionKey)
+      # cell. Travis-Criminal Defense ships first; Phase 5+ adds Harris,
+      # Dallas, Personal Injury, Family Law, etc. as one file each.
+      - path: ../voxhora-ios/Voxhora/Engine/PCAffidavitDetector.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/PCAffidavitDetectors
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/PDFIntakeRouter.swift
         group: SharedEngine
@@ -275,6 +294,14 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/JurisdictionMutator.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Jurisdictions
+        group: SharedEngine
+      # DECISION 055 (practice-area pluggability, 2026-05-10) — the
+      # legal-field axis of the (practice area × jurisdiction) matrix.
+      # Sibling abstraction to Jurisdiction; AttorneyProfile carries
+      # both keys and document detector registries filter on the pair.
+      - path: ../voxhora-ios/Voxhora/Engine/PracticeArea.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/PracticeAreas
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/KeychainHelper.swift
         group: SharedEngine
