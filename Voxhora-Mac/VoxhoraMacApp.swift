@@ -12,6 +12,8 @@
 import SwiftUI
 import SwiftData
 import UserNotifications
+import AppKit
+import UniformTypeIdentifiers
 
 @main
 struct VoxhoraMacApp: App {
@@ -69,6 +71,19 @@ struct VoxhoraMacApp: App {
         // DECISION 026 — wire VoxhoraNotificationDelegate so reminder
         // notification taps route into the ReminderActionRouter on Mac.
         UNUserNotificationCenter.current().delegate = VoxhoraNotificationDelegate.shared
+
+        // DECISION 056 Beat 1 v4 (2026-05-11) — process-global Services
+        // registration. Tells macOS this app participates in the
+        // Services subsystem with image + PDF return types, which is
+        // the prerequisite for Continuity Camera items appearing in
+        // any context menu inside Voxhora-Mac. Required once at app
+        // launch — partner to ContinuityCameraResponder.swift's per-
+        // responder validRequestor advertisement. Apple-documented
+        // hook (NSApplication.registerServicesMenuSendTypes).
+        NSApplication.shared.registerServicesMenuSendTypes(
+            [],
+            returnTypes: NSImage.imageTypes.map { NSPasteboard.PasteboardType($0) }
+        )
     }
 
     var body: some Scene {
@@ -372,5 +387,13 @@ struct VoxhoraMacApp: App {
                 .tint(.voxInk)
         }
         .modelContainer(modelContainer)
+        // 2026-05-11 — `.commands { ImportFromDevicesCommands() }` was
+        // removed in v4 after 3-agent diagnosis. Apple bug FB14893699
+        // permanently disables the File-menu Continuity items if any
+        // SwiftUI Toggle ever rendered in the active window — Voxhora's
+        // Settings sheet has many. The AppKit Services route via
+        // ContinuityCameraResponder.swift bypasses this bug entirely
+        // and surfaces Continuity items in every context menu inside
+        // ClientDocsSheet via macOS's auto-injection mechanism.
     }
 }

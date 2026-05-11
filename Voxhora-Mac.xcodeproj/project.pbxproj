@@ -162,6 +162,7 @@
 		B28B28051590FCC2517920CE /* AppearBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4B351DAD437B011FF5EFD /* AppearBadge.swift */; };
 		B2E2FBAC393B54F6654F6237 /* SuccessWaveBackdrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D3D57127B7135A10BF2EA /* SuccessWaveBackdrop.swift */; };
 		B4B22AEE0FD4B40F5E7891DA /* CommunicationsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68056ECFEC853917FC94535F /* CommunicationsSection.swift */; };
+		B5152E7B4D32821F4F3B6CC7 /* ContinuityCameraResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264B4F9EF71EE9BE5D4F145 /* ContinuityCameraResponder.swift */; };
 		B8DC4239281111344D7CAEF8 /* CustodyStatusSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18574AB90EC96F2651788F1 /* CustodyStatusSource.swift */; };
 		B919ED7D7A7E9319468D0A68 /* ClientCommunicationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A026AA58A460630A9B852D5 /* ClientCommunicationRouter.swift */; };
 		B93940057B59B0BB67452361 /* RatePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307B1CCF2CDD028620A2F9B /* RatePickerSheet.swift */; };
@@ -277,6 +278,7 @@
 		1E0EF5F4639F5578B46D5033 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppState.swift; path = "../voxhora-ios/Voxhora/Engine/AppState.swift"; sourceTree = "<group>"; };
 		1ECC92C9DF0BE884A7BE4B89 /* DocsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DocsButton.swift; path = "../voxhora-ios/Voxhora/Views/DocsButton.swift"; sourceTree = "<group>"; };
 		203EC8295F94DFEDD500C736 /* WatchIndicatorColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchIndicatorColor.swift; path = "../voxhora-ios/Voxhora/Engine/WatchIndicatorColor.swift"; sourceTree = "<group>"; };
+		2264B4F9EF71EE9BE5D4F145 /* ContinuityCameraResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuityCameraResponder.swift; sourceTree = "<group>"; };
 		237F9C96FDFB7D31B5FBFEBF /* CashRainVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashRainVisual.swift; sourceTree = "<group>"; };
 		24FFA313513359941E81CCBC /* AutoBillingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoBillingHelper.swift; path = "../voxhora-ios/Voxhora/Engine/AutoBillingHelper.swift"; sourceTree = "<group>"; };
 		25913F17E7A0E5A53FFE9946 /* WatchBillingPresetsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBillingPresetsSection.swift; sourceTree = "<group>"; };
@@ -727,6 +729,7 @@
 			children = (
 				F20F1B14B91C56508039AF8E /* Sync */,
 				692FFE1B87CF90C6D57353F6 /* Assets.xcassets */,
+				2264B4F9EF71EE9BE5D4F145 /* ContinuityCameraResponder.swift */,
 				8E192A4B817B3CDF151AC4F6 /* Info.plist */,
 				F17FDAB5E522875CB61749C4 /* MacMainView.swift */,
 				654CE2F681E11BED3C9F0E10 /* StatusView.swift */,
@@ -1094,6 +1097,7 @@
 				5AB300C15BEC028028FBF3A1 /* ConfettiBurstVisual.swift in Sources */,
 				9AE23D0D249272BBD818AFA7 /* ContactClientSheet.swift in Sources */,
 				84FEB95F35B4C5029F82E976 /* ContactsAuthorizationManager.swift in Sources */,
+				B5152E7B4D32821F4F3B6CC7 /* ContinuityCameraResponder.swift in Sources */,
 				4348518749EE5FEF7F663765 /* CourtsLookup.swift in Sources */,
 				576C5BFD7579A6898F0DC214 /* CriminalDefense.swift in Sources */,
 				B8DC4239281111344D7CAEF8 /* CustodyStatusSource.swift in Sources */,
