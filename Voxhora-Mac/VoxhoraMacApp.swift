@@ -355,6 +355,21 @@ struct VoxhoraMacApp: App {
                         // dismiss coordination in v1).
                         VoxhoraNotificationDelegate.shared.router = reminderActionRouter
                         await SMSReminderScheduler.rescheduleAllOnLaunch(modelContext: modelContainer.mainContext)
+
+                        // DECISION 058 Step 2 (2026-05-12) — Patrick
+                        // Law Office Agent Phase 1 file watcher. Read
+                        // current Auto-intake settings from
+                        // UserPreferences and start the watcher if
+                        // the master toggle is on. Reactive restart
+                        // on settings change is wired via the
+                        // .onChange handlers below.
+                        let prefsDescriptor = FetchDescriptor<UserPreferences>()
+                        if let prefs = try? modelContainer.mainContext.fetch(prefsDescriptor).first {
+                            AutoIntakeWatcher.shared.refresh(
+                                paths: prefs.autoIntakeWatchedFolderPaths,
+                                enabled: prefs.autoIntakeEnabled
+                            )
+                        }
                     }
                     CloudSyncMonitor.shared.start()
                 }

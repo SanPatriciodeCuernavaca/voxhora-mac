@@ -288,6 +288,13 @@ targets:
       # backfill on existing Case rows).
       - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV12Bootstrap.swift
         group: SharedEngine
+      # DECISION 058 Step 2 (2026-05-12) — Patrick Law Office Agent
+      # Phase 1 file system watcher. Mac-only via #if os(macOS).
+      # Subscribes to FSEvents on the folders configured in Settings →
+      # Auto-intake folders; writes events to ~/Voxhora_Logs/agent.log.
+      # Step 2 = logging only; Step 3 wires the PC pipeline.
+      - path: ../voxhora-ios/Voxhora/Engine/AutoIntakeWatcher.swift
+        group: SharedEngine
       # Note: WatchBillingPresetsSection.swift + BillTimeEntryModeSection.swift
       # (DECISION 049 settings UI) are picked up automatically via the
       # `../voxhora-ios/Voxhora/Views/Settings` folder glob below — no
