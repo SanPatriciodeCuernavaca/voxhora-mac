@@ -356,13 +356,21 @@ struct VoxhoraMacApp: App {
                         VoxhoraNotificationDelegate.shared.router = reminderActionRouter
                         await SMSReminderScheduler.rescheduleAllOnLaunch(modelContext: modelContainer.mainContext)
 
-                        // DECISION 058 Step 2 (2026-05-12) — Patrick
-                        // Law Office Agent Phase 1 file watcher. Read
-                        // current Auto-intake settings from
-                        // UserPreferences and start the watcher if
-                        // the master toggle is on. Reactive restart
-                        // on settings change is wired via the
-                        // .onChange handlers below.
+                        // DECISION 058 Step 3 (2026-05-12) — Patrick
+                        // Law Office Agent Phase 1 file watcher.
+                        // (1) Wire the SwiftData context so the
+                        // watcher can look up the AttorneyProfile
+                        // (for detector selection) + Case rows (for
+                        // synopsis writes) + UserPreferences (for
+                        // the Destroy-source toggle). Must happen
+                        // BEFORE the first start() call.
+                        AutoIntakeWatcher.shared.setModelContext(modelContainer.mainContext)
+                        // (2) Read current Auto-intake settings and
+                        // start the watcher if the master toggle is
+                        // ON. Reactive restart on settings change is
+                        // wired from SettingsView's .onChange
+                        // handlers (avoids spurious restarts from
+                        // unrelated SwiftData saves).
                         let prefsDescriptor = FetchDescriptor<UserPreferences>()
                         if let prefs = try? modelContainer.mainContext.fetch(prefsDescriptor).first {
                             AutoIntakeWatcher.shared.refresh(
