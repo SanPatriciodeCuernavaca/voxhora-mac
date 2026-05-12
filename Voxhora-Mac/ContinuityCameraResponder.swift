@@ -3,6 +3,36 @@
 //  Voxhora-Mac — DECISION 056 Beat 1 v4 (Apple-canonical Continuity
 //  Camera, 2026-05-11)
 //
+//  ── STATUS POST-BEAT-1 (Beat 2 / Hardening Round, 2026-05-11) ──
+//
+//  KEPT AS DOCUMENTED DEFENSE-IN-DEPTH + REFERENCE.
+//
+//  Beat 1 evidence proved that `.importsItemProviders` directly on
+//  the SwiftUI row (ClientDocsSheet) is the route macOS actually
+//  uses — it catches every Continuity Camera capture first. The
+//  NSServicesMenuRequestor bridge below currently never receives a
+//  payload in normal operation; the Beat 1 follow-up audit flagged
+//  this for either deletion or explicit documentation.
+//
+//  Decision: KEEP. Reasons:
+//    1. Apple's SwiftUI Continuity Camera routing is undocumented +
+//       has changed between releases (Beat 1 had to discover the
+//       row-level `.importsItemProviders` route experimentally). If a
+//       future Xcode/macOS update changes that route, this responder
+//       is the working fallback that needs zero rewiring.
+//    2. Future Voxhora surfaces (e.g. CaseDocsSheet, EntryAttachments)
+//       can attach this responder to get Continuity Camera support
+//       without re-deriving the 6-iteration architecture journey.
+//    3. The performance cost is zero: a 1×1 invisible NSView with
+//       `.allowsHitTesting(false)` joins the responder chain but
+//       never fires unless macOS routes Services calls to it.
+//
+//  When updating: the canonical row-level route in ClientDocsSheet
+//  is the source of truth for behavior. This file is the documented
+//  Apple-native AppKit pattern + a working fallback.
+//
+//  ── ORIGINAL DESIGN NOTES (BEAT 1 v4) ──
+//
 //  The PROVEN pattern: AppKit NSServicesMenuRequestor bridge embedded
 //  in a SwiftUI sheet via NSViewRepresentable. Mirrors pd95/SwiftUI-
 //  Continuity-Camera (the only known-working SwiftUI Continuity Camera
