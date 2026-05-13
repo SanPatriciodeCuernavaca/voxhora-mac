@@ -326,6 +326,14 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AutoBillingHelper.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AutoBillFeedback.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AutoBillToastWindowController.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/MacMailSendTracker.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/MacMessagesSendTracker.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ReminderActionRouter.swift
@@ -490,6 +498,11 @@ targets:
         # lazily on first ClientContactsBridge.push (typically backfill
         # bootstrap).
         NSContactsUsageDescription: "Voxhora syncs your client roster to Apple Contacts (one-way only) so phone numbers, addresses, and emails appear automatically across iPhone, iPad, Mac, and Apple Watch."
+        # DECISION 059 Feature 1.7s (2026-05-12) — AppleScript automation
+        # purpose string. macOS shows this in the "Voxhora-Mac would like
+        # to control 'Mail'" permission dialog the first time the AppleScript
+        # path fires (lawyer's legal email as FROM via MacEmailComposer).
+        NSAppleEventsUsageDescription: "Voxhora controls Mail.app to send your client emails from your legal practice email address (Settings → Attorney Info → Email). Without this permission, all outgoing Voxhora emails fall back to your default Mail account."
         # DECISION 025 follow-up (2026-05-07) — Mac PDF document handler
         # registration. Lets Voxhora-Mac act as an Open With / Share
         # target for court-appointment PDFs (right-click PDF in Finder/

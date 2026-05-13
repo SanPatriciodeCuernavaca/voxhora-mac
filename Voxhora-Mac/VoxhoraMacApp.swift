@@ -45,6 +45,13 @@ struct VoxhoraMacApp: App {
     @State private var appState = AppState()
 
     init() {
+        // DECISION 059 Feature 1.7s v8 (2026-05-12 night) — auto-bill popup.
+        // Mac uses NSPanel-backed AutoBillToastWindowController (NSSplitViewController
+        // bridge consumes window content slot, defeating SwiftUI overlay attempts).
+        // Force AutoBillFeedback singleton init at launch + start the
+        // window controller's Combine subscription to AutoBillFeedback.shared.$pending.
+        _ = AutoBillFeedback.shared
+        AutoBillToastWindowController.shared.start()
         do {
             let schema = Schema([
                 Entry.self,
