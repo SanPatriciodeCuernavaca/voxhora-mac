@@ -25,5 +25,7 @@
 	<array>
 		<string>$(AppIdentifierPrefix)com.patrickfagerberg.voxhora.shared</string>
 	</array>
+	<key>com.apple.security.automation.apple-events</key>
+	<true/>
 </dict>
 </plist>

@@ -37,6 +37,8 @@
 	<string>1</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.business</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Voxhora controls Mail.app to send your client emails from your legal practice email address (Settings → Attorney Info → Email). Without this permission, all outgoing Voxhora emails fall back to your default Mail account.</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Voxhora syncs your client roster to Apple Contacts (one-way only) so phone numbers, addresses, and emails appear automatically across iPhone, iPad, Mac, and Apple Watch.</string>
 	<key>NSHumanReadableCopyright</key>
