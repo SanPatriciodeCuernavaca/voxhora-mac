@@ -194,7 +194,9 @@ final class HistoricalCSVImporter {
             }
         }
 
-        try? context.save()
+        if !AuditLogger.saveOrLog(context, callSite: "HistoricalCSVImporter.run", attorneyId: attorneyId) {
+            errors.append("Save failed during bulk import — \(entriesCreated) staged entries may not have persisted. See audit chain (event MODEL_SAVE_FAILED).")
+        }
 
         // Audit the import as one event so the chain knows this happened.
         if entriesCreated > 0 {
