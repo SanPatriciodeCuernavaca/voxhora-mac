@@ -110,6 +110,21 @@ struct VoxhoraMacApp: App {
                         .environmentObject(reminderActionRouter)
                 }
                 .frame(minWidth: 980, minHeight: 680)
+                // Path A3b (2026-05-13) — degraded-launch alert (Mac
+                // companion to iOS VoxhoraApp). Fires when onAppear sets
+                // appState.containerDegradedToInMemory = true on Tier 2
+                // fallback. Lawyer learns immediately that the Mac
+                // session is in-memory-only; can quit + relaunch.
+                .alert("iCloud sync unavailable", isPresented: Binding(
+                    get: { appState.containerDegradedToInMemory },
+                    set: { newValue in
+                        if !newValue { appState.containerDegradedToInMemory = false }
+                    }
+                )) {
+                    Button("Got it", role: .cancel) {}
+                } message: {
+                    Text("Voxhora couldn't connect to iCloud when it started up. The app is working, but anything you bill right now will be lost when you quit. Quit and reopen in a few minutes — if the problem keeps happening, restart your Mac or check your iCloud settings.")
+                }
                 // 2026-05-07 — Mac PDF handler. Mirrors VoxhoraApp's iOS
                 // handler (DECISION 025). Fires when a PDF opens via:
                 //   - Right-click in Finder/Mail/Safari → Open With → Voxhora-Mac
@@ -144,6 +159,10 @@ struct VoxhoraMacApp: App {
                                 ],
                                 attorneyId: ""
                             )
+                            // Path A3b (2026-05-13) — propagate to AppState
+                            // so the WindowGroup-level .alert fires for
+                            // the lawyer.
+                            appState.containerDegradedToInMemory = true
                         }
 
                         // Path A3 (2026-05-13) — start MetricKit subscriber
