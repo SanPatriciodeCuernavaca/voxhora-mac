@@ -20,6 +20,11 @@ struct VoxhoraMacApp: App {
     /// Shared schema with iOS. Same container ID. Same models.
     let modelContainer: ModelContainer
 
+    /// Path A3 (2026-05-13) — true when ModelContainerBootstrap fell back
+    /// to in-memory mode because CloudKit-backed init failed. Surfaced
+    /// to audit chain on first .onAppear.
+    let containerDegradedToInMemory: Bool
+
     /// DECISION 025 (PDF intake portal) — shared state holder for
     /// drag-drop + file-picker PDF arrivals. IntakeView observes;
     /// PDFImportSheet presents when pendingPDF becomes non-nil.
@@ -52,28 +57,28 @@ struct VoxhoraMacApp: App {
         // window controller's Combine subscription to AutoBillFeedback.shared.$pending.
         _ = AutoBillFeedback.shared
         AutoBillToastWindowController.shared.start()
-        do {
-            let schema = Schema([
-                Entry.self,
-                Client.self,
-                Case.self,
-                AttorneyProfile.self,
-                UserPreferences.self,
-                AuditLogEntry.self,
-                Voucher.self,                 // DECISION 012 — Phase C voucher state model
-                CalendarEvent.self,           // DECISION 022 — Calendar feature (DSA-driven court schedule)
-                ClientNote.self,              // DECISION 040.2 — Client notes journal
-                ClientDoc.self                // DECISION 056 — Client Docs vault (Session 1 data plumbing, 2026-05-11)
-            ])
-            let configuration = ModelConfiguration(
-                schema: schema,
-                isStoredInMemoryOnly: false,
-                cloudKitDatabase: .private("iCloud.com.patrickfagerberg.voxhora")
-            )
-            modelContainer = try ModelContainer(for: schema, configurations: [configuration])
-        } catch {
-            fatalError("Failed to create ModelContainer: \(error)")
-        }
+        // Path A3 (2026-05-13) — graceful CloudKit-init fallback (was
+        // prior fatalError). ModelContainerBootstrap returns the
+        // container + a `degraded` flag the lawyer's session is in
+        // in-memory mode, recorded to audit chain in onAppear.
+        let schema = Schema([
+            Entry.self,
+            Client.self,
+            Case.self,
+            AttorneyProfile.self,
+            UserPreferences.self,
+            AuditLogEntry.self,
+            Voucher.self,                 // DECISION 012 — Phase C voucher state model
+            CalendarEvent.self,           // DECISION 022 — Calendar feature (DSA-driven court schedule)
+            ClientNote.self,              // DECISION 040.2 — Client notes journal
+            ClientDoc.self                // DECISION 056 — Client Docs vault (Session 1 data plumbing, 2026-05-11)
+        ])
+        let bootResult = ModelContainerBootstrap.boot(
+            schema: schema,
+            cloudKitContainerID: "iCloud.com.patrickfagerberg.voxhora"
+        )
+        modelContainer = bootResult.container
+        containerDegradedToInMemory = bootResult.degraded
 
         // DECISION 026 — wire VoxhoraNotificationDelegate so reminder
         // notification taps route into the ReminderActionRouter on Mac.
@@ -126,6 +131,26 @@ struct VoxhoraMacApp: App {
                 .onAppear {
                     Task { @MainActor in
                         AuditLogger.shared.modelContext = modelContainer.mainContext
+
+                        // Path A3 (2026-05-13) — record degraded init to
+                        // audit chain when CloudKit fallback was hit.
+                        if containerDegradedToInMemory {
+                            AuditLogger.shared.log(
+                                eventType: .modelContainerInitDegraded,
+                                payload: [
+                                    "platform": "macOS",
+                                    "fallbackTier": "in_memory",
+                                    "appVersion": Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+                                ],
+                                attorneyId: ""
+                            )
+                        }
+
+                        // Path A3 (2026-05-13) — start MetricKit subscriber
+                        // (same hookup as iPhone; flows anonymized crash +
+                        // diagnostic reports to the Voxhora developer
+                        // account via App Store Connect).
+                        MetricKitManager.shared.startObserving()
 
                         // One-shot quantitiesNormalizedV1 migration — same
                         // Money-precision invariant we ship on iPhone.

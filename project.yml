@@ -98,6 +98,13 @@ targets:
       # the same capture/edit/export functionality the iPhone has.
       - path: ../voxhora-ios/Voxhora/Engine/AuditLogger.swift
         group: SharedEngine
+      # Path A3 (2026-05-13) — graceful ModelContainer init + MetricKit
+      # subscriber. Both new files share-sourced from voxhora-ios so iOS
+      # + Mac stay in lockstep on launch-failure semantics.
+      - path: ../voxhora-ios/Voxhora/Engine/ModelContainerBootstrap.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/MetricKitManager.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/TabRegistry.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CloudSyncMonitor.swift

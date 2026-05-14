@@ -163,6 +163,7 @@
 		AD8757C313E326A59799C735 /* TabRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A9C847AFABC90D5756DBB /* TabRegistry.swift */; };
 		AE6E047D38D8377D6C7F4694 /* TCCaseListImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673B747584289E2B2E2A5B0 /* TCCaseListImporter.swift */; };
 		AFC8233E431E9D6F8FEADD73 /* PorscheFlatSixSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB9F86941A94D922F0E311F /* PorscheFlatSixSound.swift */; };
+		AFDF0EE47FBCD5947804EB26 /* ModelContainerBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBC537782440D60269C1A0 /* ModelContainerBootstrap.swift */; };
 		B08F01D7E8852FB40ECF9E71 /* AttorneyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE49BD1B301B49CA563624F /* AttorneyProfile.swift */; };
 		B1AABF2162BE7EFBF8462128 /* FunModeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D0A287B5B743D644BF0A9 /* FunModeSection.swift */; };
 		B28B28051590FCC2517920CE /* AppearBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4B351DAD437B011FF5EFD /* AppearBadge.swift */; };
@@ -191,6 +192,7 @@
 		D3CDE945059BFBA31CAC1CE7 /* RosterReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F98C329547921ED512F8 /* RosterReconciler.swift */; };
 		D3EC9049F13215CA828BA16E /* ClientToCaseBackfillBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4286A72BF7F513ADE3115071 /* ClientToCaseBackfillBootstrap.swift */; };
 		D4550C6A6DBCA9EB829108B8 /* CaseTypeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB7755BB55CE823BC38D0D /* CaseTypeFilter.swift */; };
+		D596329267BADF7C1561ADF9 /* MetricKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20756C034F376B57BB5C19 /* MetricKitManager.swift */; };
 		D5A821150B1B1820901AA78A /* AnthropicClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD557B103B7A12205BBD67 /* AnthropicClient.swift */; };
 		D5B333C0F30945507055C98B /* ParsedAppointmentIntake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A10C326087E5D7119FB2D8D /* ParsedAppointmentIntake.swift */; };
 		D71BDC643DAEB9F024A4952F /* PCAffidavitImportSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD6ECE6E70C38B61501CD /* PCAffidavitImportSheet.swift */; };
@@ -274,6 +276,7 @@
 		0D3EE9BB0327606CDEB7F739 /* UserImportedVisualsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImportedVisualsManager.swift; sourceTree = "<group>"; };
 		0E5FF20B6F8305E38AFD5DA5 /* FunModeHaptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeHaptics.swift; sourceTree = "<group>"; };
 		0E61B19B018766AC9F1E5F54 /* ClientRosterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientRosterRow.swift; path = "../voxhora-ios/Voxhora/Views/ClientRosterRow.swift"; sourceTree = "<group>"; };
+		0F20756C034F376B57BB5C19 /* MetricKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetricKitManager.swift; path = "../voxhora-ios/Voxhora/Engine/MetricKitManager.swift"; sourceTree = "<group>"; };
 		10992B90E1518B51995BCD06 /* PlatformViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlatformViewHelpers.swift; path = "../voxhora-ios/Voxhora/Engine/PlatformViewHelpers.swift"; sourceTree = "<group>"; };
 		10E26B57CAD6A087F0862F26 /* Voxhora-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voxhora-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		137C0900489FD4AD30369786 /* QuickAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuickAction.swift; path = "../voxhora-ios/Voxhora/Engine/QuickAction.swift"; sourceTree = "<group>"; };
@@ -366,6 +369,7 @@
 		6F8A0986E172331CBECB1B9D /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Voucher.swift; path = "../voxhora-ios/Voxhora/Models/Voucher.swift"; sourceTree = "<group>"; };
 		6FB9F86941A94D922F0E311F /* PorscheFlatSixSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorscheFlatSixSound.swift; sourceTree = "<group>"; };
 		6FED69476AFFE3DAAE67FE31 /* CaseTypeFilterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTypeFilterRegistry.swift; sourceTree = "<group>"; };
+		73BBC537782440D60269C1A0 /* ModelContainerBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelContainerBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ModelContainerBootstrap.swift"; sourceTree = "<group>"; };
 		7414E99F6A181A848E705362 /* UserPreferencesBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesBootstrap.swift"; sourceTree = "<group>"; };
 		7D27C88B65F064C1C11028C5 /* AppointmentLetterParserRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentLetterParserRegistry.swift; path = "../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers/AppointmentLetterParserRegistry.swift"; sourceTree = "<group>"; };
 		7D75E4391268D063F546EF4D /* CustodyStatusSourceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustodyStatusSourceRegistry.swift; sourceTree = "<group>"; };
@@ -547,6 +551,8 @@
 				2C35F14697F4C491EAF62CC7 /* KeychainHelper.swift */,
 				97DC31DC98A7A6CBA14B8AD7 /* MacMailSendTracker.swift */,
 				2B633A3FB1CFD373573A8022 /* MacMessagesSendTracker.swift */,
+				0F20756C034F376B57BB5C19 /* MetricKitManager.swift */,
+				73BBC537782440D60269C1A0 /* ModelContainerBootstrap.swift */,
 				F33B508F96C239E88127CBA7 /* PCAffidavitDetector.swift */,
 				FC5CBFAA8C1FBE08F2893786 /* PDFIntakeRouter.swift */,
 				10992B90E1518B51995BCD06 /* PlatformViewHelpers.swift */,
@@ -1164,6 +1170,8 @@
 				7E2BB30F88F1D9F37C9654AD /* MacMainView.swift in Sources */,
 				E63785C9A47366580F4B7E33 /* MacMessagesSendTracker.swift in Sources */,
 				BFAC48314965E66BDB4DED2C /* ManualEntryForm.swift in Sources */,
+				D596329267BADF7C1561ADF9 /* MetricKitManager.swift in Sources */,
+				AFDF0EE47FBCD5947804EB26 /* ModelContainerBootstrap.swift in Sources */,
 				C9E90DF1C2F3375CC6E95E8F /* MoneyCounter.swift in Sources */,
 				7E7712F93D77B6FBCF1FE557 /* NotesButton.swift in Sources */,
 				F4840BC826C65ADA16C11B59 /* OnboardingView.swift in Sources */,
