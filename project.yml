@@ -20,8 +20,12 @@ packages:
 
 settings:
   base:
-    DEVELOPMENT_TEAM: S4GM27H6N5
+    # Path B Step 1 (2026-05-13) — Swift 5 + strict concurrency
+    # checking (warnings). Matches voxhora-ios; Path B Step 2 flips
+    # to SWIFT_VERSION 6.0 in a future beat.
     SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    DEVELOPMENT_TEAM: S4GM27H6N5
     CODE_SIGN_STYLE: Automatic
     PRODUCT_BUNDLE_IDENTIFIER: com.patrickfagerberg.voxhora.mac
     # 2026-05-07 follow-up — switched from GENERATE_INFOPLIST_FILE: YES
