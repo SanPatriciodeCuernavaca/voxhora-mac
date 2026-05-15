@@ -38,6 +38,12 @@ struct MacMainView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var allPreferences: [UserPreferences]
     @Query private var profiles: [AttorneyProfile]
+    // 2026-05-15 — Initial Contact sidebar badge. Same predicate as
+    // IntakeView's `pendingInitialContactClients`: agent-intaked +
+    // not-yet-opened + not-archived. Drives the (N) count badge on
+    // the Intake row in the sidebar so the lawyer sees a pending-
+    // work signal without opening the tab.
+    @Query private var allClients: [Client]
 
     @State private var showingDiagnostics = false
 
@@ -83,12 +89,23 @@ struct MacMainView: View {
             // surrounding scope with a renamed binding.
             @Bindable var appState = appState
 
+            // 2026-05-15 — Initial Contact sidebar badge count.
+            // Same shape as iPhone MainTabView. `.badge(0)` renders
+            // no badge per Apple's TabView semantics on macOS sidebar
+            // — non-Intake tabs apply 0 cleanly.
+            let pendingInitialContactCount = allClients.filter {
+                $0.source.hasPrefix("agent_")
+                    && $0.firstOpenedByLawyerAt == nil
+                    && !$0.archived
+            }.count
+
             TabView(selection: $appState.selectedTab) {
                 ForEach(TabRegistry.tabs(for: .mac)) { def in
                     Tab(def.title, systemImage: def.systemImage, value: def.id, role: def.role) {
                         def.content()
                     }
                     .customizationID(def.id.customizationID)
+                    .badge(def.id == .intake ? pendingInitialContactCount : 0)
                 }
             }
             .tabViewStyle(.sidebarAdaptable)
