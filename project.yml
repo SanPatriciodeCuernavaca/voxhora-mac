@@ -345,6 +345,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/MailInboxBridge.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/MailInboxWatcher.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/MacMessagesSendTracker.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift

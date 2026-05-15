@@ -428,6 +428,22 @@ struct VoxhoraMacApp: App {
                                 paths: prefs.autoIntakeWatchedFolderPaths,
                                 enabled: prefs.autoIntakeEnabled
                             )
+                            // Beat 2 (2026-05-15) — Patrick Law
+                            // Office Agent Phase 1 Source A timer
+                            // auto-poll. Sibling to AutoIntakeWatcher;
+                            // starts the Mail inbox Timer when
+                            // mailInboxMonitoringEnabled is ON.
+                            // Reactive restart on settings change is
+                            // wired from SettingsView's .onChange
+                            // handlers (master toggle / sender list /
+                            // interval / processed mailbox name).
+                            MailInboxWatcher.shared.setModelContext(modelContainer.mainContext)
+                            MailInboxWatcher.shared.refresh(
+                                enabled: prefs.mailInboxMonitoringEnabled,
+                                senders: prefs.mailInboxSenderFilter,
+                                intervalSeconds: prefs.mailInboxPollIntervalSeconds,
+                                processedMailboxName: prefs.mailInboxProcessedMailboxName
+                            )
                         }
                     }
                     CloudSyncMonitor.shared.start()
