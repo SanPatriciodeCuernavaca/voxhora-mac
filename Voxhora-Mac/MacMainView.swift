@@ -38,12 +38,15 @@ struct MacMainView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var allPreferences: [UserPreferences]
     @Query private var profiles: [AttorneyProfile]
-    // 2026-05-15 — Initial Contact sidebar badge. Same predicate as
-    // IntakeView's `pendingInitialContactClients`: agent-intaked +
-    // not-yet-opened + not-archived. Drives the (N) count badge on
-    // the Intake row in the sidebar so the lawyer sees a pending-
-    // work signal without opening the tab.
-    @Query private var allClients: [Client]
+    // 2026-05-15 — Initial Contact sidebar badge. Same predicate-
+    // filtered @Query shape as MainTabView (iPhone). Filtering at
+    // fetch time reduces body re-eval frequency vs raw allClients.
+    @Query(filter: #Predicate<Client> {
+        ($0.source == "agent_appointment_intake" || $0.source == "agent_pc_intake")
+        && $0.firstOpenedByLawyerAt == nil
+        && !$0.archived
+    })
+    private var pendingInitialContactClients: [Client]
 
     @State private var showingDiagnostics = false
 
@@ -89,15 +92,8 @@ struct MacMainView: View {
             // surrounding scope with a renamed binding.
             @Bindable var appState = appState
 
-            // 2026-05-15 — Initial Contact sidebar badge count.
-            // Same shape as iPhone MainTabView. `.badge(0)` renders
-            // no badge per Apple's TabView semantics on macOS sidebar
-            // — non-Intake tabs apply 0 cleanly.
-            let pendingInitialContactCount = allClients.filter {
-                $0.source.hasPrefix("agent_")
-                    && $0.firstOpenedByLawyerAt == nil
-                    && !$0.archived
-            }.count
+            // 2026-05-15 — count from predicate-filtered @Query.
+            let pendingInitialContactCount = pendingInitialContactClients.count
 
             TabView(selection: $appState.selectedTab) {
                 ForEach(TabRegistry.tabs(for: .mac)) { def in
