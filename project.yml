@@ -415,6 +415,8 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/TodayView.swift
         group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/TodayViewModel.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/EntryRow.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/EditEntrySheet.swift
