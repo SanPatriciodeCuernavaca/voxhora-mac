@@ -462,6 +462,8 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/CalendarView.swift
         group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/CalendarViewModel.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/CalendarRangeView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/NotesButton.swift

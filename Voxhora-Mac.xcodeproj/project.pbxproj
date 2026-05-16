@@ -15,6 +15,7 @@
 		069760821762C79BC069EF9E /* ExportAdapterRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4468BAB6C25FC9144965B /* ExportAdapterRegistry.swift */; };
 		06E05D3DE23D2B695E96FC02 /* QuickAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C0900489FD4AD30369786 /* QuickAction.swift */; };
 		07A89A0C26968A48C33233D2 /* IntakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BB8AC5D0764DDC0DBB7769 /* IntakeView.swift */; };
+		08F1E5B57E7D5F6E4F41F563 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3C3625A0290B1BC1B73A2 /* CalendarViewModel.swift */; };
 		09360A098D30C9687B86A22C /* ClientContactsBackfillBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E8EA2D92FF70AAB9E6CEFA /* ClientContactsBackfillBootstrap.swift */; };
 		0B69D04F0D23FA07CD9CB9E4 /* TravisCountySIPSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DA8B1B466B568BC29F2AEF /* TravisCountySIPSource.swift */; };
 		0BFD0A09F3206928B2B16456 /* ClientNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC0EB8E919F40C19F92A9E /* ClientNote.swift */; };
@@ -449,6 +450,7 @@
 		CED2243FD4303F366D25C658 /* TabResetGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabResetGate.swift; path = "../voxhora-ios/Voxhora/Views/TabResetGate.swift"; sourceTree = "<group>"; };
 		CFAF71DD7941599E41B3C95A /* ClientDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientDoc.swift; path = "../voxhora-ios/Voxhora/Models/ClientDoc.swift"; sourceTree = "<group>"; };
 		D003F636532917B30878C52A /* ClientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientDetailView.swift; path = "../voxhora-ios/Voxhora/Views/ClientDetailView.swift"; sourceTree = "<group>"; };
+		D1F3C3625A0290B1BC1B73A2 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarViewModel.swift; path = "../voxhora-ios/Voxhora/Views/CalendarViewModel.swift"; sourceTree = "<group>"; };
 		D1F75057C52E8B7B366A4DBD /* ClientRosterImporterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRosterImporterRegistry.swift; sourceTree = "<group>"; };
 		D2731F9AB15C10BD113EB514 /* AddClientSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddClientSheet.swift; path = "../voxhora-ios/Voxhora/Views/AddClientSheet.swift"; sourceTree = "<group>"; };
 		D2BF4F34B672795ECBEDF44D /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferences.swift; path = "../voxhora-ios/Voxhora/Models/UserPreferences.swift"; sourceTree = "<group>"; };
@@ -635,6 +637,7 @@
 				9E8B2877C23EBE85377EA7A0 /* CalendarEventRow.swift */,
 				B419EBC1BF2FC6B2E0F9AAA5 /* CalendarRangeView.swift */,
 				5CCC4FD229E96BA1ABA5F164 /* CalendarView.swift */,
+				D1F3C3625A0290B1BC1B73A2 /* CalendarViewModel.swift */,
 				E3C26098F419D2519846A77A /* CallDurationSheet.swift */,
 				3CE155F1BF556A4A62C8C711 /* CaptureView.swift */,
 				657D1E03DB0AF448DCC130EA /* CaseInfoSheet.swift */,
@@ -1106,6 +1109,7 @@
 				0F994846BDBD81712AE59EBC /* CalendarRefreshScheduler.swift in Sources */,
 				E53B940D5321A342A637D2C7 /* CalendarSource.swift in Sources */,
 				319B0C2F43AA17F25A1CB843 /* CalendarView.swift in Sources */,
+				08F1E5B57E7D5F6E4F41F563 /* CalendarViewModel.swift in Sources */,
 				7C4426A838417F9F3E6CCFC6 /* CallDurationSheet.swift in Sources */,
 				EE74A69ED4C2DE91EA2F21FE /* CallTrackingService.swift in Sources */,
 				55A195F1DB0904FB851CED87 /* CaptureView.swift in Sources */,
