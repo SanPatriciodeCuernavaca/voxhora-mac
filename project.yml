@@ -447,6 +447,8 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/IntakeView.swift
         group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/IntakeViewModel.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/PDFImportSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/IntroEmailComposer.swift
