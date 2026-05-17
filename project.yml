@@ -469,6 +469,10 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationOrchestrator.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationFolderImporter.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Views/Migration/MigrationFolderBulkDropSheet.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/Migration/MigrationView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/Migration/MigrationCSVImportView.swift
