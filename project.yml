@@ -471,6 +471,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationFolderImporter.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationOrphanCleanup.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Views/Migration/MigrationFolderBulkDropSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/Migration/MigrationView.swift

@@ -444,6 +444,15 @@ struct VoxhoraMacApp: App {
                                 intervalSeconds: prefs.mailInboxPollIntervalSeconds,
                                 processedMailboxName: prefs.mailInboxProcessedMailboxName
                             )
+                            // Migration Import Portal v1 Session 4
+                            // (2026-05-16) — sweep orphan bulk-import
+                            // PDFs (`*__voxmigr-*.pdf`) older than 30
+                            // days from the watched folders. Cheap
+                            // (file enumeration + age check); runs
+                            // once per launch. Only touches PDFs
+                            // Voxhora itself copied via bulk-drop;
+                            // never deletes the lawyer's own files.
+                            MigrationOrphanCleanup.runIfDue(modelContext: modelContainer.mainContext)
                         }
                     }
                     CloudSyncMonitor.shared.start()
