@@ -565,6 +565,12 @@ targets:
         # (MailInboxBridge) — Apple's automation TCC entitlement is binary
         # per target app.
         NSAppleEventsUsageDescription: "Voxhora controls Mail.app to send your client emails from your legal practice email address and to scan your inbox for court appointment emails (saving any attached PDFs to Downloads for automatic client intake). Without this permission, Voxhora's email send falls back to your default account and the inbox agent cannot run."
+        # Mac voice billing (Phase B Gap #1, 2026-05-16) — closes the
+        # gap surfaced in Voxhora - Phase B Platform-Conditional Audit
+        # 2026-05-16. macOS shows the mic + speech-recognition prompts
+        # the first time the lawyer taps the Speak chip in CaptureView.
+        NSMicrophoneUsageDescription: "Voxhora listens to your voice when you tap the Speak chip in Bill Time, transcribes it on-device, and turns it into a billable entry. Without this permission, voice billing is disabled and you'd have to type each entry manually."
+        NSSpeechRecognitionUsageDescription: "Voxhora uses Apple's on-device speech recognition to turn what you say into a billable entry. Recognition runs locally — your audio never leaves your Mac. Without this permission, voice billing is disabled."
         # DECISION 025 follow-up (2026-05-07) — Mac PDF document handler
         # registration. Lets Voxhora-Mac act as an Open With / Share
         # target for court-appointment PDFs (right-click PDF in Finder/
