@@ -80,6 +80,15 @@ struct VoxhoraMacApp: App {
         modelContainer = bootResult.container
         containerDegradedToInMemory = bootResult.degraded
 
+        // Phase B Gap #2 closure (2026-05-16) — register the Mac SIP
+        // background poll. SIPPollScheduler.registerBackgroundTask() is
+        // platform-switched: iOS registers a BGTaskScheduler handler;
+        // Mac schedules a recurring NSBackgroundActivityScheduler that
+        // fires every ~4h (iOS DECISION 029 cadence). Mac lawyers who
+        // keep Voxhora-Mac open (or come back after sleep) now get
+        // SIP custody status updates without needing iPhone-side polls.
+        SIPPollScheduler.registerBackgroundTask()
+
         // DECISION 026 — wire VoxhoraNotificationDelegate so reminder
         // notification taps route into the ReminderActionRouter on Mac.
         UNUserNotificationCenter.current().delegate = VoxhoraNotificationDelegate.shared
