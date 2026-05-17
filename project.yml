@@ -449,6 +449,30 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/IntakeViewModel.swift
         group: SharedViews
+      # Migration Import Portal v1 (2026-05-16) — public-Voxhora-first
+      # trunk for importing historical billing CSV/XLSX from Clio,
+      # MyCase, PracticePanther, TimeSolv, Bill4Time, or Voxhora's own
+      # voucher exports. Stage 3 (Time Records) ships v1 Session 1.
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationStagedEntry.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationFileReader.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationColumnMapping.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationVocabularyRegistry.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/Vocabularies/TravisCountyVocab.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/Vocabularies/GenericFreeformVocab.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationImporter.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Views/Migration/MigrationView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/Migration/MigrationCSVImportView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/Migration/MigrationPreviewView.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/PDFImportSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/IntroEmailComposer.swift
