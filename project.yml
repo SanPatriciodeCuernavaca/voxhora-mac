@@ -385,6 +385,11 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/KeychainHelper.swift
         group: SharedEngine
+      # 2026-05-18 — US phone-number auto-formatter (Patrick: "I have
+      # to add the brackets and hyphen by hand"). Used by SettingsView's
+      # Attorney Info phone field + ClientInfoSheet phone1 / phone2.
+      - path: ../voxhora-ios/Voxhora/Engine/PhoneFormatter.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ExportAdapter.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ExportAdapters
