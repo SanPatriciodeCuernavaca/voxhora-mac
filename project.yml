@@ -197,6 +197,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV8Bootstrap.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV11Bootstrap.swift
+        group: SharedEngine
       # DECISION 056 Session 2 (Client Docs UI surface, 2026-05-11) —
       # cross-platform views for the per-client document vault.
       # iOS-only picker bridges (PHPickerBridge / CameraPickerBridge /

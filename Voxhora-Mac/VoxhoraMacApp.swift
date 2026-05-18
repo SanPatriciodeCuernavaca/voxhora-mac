@@ -252,6 +252,12 @@ struct VoxhoraMacApp: App {
                         // flips ONLY on success).
                         ClientSchemaV8Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // EOS-FINAL-19 (Pending Intake Review, 2026-05-17) —
+                        // Client v10 → v11 sanity pass + backfill of today's
+                        // agent_appointment_intake clients to pendingReview.
+                        // Same wiring as iPhone side.
+                        ClientSchemaV11Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 044 — Apple Contacts backfill on Mac.
                         // Independent of iPhone (each device runs its own
                         // backfill bootstrap; the Voxhora Clients CNGroup
