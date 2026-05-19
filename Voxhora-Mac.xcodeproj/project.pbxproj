@@ -131,6 +131,7 @@
 		7B5E9375AB21CACDF1C764DE /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8A3F63A2040573248F50F /* TodayView.swift */; };
 		7BE57B8CCE0E16DBAD99F1AD /* ClientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003F636532917B30878C52A /* ClientDetailView.swift */; };
 		7C4426A838417F9F3E6CCFC6 /* CallDurationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C26098F419D2519846A77A /* CallDurationSheet.swift */; };
+		7D276D6A70E470A1F1149332 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 055CC45CB1A6A2E8DF6B6953 /* Sparkle */; };
 		7DE057FB03D217FC621B2A5E /* CaseTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C90D7B5BC9FBE85A8A78175 /* CaseTrunk.swift */; };
 		7DE66386C78AA008ECD90160 /* llm_system_prompt.md in Resources */ = {isa = PBXBuildFile; fileRef = DF1232A2D896FCDCDE3D0D4C /* llm_system_prompt.md */; };
 		7DF7823A70159C76F816B9F6 /* MigrationVocabularyRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2442664128F99446BC36900E /* MigrationVocabularyRegistry.swift */; };
@@ -178,6 +179,7 @@
 		AFC8233E431E9D6F8FEADD73 /* PorscheFlatSixSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB9F86941A94D922F0E311F /* PorscheFlatSixSound.swift */; };
 		AFDF0EE47FBCD5947804EB26 /* ModelContainerBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBC537782440D60269C1A0 /* ModelContainerBootstrap.swift */; };
 		B08F01D7E8852FB40ECF9E71 /* AttorneyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE49BD1B301B49CA563624F /* AttorneyProfile.swift */; };
+		B13F971A0E1821DDB44D1830 /* CheckForUpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340EFE7D55A70A0F35F56A3 /* CheckForUpdatesView.swift */; };
 		B1AABF2162BE7EFBF8462128 /* FunModeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D0A287B5B743D644BF0A9 /* FunModeSection.swift */; };
 		B28B28051590FCC2517920CE /* AppearBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4B351DAD437B011FF5EFD /* AppearBadge.swift */; };
 		B2E2FBAC393B54F6654F6237 /* SuccessWaveBackdrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D3D57127B7135A10BF2EA /* SuccessWaveBackdrop.swift */; };
@@ -314,6 +316,7 @@
 		1ECC92C9DF0BE884A7BE4B89 /* DocsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DocsButton.swift; path = "../voxhora-ios/Voxhora/Views/DocsButton.swift"; sourceTree = "<group>"; };
 		203EC8295F94DFEDD500C736 /* WatchIndicatorColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchIndicatorColor.swift; path = "../voxhora-ios/Voxhora/Engine/WatchIndicatorColor.swift"; sourceTree = "<group>"; };
 		2264B4F9EF71EE9BE5D4F145 /* ContinuityCameraResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuityCameraResponder.swift; sourceTree = "<group>"; };
+		2340EFE7D55A70A0F35F56A3 /* CheckForUpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForUpdatesView.swift; sourceTree = "<group>"; };
 		237F9C96FDFB7D31B5FBFEBF /* CashRainVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashRainVisual.swift; sourceTree = "<group>"; };
 		2442664128F99446BC36900E /* MigrationVocabularyRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationVocabularyRegistry.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationVocabularyRegistry.swift"; sourceTree = "<group>"; };
 		24FFA313513359941E81CCBC /* AutoBillingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoBillingHelper.swift; path = "../voxhora-ios/Voxhora/Engine/AutoBillingHelper.swift"; sourceTree = "<group>"; };
@@ -523,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E532D0F5E73800C9C796898D /* Vortex in Frameworks */,
+				7D276D6A70E470A1F1149332 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,6 +837,7 @@
 			children = (
 				F20F1B14B91C56508039AF8E /* Sync */,
 				692FFE1B87CF90C6D57353F6 /* Assets.xcassets */,
+				2340EFE7D55A70A0F35F56A3 /* CheckForUpdatesView.swift */,
 				2264B4F9EF71EE9BE5D4F145 /* ContinuityCameraResponder.swift */,
 				8E192A4B817B3CDF151AC4F6 /* Info.plist */,
 				F17FDAB5E522875CB61749C4 /* MacMainView.swift */,
@@ -1036,6 +1041,7 @@
 			name = "Voxhora-Mac";
 			packageProductDependencies = (
 				9A205C6C2E1C26A72B2F93AE /* Vortex */,
+				055CC45CB1A6A2E8DF6B6953 /* Sparkle */,
 			);
 			productName = "Voxhora-Mac";
 			productReference = 10E26B57CAD6A087F0862F26 /* Voxhora-Mac.app */;
@@ -1087,6 +1093,7 @@
 			mainGroup = F80EBEE893CA46D34D6FA6A2;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				0EF3D171340780B2BBC65132 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				04A2ECE758FCA367C0AB59B4 /* XCRemoteSwiftPackageReference "Vortex" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -1174,6 +1181,7 @@
 				C950545AE5C0033F4FD9E309 /* CashRainVisual.swift in Sources */,
 				897AE471DC65BE4942FDB36A /* CashierChimeSound.swift in Sources */,
 				A26E64763FD21E93CD5206C0 /* ChampagnePopVisual.swift in Sources */,
+				B13F971A0E1821DDB44D1830 /* CheckForUpdatesView.swift in Sources */,
 				E5EE216F6FBFB1F88A003708 /* Client.swift in Sources */,
 				B919ED7D7A7E9319468D0A68 /* ClientCommunicationRouter.swift in Sources */,
 				09360A098D30C9687B86A22C /* ClientContactsBackfillBootstrap.swift in Sources */,
@@ -1630,9 +1638,22 @@
 				minimumVersion = 1.0.4;
 			};
 		};
+		0EF3D171340780B2BBC65132 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		055CC45CB1A6A2E8DF6B6953 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EF3D171340780B2BBC65132 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
 		9A205C6C2E1C26A72B2F93AE /* Vortex */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 04A2ECE758FCA367C0AB59B4 /* XCRemoteSwiftPackageReference "Vortex" */;

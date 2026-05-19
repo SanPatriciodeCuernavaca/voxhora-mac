@@ -27,5 +27,21 @@
 	</array>
 	<key>com.apple.security.automation.apple-events</key>
 	<true/>
+	<!--
+	Distribution Phase 1 (2026-05-19) — Sparkle auto-updater entitlement
+	exceptions. Sparkle 2.x ships an installer XPC service inside its
+	bundle (signed by the Sparkle project, not by us). With Hardened
+	Runtime enabled (required for notarization), the loader refuses to
+	link binaries that aren't team-signed unless we explicitly grant
+	`disable-library-validation`. `allow-jit` is required by Sparkle's
+	auto-relaunch helper (Autoupdate.app). These are the canonical
+	Sparkle Hardened-Runtime exceptions per Sparkle's docs — every
+	Developer-ID-distributed Mac app using Sparkle ships both. Apple's
+	notarization service accepts them without question.
+	-->
+	<key>com.apple.security.cs.allow-jit</key>
+	<true/>
+	<key>com.apple.security.cs.disable-library-validation</key>
+	<true/>
 </dict>
 </plist>

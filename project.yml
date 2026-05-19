@@ -17,6 +17,15 @@ packages:
   # Visual quality bar Beat D 2026-05-09 — Pow + Inferno excluded;
   # native SwiftUI primitives replace both. See iOS project.yml
   # packages section for rationale.
+  # Distribution Phase 1 (2026-05-19) — Sparkle auto-updater for Mac.
+  # Voxhora-Mac is non-sandboxed (AppleScript Mail control + FSEvents
+  # incompatible with App Sandbox), so TestFlight is structurally wrong.
+  # Sparkle is the canonical Developer-ID + notarized-DMG + appcast
+  # auto-updater used by Sketch / Tower / Transmit / classic 1Password.
+  # See ~/Obsidian/Voxhora/Voxhora - Distribution and Public-Launch Plan 2026-05-19.md.
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    from: "2.9.2"
 
 settings:
   base:
@@ -59,6 +68,8 @@ targets:
       - package: Vortex
       # Visual quality bar Beat D 2026-05-09 — premium polish via
       # native SwiftUI (no extra deps).
+      # Distribution Phase 1 (2026-05-19) — Sparkle auto-updater.
+      - package: Sparkle
     sources:
       # Mac-specific app code
       - path: Voxhora-Mac
@@ -595,6 +606,22 @@ targets:
             LSItemContentTypes:
               - com.adobe.pdf
             CFBundleTypeIconFiles: []
+        # Distribution Phase 1 (2026-05-19) — Sparkle auto-updater wiring.
+        # Voxhora-Mac is non-sandboxed → Sparkle is the canonical
+        # Developer-ID + notarized-DMG + appcast.xml auto-updater path
+        # (vs TestFlight which would block the Mail.app + FSEvents
+        # entitlements the agent needs). See `Voxhora - Distribution and
+        # Public-Launch Plan 2026-05-19.md` and `sparkle-credentials/README.md`.
+        # SUFeedURL is the RSS feed Sparkle polls every 24h to discover
+        # new releases. Hosted free via GitHub's raw.githubusercontent.com
+        # — no separate CDN needed. SUPublicEDKey is the public half of
+        # the EdDSA keypair generated 2026-05-19; the private half lives
+        # in macOS Keychain + Voxhora_Backups/sparkle-credentials/ and
+        # is required to sign every release DMG (via release.sh).
+        SUFeedURL: https://raw.githubusercontent.com/SanPatriciodeCuernavaca/voxhora-mac/main/appcast.xml
+        SUPublicEDKey: w2XWFE/kzeQK0BFLW6jRw5kSpb1pNMQ+4gvlljT+RWM=
+        SUEnableInstallerLauncherService: true
+        SUEnableAutomaticChecks: true
     # postBuildScripts intentionally disabled 2026-05-02 ~13:35.
     #
     # The "Refresh /Applications/Voxhora-Mac.app for Launchpad" script

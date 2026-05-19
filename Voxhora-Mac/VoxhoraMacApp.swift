@@ -14,11 +14,24 @@ import SwiftData
 import UserNotifications
 import AppKit
 import UniformTypeIdentifiers
+import Sparkle
 
 @main
 struct VoxhoraMacApp: App {
     /// Shared schema with iOS. Same container ID. Same models.
     let modelContainer: ModelContainer
+
+    /// Distribution Phase 1 (2026-05-19) — Sparkle auto-updater.
+    /// Polls SUFeedURL (Info.plist) every 24h, verifies downloaded DMGs
+    /// against SUPublicEDKey, and applies the update on next quit.
+    /// `startingUpdater: true` means the updater starts the moment the
+    /// app launches — no further wiring required. The menu item lives
+    /// in `.commands` below; automatic background checks need no UI.
+    private let updaterController = SPUStandardUpdaterController(
+        startingUpdater: true,
+        updaterDelegate: nil,
+        userDriverDelegate: nil
+    )
 
     /// Path A3 (2026-05-13) — true when ModelContainerBootstrap fell back
     /// to in-memory mode because CloudKit-backed init failed. Surfaced
@@ -509,5 +522,16 @@ struct VoxhoraMacApp: App {
         // ContinuityCameraResponder.swift bypasses this bug entirely
         // and surfaces Continuity items in every context menu inside
         // ClientDocsSheet via macOS's auto-injection mechanism.
+        //
+        // Distribution Phase 1 (2026-05-19) — adds "Check for Updates…"
+        // under the Voxhora menu (right after "About Voxhora"), the
+        // macOS-canonical location. CommandGroup(after: .appInfo) is
+        // unaffected by FB14893699 (which only impacts File-menu
+        // Continuity items, not App-menu Sparkle items).
+        .commands {
+            CommandGroup(after: .appInfo) {
+                CheckForUpdatesView(updater: updaterController.updater)
+            }
+        }
     }
 }
