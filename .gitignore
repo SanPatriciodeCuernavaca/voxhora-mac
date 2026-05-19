@@ -54,3 +54,10 @@ fastlane/test_output
 
 # Carthage (defensive)
 Carthage/Build/
+
+# Sparkle Distribution Phase 1 (2026-05-19) — local release DMG cache.
+# DMGs live in GitHub Releases; the local releases/ folder is just the
+# scratch space generate_appcast scans to produce appcast.xml. Never
+# commit DMG binaries to git.
+releases/
+
