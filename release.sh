@@ -115,7 +115,18 @@ BUILD=$((CURRENT_BUILD + 1))
 done_ "CFBundleShortVersionString=$VERSION  CFBundleVersion=$BUILD"
 
 # ─── ARCHIVE ───────────────────────────────────────────────────────────
-say "Archiving Release build (Developer ID signed)…"
+say "Archiving Release build…"
+# Standard 2-stage Apple Developer ID pattern:
+#   ARCHIVE  with Automatic signing (Apple Development cert; project default).
+#            This satisfies Xcode's "iCloud + Push Notifications need a
+#            provisioning profile" check via the existing auto-managed
+#            development profile.
+#   EXPORT   with method=developer-id in ExportOptions.plist below — this
+#            re-signs the .app with the Developer ID Application cert,
+#            stripping the development provisioning profile in the process.
+# Forcing CODE_SIGN_STYLE=Manual at archive time without an explicit
+# Developer ID provisioning profile fails archive — that's why we let
+# Automatic signing handle this phase.
 BUILD_DIR="/tmp/voxhora-mac-release"
 rm -rf "$BUILD_DIR"
 mkdir -p "$BUILD_DIR"
@@ -128,9 +139,6 @@ xcodebuild archive \
   -configuration Release \
   -archivePath "$ARCHIVE_PATH" \
   -destination 'generic/platform=macOS' \
-  CODE_SIGN_IDENTITY="$SIGNING_IDENTITY" \
-  CODE_SIGN_STYLE=Manual \
-  DEVELOPMENT_TEAM="$DEV_ID_TEAM" \
   -quiet \
   || die "xcodebuild archive FAILED"
 done_ "Archive at $ARCHIVE_PATH"
@@ -146,10 +154,15 @@ cat > "$BUILD_DIR/ExportOptions.plist" <<EOF
   <string>developer-id</string>
   <key>teamID</key>
   <string>$DEV_ID_TEAM</string>
+  <!--
+  signingStyle: automatic lets Xcode auto-create + use the Developer ID
+  provisioning profile (required because the entitlements include iCloud +
+  Push Notifications). Manual would require us to pre-generate the profile
+  at developer.apple.com and reference it explicitly. Automatic = zero
+  manual portal work; Xcode handles it inline during export.
+  -->
   <key>signingStyle</key>
-  <string>manual</string>
-  <key>signingCertificate</key>
-  <string>Developer ID Application</string>
+  <string>automatic</string>
 </dict>
 </plist>
 EOF
