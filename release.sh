@@ -143,51 +143,90 @@ xcodebuild archive \
   || die "xcodebuild archive FAILED"
 done_ "Archive at $ARCHIVE_PATH"
 
-# ─── EXPORT ────────────────────────────────────────────────────────────
-say "Exporting .app from archive…"
-cat > "$BUILD_DIR/ExportOptions.plist" <<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>method</key>
-  <string>developer-id</string>
-  <key>teamID</key>
-  <string>$DEV_ID_TEAM</string>
-  <!--
-  signingStyle: automatic lets Xcode auto-create + use the Developer ID
-  provisioning profile (required because the entitlements include iCloud +
-  Push Notifications). Manual would require us to pre-generate the profile
-  at developer.apple.com and reference it explicitly. Automatic = zero
-  manual portal work; Xcode handles it inline during export.
-  -->
-  <key>signingStyle</key>
-  <string>automatic</string>
-</dict>
-</plist>
-EOF
-
-xcodebuild -exportArchive \
-  -archivePath "$ARCHIVE_PATH" \
-  -exportPath "$EXPORT_DIR" \
-  -exportOptionsPlist "$BUILD_DIR/ExportOptions.plist" \
-  -quiet \
-  || die "xcodebuild -exportArchive FAILED"
-
+# ─── EXTRACT + DIRECT CODESIGN ─────────────────────────────────────────
+# xcodebuild -exportArchive with method=developer-id requires either a
+# pre-existing Developer ID provisioning profile (manual portal step) OR
+# a working Xcode auth to developer.apple.com (which can break transiently).
+# Both routes have failure modes outside our control. Instead, copy the
+# .app out of the archive and codesign each nested binary directly with
+# Developer ID + Hardened Runtime. This is the canonical recipe Sparkle's
+# own docs describe.
+say "Extracting .app from archive + direct Developer ID codesign…"
+mkdir -p "$EXPORT_DIR"
+cp -R "$ARCHIVE_PATH/Products/Applications/Voxhora-Mac.app" "$EXPORT_DIR/"
 APP_PATH="$EXPORT_DIR/Voxhora-Mac.app"
-[[ -d "$APP_PATH" ]] || die "Exported .app missing: $APP_PATH"
-done_ "Voxhora-Mac.app exported"
+
+# Strip the embedded development provisioning profile — irrelevant for
+# Developer ID distribution and would confuse Gatekeeper.
+rm -f "$APP_PATH/Contents/embedded.provisionprofile"
+
+# Clean .cstemp leftovers from any previous interrupted codesign attempts.
+find "$APP_PATH" -name "*.cstemp" -delete 2>/dev/null || true
+
+# Inside-out codesign order (Sparkle Hardened Runtime recipe):
+#   1. Sparkle XPC services (Downloader.xpc, Installer.xpc)
+#   2. Updater.app inner binary
+#   3. Updater.app wrapper
+#   4. Autoupdate helper
+#   5. Sparkle.framework
+#   6. Voxhora-Mac-Share.appex (with its own entitlements)
+#   7. Voxhora-Mac.app (top-level, with its own entitlements)
+SPARKLE_VER="$APP_PATH/Contents/Frameworks/Sparkle.framework/Versions/B"
+codesign --force --options runtime --timestamp --sign "$SIGNING_IDENTITY" \
+  "$SPARKLE_VER/XPCServices/Downloader.xpc" 2>&1 | tail -1
+codesign --force --options runtime --timestamp --sign "$SIGNING_IDENTITY" \
+  "$SPARKLE_VER/XPCServices/Installer.xpc" 2>&1 | tail -1
+codesign --force --options runtime --timestamp --sign "$SIGNING_IDENTITY" \
+  "$SPARKLE_VER/Updater.app/Contents/MacOS/Updater" 2>&1 | tail -1
+codesign --force --options runtime --timestamp --sign "$SIGNING_IDENTITY" \
+  "$SPARKLE_VER/Updater.app" 2>&1 | tail -1
+codesign --force --options runtime --timestamp --sign "$SIGNING_IDENTITY" \
+  "$SPARKLE_VER/Autoupdate" 2>&1 | tail -1
+codesign --force --options runtime --timestamp --sign "$SIGNING_IDENTITY" \
+  "$APP_PATH/Contents/Frameworks/Sparkle.framework" 2>&1 | tail -1
+codesign --force --options runtime --timestamp --sign "$SIGNING_IDENTITY" \
+  --entitlements Voxhora-Mac-Share/Voxhora-Mac-Share.entitlements \
+  "$APP_PATH/Contents/PlugIns/Voxhora-Mac-Share.appex" 2>&1 | tail -1
+codesign --force --options runtime --timestamp --sign "$SIGNING_IDENTITY" \
+  --entitlements Voxhora-Mac/Voxhora-Mac.entitlements \
+  "$APP_PATH" 2>&1 | tail -1
+
+# Verify before notarization so we catch any seal issue locally.
+codesign --verify --deep --strict "$APP_PATH" 2>&1 | tail -3 \
+  || die "codesign verification failed"
+done_ ".app codesigned + verified"
 
 # ─── NOTARIZE ──────────────────────────────────────────────────────────
 say "Submitting to Apple notarization (typically 2–5 min)…"
 ZIP_PATH="$BUILD_DIR/Voxhora-Mac.zip"
 ditto -c -k --keepParent "$APP_PATH" "$ZIP_PATH"
 
-xcrun notarytool submit "$ZIP_PATH" \
+# Network-resilient submit: don't use --wait (its long-poll fails on transient
+# network blips and loses the submission). Instead, submit, capture the ID,
+# then poll separately with short queries that survive blips.
+SUBMIT_OUTPUT="$(xcrun notarytool submit "$ZIP_PATH" \
   --keychain-profile "$NOTARY_PROFILE" \
-  --wait \
-  || die "Notarization FAILED — check Apple's log."
-done_ "Notarized"
+  --output-format json 2>&1)"
+SUBMISSION_ID="$(echo "$SUBMIT_OUTPUT" | grep -oE '"id":"[a-f0-9-]+"' | head -1 | cut -d'"' -f4)"
+[[ -n "$SUBMISSION_ID" ]] || { echo "$SUBMIT_OUTPUT"; die "Notarization submit failed"; }
+echo "  submission id: $SUBMISSION_ID"
+
+# Poll every 30s until final state. notarytool info is a short HTTP call
+# (~1s) so transient network blips lose only that single poll — the next
+# poll picks up where we left off. Total wait is unaffected.
+until current_status="$(xcrun notarytool info "$SUBMISSION_ID" \
+  --keychain-profile "$NOTARY_PROFILE" 2>/dev/null \
+  | grep -E '^\s*status:' | awk '{print $2}')" \
+  && [[ "$current_status" =~ ^(Accepted|Invalid|Rejected)$ ]]; do
+  printf "  %s  status: %s\n" "$(date '+%H:%M:%S')" "${current_status:-network-blip-retrying}"
+  sleep 30
+done
+
+if [[ "$current_status" != "Accepted" ]]; then
+  xcrun notarytool log "$SUBMISSION_ID" --keychain-profile "$NOTARY_PROFILE" 2>&1 | head -40
+  die "Notarization $current_status — see log above."
+fi
+done_ "Notarization Accepted"
 
 say "Stapling notarization ticket…"
 xcrun stapler staple "$APP_PATH" || die "stapler failed"
