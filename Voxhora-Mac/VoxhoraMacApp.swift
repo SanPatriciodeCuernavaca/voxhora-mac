@@ -400,6 +400,18 @@ struct VoxhoraMacApp: App {
                         // launches.
                         CalendarCleanupMigration.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // One-shot recovery for duplicate AttorneyProfile
+                        // rows spawned by CloudKit-hydration race
+                        // (2026-05-21 root cause of the Jaret Watts 6→3
+                        // calendar duplicates). Consolidates onto a single
+                        // canonical profile per bar number, re-attributes
+                        // every cross-model attorneyId reference, and
+                        // recomputes CalendarEvent.stableEventId for the
+                        // migrated rows so the trunk's dedup self-heals.
+                        // UserDefaults-gated + race-safe (only flags
+                        // complete when profiles non-empty).
+                        AttorneyProfileDuplicateRecoveryBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // SIP custody-status foreground re-check (Client
                         // info screen feature, 2026-05-04 evening). Mac
                         // doesn't ship BGAppRefreshTask scheduling (no

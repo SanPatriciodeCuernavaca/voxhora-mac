@@ -132,6 +132,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileBootstrap.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileDuplicateRecoveryBootstrap.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV5Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV6Bootstrap.swift
