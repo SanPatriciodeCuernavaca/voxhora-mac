@@ -122,6 +122,7 @@
 		711F4021947C668C0F1A45B8 /* BillTimeEntryModeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD38DC0EEE6404C3FD4D8C /* BillTimeEntryModeSection.swift */; };
 		713A4F745D95593A9E2F46C3 /* AttorneyProfileSchemaV5Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFE2182C2587A7D7574C711 /* AttorneyProfileSchemaV5Bootstrap.swift */; };
 		714F6AC9DDA4F40B657286A1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B71D14071DD2E7A0DBDF8 /* Colors.swift */; };
+		718C2E887E538E9007F0D849 /* AttorneyProfileQuickActionsRecoveryBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9960D86615B44C7CDF44E72 /* AttorneyProfileQuickActionsRecoveryBootstrap.swift */; };
 		7288CA47BE6B7FD9C828032A /* CalendarCleanupMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC43D473A12441D33B019D0 /* CalendarCleanupMigration.swift */; };
 		72EC8FB1F0D5BD8E35BB62E3 /* SIPPollScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8B185AF226D2D39E92C4F6 /* SIPPollScheduler.swift */; };
 		73172C958989B8D3DA0BF83D /* ReminderConfigPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4706AC8453DA9273FF2AF54E /* ReminderConfigPicker.swift */; };
@@ -519,6 +520,7 @@
 		E7EAB84EF5EE57FAFA512932 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Client.swift; path = "../voxhora-ios/Voxhora/Models/Client.swift"; sourceTree = "<group>"; };
 		E89D0A287B5B743D644BF0A9 /* FunModeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeSection.swift; sourceTree = "<group>"; };
 		E9119857B047DE4731B5F56E /* ClientSchemaV11Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV11Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV11Bootstrap.swift"; sourceTree = "<group>"; };
+		E9960D86615B44C7CDF44E72 /* AttorneyProfileQuickActionsRecoveryBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileQuickActionsRecoveryBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileQuickActionsRecoveryBootstrap.swift"; sourceTree = "<group>"; };
 		E9D25E4650CCFC096D2204F5 /* iCloudContainerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = iCloudContainerHelper.swift; path = "../voxhora-ios/Voxhora/Engine/iCloudContainerHelper.swift"; sourceTree = "<group>"; };
 		EFF0A946DDFECF35BA5E2BA2 /* BillingPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BillingPreset.swift; path = "../voxhora-ios/Voxhora/Engine/BillingPreset.swift"; sourceTree = "<group>"; };
 		EFF4468BAB6C25FC9144965B /* ExportAdapterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAdapterRegistry.swift; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 				1E0EF5F4639F5578B46D5033 /* AppState.swift */,
 				DAE95870454B6263B30A5803 /* AttorneyProfileBootstrap.swift */,
 				4C94691A6266B93484892F6D /* AttorneyProfileDuplicateRecoveryBootstrap.swift */,
+				E9960D86615B44C7CDF44E72 /* AttorneyProfileQuickActionsRecoveryBootstrap.swift */,
 				9BFE2182C2587A7D7574C711 /* AttorneyProfileSchemaV5Bootstrap.swift */,
 				259E3E4B691CB9D5019E1CF1 /* AttorneyProfileSchemaV7Bootstrap.swift */,
 				43AE4B66DE16BD9F74FB855C /* AttorneyProfileSchemaV8Bootstrap.swift */,
@@ -1168,6 +1171,7 @@
 				57F64E97E9285B48B29A055B /* AttorneyProfile.swift in Sources */,
 				9327FFD6ABB9FED1F81B291A /* AttorneyProfileBootstrap.swift in Sources */,
 				CDEDC3D14BFEC5446728FB44 /* AttorneyProfileDuplicateRecoveryBootstrap.swift in Sources */,
+				718C2E887E538E9007F0D849 /* AttorneyProfileQuickActionsRecoveryBootstrap.swift in Sources */,
 				C26D0AE5D52FD44B5B76C66F /* AttorneyProfileSchemaV10Bootstrap.swift in Sources */,
 				7FB057A348E645A5732AD897 /* AttorneyProfileSchemaV11Bootstrap.swift in Sources */,
 				12523AC201B0745BA2DD08C6 /* AttorneyProfileSchemaV12Bootstrap.swift in Sources */,

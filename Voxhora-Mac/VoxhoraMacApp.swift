@@ -412,6 +412,14 @@ struct VoxhoraMacApp: App {
                         // complete when profiles non-empty).
                         AttorneyProfileDuplicateRecoveryBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // One-shot recovery for AttorneyProfile rows whose
+                        // quickActions array is empty because V8Bootstrap
+                        // set its UserDefaults flag prematurely
+                        // (CloudKit-hydration race fix family, 2026-05-21).
+                        // Idempotent + race-safe; no-op on devices whose
+                        // profile already has actions.
+                        AttorneyProfileQuickActionsRecoveryBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // SIP custody-status foreground re-check (Client
                         // info screen feature, 2026-05-04 evening). Mac
                         // doesn't ship BGAppRefreshTask scheduling (no
