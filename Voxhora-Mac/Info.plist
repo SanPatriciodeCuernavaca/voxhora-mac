@@ -43,10 +43,6 @@
 	<string>Voxhora syncs your client roster to Apple Contacts (one-way only) so phone numbers, addresses, and emails appear automatically across iPhone, iPad, Mac, and Apple Watch.</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Voxhora — Patrick Fagerberg</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Voxhora listens to your voice when you tap the Speak chip in Bill Time, transcribes it on-device, and turns it into a billable entry. Without this permission, voice billing is disabled and you'd have to type each entry manually.</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Voxhora uses Apple's on-device speech recognition to turn what you say into a billable entry. Recognition runs locally — your audio never leaves your Mac. Without this permission, voice billing is disabled.</string>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUEnableInstallerLauncherService</key>

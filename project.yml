@@ -584,6 +584,20 @@ targets:
     info:
       path: Voxhora-Mac/Info.plist
       properties:
+        # HARD RULE 2026-05-21 — `CFBundleShortVersionString` + `CFBundleVersion`
+        # MUST be pinned here so xcodegen regen never stomps the shipped Sparkle
+        # release version. Earlier discovery: without these keys, xcodegen falls
+        # back to "1.0" + "1" defaults on every project.yml change, silently
+        # rolling back the shipped version. release.sh's PlistBuddy bumps to
+        # Info.plist alone were not enough — next xcodegen wiped them.
+        #
+        # release.sh now bumps THIS block AND Info.plist atomically. See:
+        #   ~/.claude/projects/.../memory/feedback_mac_version_pinned_in_projectyml.md
+        #
+        # Current shipped: v0.1.0 build 2 (first Sparkle release 2026-05-19).
+        # Next release.sh run will bump both lines below and Info.plist together.
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "2"
         LSApplicationCategoryType: public.app-category.business
         NSHumanReadableCopyright: "Voxhora — Patrick Fagerberg"
         # DECISION 044 — Contacts permission usage description. Same
