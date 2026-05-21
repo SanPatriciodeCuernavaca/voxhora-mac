@@ -533,5 +533,24 @@ struct VoxhoraMacApp: App {
                 CheckForUpdatesView(updater: updaterController.updater)
             }
         }
+
+        // VoxHelp Phase 1 Edit #3.2 (2026-05-20) — separate floating
+        // window for the in-app AI assistant. On Mac, VoxHelpButton's
+        // toolbar tap calls openWindow(id: "voxhelp") instead of
+        // presenting a modal sheet — lets the attorney read Claude's
+        // answer alongside the main Voxhora-Mac window rather than
+        // having it block the rest of the app. Window has its own
+        // red close button + Cmd-W dismissal; no toolbar Done needed.
+        // iOS uses sheet detents (.medium / .large + background
+        // interaction) instead of a window — same end goal (read +
+        // interact concurrently), different SwiftUI pattern per
+        // platform conventions.
+        Window("VoxHelp", id: "voxhelp") {
+            VoxHelpView()
+                .modelContainer(modelContainer)
+        }
+        .windowResizability(.contentMinSize)
+        .defaultSize(width: 560, height: 620)
+        .defaultPosition(.topTrailing)
     }
 }

@@ -125,6 +125,13 @@ struct MacMainView: View {
                 )
             }
             .toolbar {
+                // VoxHelp Phase 1 Edit #1b (2026-05-20) — in-app AI
+                // assistant entry point. Sits at the very trailing edge
+                // of the Mac window toolbar; stethoscope diagnostics
+                // button renders just inboard of it.
+                ToolbarItem(placement: .primaryAction) {
+                    VoxHelpButton()
+                }
                 ToolbarItem(placement: .primaryAction) {
                     Button {
                         showingDiagnostics = true
