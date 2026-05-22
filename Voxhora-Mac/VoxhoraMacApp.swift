@@ -390,6 +390,15 @@ struct VoxhoraMacApp: App {
                         // canonical state).
                         UserPreferencesSchemaV12Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // DECISION 067 — Fun Mode iPad split-out
+                        // (2026-05-21). Schema v14 → v15 adds
+                        // funModeVisualKeyIPad + funModeSoundKeyIPad +
+                        // funModeSoundEnabledIPad so iPad's Fun Mode
+                        // state is independent of iPhone's. Mac doesn't
+                        // run iPad Fun Mode but the schema bump is the
+                        // "device has v15 fields locally" marker.
+                        UserPreferencesSchemaV15Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // Register all Fun Mode visuals + sounds.
                         FunModeBootstrap.registerAllEffects()
 
