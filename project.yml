@@ -124,6 +124,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CloudSyncMonitor.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/CloudKitSyncAuditor.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/HapticFeedback.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/PlatformViewHelpers.swift

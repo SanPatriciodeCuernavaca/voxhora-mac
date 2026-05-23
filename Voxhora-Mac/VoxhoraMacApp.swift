@@ -169,6 +169,13 @@ struct VoxhoraMacApp: App {
                     Task { @MainActor in
                         AuditLogger.shared.modelContext = modelContainer.mainContext
 
+                        // CloudKitSyncAuditor (2026-05-22) — subscribe to
+                        // NSPersistentCloudKitContainer.eventChangedNotification
+                        // for the Mac peer. Same defense-in-depth as iPhone +
+                        // Watch — silent CloudKit halts now surface to the
+                        // audit chain within minutes.
+                        CloudKitSyncAuditor.shared.start()
+
                         // Path A3 (2026-05-13) — record degraded init to
                         // audit chain when CloudKit fallback was hit.
                         if containerDegradedToInMemory {
