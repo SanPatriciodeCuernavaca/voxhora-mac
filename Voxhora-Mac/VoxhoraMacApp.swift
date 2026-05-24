@@ -278,6 +278,11 @@ struct VoxhoraMacApp: App {
                         // Same wiring as iPhone side.
                         ClientSchemaV11Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // SIP sticky-booking (2026-05-24) — same as iPhone
+                        // wiring. Seeds historicalBookingNumbers for the
+                        // currently-in-custody roster on first run.
+                        ClientSchemaV12Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 044 — Apple Contacts backfill on Mac.
                         // Independent of iPhone (each device runs its own
                         // backfill bootstrap; the Voxhora Clients CNGroup
