@@ -322,6 +322,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV15Bootstrap.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV16Bootstrap.swift
+        group: SharedEngine
         group: SharedEngine
       # DECISION 058 Step 2 (2026-05-12) — Patrick Law Office Agent
       # Phase 1 file system watcher. Mac-only via #if os(macOS).

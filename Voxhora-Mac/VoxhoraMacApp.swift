@@ -411,6 +411,10 @@ struct VoxhoraMacApp: App {
                         // "device has v15 fields locally" marker.
                         UserPreferencesSchemaV15Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // 2026-05-25 — Bulk-Import Mode removal. Same
+                        // wiring as iPhone side.
+                        UserPreferencesSchemaV16Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // Register all Fun Mode visuals + sounds.
                         FunModeBootstrap.registerAllEffects()
 
