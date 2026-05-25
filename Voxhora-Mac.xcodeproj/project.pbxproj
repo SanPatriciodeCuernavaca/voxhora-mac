@@ -163,6 +163,7 @@
 		8EF655845EEE6DB25370AB0A /* JurisdictionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494A405C15054196903FEF3 /* JurisdictionRegistry.swift */; };
 		9256E12B6CD5D124FF6F52C2 /* ClientSchemaV12Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E0EEA2EE49BD9EEE03E2EB /* ClientSchemaV12Bootstrap.swift */; };
 		92B9F2F21BA003722C2FF88D /* FunModeHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FF20B6F8305E38AFD5DA5 /* FunModeHaptics.swift */; };
+		92DEEEB57303E6C154B21F5C /* DiscoveryPDFViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94482DC11EFAE0B8BA4A467D /* DiscoveryPDFViewerView.swift */; };
 		9327FFD6ABB9FED1F81B291A /* AttorneyProfileBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE95870454B6263B30A5803 /* AttorneyProfileBootstrap.swift */; };
 		945F476A17304F24873798E7 /* ParseEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C826B3AD8B897A920663CF3B /* ParseEngine.swift */; };
 		94DA8A33882173ED786E1A58 /* FunModeSoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311AB7FC1336BC2B4CABD43 /* FunModeSoundEffect.swift */; };
@@ -257,6 +258,7 @@
 		ED432477B3D03648A83BAAE1 /* EntryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311776BEA2710C9537636A /* EntryRow.swift */; };
 		EDA128DBAFC7145C2DCCC089 /* LetterTemplatesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2551A82E82F4ABDB8E42F9D4 /* LetterTemplatesSection.swift */; };
 		EDD5711AFA72FBBDD34A5A00 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7D0508231B9BABFBE314D6 /* CalendarEvent.swift */; };
+		EE2B73E0834515C93023A1ED /* DiscoveryPortalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D00B9C202EC49FA8E0CD1D /* DiscoveryPortalModel.swift */; };
 		EE728C9B4A4D758BDFD6537C /* VoucherCSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE2C3F3931EE39184443BBC /* VoucherCSVExporter.swift */; };
 		EE74A69ED4C2DE91EA2F21FE /* CallTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072662AFBE806732F9A22D0 /* CallTrackingService.swift */; };
 		EEDD588882896B881468B5D5 /* ClientSchemaV6Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985A6B27CDC5622E9019A33 /* ClientSchemaV6Bootstrap.swift */; };
@@ -324,6 +326,7 @@
 		10E5D40E2EA787B9A3A58C54 /* VoxHelpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoxHelpService.swift; sourceTree = "<group>"; };
 		11780B5AFF64A9A9AFFD2C64 /* MigrationFolderBulkDropSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationFolderBulkDropSheet.swift; path = "../voxhora-ios/Voxhora/Views/Migration/MigrationFolderBulkDropSheet.swift"; sourceTree = "<group>"; };
 		137C0900489FD4AD30369786 /* QuickAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuickAction.swift; path = "../voxhora-ios/Voxhora/Engine/QuickAction.swift"; sourceTree = "<group>"; };
+		15D00B9C202EC49FA8E0CD1D /* DiscoveryPortalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryPortalModel.swift; path = "../voxhora-ios/Voxhora/Engine/DiscoveryPortalModel.swift"; sourceTree = "<group>"; };
 		16D53176921A4874B10754D5 /* DisplayPreferencesPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPreferencesPicker.swift; sourceTree = "<group>"; };
 		19449102B01AA6CA9CE54D04 /* ConfettiBurstVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiBurstVisual.swift; sourceTree = "<group>"; };
 		19A4DCD34803F412C0D0814A /* TravisCountyAppointmentLetterParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravisCountyAppointmentLetterParser.swift; path = "../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers/TravisCountyAppointmentLetterParser.swift"; sourceTree = "<group>"; };
@@ -457,6 +460,7 @@
 		8F5B4630C0FC2F0C8A52D98F /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComingSoonView.swift; path = "../voxhora-ios/Voxhora/Views/ComingSoonView.swift"; sourceTree = "<group>"; };
 		9072662AFBE806732F9A22D0 /* CallTrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CallTrackingService.swift; path = "../voxhora-ios/Voxhora/Engine/CallTrackingService.swift"; sourceTree = "<group>"; };
 		92FD68B0A9B5B4C4C000496E /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodayViewModel.swift; path = "../voxhora-ios/Voxhora/Views/TodayViewModel.swift"; sourceTree = "<group>"; };
+		94482DC11EFAE0B8BA4A467D /* DiscoveryPDFViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryPDFViewerView.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryPDFViewerView.swift"; sourceTree = "<group>"; };
 		9494A405C15054196903FEF3 /* JurisdictionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JurisdictionRegistry.swift; sourceTree = "<group>"; };
 		94E59E8502E5034C33C46458 /* DiscoveryPortalWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryPortalWindowView.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryPortalWindowView.swift"; sourceTree = "<group>"; };
 		96AB9777FAC1A6297B4C217A /* AuditLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuditLogEntry.swift; path = "../voxhora-ios/Voxhora/Models/AuditLogEntry.swift"; sourceTree = "<group>"; };
@@ -630,6 +634,7 @@
 				5325BD4C3F694CDF19C89D10 /* ContactsAuthorizationManager.swift */,
 				468A11E040C0A52AB44D3923 /* CourtsLookup.swift */,
 				C18574AB90EC96F2651788F1 /* CustodyStatusSource.swift */,
+				15D00B9C202EC49FA8E0CD1D /* DiscoveryPortalModel.swift */,
 				F9228490307BE85E5C40AD12 /* DownloadJobsManager.swift */,
 				D3F9143719DF8FF247587FA4 /* DownloadQueue.swift */,
 				A293BC047910AFD6D7931B6E /* EmailTemplate.swift */,
@@ -743,6 +748,7 @@
 				2757BCC5C782B691B9A4A193 /* ClientsViewModel.swift */,
 				8F5B4630C0FC2F0C8A52D98F /* ComingSoonView.swift */,
 				82C59D0F59AB9D05694E5E65 /* ContactClientSheet.swift */,
+				94482DC11EFAE0B8BA4A467D /* DiscoveryPDFViewerView.swift */,
 				94E59E8502E5034C33C46458 /* DiscoveryPortalWindowView.swift */,
 				1ECC92C9DF0BE884A7BE4B89 /* DocsButton.swift */,
 				06CF2380930335B04C6E1634 /* EditEntrySheet.swift */,
@@ -1286,6 +1292,8 @@
 				8439A9112E805AB9B95B9CEA /* CustodyStatusSourceRegistry.swift in Sources */,
 				3BFC547158E0F0D2A86DBCF6 /* DSAFetcher.swift in Sources */,
 				A4DCA1D654B42A3D72CE798B /* DiscoveryDownloadsSettingsRows.swift in Sources */,
+				92DEEEB57303E6C154B21F5C /* DiscoveryPDFViewerView.swift in Sources */,
+				EE2B73E0834515C93023A1ED /* DiscoveryPortalModel.swift in Sources */,
 				885817822A78A4454D249FED /* DiscoveryPortalWindowView.swift in Sources */,
 				256DE8ECD2FD030DAE519FA6 /* DisplayPreferencesPicker.swift in Sources */,
 				9D99C43264EDD8E6ECD30744 /* DocsButton.swift in Sources */,

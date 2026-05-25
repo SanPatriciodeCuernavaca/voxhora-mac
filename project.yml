@@ -386,6 +386,12 @@ targets:
       # download-queue.json — queue survives Voxhora-Mac quit + relaunch.
       - path: ../voxhora-ios/Voxhora/Engine/DownloadQueue.swift
         group: SharedEngine
+      # Discovery Portal v2 Phase 2.4a (2026-05-26) — @Observable
+      # @MainActor singleton holding the Portal window's cross-pane
+      # state (currentItemURL now; BillTimer in 2.6; case/client
+      # selection later). Mac-only.
+      - path: ../voxhora-ios/Voxhora/Engine/DiscoveryPortalModel.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/MacMessagesSendTracker.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift
@@ -498,6 +504,12 @@ targets:
       # Mac-only (file body wrapped in #if os(macOS) — iOS sees it
       # as empty). Phase 2.2 fills in the 3-pane layout skeleton.
       - path: ../voxhora-ios/Voxhora/Views/DiscoveryPortalWindowView.swift
+        group: SharedViews
+      # Discovery Portal v2 Phase 2.4a (2026-05-26) — PDFKit-backed
+      # NSViewRepresentable for the EvidenceViewer pane. Routed in
+      # WorkspaceView when DiscoveryPortalModel.shared.currentItemURL
+      # has a `.pdf` extension. Mac-only.
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryPDFViewerView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/VouchersView.swift
         group: SharedViews
