@@ -200,6 +200,7 @@
 		B4816A4042E69451F9B1A48A /* MigrationFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E3026B3E0689A9270C1935 /* MigrationFileReader.swift */; };
 		B4B22AEE0FD4B40F5E7891DA /* CommunicationsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68056ECFEC853917FC94535F /* CommunicationsSection.swift */; };
 		B5152E7B4D32821F4F3B6CC7 /* ContinuityCameraResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264B4F9EF71EE9BE5D4F145 /* ContinuityCameraResponder.swift */; };
+		B59F4470ECE9A152E804A583 /* DiscoveryBillTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76E89D8658521D6988E7515 /* DiscoveryBillTimer.swift */; };
 		B8DC4239281111344D7CAEF8 /* CustodyStatusSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18574AB90EC96F2651788F1 /* CustodyStatusSource.swift */; };
 		B919ED7D7A7E9319468D0A68 /* ClientCommunicationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A026AA58A460630A9B852D5 /* ClientCommunicationRouter.swift */; };
 		B938E2CE6D501CD93B535155 /* MigrationOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81056F3F8852111F29044989 /* MigrationOrchestrator.swift */; };
@@ -541,6 +542,7 @@
 		E3C26098F419D2519846A77A /* CallDurationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CallDurationSheet.swift; path = "../voxhora-ios/Voxhora/Views/CallDurationSheet.swift"; sourceTree = "<group>"; };
 		E3C3D8F81EB6DB12A496A99E /* MigrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationView.swift; path = "../voxhora-ios/Voxhora/Views/Migration/MigrationView.swift"; sourceTree = "<group>"; };
 		E4EF8E0FD981879F274CFD93 /* LLMParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMParser.swift; sourceTree = "<group>"; };
+		E76E89D8658521D6988E7515 /* DiscoveryBillTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryBillTimer.swift; path = "../voxhora-ios/Voxhora/Engine/DiscoveryBillTimer.swift"; sourceTree = "<group>"; };
 		E7EAB84EF5EE57FAFA512932 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Client.swift; path = "../voxhora-ios/Voxhora/Models/Client.swift"; sourceTree = "<group>"; };
 		E89D0A287B5B743D644BF0A9 /* FunModeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeSection.swift; sourceTree = "<group>"; };
 		E9119857B047DE4731B5F56E /* ClientSchemaV11Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV11Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV11Bootstrap.swift"; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 				5325BD4C3F694CDF19C89D10 /* ContactsAuthorizationManager.swift */,
 				468A11E040C0A52AB44D3923 /* CourtsLookup.swift */,
 				C18574AB90EC96F2651788F1 /* CustodyStatusSource.swift */,
+				E76E89D8658521D6988E7515 /* DiscoveryBillTimer.swift */,
 				15D00B9C202EC49FA8E0CD1D /* DiscoveryPortalModel.swift */,
 				E2861D0A22345EFB90E967DD /* DiscoveryWatchedAuditSession.swift */,
 				F9228490307BE85E5C40AD12 /* DownloadJobsManager.swift */,
@@ -1301,6 +1304,7 @@
 				8439A9112E805AB9B95B9CEA /* CustodyStatusSourceRegistry.swift in Sources */,
 				3BFC547158E0F0D2A86DBCF6 /* DSAFetcher.swift in Sources */,
 				01787CECF3A0C118B1D798FE /* DiscoveryAudioPlayerView.swift in Sources */,
+				B59F4470ECE9A152E804A583 /* DiscoveryBillTimer.swift in Sources */,
 				A4DCA1D654B42A3D72CE798B /* DiscoveryDownloadsSettingsRows.swift in Sources */,
 				92DEEEB57303E6C154B21F5C /* DiscoveryPDFViewerView.swift in Sources */,
 				EE2B73E0834515C93023A1ED /* DiscoveryPortalModel.swift in Sources */,

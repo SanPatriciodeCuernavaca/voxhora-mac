@@ -399,6 +399,13 @@ targets:
       # flag computed at close. Mac-only.
       - path: ../voxhora-ios/Voxhora/Engine/DiscoveryWatchedAuditSession.swift
         group: SharedEngine
+      # Discovery Portal v2 Phase 2.6 (2026-05-26) — @Observable
+      # bill-as-you-go review timer (elapsed since last Bill,
+      # billable-hours rounded to tenths, always-active Bill button
+      # per HR-11). Owned by DiscoveryPortalModel; renders in
+      # ContextRailView. Mac-only.
+      - path: ../voxhora-ios/Voxhora/Engine/DiscoveryBillTimer.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/MacMessagesSendTracker.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift
