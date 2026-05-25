@@ -492,6 +492,13 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/VoxHelpView.swift
         group: SharedViews
+      # Discovery Portal v2 Phase 2.1 (2026-05-26) — standalone Window
+      # scene for the discovery review surface, declared by
+      # VoxhoraMacApp.swift parallel to VoxHelp's floating window.
+      # Mac-only (file body wrapped in #if os(macOS) — iOS sees it
+      # as empty). Phase 2.2 fills in the 3-pane layout skeleton.
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryPortalWindowView.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/VouchersView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientRosterRow.swift

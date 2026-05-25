@@ -596,6 +596,16 @@ struct VoxhoraMacApp: App {
             CommandGroup(after: .appInfo) {
                 CheckForUpdatesView(updater: updaterController.updater)
             }
+            // Discovery Portal v2 Phase 2.1 (2026-05-26) — View menu
+            // entry that opens the standalone Discovery Portal window
+            // (⌃⌘D). Placed alongside the View menu's built-in items
+            // so the keyboard shortcut sits next to other View-level
+            // window toggles. Future entry points (CaseInfoSheet button,
+            // MainTabView Discovery tab row tap) reuse the same
+            // openWindow(id:) call via the @Environment(\.openWindow).
+            CommandGroup(after: .toolbar) {
+                DiscoveryPortalMenuButton()
+            }
         }
 
         // VoxHelp Phase 1 Edit #3.2 (2026-05-20) — separate floating
@@ -616,5 +626,22 @@ struct VoxhoraMacApp: App {
         .windowResizability(.contentMinSize)
         .defaultSize(width: 560, height: 620)
         .defaultPosition(.topTrailing)
+
+        // Discovery Portal v2 Phase 2.1 (2026-05-26) — standalone
+        // NSWindow for the discovery review surface. Parallel to
+        // VoxHelp's floating window above (same scene-declaration
+        // pattern). Window is openable via the View → Discovery
+        // Portal (⌃⌘D) menu item below; future Phase 2.4 + 2.11
+        // entry points (CaseInfoSheet "Review Full Discovery"
+        // button + MainTabView Discovery tab row tap) call
+        // `openWindow(id: "discovery-portal")` from their tap
+        // handlers. Default 1400×900 per the implementation plan
+        // (visual workspace for AVPlayer + PDFKit panes).
+        Window("Discovery Portal", id: "discovery-portal") {
+            DiscoveryPortalWindowView()
+                .modelContainer(modelContainer)
+        }
+        .windowResizability(.contentMinSize)
+        .defaultSize(width: 1400, height: 900)
     }
 }
