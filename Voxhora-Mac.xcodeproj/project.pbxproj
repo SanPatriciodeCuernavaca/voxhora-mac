@@ -225,6 +225,7 @@
 		C967A62F1BC55F54B81C37EA /* UserPreferencesSchemaV7Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D871C800DF931C1279EF57 /* UserPreferencesSchemaV7Bootstrap.swift */; };
 		C9E90DF1C2F3375CC6E95E8F /* MoneyCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */; };
 		CA3D1D5C037341580BD31BAF /* TravisCountyAppointmentLetterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4DCD34803F412C0D0814A /* TravisCountyAppointmentLetterParser.swift */; };
+		CA86F16597B48A735931A7FA /* DiscoveryStorageSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A2F24211F0F274248542F /* DiscoveryStorageSettingsRow.swift */; };
 		CC10B734CEC184046C887EBA /* CalendarEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B2877C23EBE85377EA7A0 /* CalendarEventRow.swift */; };
 		CCE72F1B8C92F9B9286378D8 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B4630C0FC2F0C8A52D98F /* ComingSoonView.swift */; };
 		CD8F6829848017E972FA9589 /* IntakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD718C8E822C3B84C62449E /* IntakeViewModel.swift */; };
@@ -368,6 +369,7 @@
 		2EAD38DC0EEE6404C3FD4D8C /* BillTimeEntryModeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillTimeEntryModeSection.swift; sourceTree = "<group>"; };
 		2FCDA7E09E7BA7B50BABE1CA /* CloudKitSyncAuditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudKitSyncAuditor.swift; path = "../voxhora-ios/Voxhora/Engine/CloudKitSyncAuditor.swift"; sourceTree = "<group>"; };
 		30B556EBC53B35CA86B39ADF /* AutoBillFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoBillFeedback.swift; path = "../voxhora-ios/Voxhora/Engine/AutoBillFeedback.swift"; sourceTree = "<group>"; };
+		318A2F24211F0F274248542F /* DiscoveryStorageSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryStorageSettingsRow.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryStorageSettingsRow.swift"; sourceTree = "<group>"; };
 		319866431B8441A693B944D4 /* CashierChimeSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashierChimeSound.swift; sourceTree = "<group>"; };
 		3356D52B161689F9379A36C6 /* ReminderActionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReminderActionRouter.swift; path = "../voxhora-ios/Voxhora/Engine/ReminderActionRouter.swift"; sourceTree = "<group>"; };
 		33CACD463F2031F907DE0EEF /* UserPreferencesSchemaV11Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV11Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV11Bootstrap.swift"; sourceTree = "<group>"; };
@@ -775,6 +777,7 @@
 				F08A57E7BE6A499530547AC3 /* DiscoveryMigrationSettingsRow.swift */,
 				94482DC11EFAE0B8BA4A467D /* DiscoveryPDFViewerView.swift */,
 				94E59E8502E5034C33C46458 /* DiscoveryPortalWindowView.swift */,
+				318A2F24211F0F274248542F /* DiscoveryStorageSettingsRow.swift */,
 				8722A2F4D30508BECE73BA64 /* DiscoveryTabView.swift */,
 				24007B5E00871FB7819B3610 /* DiscoveryVideoPlayerView.swift */,
 				1ECC92C9DF0BE884A7BE4B89 /* DocsButton.swift */,
@@ -1328,6 +1331,7 @@
 				92DEEEB57303E6C154B21F5C /* DiscoveryPDFViewerView.swift in Sources */,
 				EE2B73E0834515C93023A1ED /* DiscoveryPortalModel.swift in Sources */,
 				885817822A78A4454D249FED /* DiscoveryPortalWindowView.swift in Sources */,
+				CA86F16597B48A735931A7FA /* DiscoveryStorageSettingsRow.swift in Sources */,
 				975A55B7D5DF46BE6BA0AA21 /* DiscoveryTabView.swift in Sources */,
 				EAD59AE89ADC1DBDE3C83FB2 /* DiscoveryVideoPlayerView.swift in Sources */,
 				3ACB0544E25F2A2E5E10DB68 /* DiscoveryWatchedAuditSession.swift in Sources */,

@@ -578,6 +578,14 @@ targets:
       # confirmation step, and commit result summary.
       - path: ../voxhora-ios/Voxhora/Views/DiscoveryMigrationSettingsRow.swift
         group: SharedViews
+      # Discovery Portal v2 Phase 3 (2026-05-26) — Settings →
+      # Discovery storage location picker. Per-device UserDefaults-
+      # backed picker for where Voxhora writes Discovery files
+      # (default ~/Dropbox/Voxhora/Discovery; can switch to iCloud
+      # Drive / external SSD / NAS). Per C7 not CloudKit-synced —
+      # each Mac may have different cloud setup.
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryStorageSettingsRow.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/VouchersView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientRosterRow.swift
