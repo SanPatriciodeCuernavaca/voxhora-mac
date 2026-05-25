@@ -413,6 +413,14 @@ targets:
       # ContextRailView. Mac-only.
       - path: ../voxhora-ios/Voxhora/Engine/DiscoveryBillTimer.swift
         group: SharedEngine
+      # Discovery Portal v2 Phase 0.5 (2026-05-26) — two-phase
+      # Bulk_Inbox + Case_Discovery migration into per-client
+      # Discovery/<client>/_PC/ + Discovery/<client>/<cause>/
+      # folder structure. plan() returns dry-run report; commit()
+      # executes copy-then-delete moves with per-file atomicity +
+      # full audit log. Mac-only.
+      - path: ../voxhora-ios/Voxhora/Engine/DiscoveryBulkInboxMigration.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/MacMessagesSendTracker.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift
@@ -562,6 +570,13 @@ targets:
       # .entryFromDiscoveryReview audit events). The triage / status
       # surface; the standalone window is the workspace surface.
       - path: ../voxhora-ios/Voxhora/Views/DiscoveryTabView.swift
+        group: SharedViews
+      # Discovery Portal v2 Phase 0.5b (2026-05-26) — Settings →
+      # Discovery folder layout migration UI. Wraps the engine
+      # (DiscoveryBulkInboxMigration.plan + .commit) in a modal sheet
+      # with dry-run preview, planned-moves list, unresolved list,
+      # confirmation step, and commit result summary.
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryMigrationSettingsRow.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/VouchersView.swift
         group: SharedViews

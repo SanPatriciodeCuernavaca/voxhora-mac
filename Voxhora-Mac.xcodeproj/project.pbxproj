@@ -24,6 +24,7 @@
 		0C9B8C1D6498C46C303866C2 /* ClientPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A14C24E3DAAF84900AE12 /* ClientPickerView.swift */; };
 		0CD0F2D286F99F718B95A66E /* ApplePaySuccessVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803307A27337803B86EC3AE7 /* ApplePaySuccessVisual.swift */; };
 		0D4B1CD61F75AE151FBA22BD /* CalendarEventTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2E36264CA69ABE3178C6C /* CalendarEventTrunk.swift */; };
+		0DC48E9480B7CE1BF2F7A57C /* DiscoveryBulkInboxMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B2D64769C1AC52D1C2EDF6 /* DiscoveryBulkInboxMigration.swift */; };
 		0ED17C72FE7D78FE11D335B5 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2092AC7EBC40033CF8F72FE /* Case.swift */; };
 		0F994846BDBD81712AE59EBC /* CalendarRefreshScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C12954FC793A67555D5D15 /* CalendarRefreshScheduler.swift */; };
 		104B028F91552D7235649D4C /* AppointmentLetterParserRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D27C88B65F064C1C11028C5 /* AppointmentLetterParserRegistry.swift */; };
@@ -89,6 +90,7 @@
 		4DF3EB6255CED88646265224 /* UserImportedVisualsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3EE9BB0327606CDEB7F739 /* UserImportedVisualsManager.swift */; };
 		4E049CFADF7E4F93C7F38A30 /* UserPreferencesSchemaV15Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4A6276554B3AA236E868F /* UserPreferencesSchemaV15Bootstrap.swift */; };
 		4EB2C37E7F9C77A10525C809 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7D0508231B9BABFBE314D6 /* CalendarEvent.swift */; };
+		4FE8459430349CF76994A4E9 /* DiscoveryMigrationSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A57E7BE6A499530547AC3 /* DiscoveryMigrationSettingsRow.swift */; };
 		50FC39C2314EAA44E818E517 /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A0986E172331CBECB1B9D /* Voucher.swift */; };
 		517572988C9C9FDF326A992E /* PDFIntakeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5CBFAA8C1FBE08F2893786 /* PDFIntakeRouter.swift */; };
 		533E12E2B0A080CE2871A0C0 /* VoxhoraMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49949EB86CEDA3CB012FEF0E /* VoxhoraMacApp.swift */; };
@@ -452,6 +454,7 @@
 		803307A27337803B86EC3AE7 /* ApplePaySuccessVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePaySuccessVisual.swift; sourceTree = "<group>"; };
 		81056F3F8852111F29044989 /* MigrationOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationOrchestrator.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationOrchestrator.swift"; sourceTree = "<group>"; };
 		8250A7251CDE96BC1083907A /* ClientFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientFilterSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientFilterSheet.swift"; sourceTree = "<group>"; };
+		82B2D64769C1AC52D1C2EDF6 /* DiscoveryBulkInboxMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryBulkInboxMigration.swift; path = "../voxhora-ios/Voxhora/Engine/DiscoveryBulkInboxMigration.swift"; sourceTree = "<group>"; };
 		82C59D0F59AB9D05694E5E65 /* ContactClientSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactClientSheet.swift; path = "../voxhora-ios/Voxhora/Views/ContactClientSheet.swift"; sourceTree = "<group>"; };
 		8361CF4B36A55DA79B0B7FA3 /* UserImportedVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImportedVideoPlayerView.swift; sourceTree = "<group>"; };
 		83AADBA0931A72085F12BFC5 /* ClientTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientTrunk.swift; path = "../voxhora-ios/Voxhora/Engine/ClientTrunk.swift"; sourceTree = "<group>"; };
@@ -557,6 +560,7 @@
 		EE3D7771C95B081836541346 /* UserPreferencesSchemaV16Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV16Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV16Bootstrap.swift"; sourceTree = "<group>"; };
 		EFF0A946DDFECF35BA5E2BA2 /* BillingPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BillingPreset.swift; path = "../voxhora-ios/Voxhora/Engine/BillingPreset.swift"; sourceTree = "<group>"; };
 		EFF4468BAB6C25FC9144965B /* ExportAdapterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAdapterRegistry.swift; sourceTree = "<group>"; };
+		F08A57E7BE6A499530547AC3 /* DiscoveryMigrationSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryMigrationSettingsRow.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryMigrationSettingsRow.swift"; sourceTree = "<group>"; };
 		F17FDAB5E522875CB61749C4 /* MacMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacMainView.swift; sourceTree = "<group>"; };
 		F33B508F96C239E88127CBA7 /* PCAffidavitDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PCAffidavitDetector.swift; path = "../voxhora-ios/Voxhora/Engine/PCAffidavitDetector.swift"; sourceTree = "<group>"; };
 		F5E8EA2D92FF70AAB9E6CEFA /* ClientContactsBackfillBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientContactsBackfillBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientContactsBackfillBootstrap.swift"; sourceTree = "<group>"; };
@@ -650,6 +654,7 @@
 				468A11E040C0A52AB44D3923 /* CourtsLookup.swift */,
 				C18574AB90EC96F2651788F1 /* CustodyStatusSource.swift */,
 				E76E89D8658521D6988E7515 /* DiscoveryBillTimer.swift */,
+				82B2D64769C1AC52D1C2EDF6 /* DiscoveryBulkInboxMigration.swift */,
 				15D00B9C202EC49FA8E0CD1D /* DiscoveryPortalModel.swift */,
 				E2861D0A22345EFB90E967DD /* DiscoveryWatchedAuditSession.swift */,
 				F9228490307BE85E5C40AD12 /* DownloadJobsManager.swift */,
@@ -767,6 +772,7 @@
 				82C59D0F59AB9D05694E5E65 /* ContactClientSheet.swift */,
 				DBD69F17802A870CE0CF0216 /* DiscoveryAudioPlayerView.swift */,
 				C33C829471EC6B67A9BDBA63 /* DiscoveryBillSheet.swift */,
+				F08A57E7BE6A499530547AC3 /* DiscoveryMigrationSettingsRow.swift */,
 				94482DC11EFAE0B8BA4A467D /* DiscoveryPDFViewerView.swift */,
 				94E59E8502E5034C33C46458 /* DiscoveryPortalWindowView.swift */,
 				8722A2F4D30508BECE73BA64 /* DiscoveryTabView.swift */,
@@ -1316,7 +1322,9 @@
 				01787CECF3A0C118B1D798FE /* DiscoveryAudioPlayerView.swift in Sources */,
 				2FD2D639C8AD9AAAAC9B40B5 /* DiscoveryBillSheet.swift in Sources */,
 				B59F4470ECE9A152E804A583 /* DiscoveryBillTimer.swift in Sources */,
+				0DC48E9480B7CE1BF2F7A57C /* DiscoveryBulkInboxMigration.swift in Sources */,
 				A4DCA1D654B42A3D72CE798B /* DiscoveryDownloadsSettingsRows.swift in Sources */,
+				4FE8459430349CF76994A4E9 /* DiscoveryMigrationSettingsRow.swift in Sources */,
 				92DEEEB57303E6C154B21F5C /* DiscoveryPDFViewerView.swift in Sources */,
 				EE2B73E0834515C93023A1ED /* DiscoveryPortalModel.swift in Sources */,
 				885817822A78A4454D249FED /* DiscoveryPortalWindowView.swift in Sources */,
