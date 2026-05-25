@@ -517,6 +517,8 @@ struct VoxhoraMacApp: App {
                                 intervalSeconds: prefs.mailInboxPollIntervalSeconds,
                                 processedMailboxName: prefs.mailInboxProcessedMailboxName
                             )
+                            // Restore TechShare scan toggle from persisted prefs (CloudKit-synced).
+                            MailInboxWatcher.shared.setTechshareScanEnabled(prefs.techshareMailboxScanEnabled)
                             // Migration Import Portal v1 Session 4
                             // (2026-05-16) — sweep orphan bulk-import
                             // PDFs (`*__voxmigr-*.pdf`) older than 30
