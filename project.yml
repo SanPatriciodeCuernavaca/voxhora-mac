@@ -555,6 +555,14 @@ targets:
       # chip when Jurisdiction.requiresComment triggers. Mac-only.
       - path: ../voxhora-ios/Voxhora/Views/DiscoveryBillSheet.swift
         group: SharedViews
+      # Discovery Portal v2 Phase 2.11 (2026-05-26) — Mac-only sidebar
+      # tab between Vouchers and Settings. Read-only dashboard:
+      # launchpad + active session indicator + downloads ribbon +
+      # recent portal sessions feed (last 20 .discoveryItemOpened /
+      # .entryFromDiscoveryReview audit events). The triage / status
+      # surface; the standalone window is the workspace surface.
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryTabView.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/VouchersView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientRosterRow.swift
