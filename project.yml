@@ -379,6 +379,13 @@ targets:
       # actor; queue orchestration builds on top of this singleton.
       - path: ../voxhora-ios/Voxhora/Engine/DownloadJobsManager.swift
         group: SharedEngine
+      # Discovery Portal v2 Phase 1.1 (2026-05-25) — concurrent-download
+      # orchestrator. Wraps DownloadJobsManager with a concurrency cap
+      # (default 3, Settings-configurable up to 3 in Phase 3) and
+      # persistent JSON state at ~/Library/Application Support/voxhora-mac/
+      # download-queue.json — queue survives Voxhora-Mac quit + relaunch.
+      - path: ../voxhora-ios/Voxhora/Engine/DownloadQueue.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/MacMessagesSendTracker.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift

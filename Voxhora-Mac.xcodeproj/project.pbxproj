@@ -107,6 +107,7 @@
 		6387D78D770837A352223DF8 /* UserImportedVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361CF4B36A55DA79B0B7FA3 /* UserImportedVideoPlayerView.swift */; };
 		63B26FFD92F04F7C9514FC45 /* FunModePlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0150DE863075A85481D950F /* FunModePlayerPool.swift */; };
 		659DC17B25487E0764C3CF53 /* AppointmentLetterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A69EA34F2D87B3BCB54004 /* AppointmentLetterParser.swift */; };
+		6602E87C70DCFEEE1A6012F8 /* DownloadQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9143719DF8FF247587FA4 /* DownloadQueue.swift */; };
 		66E026C9608B06553E9B7DE6 /* DownloadJobsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9228490307BE85E5C40AD12 /* DownloadJobsManager.swift */; };
 		68803237D656C9090B7E6B59 /* FunModeOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9497DABAE1EA9AA1B33732C /* FunModeOrchestrator.swift */; };
 		68C8E92568A9493BB12CA7A2 /* ClientFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8250A7251CDE96BC1083907A /* ClientFilterSheet.swift */; };
@@ -510,6 +511,7 @@
 		D1F75057C52E8B7B366A4DBD /* ClientRosterImporterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRosterImporterRegistry.swift; sourceTree = "<group>"; };
 		D2731F9AB15C10BD113EB514 /* AddClientSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddClientSheet.swift; path = "../voxhora-ios/Voxhora/Views/AddClientSheet.swift"; sourceTree = "<group>"; };
 		D2BF4F34B672795ECBEDF44D /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferences.swift; path = "../voxhora-ios/Voxhora/Models/UserPreferences.swift"; sourceTree = "<group>"; };
+		D3F9143719DF8FF247587FA4 /* DownloadQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DownloadQueue.swift; path = "../voxhora-ios/Voxhora/Engine/DownloadQueue.swift"; sourceTree = "<group>"; };
 		D7BB8AC5D0764DDC0DBB7769 /* IntakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IntakeView.swift; path = "../voxhora-ios/Voxhora/Views/IntakeView.swift"; sourceTree = "<group>"; };
 		D82BAB93F881F673C0D28328 /* ClientRosterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientRosterImporter.swift; path = "../voxhora-ios/Voxhora/Engine/ClientRosterImporter.swift"; sourceTree = "<group>"; };
 		D9497DABAE1EA9AA1B33732C /* FunModeOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeOrchestrator.swift; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 				468A11E040C0A52AB44D3923 /* CourtsLookup.swift */,
 				C18574AB90EC96F2651788F1 /* CustodyStatusSource.swift */,
 				F9228490307BE85E5C40AD12 /* DownloadJobsManager.swift */,
+				D3F9143719DF8FF247587FA4 /* DownloadQueue.swift */,
 				A293BC047910AFD6D7931B6E /* EmailTemplate.swift */,
 				00CCD14539D5E27D33C1166B /* ExportAdapter.swift */,
 				2A0CAD63A59A507B8854A117 /* GenericFreeformVocab.swift */,
@@ -1279,6 +1282,7 @@
 				256DE8ECD2FD030DAE519FA6 /* DisplayPreferencesPicker.swift in Sources */,
 				9D99C43264EDD8E6ECD30744 /* DocsButton.swift in Sources */,
 				66E026C9608B06553E9B7DE6 /* DownloadJobsManager.swift in Sources */,
+				6602E87C70DCFEEE1A6012F8 /* DownloadQueue.swift in Sources */,
 				30DD0AE1379560820FFF7421 /* EditEntrySheet.swift in Sources */,
 				6CDE39791860159EC2C01690 /* EmailTemplate.swift in Sources */,
 				87BB6E5E075B1308636BD729 /* Entry.swift in Sources */,
