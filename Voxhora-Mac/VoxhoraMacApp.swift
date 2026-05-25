@@ -596,14 +596,19 @@ struct VoxhoraMacApp: App {
             CommandGroup(after: .appInfo) {
                 CheckForUpdatesView(updater: updaterController.updater)
             }
-            // Discovery Portal v2 Phase 2.1 (2026-05-26) — View menu
+            // Discovery Portal v2 Phase 2.1 (2026-05-26) — Window menu
             // entry that opens the standalone Discovery Portal window
-            // (⌃⌘D). Placed alongside the View menu's built-in items
-            // so the keyboard shortcut sits next to other View-level
-            // window toggles. Future entry points (CaseInfoSheet button,
+            // (⇧⌘D). Placed after .windowList so it lives in the Window
+            // menu alongside the SwiftUI auto-added window listing —
+            // Mac-canonical placement for "open another window" actions.
+            // Original ⌃⌘D shortcut + .toolbar placement (2026-05-26
+            // first pass) was changed because ⌃⌘D collides with macOS's
+            // system "Look Up" / Dictionary shortcut and the menu
+            // binding never fired. ⇧⌘D is clean + memorable + free of
+            // system conflicts. Future entry points (CaseInfoSheet button,
             // MainTabView Discovery tab row tap) reuse the same
-            // openWindow(id:) call via the @Environment(\.openWindow).
-            CommandGroup(after: .toolbar) {
+            // openWindow(id:) call via @Environment(\.openWindow).
+            CommandGroup(after: .windowList) {
                 DiscoveryPortalMenuButton()
             }
         }
