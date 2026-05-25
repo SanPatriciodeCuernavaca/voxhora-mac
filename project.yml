@@ -511,6 +511,13 @@ targets:
       # has a `.pdf` extension. Mac-only.
       - path: ../voxhora-ios/Voxhora/Views/DiscoveryPDFViewerView.swift
         group: SharedViews
+      # Discovery Portal v2 Phase 2.4b (2026-05-26) — AVKit-backed
+      # NSViewRepresentable for the EvidenceViewer pane. Routed in
+      # WorkspaceView for .mp4 / .mov / .m4v. Built-in AVPlayerView
+      # floating transport bar + scrub + playback speed menu (no
+      # custom UI). Mac-only.
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryVideoPlayerView.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/VouchersView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientRosterRow.swift
