@@ -518,6 +518,13 @@ targets:
       # custom UI). Mac-only.
       - path: ../voxhora-ios/Voxhora/Views/DiscoveryVideoPlayerView.swift
         group: SharedViews
+      # Discovery Portal v2 Phase 2.4c (2026-05-26) — custom Voxhora-
+      # styled audio transport (voxNavyDeep panel, voxGold scrubber +
+      # play, voxCream text, 10s back / 30s forward). AVPlayer-backed
+      # for periodic time observation + seek precision. Routed in
+      # WorkspaceView for .mp3 / .wav / .m4a / .aac. Mac-only.
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryAudioPlayerView.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/VouchersView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientRosterRow.swift
