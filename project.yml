@@ -295,6 +295,13 @@ targets:
       # post-upgrade PDF intake.
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV16Bootstrap.swift
         group: SharedEngine
+      # Discovery Portal v2 Phase 2.7 (2026-05-26) — AttorneyProfile
+      # schema v16 → v17 sanity pass. Adds discoveryPortalPresetsJSON
+      # (standalone preset list for the Bill Confirmation Sheet,
+      # independent of watchBillingPresets per Patrick smoke-test).
+      # Pure additive Data() default — no seed data.
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV17Bootstrap.swift
+        group: SharedEngine
       # DECISION 055.8 (2026-05-10 EOS-9) — one-time backfill:
       # copy Client.inmateBookingNumber + Client.arrestDate into the
       # corresponding Case fields where Case-level values are empty.
@@ -538,6 +545,15 @@ targets:
       # for periodic time observation + seek precision. Routed in
       # WorkspaceView for .mp3 / .wav / .m4a / .aac. Mac-only.
       - path: ../voxhora-ios/Voxhora/Views/DiscoveryAudioPlayerView.swift
+        group: SharedViews
+      # Discovery Portal v2 Phase 2.7 (2026-05-26) — Bill Confirmation
+      # Sheet. Pops over the Portal Window when the attorney taps Bill
+      # in ContextRailView; creates an Entry via the existing trunk
+      # (modelContext.insert + save) and fires the .entryFromDiscoveryReview
+      # audit event. Travis canonical Discovery activities pre-loaded;
+      # quantity prefilled from BillTimer; comment field with [REQUIRED]
+      # chip when Jurisdiction.requiresComment triggers. Mac-only.
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryBillSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/VouchersView.swift
         group: SharedViews

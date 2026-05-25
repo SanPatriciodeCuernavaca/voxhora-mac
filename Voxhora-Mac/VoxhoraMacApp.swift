@@ -360,6 +360,15 @@ struct VoxhoraMacApp: App {
                         // correctly on the first PDF intake post-upgrade.
                         AttorneyProfileSchemaV16Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // Discovery Portal v2 Phase 2.7 (2026-05-26) —
+                        // AttorneyProfile schema v16 → v17. Adds
+                        // discoveryPortalPresetsJSON (standalone
+                        // preset list for the Bill Confirmation Sheet,
+                        // independent of watchBillingPresets per
+                        // Patrick's smoke-test feedback). Drill #5
+                        // additive default-safe — no seed data.
+                        AttorneyProfileSchemaV17Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 055.8 (2026-05-10 EOS-9) — one-time
                         // backfill: copy Client.inmateBookingNumber +
                         // Client.arrestDate to every Case row owned by
