@@ -392,6 +392,13 @@ targets:
       # selection later). Mac-only.
       - path: ../voxhora-ios/Voxhora/Engine/DiscoveryPortalModel.swift
         group: SharedEngine
+      # Discovery Portal v2 Phase 2.5 (2026-05-26) — shared audit-
+      # session helpers (begin/end) for the evidence viewers. Fires
+      # .discoveryItemOpened on viewer appear + .discoveryItemClosed
+      # on dismantle / URL swap, with C6 1-second-threshold "watched"
+      # flag computed at close. Mac-only.
+      - path: ../voxhora-ios/Voxhora/Engine/DiscoveryWatchedAuditSession.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/MacMessagesSendTracker.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift
