@@ -522,6 +522,20 @@ struct VoxhoraMacApp: App {
                                 enabled: prefs.techshareMailboxScanEnabled,
                                 intervalSeconds: prefs.techshareMailboxScanIntervalSeconds
                             )
+                            // Discovery Portal v2 Phase 1.1+1.2 (2026-05-25)
+                            // — eager DownloadQueue init at app launch.
+                            // Without this, the queue's restoreFromDisk +
+                            // advanceQueue only fires when a user opens
+                            // CaseInfoSheet (lazy singleton access). Eager
+                            // init means: (a) Voxhora-Mac quit + relaunch
+                            // immediately resumes any .running items as
+                            // .queued + spawns fresh agents, (b) the
+                            // Phase 1.2 side effects (sleep prevention +
+                            // Dock badge + macOS Notification permission
+                            // prompt) engage at launch, not on first
+                            // case-open. Single line touches the static
+                            // shared which triggers DownloadQueue.init().
+                            _ = DownloadQueue.shared
                             // Migration Import Portal v1 Session 4
                             // (2026-05-16) — sweep orphan bulk-import
                             // PDFs (`*__voxmigr-*.pdf`) older than 30
