@@ -373,6 +373,12 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/MailInboxWatcher.swift
         group: SharedEngine
+      # Discovery Portal v2 Phase 0.4 (2026-05-25) — extracted from
+      # CaseInfoSheet's @State Process tracking. Mac-only via internal
+      # #if os(macOS) guard. Foundation for Phase 1's DownloadQueue
+      # actor; queue orchestration builds on top of this singleton.
+      - path: ../voxhora-ios/Voxhora/Engine/DownloadJobsManager.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/MacMessagesSendTracker.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift
