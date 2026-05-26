@@ -587,6 +587,13 @@ targets:
       # WorkspaceView for .mp3 / .wav / .m4a / .aac. Mac-only.
       - path: ../voxhora-ios/Voxhora/Views/DiscoveryAudioPlayerView.swift
         group: SharedViews
+      # Discovery Portal v2 photo-bundle viewer (2026-05-26 EOS) —
+      # multi-image swipeable viewer for image-only subfolders (e.g.,
+      # Avery Rider's 26 photos). QLPreviewController on iPad with N
+      # items; QLPreviewView + Prev/Next on Mac. Routed in WorkspaceView
+      # when currentItemURL is a directory containing image files.
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryPhotoBundleViewer.swift
+        group: SharedViews
       # Discovery Portal v2 Phase 2.7 (2026-05-26) — Bill Confirmation
       # Sheet. Pops over the Portal Window when the attorney taps Bill
       # in ContextRailView; creates an Entry via the existing trunk
