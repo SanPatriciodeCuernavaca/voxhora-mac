@@ -549,6 +549,15 @@ targets:
       # EvidenceGridView typealias in this file (no Mac call-site change).
       - path: ../voxhora-ios/Voxhora/Views/DiscoveryEvidenceGridView.swift
         group: SharedViews
+      # Discovery Portal v2 Phase 2.13 Step 7 (2026-05-27 iPad parity) —
+      # cross-platform extraction of ContextRailView (CLIENT picker +
+      # BILL TIMER + NOTES + ACTIONS) from DiscoveryPortalWindowView.swift
+      # so iPad's portal rail can render the same sections Mac uses. Mac
+      # references the type via the ContextRailView typealias in this
+      # file (no Mac call-site change). Reveal-in-Finder button is the
+      # only Mac-specific bit; #if-gated inside.
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryContextRailView.swift
+        group: SharedViews
       # Discovery Portal v2 Phase 2.4a (2026-05-26) — PDFKit-backed
       # NSViewRepresentable for the EvidenceViewer pane. Routed in
       # WorkspaceView when DiscoveryPortalModel.shared.currentItemURL
