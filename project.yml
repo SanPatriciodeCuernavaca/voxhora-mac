@@ -542,6 +542,13 @@ targets:
       # as empty). Phase 2.2 fills in the 3-pane layout skeleton.
       - path: ../voxhora-ios/Voxhora/Views/DiscoveryPortalWindowView.swift
         group: SharedViews
+      # Discovery Portal v2 Phase 2.13 Step 6 (2026-05-27 iPad parity) —
+      # cross-platform extraction of EvidenceGridView from
+      # DiscoveryPortalWindowView.swift so iPad's IPadWorkspaceView can
+      # render the same grid Mac uses. Mac references the type via the
+      # EvidenceGridView typealias in this file (no Mac call-site change).
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryEvidenceGridView.swift
+        group: SharedViews
       # Discovery Portal v2 Phase 2.4a (2026-05-26) — PDFKit-backed
       # NSViewRepresentable for the EvidenceViewer pane. Routed in
       # WorkspaceView when DiscoveryPortalModel.shared.currentItemURL
