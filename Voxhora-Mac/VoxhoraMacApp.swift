@@ -506,6 +506,48 @@ struct VoxhoraMacApp: App {
                         // unrelated SwiftData saves).
                         let prefsDescriptor = FetchDescriptor<UserPreferences>()
                         if let prefs = try? modelContainer.mainContext.fetch(prefsDescriptor).first {
+                            // Sticky-enable recovery (2026-05-26) — defensive
+                            // against SwiftData wipes from hard resets / fresh
+                            // installs that revert autoIntakeEnabled to its
+                            // schema default `false`. UserDefaults is
+                            // device-local and survives SwiftData wipes, so
+                            // a flag set when the lawyer first enables
+                            // auto-intake (in SettingsView) persists across
+                            // resets. One-way latch: never auto-enables on a
+                            // device that has never been enabled. Restores
+                            // ~/Downloads seed if paths empty so the watcher
+                            // has somewhere to start (same seed logic as
+                            // SettingsView's first-flip-ON).
+                            let userEverEnabledKey = "voxhora.autoIntake.userHasEverEnabled"
+                            if !prefs.autoIntakeEnabled
+                               && UserDefaults.standard.bool(forKey: userEverEnabledKey) {
+                                prefs.autoIntakeEnabled = true
+                                if prefs.autoIntakeWatchedFolderPaths.isEmpty {
+                                    let downloads = (NSHomeDirectory() as NSString)
+                                        .appendingPathComponent("Downloads")
+                                    prefs.autoIntakeWatchedFolderPaths = [downloads]
+                                }
+                                try? modelContainer.mainContext.save()
+                                AutoIntakeWatcher.shared.log(
+                                    "STICKY-ENABLE RESTORED — autoIntakeEnabled was false on launch but UserDefaults remembers user previously enabled it. Restored to true (likely SwiftData wipe from hard reset / fresh install)."
+                                )
+                            }
+                            // Backfill the UserDefaults marker for lawyers who
+                            // enabled auto-intake BEFORE the sticky-enable
+                            // pattern shipped (2026-05-26). Only fires when
+                            // UserDefaults has NEVER been written (object ==
+                            // nil) — once written, the SettingsView onChange
+                            // handler owns it. Distinguishing "never written"
+                            // from "set to false" matters: a lawyer who
+                            // explicitly disabled the toggle should NOT have
+                            // their disable overridden by a backfill.
+                            if prefs.autoIntakeEnabled
+                               && UserDefaults.standard.object(forKey: userEverEnabledKey) == nil {
+                                UserDefaults.standard.set(true, forKey: userEverEnabledKey)
+                                AutoIntakeWatcher.shared.log(
+                                    "STICKY-ENABLE BACKFILL — autoIntakeEnabled was already true on launch; recorded UserDefaults marker for future hard-reset recovery."
+                                )
+                            }
                             AutoIntakeWatcher.shared.refresh(
                                 paths: prefs.autoIntakeWatchedFolderPaths,
                                 enabled: prefs.autoIntakeEnabled
