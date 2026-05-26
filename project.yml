@@ -558,6 +558,15 @@ targets:
       # only Mac-specific bit; #if-gated inside.
       - path: ../voxhora-ios/Voxhora/Views/DiscoveryContextRailView.swift
         group: SharedViews
+      # Discovery Portal v2 Phase 2.13 polish (2026-05-27) — universal
+      # QuickLook fallback viewer (Quartz.QLPreviewView on Mac,
+      # QuickLook.QLPreviewController on iPad). Routes images / Office
+      # docs / text / archives / anything not handled by the dedicated
+      # PDF / Video / Audio viewers. Replaces the prior "Unsupported
+      # file type" placeholder so lawyers can review photo + document
+      # evidence inline (Patrick's requirement: every possible file type).
+      - path: ../voxhora-ios/Voxhora/Views/DiscoveryQuickLookViewer.swift
+        group: SharedViews
       # Discovery Portal v2 Phase 2.4a (2026-05-26) — PDFKit-backed
       # NSViewRepresentable for the EvidenceViewer pane. Routed in
       # WorkspaceView when DiscoveryPortalModel.shared.currentItemURL

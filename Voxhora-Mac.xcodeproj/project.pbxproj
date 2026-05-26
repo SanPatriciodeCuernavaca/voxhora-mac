@@ -285,6 +285,7 @@
 		F7056D2E8F9B5EF056452534 /* VoxSpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A92818F1B337F438AFC0601 /* VoxSpeechRecognizer.swift */; };
 		F7FEFCD2E8EE9F42AC71EEFF /* TravisCounty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C00C16DF42AFDF423D545D /* TravisCounty.swift */; };
 		F8047BC76131C8E1BD71D24E /* WatchStatusIndicatorPredicateRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD203F2938416BF371285634 /* WatchStatusIndicatorPredicateRegistry.swift */; };
+		FB10D6A72E5EDB149BC568BF /* DiscoveryQuickLookViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B44ECDFE46EC9B67CAACA9 /* DiscoveryQuickLookViewer.swift */; };
 		FC54AE2CBCDEA11837EC858B /* ClientDocTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E4DAB6ABF0B1988081E40A /* ClientDocTrunk.swift */; };
 		FDEE75499523AC3CFDF94973 /* WatchStatusIndicatorPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B385F1279E9E1556653298 /* WatchStatusIndicatorPredicate.swift */; };
 		FE5EA6A31FCC3D09C93DF411 /* AttorneyProfileSchemaV7Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E3E4B691CB9D5019E1CF1 /* AttorneyProfileSchemaV7Bootstrap.swift */; };
@@ -497,6 +498,7 @@
 		A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoneyCounter.swift; path = "../voxhora-ios/Voxhora/Views/MoneyCounter.swift"; sourceTree = "<group>"; };
 		A293BC047910AFD6D7931B6E /* EmailTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmailTemplate.swift; path = "../voxhora-ios/Voxhora/Engine/EmailTemplate.swift"; sourceTree = "<group>"; };
 		A307B1CCF2CDD028620A2F9B /* RatePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatePickerSheet.swift; path = "../voxhora-ios/Voxhora/Views/RatePickerSheet.swift"; sourceTree = "<group>"; };
+		A3B44ECDFE46EC9B67CAACA9 /* DiscoveryQuickLookViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryQuickLookViewer.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryQuickLookViewer.swift"; sourceTree = "<group>"; };
 		A3FD1F5F5A001CD56B1870C4 /* StampApprovedVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampApprovedVisual.swift; sourceTree = "<group>"; };
 		A418EF8556A1686491D6F1AB /* PracticeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PracticeArea.swift; path = "../voxhora-ios/Voxhora/Engine/PracticeArea.swift"; sourceTree = "<group>"; };
 		A4E0EEA2EE49BD9EEE03E2EB /* ClientSchemaV12Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV12Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV12Bootstrap.swift"; sourceTree = "<group>"; };
@@ -786,6 +788,7 @@
 				F08A57E7BE6A499530547AC3 /* DiscoveryMigrationSettingsRow.swift */,
 				94482DC11EFAE0B8BA4A467D /* DiscoveryPDFViewerView.swift */,
 				94E59E8502E5034C33C46458 /* DiscoveryPortalWindowView.swift */,
+				A3B44ECDFE46EC9B67CAACA9 /* DiscoveryQuickLookViewer.swift */,
 				318A2F24211F0F274248542F /* DiscoveryStorageSettingsRow.swift */,
 				8722A2F4D30508BECE73BA64 /* DiscoveryTabView.swift */,
 				24007B5E00871FB7819B3610 /* DiscoveryVideoPlayerView.swift */,
@@ -1343,6 +1346,7 @@
 				92DEEEB57303E6C154B21F5C /* DiscoveryPDFViewerView.swift in Sources */,
 				EE2B73E0834515C93023A1ED /* DiscoveryPortalModel.swift in Sources */,
 				885817822A78A4454D249FED /* DiscoveryPortalWindowView.swift in Sources */,
+				FB10D6A72E5EDB149BC568BF /* DiscoveryQuickLookViewer.swift in Sources */,
 				CA86F16597B48A735931A7FA /* DiscoveryStorageSettingsRow.swift in Sources */,
 				975A55B7D5DF46BE6BA0AA21 /* DiscoveryTabView.swift in Sources */,
 				EAD59AE89ADC1DBDE3C83FB2 /* DiscoveryVideoPlayerView.swift in Sources */,
