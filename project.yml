@@ -421,6 +421,14 @@ targets:
       # full audit log. Mac-only.
       - path: ../voxhora-ios/Voxhora/Engine/DiscoveryBulkInboxMigration.swift
         group: SharedEngine
+      # Discovery Portal v2 Phase 2.13 Step 5 (2026-05-27 iPad parity) —
+      # cross-platform helper for enumerating Discovery/ directory tree.
+      # Extracted from DiscoveryPortalWindowView.swift (Mac) so iPad's
+      # IPadClientSidebarView + EvidenceGrid can share the same scanner.
+      # Holds DiscoveryClientFolder + EvidenceGroup + EvidenceItem +
+      # the DiscoveryFolderScanner enum.
+      - path: ../voxhora-ios/Voxhora/Engine/DiscoveryFolderScanner.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/MacMessagesSendTracker.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift
