@@ -974,3 +974,23 @@ targets:
           NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShareViewController
           NSExtensionAttributes:
             NSExtensionActivationRule: "SUBQUERY(extensionItems, $extensionItem, SUBQUERY($extensionItem.attachments, $attachment, ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO \"com.adobe.pdf\").@count == 1).@count == 1"
+
+# 2026-05-27 — explicit scheme generation. Without this block,
+# xcodegen 2.45+ does NOT auto-generate schemes — every project
+# regen wipes whatever Xcode's auto-create-on-first-open scheme
+# was sitting in xcshareddata, and subsequent xcodebuild CLI calls
+# fail with "no scheme named Voxhora-Mac." Per-target scheme keeps
+# the build pipeline reproducible after every regen.
+schemes:
+  Voxhora-Mac:
+    build:
+      targets:
+        Voxhora-Mac: all
+    run:
+      config: Debug
+    archive:
+      config: Release
+    analyze:
+      config: Debug
+    profile:
+      config: Release
