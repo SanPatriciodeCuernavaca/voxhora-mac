@@ -302,6 +302,15 @@ targets:
       # Pure additive Data() default — no seed data.
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV17Bootstrap.swift
         group: SharedEngine
+      # BYO Downloader + TechShare Login (2026-05-26) — AttorneyProfile
+      # schema v17 → v18 sanity pass. Adds discoverySourceMode +
+      # discoveryFolderNamingConvention (per-attorney CloudKit-synced
+      # choice between Voxhora's TechShare agent and external
+      # downloaders like Scover Legal). Default "voxhora" + "canonical"
+      # preserves existing behavior byte-for-byte. Drill #5 additive
+      # default-safe.
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV18Bootstrap.swift
+        group: SharedEngine
       # DECISION 055.8 (2026-05-10 EOS-9) — one-time backfill:
       # copy Client.inmateBookingNumber + Client.arrestDate into the
       # corresponding Case fields where Case-level values are empty.
@@ -464,6 +473,13 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/PracticeAreas
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/KeychainHelper.swift
+        group: SharedEngine
+      # BYO Downloader + TechShare Login (2026-05-26) — Mac-only
+      # Keychain wrapper that writes to the Python-compatible slot
+      # (service=voxhora-techshare-agent, account=NSUserName(),
+      # value=JSON({username, password})) so the
+      # ~/voxhora-techshare-agent CLI reads the same creds.
+      - path: ../voxhora-ios/Voxhora/Engine/TechShareKeychainHelper.swift
         group: SharedEngine
       # 2026-05-18 — US phone-number auto-formatter (Patrick: "I have
       # to add the brackets and hyphen by hand"). Used by SettingsView's

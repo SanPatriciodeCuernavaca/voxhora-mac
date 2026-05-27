@@ -369,6 +369,16 @@ struct VoxhoraMacApp: App {
                         // additive default-safe — no seed data.
                         AttorneyProfileSchemaV17Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // BYO Downloader + TechShare Login (2026-05-26) —
+                        // v17 → v18 sanity pass. Adds discoverySourceMode
+                        // + discoveryFolderNamingConvention for per-
+                        // attorney choice between Voxhora's TechShare
+                        // agent (Patrick default) and external downloaders
+                        // (Scover Legal, etc.). Default "voxhora" +
+                        // "canonical" preserves existing behavior byte-
+                        // for-byte.
+                        AttorneyProfileSchemaV18Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 055.8 (2026-05-10 EOS-9) — one-time
                         // backfill: copy Client.inmateBookingNumber +
                         // Client.arrestDate to every Case row owned by
