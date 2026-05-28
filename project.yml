@@ -474,6 +474,18 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/KeychainHelper.swift
         group: SharedEngine
+      # Dropbox API Quickplayback (2026-05-27) — PKCE OAuth manager +
+      # access-token refresh + iCloud-Keychain storage. Cross-platform
+      # via AuthenticationServices framework. Provides accessToken()
+      # to DropboxAPIClient (sibling file below).
+      - path: ../voxhora-ios/Voxhora/Engine/DropboxOAuthManager.swift
+        group: SharedEngine
+      # Dropbox API Quickplayback (2026-05-27) — /2/files/get_temporary_link
+      # wrapper with 3-hr in-memory cache. Returns the streaming URL the
+      # video + audio players hand to AVPlayer for HTTP-range-request
+      # playback (2-sec start, instant scrub).
+      - path: ../voxhora-ios/Voxhora/Engine/DropboxAPIClient.swift
+        group: SharedEngine
       # BYO Downloader + TechShare Login (2026-05-26) — Mac-only
       # Keychain wrapper that writes to the Python-compatible slot
       # (service=voxhora-techshare-agent, account=NSUserName(),
@@ -819,6 +831,18 @@ targets:
             LSItemContentTypes:
               - com.adobe.pdf
             CFBundleTypeIconFiles: []
+        # Dropbox API Quickplayback (2026-05-27) — voxhora:// URL scheme
+        # for OAuth 2 redirects from Dropbox's authorize endpoint. PKCE
+        # flow opens Safari → user approves Voxhora → Dropbox redirects
+        # to voxhora://oauth-callback?code=... which macOS routes into
+        # VoxhoraMacApp's .onOpenURL handler → DropboxOAuthManager
+        # .handleCallback exchanges the code for tokens. Mirrors the
+        # iOS-side registration in voxhora-ios/project.yml.
+        CFBundleURLTypes:
+          - CFBundleTypeRole: Editor
+            CFBundleURLName: com.patrickfagerberg.voxhora.dropbox
+            CFBundleURLSchemes:
+              - voxhora
         # Distribution Phase 1 (2026-05-19) — Sparkle auto-updater wiring.
         # Voxhora-Mac is non-sandboxed → Sparkle is the canonical
         # Developer-ID + notarized-DMG + appcast.xml auto-updater path
