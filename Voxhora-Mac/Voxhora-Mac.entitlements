@@ -21,9 +21,21 @@
 	<array>
 		<string>group.com.patrickfagerberg.voxhora</string>
 	</array>
+	<!-- 2026-05-27 ENTITLEMENTS FIX: hardcode the team-ID prefix. Xcode
+	     substitutes $(AppIdentifierPrefix) at build time for iOS targets,
+	     but release.sh's direct codesign workflow (NOT xcodebuild
+	     -exportArchive) passes this file as-is to `codesign --entitlements`
+	     which does NO substitution. The literal `$(AppIdentifierPrefix)`
+	     ends up in the signed binary and AMFI rejects with "Code has
+	     restricted entitlements, but the validation of its code signature
+	     failed." Hardcoding the team prefix (S4GM27H6N5) matches what
+	     KeychainHelper.swift uses at runtime + what the iOS Xcode-built
+	     binary ends up with after substitution. iOS Voxhora.entitlements
+	     keeps the $(AppIdentifierPrefix) form since iOS goes through
+	     Xcode's normal codesign substitution. -->
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)com.patrickfagerberg.voxhora.shared</string>
+		<string>S4GM27H6N5.com.patrickfagerberg.voxhora.shared</string>
 	</array>
 	<key>com.apple.security.automation.apple-events</key>
 	<true/>
