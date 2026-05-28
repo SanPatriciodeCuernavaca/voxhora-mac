@@ -311,6 +311,11 @@ targets:
       # default-safe.
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV18Bootstrap.swift
         group: SharedEngine
+      # BETA Cloud Agent (Patrick 2026-05-27) — schema v18 → v19.
+      # Adds discoveryDownloadVenue ("mac" default | "cloud"). Mac-only
+      # toggle UI; iPad/iPhone sync via CloudKit for schema parity.
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV19Bootstrap.swift
+        group: SharedEngine
       # DECISION 055.8 (2026-05-10 EOS-9) — one-time backfill:
       # copy Client.inmateBookingNumber + Client.arrestDate into the
       # corresponding Case fields where Case-level values are empty.
@@ -485,6 +490,13 @@ targets:
       # video + audio players hand to AVPlayer for HTTP-range-request
       # playback (2-sec start, instant scrub).
       - path: ../voxhora-ios/Voxhora/Engine/DropboxAPIClient.swift
+        group: SharedEngine
+      # BETA Cloud Agent (2026-05-27) — REST client for voxhora-agent-
+      # fagerberg on Fly.io. Used when AttorneyProfile.discoveryDownloadVenue
+      # == "cloud" (Settings → Advanced toggle); falls back to Mac
+      # subprocess via DownloadJobsManager when "mac" (default). Cross-
+      # platform Mac + iOS; Watch excluded.
+      - path: ../voxhora-ios/Voxhora/Engine/AgentJobsClient.swift
         group: SharedEngine
       # BYO Downloader + TechShare Login (2026-05-26) — Mac-only
       # Keychain wrapper that writes to the Python-compatible slot

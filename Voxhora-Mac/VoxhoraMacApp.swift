@@ -379,6 +379,14 @@ struct VoxhoraMacApp: App {
                         // for-byte.
                         AttorneyProfileSchemaV18Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // v18 → v19 sanity pass. Adds discoveryDownloadVenue
+                        // ("mac" default) — Settings → Advanced toggle that
+                        // routes Discovery downloads through voxhora-agent-
+                        // fagerberg on Fly.io ("cloud") vs the local
+                        // voxhora-techshare-agent subprocess ("mac" — Patrick's
+                        // pre-2026-05-27 setup).
+                        AttorneyProfileSchemaV19Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 055.8 (2026-05-10 EOS-9) — one-time
                         // backfill: copy Client.inmateBookingNumber +
                         // Client.arrestDate to every Case row owned by
