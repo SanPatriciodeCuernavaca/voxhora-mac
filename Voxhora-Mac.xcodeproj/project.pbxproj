@@ -249,6 +249,7 @@
 		CDC9F4656AAA1D0C6D7259CA /* MailInboxWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85724110586CAA89B2292946 /* MailInboxWatcher.swift */; };
 		CDEDC3D14BFEC5446728FB44 /* AttorneyProfileDuplicateRecoveryBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94691A6266B93484892F6D /* AttorneyProfileDuplicateRecoveryBootstrap.swift */; };
 		CE51B470B12E648368D1717D /* PCAffidavitDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B508F96C239E88127CBA7 /* PCAffidavitDetector.swift */; };
+		D11F595E106B98EEA4CBCBE7 /* DropboxFetchToTempCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43674315CAF2AFB6963BBCE /* DropboxFetchToTempCache.swift */; };
 		D3CDE945059BFBA31CAC1CE7 /* RosterReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F98C329547921ED512F8 /* RosterReconciler.swift */; };
 		D3EC9049F13215CA828BA16E /* ClientToCaseBackfillBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4286A72BF7F513ADE3115071 /* ClientToCaseBackfillBootstrap.swift */; };
 		D4550C6A6DBCA9EB829108B8 /* CaseTypeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB7755BB55CE823BC38D0D /* CaseTypeFilter.swift */; };
@@ -529,6 +530,7 @@
 		A3B44ECDFE46EC9B67CAACA9 /* DiscoveryQuickLookViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryQuickLookViewer.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryQuickLookViewer.swift"; sourceTree = "<group>"; };
 		A3FD1F5F5A001CD56B1870C4 /* StampApprovedVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampApprovedVisual.swift; sourceTree = "<group>"; };
 		A418EF8556A1686491D6F1AB /* PracticeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PracticeArea.swift; path = "../voxhora-ios/Voxhora/Engine/PracticeArea.swift"; sourceTree = "<group>"; };
+		A43674315CAF2AFB6963BBCE /* DropboxFetchToTempCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DropboxFetchToTempCache.swift; path = "../voxhora-ios/Voxhora/Engine/DropboxFetchToTempCache.swift"; sourceTree = "<group>"; };
 		A4E0EEA2EE49BD9EEE03E2EB /* ClientSchemaV12Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV12Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV12Bootstrap.swift"; sourceTree = "<group>"; };
 		A4F68D1AC18667A942C4F65E /* AttorneyProfileSchemaV14Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV14Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV14Bootstrap.swift"; sourceTree = "<group>"; };
 		A63BBCCA55A0DDEF37D986AE /* IntroEmailComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroEmailComposer.swift; sourceTree = "<group>"; };
@@ -713,6 +715,7 @@
 				F9228490307BE85E5C40AD12 /* DownloadJobsManager.swift */,
 				D3F9143719DF8FF247587FA4 /* DownloadQueue.swift */,
 				53BBF6F5B5B8F7A7A4C85BC8 /* DropboxAPIClient.swift */,
+				A43674315CAF2AFB6963BBCE /* DropboxFetchToTempCache.swift */,
 				D3157D20CA8252CA99A6D08F /* DropboxOAuthManager.swift */,
 				A293BC047910AFD6D7931B6E /* EmailTemplate.swift */,
 				00CCD14539D5E27D33C1166B /* ExportAdapter.swift */,
@@ -1420,6 +1423,7 @@
 				6602E87C70DCFEEE1A6012F8 /* DownloadQueue.swift in Sources */,
 				0E0D32D5FBC7748D0D3C2147 /* DropboxAPIClient.swift in Sources */,
 				1710D22FB7B200898CC4D341 /* DropboxAccountSettingsRow.swift in Sources */,
+				D11F595E106B98EEA4CBCBE7 /* DropboxFetchToTempCache.swift in Sources */,
 				863998EFFA89848EAE8E6BF6 /* DropboxOAuthManager.swift in Sources */,
 				30DD0AE1379560820FFF7421 /* EditEntrySheet.swift in Sources */,
 				6CDE39791860159EC2C01690 /* EmailTemplate.swift in Sources */,

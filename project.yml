@@ -439,6 +439,14 @@ targets:
       # selection later). Mac-only.
       - path: ../voxhora-ios/Voxhora/Engine/DiscoveryPortalModel.swift
         group: SharedEngine
+      # Cloud-Native Discovery Phase 4 (2026-05-28) — @MainActor
+      # DiscoveryFetchToTempResolver: fetch-to-temp helper for the
+      # non-streaming viewers (PDF/QuickLook/PhotoBundle) + Save-to-Docs.
+      # Downloads a cloud-only item to an isolated UUID temp subdir, opens
+      # from it, deletes on close. shouldFetch checks local-file-exists
+      # FIRST (Niagara Falls). Shared Mac + iPad.
+      - path: ../voxhora-ios/Voxhora/Engine/DropboxFetchToTempCache.swift
+        group: SharedEngine
       # Discovery Portal v2 Phase 2.5 (2026-05-26) — shared audit-
       # session helpers (begin/end) for the evidence viewers. Fires
       # .discoveryItemOpened on viewer appear + .discoveryItemClosed
