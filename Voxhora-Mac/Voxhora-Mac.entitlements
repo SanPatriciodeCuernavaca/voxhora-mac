@@ -35,10 +35,17 @@
 	<array>
 		<string>group.com.patrickfagerberg.voxhora</string>
 	</array>
-	<key>keychain-access-groups</key>
-	<array>
-		<string>S4GM27H6N5.com.patrickfagerberg.voxhora.shared</string>
-	</array>
+	<!--
+	keychain-access-groups REMOVED 2026-05-29 (AMFI launch fix). On
+	macOS 26.4+, a Developer-ID + Hardened-Runtime build that declares
+	a custom keychain-access-group is SIGKILLed at spawn by AMFI (exit
+	137) — the Dev ID profile's team wildcard (S4GM27H6N5.*) does NOT
+	authorize the group for direct distribution (development signing is
+	lenient, which is why the Debug build launched). The Mac app now
+	uses its own implicit default keychain (no entitlement needed);
+	KeychainHelper.swift omits kSecAttrAccessGroup on macOS via #if.
+	iOS/iPadOS/watchOS keep the shared group + iCloud Keychain sync.
+	-->
 	<key>com.apple.security.automation.apple-events</key>
 	<true/>
 	<!--
