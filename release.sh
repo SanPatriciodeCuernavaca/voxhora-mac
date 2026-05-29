@@ -40,6 +40,14 @@ SPARKLE_TOOLS="/Users/patrickfagerberg/Documents/Documents - patrick’s MacBook
 NOTARY_PROFILE="voxhora-notarytool"
 SIGNING_IDENTITY="Developer ID Application: Richard Patrick Fagerberg (S4GM27H6N5)"
 DEV_ID_TEAM="S4GM27H6N5"
+# Developer ID Direct provisioning profile (gitignored). As of macOS 26.4+,
+# AMFI refuses to launch a direct-codesigned Mac app carrying RESTRICTED
+# entitlements (iCloud / app-groups / aps-environment / keychain-access-
+# groups) UNLESS a provisioning profile is embedded. We copy this into
+# Contents/embedded.provisionprofile before the final codesign so the seal
+# covers it. Create it at developer.apple.com → Profiles → Developer ID
+# (type "Direct") for the Voxhora-Mac App ID, download, and save here.
+PROVISION_PROFILE="profiles/voxhora-mac.provisionprofile"
 SCHEME="Voxhora-Mac"
 PROJECT="Voxhora-Mac.xcodeproj"
 INFOPLIST="Voxhora-Mac/Info.plist"
@@ -88,6 +96,25 @@ if ! xcrun notarytool history --keychain-profile "$NOTARY_PROFILE" >/dev/null 2>
   die "notarytool profile '$NOTARY_PROFILE' missing or invalid. Re-run Step 2 of Sparkle setup."
 fi
 done_ "Notarization profile '$NOTARY_PROFILE' present"
+
+# 4. Developer ID Direct provisioning profile (macOS 26.4+ AMFI requirement
+# for restricted entitlements). Fail fast HERE — before the long archive —
+# rather than producing a build that won't launch on the target Mac.
+if [ ! -f "$PROVISION_PROFILE" ]; then
+  die "Provisioning profile not found at '$PROVISION_PROFILE'.
+       Create a Developer ID (Direct) profile for the Voxhora-Mac App ID at
+       developer.apple.com → Certificates, IDs & Profiles → Profiles, download
+       it, and save it to that path. Without it the signed build will not
+       launch on macOS 26.4+ (AMFI rejects restricted entitlements without an
+       embedded profile)."
+fi
+# Sanity-check the profile actually belongs to this team — a profile from the
+# wrong team embeds cleanly but AMFI still rejects it at launch.
+if ! security cms -D -i "$PROVISION_PROFILE" 2>/dev/null | grep -q "$DEV_ID_TEAM"; then
+  die "Profile '$PROVISION_PROFILE' does not reference team $DEV_ID_TEAM.
+       Re-download the Developer ID (Direct) profile for the correct team."
+fi
+done_ "Developer ID Direct provisioning profile present (team $DEV_ID_TEAM)"
 
 # 4. Sparkle tools
 for tool in sign_update generate_appcast; do
@@ -165,9 +192,15 @@ mkdir -p "$EXPORT_DIR"
 cp -R "$ARCHIVE_PATH/Products/Applications/Voxhora-Mac.app" "$EXPORT_DIR/"
 APP_PATH="$EXPORT_DIR/Voxhora-Mac.app"
 
-# Strip the embedded development provisioning profile — irrelevant for
-# Developer ID distribution and would confuse Gatekeeper.
-rm -f "$APP_PATH/Contents/embedded.provisionprofile"
+# Embed the Developer ID Direct provisioning profile. As of macOS 26.4+,
+# AMFI rejects a direct-codesigned app with restricted entitlements unless a
+# profile is embedded (supersedes the pre-2026-05-27 "strip the profile"
+# step, which produced builds that wouldn't launch). xcodebuild's export may
+# have left a development profile here — overwrite it with the Dev ID Direct
+# one. This MUST happen BEFORE the inside-out codesign below so the main
+# app's signature seals the embedded profile.
+cp "$PROVISION_PROFILE" "$APP_PATH/Contents/embedded.provisionprofile"
+done_ "Embedded Developer ID Direct provisioning profile"
 
 # Clean .cstemp leftovers from any previous interrupted codesign attempts.
 find "$APP_PATH" -name "*.cstemp" -delete 2>/dev/null || true

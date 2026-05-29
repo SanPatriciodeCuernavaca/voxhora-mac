@@ -40,6 +40,11 @@ secrets/
 *.p12
 *.cer
 *.mobileprovision
+*.provisionprofile
+# Developer ID Direct provisioning profile (macOS) — embeds signing certs.
+# release.sh copies it into the .app before the final codesign. Create it
+# at developer.apple.com and drop it at profiles/voxhora-mac.provisionprofile.
+profiles/
 
 # Logs / temp
 *.log
