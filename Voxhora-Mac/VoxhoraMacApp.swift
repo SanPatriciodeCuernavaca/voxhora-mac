@@ -387,6 +387,13 @@ struct VoxhoraMacApp: App {
                         // pre-2026-05-27 setup).
                         AttorneyProfileSchemaV19Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // Cloud-Native Discovery (Patrick 2026-05-28) —
+                        // v19→v20 adds discoveryCloudOnly (default false):
+                        // the opt-in cloud-only Discovery toggle (list via
+                        // Dropbox API + stream + fetch-to-temp). Mac + iPad UI;
+                        // iPhone syncs the field via CloudKit for parity.
+                        AttorneyProfileSchemaV20Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // DECISION 055.8 (2026-05-10 EOS-9) — one-time
                         // backfill: copy Client.inmateBookingNumber +
                         // Client.arrestDate to every Case row owned by

@@ -326,6 +326,12 @@ targets:
       # toggle UI; iPad/iPhone sync via CloudKit for schema parity.
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV19Bootstrap.swift
         group: SharedEngine
+      # Cloud-Native Discovery (Patrick 2026-05-28) — schema v19 → v20.
+      # Adds discoveryCloudOnly (Bool, default false): opt-in cloud-only
+      # Discovery (list via Dropbox API + stream + fetch-to-temp). Mac +
+      # iPad UI; iPhone syncs the field via CloudKit for parity.
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV20Bootstrap.swift
+        group: SharedEngine
       # DECISION 055.8 (2026-05-10 EOS-9) — one-time backfill:
       # copy Client.inmateBookingNumber + Client.arrestDate into the
       # corresponding Case fields where Case-level values are empty.

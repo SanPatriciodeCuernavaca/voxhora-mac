@@ -300,6 +300,7 @@
 		F7056D2E8F9B5EF056452534 /* VoxSpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A92818F1B337F438AFC0601 /* VoxSpeechRecognizer.swift */; };
 		F7FEFCD2E8EE9F42AC71EEFF /* TravisCounty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C00C16DF42AFDF423D545D /* TravisCounty.swift */; };
 		F8047BC76131C8E1BD71D24E /* WatchStatusIndicatorPredicateRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD203F2938416BF371285634 /* WatchStatusIndicatorPredicateRegistry.swift */; };
+		FB03E19B02D151FD00F5411E /* AttorneyProfileSchemaV20Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E553FEDE19A037D641F418E /* AttorneyProfileSchemaV20Bootstrap.swift */; };
 		FB10D6A72E5EDB149BC568BF /* DiscoveryQuickLookViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B44ECDFE46EC9B67CAACA9 /* DiscoveryQuickLookViewer.swift */; };
 		FC54AE2CBCDEA11837EC858B /* ClientDocTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E4DAB6ABF0B1988081E40A /* ClientDocTrunk.swift */; };
 		FDEE75499523AC3CFDF94973 /* WatchStatusIndicatorPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B385F1279E9E1556653298 /* WatchStatusIndicatorPredicate.swift */; };
@@ -425,6 +426,7 @@
 		4C22FC2EA827A2019EA10B26 /* DSAFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSAFetcher.swift; sourceTree = "<group>"; };
 		4C94691A6266B93484892F6D /* AttorneyProfileDuplicateRecoveryBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileDuplicateRecoveryBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileDuplicateRecoveryBootstrap.swift"; sourceTree = "<group>"; };
 		4CDC2CF18EA9C98906146161 /* WatchViewSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchViewSettingsSection.swift; sourceTree = "<group>"; };
+		4E553FEDE19A037D641F418E /* AttorneyProfileSchemaV20Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV20Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV20Bootstrap.swift"; sourceTree = "<group>"; };
 		4EE4B351DAD437B011FF5EFD /* AppearBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppearBadge.swift; path = "../voxhora-ios/Voxhora/Views/AppearBadge.swift"; sourceTree = "<group>"; };
 		4F62A637A77C779A7D685682 /* DiscoveryEvidenceGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryEvidenceGridView.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryEvidenceGridView.swift"; sourceTree = "<group>"; };
 		4FC9FFB134F07EB25CE61C4F /* ClientSchemaV5Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV5Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV5Bootstrap.swift"; sourceTree = "<group>"; };
@@ -662,6 +664,7 @@
 				62AC15EFD59141D29C8FCDB6 /* AttorneyProfileSchemaV17Bootstrap.swift */,
 				B1BBB4AFAF6F79B93E16D551 /* AttorneyProfileSchemaV18Bootstrap.swift */,
 				CEC00BA8D4B681400B14AE5D /* AttorneyProfileSchemaV19Bootstrap.swift */,
+				4E553FEDE19A037D641F418E /* AttorneyProfileSchemaV20Bootstrap.swift */,
 				595C2C4B41DA5B58D1BCDFB5 /* AuditLogger.swift */,
 				30B556EBC53B35CA86B39ADF /* AutoBillFeedback.swift */,
 				24FFA313513359941E81CCBC /* AutoBillingHelper.swift */,
@@ -1300,6 +1303,7 @@
 				1B64D60D40AC0F0F18F369CB /* AttorneyProfileSchemaV17Bootstrap.swift in Sources */,
 				868B530D640D1375722B3BD3 /* AttorneyProfileSchemaV18Bootstrap.swift in Sources */,
 				C67E4EFACA49607548D28C90 /* AttorneyProfileSchemaV19Bootstrap.swift in Sources */,
+				FB03E19B02D151FD00F5411E /* AttorneyProfileSchemaV20Bootstrap.swift in Sources */,
 				713A4F745D95593A9E2F46C3 /* AttorneyProfileSchemaV5Bootstrap.swift in Sources */,
 				FE5EA6A31FCC3D09C93DF411 /* AttorneyProfileSchemaV7Bootstrap.swift in Sources */,
 				1B09C4516A5EAF172133FC0A /* AttorneyProfileSchemaV8Bootstrap.swift in Sources */,
