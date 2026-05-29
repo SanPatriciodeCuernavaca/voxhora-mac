@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<!--
+	Profile-binding keys (2026-05-29 AMFI launch fix). macOS 26.4+ AMFI binds
+	the embedded Developer ID provisioning profile to the binary via
+	com.apple.application-identifier; WITHOUT it the profile's allowlist (incl.
+	keychain-access-groups=[S4GM27H6N5.*]) is never consulted, so the app's
+	custom keychain group is treated as unauthorized and AMFI SIGKILLs at spawn
+	(RBS Code=5 / POSIX 163 / exit 137). Xcode auto-injects these into the
+	Debug build (why it launches); release.sh's direct codesign does not — so
+	we declare them here. Values MUST match the embedded profile verbatim.
+	-->
+	<key>com.apple.application-identifier</key>
+	<string>S4GM27H6N5.com.patrickfagerberg.voxhora.mac</string>
+	<key>com.apple.developer.team-identifier</key>
+	<string>S4GM27H6N5</string>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
 		<string>iCloud.com.patrickfagerberg.voxhora</string>
@@ -16,7 +30,7 @@
 		<string>iCloud.com.patrickfagerberg.voxhora</string>
 	</array>
 	<key>aps-environment</key>
-	<string>development</string>
+	<string>production</string>
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.com.patrickfagerberg.voxhora</string>

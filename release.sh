@@ -236,7 +236,13 @@ codesign --force --options runtime --timestamp --sign "$SIGNING_IDENTITY" \
 # Verify before notarization so we catch any seal issue locally.
 codesign --verify --deep --strict "$APP_PATH" 2>&1 | tail -3 \
   || die "codesign verification failed"
-done_ ".app codesigned + verified"
+# AMFI launch guard (2026-05-29): the signed main app MUST carry
+# com.apple.application-identifier, or macOS 26.4+ AMFI can't bind the embedded
+# provisioning profile → restricted entitlements (keychain-access-groups) go
+# unauthorized → SIGKILL at launch. Catch a regression here, not on the user's Mac.
+codesign -d --entitlements - --xml "$APP_PATH" 2>/dev/null | grep -q "application-identifier" \
+  || die "Main app entitlements missing com.apple.application-identifier — AMFI will SIGKILL at launch. Fix Voxhora-Mac/Voxhora-Mac.entitlements."
+done_ ".app codesigned + verified (+ application-identifier present)"
 
 # ─── NOTARIZE ──────────────────────────────────────────────────────────
 say "Submitting to Apple notarization (typically 2–5 min)…"
