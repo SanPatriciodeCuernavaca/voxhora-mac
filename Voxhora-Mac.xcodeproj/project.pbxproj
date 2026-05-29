@@ -34,6 +34,7 @@
 		140909679FFA617BC89F7E0A /* AddClientSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2731F9AB15C10BD113EB514 /* AddClientSheet.swift */; };
 		14236A41C857ACD364C4A78F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388E2CEE556B31DEE6733C16 /* Entry.swift */; };
 		142AEE8F9F13C1AE4D5CF5A2 /* WatchTabOrderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AFF1D5204545AF349CA2A /* WatchTabOrderPicker.swift */; };
+		16F67406B07C511BA6CBB4D9 /* DiscoveryStagingUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD8AE527662DDF0A484860F /* DiscoveryStagingUploader.swift */; };
 		1710D22FB7B200898CC4D341 /* DropboxAccountSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416D3DB87640E7AB01817FDA /* DropboxAccountSettingsRow.swift */; };
 		177B9B3C109C28C053969E21 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BF4F34B672795ECBEDF44D /* UserPreferences.swift */; };
 		18FDB5733E5AC42A3FBF4673 /* MailInboxBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571B86A3B851095150C1C1EA /* MailInboxBridge.swift */; };
@@ -546,6 +547,7 @@
 		B6D88781782F96E66BAF5D2A /* FunModeImportPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeImportPicker.swift; sourceTree = "<group>"; };
 		B79A99E975F2FD87DAF84121 /* PracticeAreaRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeAreaRegistry.swift; sourceTree = "<group>"; };
 		B936E5F9A9CE63F58A36B07F /* CalendarSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarSource.swift; path = "../voxhora-ios/Voxhora/Engine/CalendarSource.swift"; sourceTree = "<group>"; };
+		BAD8AE527662DDF0A484860F /* DiscoveryStagingUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryStagingUploader.swift; path = "../voxhora-ios/Voxhora/Engine/DiscoveryStagingUploader.swift"; sourceTree = "<group>"; };
 		BB9AFF1D5204545AF349CA2A /* WatchTabOrderPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTabOrderPicker.swift; sourceTree = "<group>"; };
 		C0493A23B7C235DD52BFA5AB /* VouchersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VouchersView.swift; path = "../voxhora-ios/Voxhora/Views/VouchersView.swift"; sourceTree = "<group>"; };
 		C0E3026B3E0689A9270C1935 /* MigrationFileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationFileReader.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationFileReader.swift"; sourceTree = "<group>"; };
@@ -706,6 +708,7 @@
 				82B2D64769C1AC52D1C2EDF6 /* DiscoveryBulkInboxMigration.swift */,
 				28670C3751E16546A7AF04C6 /* DiscoveryFolderScanner.swift */,
 				15D00B9C202EC49FA8E0CD1D /* DiscoveryPortalModel.swift */,
+				BAD8AE527662DDF0A484860F /* DiscoveryStagingUploader.swift */,
 				E2861D0A22345EFB90E967DD /* DiscoveryWatchedAuditSession.swift */,
 				F9228490307BE85E5C40AD12 /* DownloadJobsManager.swift */,
 				D3F9143719DF8FF247587FA4 /* DownloadQueue.swift */,
@@ -1406,6 +1409,7 @@
 				885817822A78A4454D249FED /* DiscoveryPortalWindowView.swift in Sources */,
 				FB10D6A72E5EDB149BC568BF /* DiscoveryQuickLookViewer.swift in Sources */,
 				6F845A5098B0268C8ED9E887 /* DiscoverySourcePickerSettingsRow.swift in Sources */,
+				16F67406B07C511BA6CBB4D9 /* DiscoveryStagingUploader.swift in Sources */,
 				CA86F16597B48A735931A7FA /* DiscoveryStorageSettingsRow.swift in Sources */,
 				975A55B7D5DF46BE6BA0AA21 /* DiscoveryTabView.swift in Sources */,
 				EAD59AE89ADC1DBDE3C83FB2 /* DiscoveryVideoPlayerView.swift in Sources */,

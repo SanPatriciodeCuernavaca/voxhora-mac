@@ -423,6 +423,16 @@ targets:
       # download-queue.json — queue survives Voxhora-Mac quit + relaunch.
       - path: ../voxhora-ios/Voxhora/Engine/DownloadQueue.swift
         group: SharedEngine
+      # Cloud-Native Discovery Phase 2 (2026-05-28) — Mac-only
+      # (#if os(macOS)) upload+verify+delete engine for the cloud-only
+      # Discovery staging pipeline. When AttorneyProfile.discoveryCloudOnly
+      # is ON, DownloadQueue stages the agent's download to
+      # ~/Library/Caches/Voxhora/DiscoveryStaging/<client>/<cause>/ (outside
+      # Dropbox), then this engine content-hashes each file, uploads to
+      # /Voxhora/Discovery/<client>/<cause>/, VERIFIES via getMetadata, and
+      # deletes the staged copy ONLY on an exact content-hash match.
+      - path: ../voxhora-ios/Voxhora/Engine/DiscoveryStagingUploader.swift
+        group: SharedEngine
       # Discovery Portal v2 Phase 2.4a (2026-05-26) — @Observable
       # @MainActor singleton holding the Portal window's cross-pane
       # state (currentItemURL now; BillTimer in 2.6; case/client
