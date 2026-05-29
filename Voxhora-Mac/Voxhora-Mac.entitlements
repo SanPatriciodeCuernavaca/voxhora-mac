@@ -29,7 +29,19 @@
 	<array>
 		<string>iCloud.com.patrickfagerberg.voxhora</string>
 	</array>
-	<key>aps-environment</key>
+	<!--
+	macOS push entitlement key (2026-05-29 AMFI launch fix). macOS uses
+	com.apple.developer.aps-environment; iOS uses the bare aps-environment.
+	The Mac app previously declared the iOS spelling, which the embedded
+	Developer ID profile does NOT authorize (it grants the macOS-spelled
+	key), so AMFI rejected the binary with "Unsatisfied entitlements:
+	aps-environment" and SIGKILLed it at launch (exit 137). This was the
+	TRUE cause of the v0.2.0–v0.2.3 launch failures — the earlier
+	keychain-access-groups bisect was a false lead from /tmp re-signs that
+	had also dropped this entitlement. Value must match the profile
+	(production).
+	-->
+	<key>com.apple.developer.aps-environment</key>
 	<string>production</string>
 	<key>com.apple.security.application-groups</key>
 	<array>
