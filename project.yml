@@ -150,6 +150,16 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientTrunk.swift
         group: SharedEngine
+      # Client Lookup with Sidebar (2026-05-28) — 5-dimension filter engine
+      # + @Observable sidebar-state singleton. Pure read-side; no schema.
+      - path: ../voxhora-ios/Voxhora/Engine/ClientLookupEngine.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/ClientLookupSidebarModel.swift
+        group: SharedEngine
+      # Closed Case Cleanup (2026-05-28) — bulk archive / permanent-delete
+      # orchestration (+ Discovery folder + Dropbox deletion).
+      - path: ../voxhora-ios/Voxhora/Engine/ClientCleanupEngine.swift
+        group: SharedEngine
       # DECISION 041 (2026-05-09) — sole writer for ClientNote @Model.
       # Mirrors ClientTrunk + CalendarEventTrunk pattern.
       - path: ../voxhora-ios/Voxhora/Engine/ClientNoteTrunk.swift
@@ -673,6 +683,11 @@ targets:
       - path: ../voxhora-ios/Voxhora/Views/ClientsView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientsViewModel.swift
+        group: SharedViews
+      # Client Lookup with Sidebar (2026-05-28) — Mac-primary filter sidebar
+      # + shared VoxFilterCheckbox / VoxFilterRadio controls reused by the
+      # iPad sheet + iPhone strip.
+      - path: ../voxhora-ios/Voxhora/Views/ClientLookupSidebar.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/AddClientSheet.swift
         group: SharedViews
