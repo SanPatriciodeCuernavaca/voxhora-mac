@@ -396,6 +396,18 @@ targets:
       # produces the same summary shape.
       - path: ../voxhora-ios/Voxhora/Engine/CaseSynopsisGenerator.swift
         group: SharedEngine
+      # Cloud PC-Affidavit Synopsis, Phase 1 (2026-05-30) — auto-generates
+      # synopses from cloud PC affidavits (Matt's Scover tree / Patrick's
+      # cloud-only /Voxhora/Discovery _PC) via the SAME CaseSynopsisGenerator
+      # + CaseTrunk write path. Read-only on Dropbox. Plus the cross-platform
+      # PDF text extractor (PDFKit + Vision; AutoIntakeWatcher's OCR is Mac-
+      # only AppKit) and the Case v3→v4 schema bootstrap (pcAffidavitSourceHash).
+      - path: ../voxhora-ios/Voxhora/Engine/CloudPCSynopsisSweeper.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/PDFTextExtractor.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/CaseSchemaV4Bootstrap.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/PDFIntakeRouter.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AutoBillingHelper.swift

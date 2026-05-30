@@ -402,6 +402,13 @@ struct VoxhoraMacApp: App {
                         // that landed pre-DECISION-054.
                         ClientToCaseBackfillBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // 2026-05-30 — Case v3 → v4. Adds
+                        // pcAffidavitSourceHash (String, default "") for
+                        // the Cloud PC-Affidavit Synopsis sweeper's
+                        // idempotency. Drill #5 additive default-safe.
+                        // Same wiring as iPhone/iPad.
+                        CaseSchemaV4Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
                         // 2026-05-08 — UserPreferences v7 → v8. Adds
                         // calendarSegment for cross-device Calendar
                         // segment mirror. Same wiring as iPhone.
