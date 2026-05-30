@@ -409,6 +409,14 @@ struct VoxhoraMacApp: App {
                         // Same wiring as iPhone/iPad.
                         CaseSchemaV4Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // 2026-05-30 — Cloud PC-Affidavit Synopsis: auto-run
+                        // the cloud sweep when a Case is created (e.g. a
+                        // Travis appointment letter) so the new case's PC
+                        // affidavit is synopsized without opening the Portal.
+                        // Self-gates for non-cloud attorneys. This is the
+                        // primary path for Matt's Scover Mac.
+                        CloudPCSynopsisSweeper.shared.startObservingCaseCreation(modelContext: modelContainer.mainContext)
+
                         // 2026-05-08 — UserPreferences v7 → v8. Adds
                         // calendarSegment for cross-device Calendar
                         // segment mirror. Same wiring as iPhone.
