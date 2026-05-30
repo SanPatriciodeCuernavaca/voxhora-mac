@@ -611,6 +611,37 @@ struct VoxhoraMacApp: App {
                                    && UserDefaults.standard.object(forKey: cloudOnlyKey) == nil {
                                     UserDefaults.standard.set(true, forKey: cloudOnlyKey)
                                 }
+
+                                // Discovery SOURCE + LAYOUT sticky-restore
+                                // (2026-05-30) — same latch family. These two
+                                // CloudKit-synced fields revert to their
+                                // "voxhora"/"canonical" defaults after a store
+                                // wipe / fresh install, which silently breaks a
+                                // Scover attorney (Matt): the cloud PC-synopsis
+                                // sweep + Discovery Portal then look in the wrong
+                                // tree. DiscoverySourcePickerSettingsRow mirrors
+                                // the user's choice into UserDefaults on every
+                                // change; restore it here when the profile has
+                                // reverted to the default but the marker shows a
+                                // non-default choice. An explicit switch back to
+                                // Voxhora/canonical wrote that value to the marker,
+                                // so this never overrides intent.
+                                let modeKey = "voxhora.discoverySourceMode.userValue"
+                                if let savedMode = UserDefaults.standard.string(forKey: modeKey),
+                                   !savedMode.isEmpty,
+                                   savedMode != profile.discoverySourceMode,
+                                   profile.discoverySourceMode == "voxhora" {
+                                    profile.discoverySourceMode = savedMode
+                                    try? modelContainer.mainContext.save()
+                                }
+                                let conventionKey = "voxhora.discoveryFolderNamingConvention.userValue"
+                                if let savedConvention = UserDefaults.standard.string(forKey: conventionKey),
+                                   !savedConvention.isEmpty,
+                                   savedConvention != profile.discoveryFolderNamingConvention,
+                                   profile.discoveryFolderNamingConvention == "canonical" {
+                                    profile.discoveryFolderNamingConvention = savedConvention
+                                    try? modelContainer.mainContext.save()
+                                }
                             }
                             AutoIntakeWatcher.shared.refresh(
                                 paths: prefs.autoIntakeWatchedFolderPaths,
