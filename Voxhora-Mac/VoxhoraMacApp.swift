@@ -573,6 +573,30 @@ struct VoxhoraMacApp: App {
                                     "STICKY-ENABLE BACKFILL — autoIntakeEnabled was already true on launch; recorded UserDefaults marker for future hard-reset recovery."
                                 )
                             }
+
+                            // Cloud-only discovery sticky-enable (2026-05-30) —
+                            // same latch family. discoveryCloudOnly defaults
+                            // false + is CloudKit-synced, so a store wipe / fresh
+                            // install reverts it, silently routing TechShare
+                            // downloads back into the local Dropbox folder
+                            // (loading the Mac) instead of the staging→cloud→
+                            // delete path. Restore to true when the profile
+                            // reports false but UserDefaults remembers the lawyer
+                            // enabled it; an explicit OFF wrote false, so this
+                            // never overrides intent. Backfill the marker for a
+                            // lawyer who enabled it before this latch shipped.
+                            let cloudOnlyKey = "voxhora.discoveryCloudOnly.userHasEverEnabled"
+                            let profileDescriptor = FetchDescriptor<AttorneyProfile>()
+                            if let profile = try? modelContainer.mainContext.fetch(profileDescriptor).first {
+                                if !profile.discoveryCloudOnly
+                                   && UserDefaults.standard.bool(forKey: cloudOnlyKey) {
+                                    profile.discoveryCloudOnly = true
+                                    try? modelContainer.mainContext.save()
+                                } else if profile.discoveryCloudOnly
+                                   && UserDefaults.standard.object(forKey: cloudOnlyKey) == nil {
+                                    UserDefaults.standard.set(true, forKey: cloudOnlyKey)
+                                }
+                            }
                             AutoIntakeWatcher.shared.refresh(
                                 paths: prefs.autoIntakeWatchedFolderPaths,
                                 enabled: prefs.autoIntakeEnabled
