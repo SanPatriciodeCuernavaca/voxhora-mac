@@ -63,6 +63,17 @@ struct VoxhoraMacApp: App {
     @State private var appState = AppState()
 
     init() {
+        // 2026-05-31 — window-state bloat self-clean. SwiftUI/AppKit autosave
+        // a window-frame + split-view layout key PER unique root-view type
+        // signature; every release changes that signature, so old keys
+        // ORPHAN and never get reaped — the prefs plist balloons (Patrick's
+        // reached 1.87 MB / ~1,150 such keys, contributing to the app
+        // failing to draw/restore its window). Pruned here at the earliest
+        // point — before the WindowGroup scene reads any frame — and only
+        // when clearly bloated, so normal window-position memory survives
+        // day-to-day. See WindowStateBloatCleanup.
+        WindowStateBloatCleanup.runIfNeeded()
+
         // DECISION 059 Feature 1.7s v8 (2026-05-12 night) — auto-bill popup.
         // Mac uses NSPanel-backed AutoBillToastWindowController (NSSplitViewController
         // bridge consumes window content slot, defeating SwiftUI overlay attempts).
@@ -794,5 +805,56 @@ struct VoxhoraMacApp: App {
         }
         .windowResizability(.contentMinSize)
         .defaultSize(width: 1400, height: 900)
+    }
+}
+
+/// Self-cleaning guard against window-state preference bloat.
+///
+/// SwiftUI + AppKit autosave a window-frame and split-view layout entry
+/// keyed by the FULL root-view type signature. Every release changes that
+/// signature (a new modifier, a new wrapper), so each version writes fresh
+/// keys while the previous version's keys orphan and are never reaped. Over
+/// many updates the app's preferences plist balloons — Patrick's reached
+/// ~1.87 MB across ~1,150 `NSWindow Frame …` / `NSSplitView Subview Frames …`
+/// keys, which contributed to the app failing to draw / restore its window
+/// (the no-window-on-launch symptom of 2026-05-31).
+///
+/// This prunes those keys at launch, but ONLY when the count is clearly
+/// abnormal — so ordinary window-position memory is preserved in day-to-day
+/// use. When it does fire, the entire cost is the window opening at its
+/// default size once; SwiftUI immediately re-saves a small, current set.
+/// Called first thing in `VoxhoraMacApp.init()`, before the WindowGroup
+/// scene reads any saved frame.
+enum WindowStateBloatCleanup {
+
+    /// Substrings that identify an AppKit/SwiftUI window-layout autosave key.
+    private static let windowStateKeyMarkers = [
+        "NSWindow Frame",
+        "NSSplitView Subview Frames",
+        "NSToolbar Configuration",
+        "NSTableView",
+        "NSOutlineView",
+        "NSScrollView"
+    ]
+
+    /// Only act above this many window-layout keys. A healthy single-window
+    /// app holds a small handful (one frame + a few split-view keys for the
+    /// current signature); hundreds-to-thousands is pure orphaned bloat.
+    private static let maxHealthyWindowStateKeys = 24
+
+    static func runIfNeeded() {
+        guard let bundleID = Bundle.main.bundleIdentifier,
+              let domain = UserDefaults.standard.persistentDomain(forName: bundleID) else { return }
+
+        let windowStateKeys = domain.keys.filter { key in
+            windowStateKeyMarkers.contains { key.contains($0) }
+        }
+
+        guard windowStateKeys.count > maxHealthyWindowStateKeys else { return }
+
+        for key in windowStateKeys {
+            UserDefaults.standard.removeObject(forKey: key)
+        }
+        NSLog("Voxhora: WindowStateBloatCleanup pruned \(windowStateKeys.count) orphaned window-layout preference keys.")
     }
 }
