@@ -237,6 +237,7 @@
 		C1F73CE4E7C5E0D8E5F136DD /* MigrationImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6186B2D1CE77FB3B6F8872E5 /* MigrationImporter.swift */; };
 		C23AE41EADAC081A1B310822 /* LiquidGoldSplashVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98396DF886F2886C551C5BA6 /* LiquidGoldSplashVisual.swift */; };
 		C26D0AE5D52FD44B5B76C66F /* AttorneyProfileSchemaV10Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028F65FF4663B7829AB17929 /* AttorneyProfileSchemaV10Bootstrap.swift */; };
+		C4790CA7434CDCE177531529 /* CourtBusinessDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238492C89EF0822C9AA44FC8 /* CourtBusinessDay.swift */; };
 		C5F5D6089BB5D051CB9BAD5F /* FunModeImportPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D88781782F96E66BAF5D2A /* FunModeImportPicker.swift */; };
 		C65E9D1A80DA40B4E55B4330 /* RosterReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F98C329547921ED512F8 /* RosterReconciler.swift */; };
 		C66015FB062E78600DC4ACB8 /* TabRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A9C847AFABC90D5756DBB /* TabRegistry.swift */; };
@@ -377,6 +378,7 @@
 		2264B4F9EF71EE9BE5D4F145 /* ContinuityCameraResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuityCameraResponder.swift; sourceTree = "<group>"; };
 		2340EFE7D55A70A0F35F56A3 /* CheckForUpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForUpdatesView.swift; sourceTree = "<group>"; };
 		237F9C96FDFB7D31B5FBFEBF /* CashRainVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashRainVisual.swift; sourceTree = "<group>"; };
+		238492C89EF0822C9AA44FC8 /* CourtBusinessDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtBusinessDay.swift; sourceTree = "<group>"; };
 		24007B5E00871FB7819B3610 /* DiscoveryVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryVideoPlayerView.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryVideoPlayerView.swift"; sourceTree = "<group>"; };
 		2442664128F99446BC36900E /* MigrationVocabularyRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationVocabularyRegistry.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationVocabularyRegistry.swift"; sourceTree = "<group>"; };
 		24FFA313513359941E81CCBC /* AutoBillingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoBillingHelper.swift; path = "../voxhora-ios/Voxhora/Engine/AutoBillingHelper.swift"; sourceTree = "<group>"; };
@@ -1140,6 +1142,7 @@
 		F3EABFF4C5C6C134A8FC577B /* CalendarSources */ = {
 			isa = PBXGroup;
 			children = (
+				238492C89EF0822C9AA44FC8 /* CourtBusinessDay.swift */,
 				4C22FC2EA827A2019EA10B26 /* DSAFetcher.swift */,
 			);
 			name = CalendarSources;
@@ -1413,6 +1416,7 @@
 				9AE23D0D249272BBD818AFA7 /* ContactClientSheet.swift in Sources */,
 				84FEB95F35B4C5029F82E976 /* ContactsAuthorizationManager.swift in Sources */,
 				B5152E7B4D32821F4F3B6CC7 /* ContinuityCameraResponder.swift in Sources */,
+				C4790CA7434CDCE177531529 /* CourtBusinessDay.swift in Sources */,
 				4348518749EE5FEF7F663765 /* CourtsLookup.swift in Sources */,
 				576C5BFD7579A6898F0DC214 /* CriminalDefense.swift in Sources */,
 				B8DC4239281111344D7CAEF8 /* CustodyStatusSource.swift in Sources */,
