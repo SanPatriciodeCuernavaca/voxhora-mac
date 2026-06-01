@@ -369,6 +369,11 @@ targets:
       # Step 2 = logging only; Step 3 wires the PC pipeline.
       - path: ../voxhora-ios/Voxhora/Engine/AutoIntakeWatcher.swift
         group: SharedEngine
+      # 2026-06-01 — pure cross-platform intake filename matcher extracted from
+      # AutoIntakeWatcher (audit H6). Mac references it explicitly (this project
+      # lists ios Engine files by path, not glob).
+      - path: ../voxhora-ios/Voxhora/Engine/IntakeFilenameMatcher.swift
+        group: SharedEngine
       # Note: WatchBillingPresetsSection.swift + BillTimeEntryModeSection.swift
       # (DECISION 049 settings UI) are picked up automatically via the
       # `../voxhora-ios/Voxhora/Views/Settings` folder glob below — no
