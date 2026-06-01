@@ -156,7 +156,10 @@ class ShareViewController: NSViewController {
                 Entry.self, Client.self, Case.self,
                 AttorneyProfile.self, UserPreferences.self,
                 AuditLogEntry.self, Voucher.self,
-                CalendarEvent.self, ClientNote.self
+                CalendarEvent.self, ClientNote.self,
+                ClientDoc.self   // 2026-06-01 (audit H7): full 10-type union — a
+                                 // non-superset Schema can silently halt the
+                                 // CloudKit mirror (Client→ClientDoc cascade).
             ])
             let configuration = ModelConfiguration(
                 schema: schema,
@@ -259,7 +262,10 @@ class ShareViewController: NSViewController {
                 Entry.self, Client.self, Case.self,
                 AttorneyProfile.self, UserPreferences.self,
                 AuditLogEntry.self, Voucher.self,
-                CalendarEvent.self, ClientNote.self
+                CalendarEvent.self, ClientNote.self,
+                ClientDoc.self   // 2026-06-01 (audit H7): full 10-type union — a
+                                 // non-superset Schema can silently halt the
+                                 // CloudKit mirror (Client→ClientDoc cascade).
             ])
             let configuration = ModelConfiguration(
                 schema: schema,
