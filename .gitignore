@@ -66,3 +66,6 @@ Carthage/Build/
 # commit DMG binaries to git.
 releases/
 
+
+# deploy.sh local rollback archive (not source)
+build_archive/
