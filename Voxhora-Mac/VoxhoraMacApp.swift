@@ -404,6 +404,8 @@ struct VoxhoraMacApp: App {
                         // Dropbox API + stream + fetch-to-temp). Mac + iPad UI;
                         // iPhone syncs the field via CloudKit for parity.
                         AttorneyProfileSchemaV20Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        // Email templates (2026-06-05) — signatureTitle field.
+                        AttorneyProfileSchemaV21Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
                         // DECISION 055.8 (2026-05-10 EOS-9) — one-time
                         // backfill: copy Client.inmateBookingNumber +

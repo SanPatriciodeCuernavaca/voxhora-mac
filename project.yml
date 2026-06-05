@@ -332,6 +332,8 @@ targets:
       # iPad UI; iPhone syncs the field via CloudKit for parity.
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV20Bootstrap.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV21Bootstrap.swift
+        group: SharedEngine
       # DECISION 055.8 (2026-05-10 EOS-9) — one-time backfill:
       # copy Client.inmateBookingNumber + Client.arrestDate into the
       # corresponding Case fields where Case-level values are empty.
