@@ -408,6 +408,8 @@ struct VoxhoraMacApp: App {
                         AttorneyProfileSchemaV21Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                         // Email templates (2026-06-05) — merge letter+email shelves into one.
                         EmailTemplatesMergeBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        // County motion auto-fill (2026-06-05) — signatureImagePNG field.
+                        AttorneyProfileSchemaV22Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
                         // DECISION 055.8 (2026-05-10 EOS-9) — one-time
                         // backfill: copy Client.inmateBookingNumber +
