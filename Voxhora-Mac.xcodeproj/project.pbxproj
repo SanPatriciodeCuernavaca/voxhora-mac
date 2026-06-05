@@ -43,7 +43,6 @@
 		1B64D60D40AC0F0F18F369CB /* AttorneyProfileSchemaV17Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AC15EFD59141D29C8FCDB6 /* AttorneyProfileSchemaV17Bootstrap.swift */; };
 		1B833757CE427D8B2FDCBFC9 /* WatchViewSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC2CF18EA9C98906146161 /* WatchViewSettingsSection.swift */; };
 		1B9D096F02C191E743801BFD /* PracticeAreaRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A99E975F2FD87DAF84121 /* PracticeAreaRegistry.swift */; };
-		1CE0B687B6B60801AE7609F2 /* MotionGeneratorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A52449B7C7CBE99568409F0 /* MotionGeneratorSheet.swift */; };
 		1CEF47C97A9CD8D3796325D3 /* ClientSchemaV8Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2973C3DCC99B7EEF058C4 /* ClientSchemaV8Bootstrap.swift */; };
 		1F9B138E490677BFD42F4A3E /* AutoBillingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFA313513359941E81CCBC /* AutoBillingHelper.swift */; };
 		204A8F8EB0942C691B3EAE62 /* WatchIndicatorColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203EC8295F94DFEDD500C736 /* WatchIndicatorColor.swift */; };
@@ -118,7 +117,6 @@
 		576C5BFD7579A6898F0DC214 /* CriminalDefense.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABDFA227C18EF75136D525 /* CriminalDefense.swift */; };
 		57F64E97E9285B48B29A055B /* AttorneyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE49BD1B301B49CA563624F /* AttorneyProfile.swift */; };
 		58E86431AFBF289AF5E30EBF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EF5F4639F5578B46D5033 /* AppState.swift */; };
-		5A48E43D51A474E3D0565BAA /* BondMod_CCL.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 460ED5F8953C145B27206E24 /* BondMod_CCL.pdf */; };
 		5AB300C15BEC028028FBF3A1 /* ConfettiBurstVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19449102B01AA6CA9CE54D04 /* ConfettiBurstVisual.swift */; };
 		5B28DBC482A11F21CDC2EC87 /* VoxhoraUserManual.md in Resources */ = {isa = PBXBuildFile; fileRef = 87430CBF117FB5CE086DF625 /* VoxhoraUserManual.md */; };
 		5D1B07086A7F5A01F300CAFD /* GoldFlashVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CE5FEA20C5EAA974D30175 /* GoldFlashVisual.swift */; };
@@ -157,7 +155,6 @@
 		72EC8FB1F0D5BD8E35BB62E3 /* SIPPollScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8B185AF226D2D39E92C4F6 /* SIPPollScheduler.swift */; };
 		73172C958989B8D3DA0BF83D /* ReminderConfigPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4706AC8453DA9273FF2AF54E /* ReminderConfigPicker.swift */; };
 		7397447414941ADD905B5AFA /* SimpleHapticVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0822194C3E51A68C61CDC /* SimpleHapticVisual.swift */; };
-		740471CA210AA3E9244A8B16 /* BondMod_District.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6E0702FEE784BE2562078F34 /* BondMod_District.pdf */; };
 		76D5C3E93B8918EB9936758D /* AppointmentLetterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A69EA34F2D87B3BCB54004 /* AppointmentLetterParser.swift */; };
 		78B3941830CBB60785ADC523 /* AutoBillToastWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FCBA6BFC9D55D07E84168 /* AutoBillToastWindowController.swift */; };
 		7959675DA1A757B045960032 /* AuditLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595C2C4B41DA5B58D1BCDFB5 /* AuditLogger.swift */; };
@@ -191,7 +188,6 @@
 		8E3D5E3815641BA81AFFF20B /* MacMailSendTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC31DC98A7A6CBA14B8AD7 /* MacMailSendTracker.swift */; };
 		8EC4DF885DF5D741F9D88EBF /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654CE2F681E11BED3C9F0E10 /* StatusView.swift */; };
 		8EF655845EEE6DB25370AB0A /* JurisdictionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494A405C15054196903FEF3 /* JurisdictionRegistry.swift */; };
-		8F12326C9B40EA5196BF74BF /* AttorneyProfileSchemaV22Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC0E72FCF6CFD6904C5C5E /* AttorneyProfileSchemaV22Bootstrap.swift */; };
 		9256E12B6CD5D124FF6F52C2 /* ClientSchemaV12Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E0EEA2EE49BD9EEE03E2EB /* ClientSchemaV12Bootstrap.swift */; };
 		92B9F2F21BA003722C2FF88D /* FunModeHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FF20B6F8305E38AFD5DA5 /* FunModeHaptics.swift */; };
 		92DEEEB57303E6C154B21F5C /* DiscoveryPDFViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94482DC11EFAE0B8BA4A467D /* DiscoveryPDFViewerView.swift */; };
@@ -261,7 +257,6 @@
 		CDC9F4656AAA1D0C6D7259CA /* MailInboxWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85724110586CAA89B2292946 /* MailInboxWatcher.swift */; };
 		CDEDC3D14BFEC5446728FB44 /* AttorneyProfileDuplicateRecoveryBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94691A6266B93484892F6D /* AttorneyProfileDuplicateRecoveryBootstrap.swift */; };
 		CE51B470B12E648368D1717D /* PCAffidavitDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B508F96C239E88127CBA7 /* PCAffidavitDetector.swift */; };
-		CF8FF861507DDE2D7F849787 /* MotionTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D068A3C7BB9DF13C56B935 /* MotionTemplates.swift */; };
 		D11F595E106B98EEA4CBCBE7 /* DropboxFetchToTempCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43674315CAF2AFB6963BBCE /* DropboxFetchToTempCache.swift */; };
 		D3CDE945059BFBA31CAC1CE7 /* RosterReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F98C329547921ED512F8 /* RosterReconciler.swift */; };
 		D3EC9049F13215CA828BA16E /* ClientToCaseBackfillBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4286A72BF7F513ADE3115071 /* ClientToCaseBackfillBootstrap.swift */; };
@@ -433,7 +428,6 @@
 		454C79A0503FF7D918950453 /* ClientContactsCleanupBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientContactsCleanupBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientContactsCleanupBootstrap.swift"; sourceTree = "<group>"; };
 		456D529E16EB8E738ED33CBB /* FunModeBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeBootstrap.swift; sourceTree = "<group>"; };
 		45E939F6F732D70CEBF281F1 /* FunModeVisualEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeVisualEffect.swift; sourceTree = "<group>"; };
-		460ED5F8953C145B27206E24 /* BondMod_CCL.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = BondMod_CCL.pdf; sourceTree = "<group>"; };
 		468A11E040C0A52AB44D3923 /* CourtsLookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourtsLookup.swift; path = "../voxhora-ios/Voxhora/Engine/CourtsLookup.swift"; sourceTree = "<group>"; };
 		4706AC8453DA9273FF2AF54E /* ReminderConfigPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderConfigPicker.swift; sourceTree = "<group>"; };
 		47958C68799AE2979D027653 /* GenericCSVImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCSVImporter.swift; sourceTree = "<group>"; };
@@ -492,7 +486,6 @@
 		692FFE1B87CF90C6D57353F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C90D7B5BC9FBE85A8A78175 /* CaseTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaseTrunk.swift; path = "../voxhora-ios/Voxhora/Engine/CaseTrunk.swift"; sourceTree = "<group>"; };
 		6DDCFCC08CD232CAFC594CB5 /* ClientLookupEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientLookupEngine.swift; path = "../voxhora-ios/Voxhora/Engine/ClientLookupEngine.swift"; sourceTree = "<group>"; };
-		6E0702FEE784BE2562078F34 /* BondMod_District.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = BondMod_District.pdf; sourceTree = "<group>"; };
 		6F5FD45B5420D16938E21A4F /* WatchStatusIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchStatusIndicator.swift; path = "../voxhora-ios/Voxhora/Engine/WatchStatusIndicator.swift"; sourceTree = "<group>"; };
 		6F8A0986E172331CBECB1B9D /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Voucher.swift; path = "../voxhora-ios/Voxhora/Models/Voucher.swift"; sourceTree = "<group>"; };
 		6F9A22BBB2C78D5F9AA1700D /* DiscoveryDownloadsSettingsRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryDownloadsSettingsRows.swift; sourceTree = "<group>"; };
@@ -504,7 +497,6 @@
 		7414E99F6A181A848E705362 /* UserPreferencesBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesBootstrap.swift"; sourceTree = "<group>"; };
 		796C41AF48B1DB28D332B713 /* ClientCleanupEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientCleanupEngine.swift; path = "../voxhora-ios/Voxhora/Engine/ClientCleanupEngine.swift"; sourceTree = "<group>"; };
 		7A27D61BACD98A491DE74753 /* MigrationStagedEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationStagedEntry.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationStagedEntry.swift"; sourceTree = "<group>"; };
-		7A52449B7C7CBE99568409F0 /* MotionGeneratorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MotionGeneratorSheet.swift; path = "../voxhora-ios/Voxhora/Views/MotionGeneratorSheet.swift"; sourceTree = "<group>"; };
 		7D27C88B65F064C1C11028C5 /* AppointmentLetterParserRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentLetterParserRegistry.swift; path = "../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers/AppointmentLetterParserRegistry.swift"; sourceTree = "<group>"; };
 		7D75E4391268D063F546EF4D /* CustodyStatusSourceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustodyStatusSourceRegistry.swift; sourceTree = "<group>"; };
 		7F062125A1D9A9747A6A7837 /* CaseSynopsisGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaseSynopsisGenerator.swift; path = "../voxhora-ios/Voxhora/Engine/CaseSynopsisGenerator.swift"; sourceTree = "<group>"; };
@@ -614,7 +606,6 @@
 		DF1232A2D896FCDCDE3D0D4C /* llm_system_prompt.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = llm_system_prompt.md; sourceTree = "<group>"; };
 		DF942744E0FB96851CE6FADB /* travis_county_courts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = travis_county_courts.json; sourceTree = "<group>"; };
 		E0150DE863075A85481D950F /* FunModePlayerPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModePlayerPool.swift; sourceTree = "<group>"; };
-		E1D068A3C7BB9DF13C56B935 /* MotionTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MotionTemplates.swift; path = "../voxhora-ios/Voxhora/Engine/MotionTemplates.swift"; sourceTree = "<group>"; };
 		E2092AC7EBC40033CF8F72FE /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Case.swift; path = "../voxhora-ios/Voxhora/Models/Case.swift"; sourceTree = "<group>"; };
 		E26596725B5427C5008818B5 /* HistoricalCSVImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalCSVImporter.swift; sourceTree = "<group>"; };
 		E2861D0A22345EFB90E967DD /* DiscoveryWatchedAuditSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryWatchedAuditSession.swift; path = "../voxhora-ios/Voxhora/Engine/DiscoveryWatchedAuditSession.swift"; sourceTree = "<group>"; };
@@ -630,7 +621,6 @@
 		E9D25E4650CCFC096D2204F5 /* iCloudContainerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = iCloudContainerHelper.swift; path = "../voxhora-ios/Voxhora/Engine/iCloudContainerHelper.swift"; sourceTree = "<group>"; };
 		ED31529C5511CB6F8A2FA0BF /* AgentJobsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AgentJobsClient.swift; path = "../voxhora-ios/Voxhora/Engine/AgentJobsClient.swift"; sourceTree = "<group>"; };
 		EE3D7771C95B081836541346 /* UserPreferencesSchemaV16Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV16Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV16Bootstrap.swift"; sourceTree = "<group>"; };
-		EFDC0E72FCF6CFD6904C5C5E /* AttorneyProfileSchemaV22Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV22Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV22Bootstrap.swift"; sourceTree = "<group>"; };
 		EFF0A946DDFECF35BA5E2BA2 /* BillingPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BillingPreset.swift; path = "../voxhora-ios/Voxhora/Engine/BillingPreset.swift"; sourceTree = "<group>"; };
 		EFF4468BAB6C25FC9144965B /* ExportAdapterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportAdapterRegistry.swift; sourceTree = "<group>"; };
 		F08A57E7BE6A499530547AC3 /* DiscoveryMigrationSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryMigrationSettingsRow.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryMigrationSettingsRow.swift"; sourceTree = "<group>"; };
@@ -698,7 +688,6 @@
 				CEC00BA8D4B681400B14AE5D /* AttorneyProfileSchemaV19Bootstrap.swift */,
 				4E553FEDE19A037D641F418E /* AttorneyProfileSchemaV20Bootstrap.swift */,
 				71EB7420A79F2DBB8BF47429 /* AttorneyProfileSchemaV21Bootstrap.swift */,
-				EFDC0E72FCF6CFD6904C5C5E /* AttorneyProfileSchemaV22Bootstrap.swift */,
 				595C2C4B41DA5B58D1BCDFB5 /* AuditLogger.swift */,
 				30B556EBC53B35CA86B39ADF /* AutoBillFeedback.swift */,
 				24FFA313513359941E81CCBC /* AutoBillingHelper.swift */,
@@ -773,7 +762,6 @@
 				7A27D61BACD98A491DE74753 /* MigrationStagedEntry.swift */,
 				2442664128F99446BC36900E /* MigrationVocabularyRegistry.swift */,
 				73BBC537782440D60269C1A0 /* ModelContainerBootstrap.swift */,
-				E1D068A3C7BB9DF13C56B935 /* MotionTemplates.swift */,
 				F33B508F96C239E88127CBA7 /* PCAffidavitDetector.swift */,
 				FC5CBFAA8C1FBE08F2893786 /* PDFIntakeRouter.swift */,
 				56D795D2055B5C72C5E06022 /* PDFTextExtractor.swift */,
@@ -890,7 +878,6 @@
 				59692B9F0FACF4DCFD5BCAC8 /* MigrationPreviewView.swift */,
 				E3C3D8F81EB6DB12A496A99E /* MigrationView.swift */,
 				A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */,
-				7A52449B7C7CBE99568409F0 /* MotionGeneratorSheet.swift */,
 				F6F97FF969DF9EC78F8EA64B /* NotesButton.swift */,
 				3C83D8C9C38C7EEB56FB69B3 /* OnboardingView.swift */,
 				34DAD6ECE6E70C38B61501CD /* PCAffidavitImportSheet.swift */,
@@ -988,15 +975,6 @@
 				DD8600029768690C7AD5BB26 /* ShareViewController.swift */,
 			);
 			path = "Voxhora-Mac-Share";
-			sourceTree = "<group>";
-		};
-		7C05A684CA3C981CADAC1539 /* Motions */ = {
-			isa = PBXGroup;
-			children = (
-				460ED5F8953C145B27206E24 /* BondMod_CCL.pdf */,
-				6E0702FEE784BE2562078F34 /* BondMod_District.pdf */,
-			);
-			path = Motions;
 			sourceTree = "<group>";
 		};
 		9133B6C0EE5BA7B5F6AC8789 /* SharedTheme */ = {
@@ -1207,7 +1185,6 @@
 			isa = PBXGroup;
 			children = (
 				5A893B0C7BD8D427FBF21910 /* Jurisdictions */,
-				7C05A684CA3C981CADAC1539 /* Motions */,
 				DF1232A2D896FCDCDE3D0D4C /* llm_system_prompt.md */,
 				68625AD0AC4BF64F8F83610E /* VoxhoraArchitecture.json */,
 				87430CBF117FB5CE086DF625 /* VoxhoraUserManual.md */,
@@ -1319,8 +1296,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4425E0026C43127AE57D0B6 /* Assets.xcassets in Resources */,
-				5A48E43D51A474E3D0565BAA /* BondMod_CCL.pdf in Resources */,
-				740471CA210AA3E9244A8B16 /* BondMod_District.pdf in Resources */,
 				2BFE1B620F7FB36A13AB91F5 /* VoxhoraArchitecture.json in Resources */,
 				5B28DBC482A11F21CDC2EC87 /* VoxhoraUserManual.md in Resources */,
 				7DE66386C78AA008ECD90160 /* llm_system_prompt.md in Resources */,
@@ -1363,7 +1338,6 @@
 				C67E4EFACA49607548D28C90 /* AttorneyProfileSchemaV19Bootstrap.swift in Sources */,
 				FB03E19B02D151FD00F5411E /* AttorneyProfileSchemaV20Bootstrap.swift in Sources */,
 				4CA79C6B0BC497F328B7FD8B /* AttorneyProfileSchemaV21Bootstrap.swift in Sources */,
-				8F12326C9B40EA5196BF74BF /* AttorneyProfileSchemaV22Bootstrap.swift in Sources */,
 				713A4F745D95593A9E2F46C3 /* AttorneyProfileSchemaV5Bootstrap.swift in Sources */,
 				FE5EA6A31FCC3D09C93DF411 /* AttorneyProfileSchemaV7Bootstrap.swift in Sources */,
 				1B09C4516A5EAF172133FC0A /* AttorneyProfileSchemaV8Bootstrap.swift in Sources */,
@@ -1541,8 +1515,6 @@
 				7DF7823A70159C76F816B9F6 /* MigrationVocabularyRegistry.swift in Sources */,
 				AFDF0EE47FBCD5947804EB26 /* ModelContainerBootstrap.swift in Sources */,
 				C9E90DF1C2F3375CC6E95E8F /* MoneyCounter.swift in Sources */,
-				1CE0B687B6B60801AE7609F2 /* MotionGeneratorSheet.swift in Sources */,
-				CF8FF861507DDE2D7F849787 /* MotionTemplates.swift in Sources */,
 				7E7712F93D77B6FBCF1FE557 /* NotesButton.swift in Sources */,
 				F4840BC826C65ADA16C11B59 /* OnboardingView.swift in Sources */,
 				CE51B470B12E648368D1717D /* PCAffidavitDetector.swift in Sources */,
