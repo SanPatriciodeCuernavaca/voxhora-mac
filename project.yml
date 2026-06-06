@@ -754,6 +754,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationFileReader.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationXLSXReader.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationColumnMapping.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationVocabularyRegistry.swift
