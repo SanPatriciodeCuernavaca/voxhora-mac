@@ -48,6 +48,14 @@ settings:
     INFOPLIST_FILE: Voxhora-Mac/Info.plist
     CODE_SIGN_ENTITLEMENTS: Voxhora-Mac/Voxhora-Mac.entitlements
     ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  configs:
+    Debug:
+      # Step 2 Phase B (2026-06-06) — enable the custom-vocabulary feature in
+      # Patrick's DEBUG builds ONLY (deploy.sh builds Debug). A Sparkle/appcast
+      # release (release.sh, Release config) never defines VOXHORA_CUSTOM_VOCAB,
+      # so Matt's released Mac app stays byte-for-byte Travis-only. DEBUG kept so
+      # existing #if DEBUG code is unaffected.
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB
 
 targets:
   Voxhora-Mac:
