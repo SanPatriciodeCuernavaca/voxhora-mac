@@ -334,6 +334,8 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV21Bootstrap.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV22Bootstrap.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/EmailTemplatesMergeBootstrap.swift
         group: SharedEngine
       # DECISION 055.8 (2026-05-10 EOS-9) — one-time backfill:
@@ -760,9 +762,15 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationVocabularyRegistry.swift
         group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/CustomVocabularySpec.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationActivityListParser.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Migration/Vocabularies/TravisCountyVocab.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Migration/Vocabularies/GenericFreeformVocab.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/Vocabularies/AttorneyCustomVocab.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/Migration/MigrationImporter.swift
         group: SharedEngine
@@ -781,6 +789,8 @@ targets:
       - path: ../voxhora-ios/Voxhora/Views/Migration/MigrationPreviewView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/Migration/MigrationBatchImportView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/Migration/MigrationActivityListImportView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/PDFImportSheet.swift
         group: SharedViews
@@ -998,6 +1008,11 @@ targets:
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/AttorneyProfile.swift
         group: SharedModels
+      # Step 2 (2026-06-06) — AttorneyProfile.customVocabularySpec names
+      # this type; the Mac Share extension compiles AttorneyProfile so it
+      # needs it. Dependency-free (Foundation only).
+      - path: ../voxhora-ios/Voxhora/Engine/Migration/CustomVocabularySpec.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Models/UserPreferences.swift
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/AuditLogEntry.swift

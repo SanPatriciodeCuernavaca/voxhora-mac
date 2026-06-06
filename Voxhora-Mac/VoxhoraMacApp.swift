@@ -406,6 +406,8 @@ struct VoxhoraMacApp: App {
                         AttorneyProfileSchemaV20Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                         // Email templates (2026-06-05) — signatureTitle field.
                         AttorneyProfileSchemaV21Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        // Step 2 (2026-06-06) — customVocabularyJSON field.
+                        AttorneyProfileSchemaV22Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                         // Email templates (2026-06-05) — merge letter+email shelves into one.
                         EmailTemplatesMergeBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
