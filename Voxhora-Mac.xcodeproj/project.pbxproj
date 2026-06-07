@@ -91,6 +91,7 @@
 		3FFAE5BE5B84954B41CFB742 /* TravisCountyVocab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059A6AD2B5EDF163FD63A95 /* TravisCountyVocab.swift */; };
 		408392B5687BDCB24EDE5EDE /* EmailTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A293BC047910AFD6D7931B6E /* EmailTemplate.swift */; };
 		40CC4FD86E2CD92007882B76 /* travis_county.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F5E24AA1CA60519F9616870 /* travis_county.json */; };
+		40D633B0940FA2997FF32701 /* TodoBillSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FDAC41FC3B8E98F5DDD01 /* TodoBillSheet.swift */; };
 		40ECAEA09DDE0978CE34759B /* ClientSchemaV7Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4FE6AB4FB32535813FAE3 /* ClientSchemaV7Bootstrap.swift */; };
 		42384CA3FD156F8FD64B9F57 /* VouchersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0493A23B7C235DD52BFA5AB /* VouchersView.swift */; };
 		4259FB9B5F6D9F8619062C86 /* QuickAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C0900489FD4AD30369786 /* QuickAction.swift */; };
@@ -492,6 +493,7 @@
 		5673B747584289E2B2E2A5B0 /* TCCaseListImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCaseListImporter.swift; sourceTree = "<group>"; };
 		56D795D2055B5C72C5E06022 /* PDFTextExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PDFTextExtractor.swift; path = "../voxhora-ios/Voxhora/Engine/PDFTextExtractor.swift"; sourceTree = "<group>"; };
 		571B86A3B851095150C1C1EA /* MailInboxBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MailInboxBridge.swift; path = "../voxhora-ios/Voxhora/Engine/MailInboxBridge.swift"; sourceTree = "<group>"; };
+		579FDAC41FC3B8E98F5DDD01 /* TodoBillSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoBillSheet.swift; path = "../voxhora-ios/Voxhora/Views/TodoBillSheet.swift"; sourceTree = "<group>"; };
 		57A0230C339439CBF1868726 /* FunModeSoundRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeSoundRegistry.swift; sourceTree = "<group>"; };
 		58D871C800DF931C1279EF57 /* UserPreferencesSchemaV7Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV7Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV7Bootstrap.swift"; sourceTree = "<group>"; };
 		595C2C4B41DA5B58D1BCDFB5 /* AuditLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuditLogger.swift; path = "../voxhora-ios/Voxhora/Engine/AuditLogger.swift"; sourceTree = "<group>"; };
@@ -959,6 +961,7 @@
 				CED2243FD4303F366D25C658 /* TabResetGate.swift */,
 				C0E8A3F63A2040573248F50F /* TodayView.swift */,
 				92FD68B0A9B5B4C4C000496E /* TodayViewModel.swift */,
+				579FDAC41FC3B8E98F5DDD01 /* TodoBillSheet.swift */,
 				9C45306AE251EAD914FE5A4F /* ToDoButton.swift */,
 				7A6B21ACF001E36275466DA8 /* TodoCollapsibleBar.swift */,
 				1C636D1F2E6E4BEC1D68A2FB /* TodoReminderSheet.swift */,
@@ -1655,6 +1658,7 @@
 				7B5E9375AB21CACDF1C764DE /* TodayView.swift in Sources */,
 				E31F4E7B900B7040B44F628B /* TodayViewModel.swift in Sources */,
 				661084ED4A3ED6688352ED77 /* Todo.swift in Sources */,
+				40D633B0940FA2997FF32701 /* TodoBillSheet.swift in Sources */,
 				72A82071DC3C859EE6607847 /* TodoClientResolver.swift in Sources */,
 				48B9F37C1C26013AB1D4C442 /* TodoCollapsibleBar.swift in Sources */,
 				FF596CAF18958549228AA3A2 /* TodoNotificationRouter.swift in Sources */,

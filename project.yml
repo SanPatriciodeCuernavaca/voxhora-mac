@@ -851,6 +851,9 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientToDoSheet.swift
         group: SharedViews
+      # To-Dos / Reminders · T12 — the bill-from-todo spine (gated).
+      - path: ../voxhora-ios/Voxhora/Views/TodoBillSheet.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/CallDurationSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/AppearBadge.swift
