@@ -182,6 +182,7 @@
 		7E7712F93D77B6FBCF1FE557 /* NotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F97FF969DF9EC78F8EA64B /* NotesButton.swift */; };
 		7F625E7EFE92AE31A5E19437 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */; };
 		7FB057A348E645A5732AD897 /* AttorneyProfileSchemaV11Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D056AB99BB41B8FA48EE45 /* AttorneyProfileSchemaV11Bootstrap.swift */; };
+		807E3CBB68FB096954766548 /* ClientToDoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F23CE139A349942F1EDCB6D /* ClientToDoSheet.swift */; };
 		80E40CE38282E0BFAF1F1BBF /* ClientLookupSidebarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A07B4CFB1035071593F942A /* ClientLookupSidebarModel.swift */; };
 		83EF9DA4E30AADFEE3750F60 /* AttorneyCustomVocab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D70EBF7A4C4C30C179858F /* AttorneyCustomVocab.swift */; };
 		8439A9112E805AB9B95B9CEA /* CustodyStatusSourceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D75E4391268D063F546EF4D /* CustodyStatusSourceRegistry.swift */; };
@@ -299,6 +300,7 @@
 		DFF508DD3102DB0D96BCDB7B /* ClientTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AADBA0931A72085F12BFC5 /* ClientTrunk.swift */; };
 		E1978F4636715AEE935E0D27 /* ClientSchemaV11Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9119857B047DE4731B5F56E /* ClientSchemaV11Bootstrap.swift */; };
 		E2281ECF2AAC118F3A95537F /* TravisCountyPCAffidavitDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE2E56A01DA15249E356026 /* TravisCountyPCAffidavitDetector.swift */; };
+		E237811EB94B5D0BC4F5120B /* ToDoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C45306AE251EAD914FE5A4F /* ToDoButton.swift */; };
 		E2FA3138478236879FADF8DE /* UserPreferencesSchemaV8Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657E28DDFE41355BF7543D75 /* UserPreferencesSchemaV8Bootstrap.swift */; };
 		E31F4E7B900B7040B44F628B /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD68B0A9B5B4C4C000496E /* TodayViewModel.swift */; };
 		E3DD898EF36A860C4CC73743 /* PlatformViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10992B90E1518B51995BCD06 /* PlatformViewHelpers.swift */; };
@@ -523,6 +525,7 @@
 		692FFE1B87CF90C6D57353F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C90D7B5BC9FBE85A8A78175 /* CaseTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaseTrunk.swift; path = "../voxhora-ios/Voxhora/Engine/CaseTrunk.swift"; sourceTree = "<group>"; };
 		6DDCFCC08CD232CAFC594CB5 /* ClientLookupEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientLookupEngine.swift; path = "../voxhora-ios/Voxhora/Engine/ClientLookupEngine.swift"; sourceTree = "<group>"; };
+		6F23CE139A349942F1EDCB6D /* ClientToDoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientToDoSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientToDoSheet.swift"; sourceTree = "<group>"; };
 		6F5FD45B5420D16938E21A4F /* WatchStatusIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchStatusIndicator.swift; path = "../voxhora-ios/Voxhora/Engine/WatchStatusIndicator.swift"; sourceTree = "<group>"; };
 		6F790EBDED68BCCFC3BA91BA /* TravisAppellateRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravisAppellateRegistration.swift; sourceTree = "<group>"; };
 		6F8A0986E172331CBECB1B9D /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Voucher.swift; path = "../voxhora-ios/Voxhora/Models/Voucher.swift"; sourceTree = "<group>"; };
@@ -575,6 +578,7 @@
 		9A92818F1B337F438AFC0601 /* VoxSpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoxSpeechRecognizer.swift; sourceTree = "<group>"; };
 		9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HapticFeedback.swift; path = "../voxhora-ios/Voxhora/Engine/HapticFeedback.swift"; sourceTree = "<group>"; };
 		9BFE2182C2587A7D7574C711 /* AttorneyProfileSchemaV5Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV5Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV5Bootstrap.swift"; sourceTree = "<group>"; };
+		9C45306AE251EAD914FE5A4F /* ToDoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToDoButton.swift; path = "../voxhora-ios/Voxhora/Views/ToDoButton.swift"; sourceTree = "<group>"; };
 		9C72061F442338249AFEC303 /* PDFIntakeShareForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PDFIntakeShareForm.swift; path = "../voxhora-ios/Voxhora-Share/PDFIntakeShareForm.swift"; sourceTree = "<group>"; };
 		9C93F98C329547921ED512F8 /* RosterReconciler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RosterReconciler.swift; path = "../voxhora-ios/Voxhora/Engine/RosterReconciler.swift"; sourceTree = "<group>"; };
 		9E8B2877C23EBE85377EA7A0 /* CalendarEventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarEventRow.swift; path = "../voxhora-ios/Voxhora/Views/CalendarEventRow.swift"; sourceTree = "<group>"; };
@@ -916,6 +920,7 @@
 				0E61B19B018766AC9F1E5F54 /* ClientRosterRow.swift */,
 				8658A67435BBE493CD2FBFF9 /* ClientsView.swift */,
 				2757BCC5C782B691B9A4A193 /* ClientsViewModel.swift */,
+				6F23CE139A349942F1EDCB6D /* ClientToDoSheet.swift */,
 				8F5B4630C0FC2F0C8A52D98F /* ComingSoonView.swift */,
 				82C59D0F59AB9D05694E5E65 /* ContactClientSheet.swift */,
 				DBD69F17802A870CE0CF0216 /* DiscoveryAudioPlayerView.swift */,
@@ -954,6 +959,7 @@
 				CED2243FD4303F366D25C658 /* TabResetGate.swift */,
 				C0E8A3F63A2040573248F50F /* TodayView.swift */,
 				92FD68B0A9B5B4C4C000496E /* TodayViewModel.swift */,
+				9C45306AE251EAD914FE5A4F /* ToDoButton.swift */,
 				7A6B21ACF001E36275466DA8 /* TodoCollapsibleBar.swift */,
 				1C636D1F2E6E4BEC1D68A2FB /* TodoReminderSheet.swift */,
 				39EC66174EC079E83086EED9 /* TodoView.swift */,
@@ -1490,6 +1496,7 @@
 				40ECAEA09DDE0978CE34759B /* ClientSchemaV7Bootstrap.swift in Sources */,
 				1CEF47C97A9CD8D3796325D3 /* ClientSchemaV8Bootstrap.swift in Sources */,
 				D3EC9049F13215CA828BA16E /* ClientToCaseBackfillBootstrap.swift in Sources */,
+				807E3CBB68FB096954766548 /* ClientToDoSheet.swift in Sources */,
 				6966FBDB8EBC5D31020E7545 /* ClientTrunk.swift in Sources */,
 				A1D81A4F358569B0CA7C5983 /* ClientsView.swift in Sources */,
 				3C0DB04D7F911EABA1D4A982 /* ClientsViewModel.swift in Sources */,
@@ -1644,6 +1651,7 @@
 				6C2B15E980F9C143C46916C2 /* TabResetGate.swift in Sources */,
 				BB0566F60B38F05DB6C701A1 /* TechShareCredentialsRow.swift in Sources */,
 				3E302778D04A087B23BD6BEE /* TechShareKeychainHelper.swift in Sources */,
+				E237811EB94B5D0BC4F5120B /* ToDoButton.swift in Sources */,
 				7B5E9375AB21CACDF1C764DE /* TodayView.swift in Sources */,
 				E31F4E7B900B7040B44F628B /* TodayViewModel.swift in Sources */,
 				661084ED4A3ED6688352ED77 /* Todo.swift in Sources */,
