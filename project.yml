@@ -358,6 +358,10 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/TodoSchemaV1Bootstrap.swift
         group: SharedEngine
+      # To-Dos / Reminders — sole writer for Todo (gated #if VOXHORA_TODOS;
+      # compiles to nothing in Release).
+      - path: ../voxhora-ios/Voxhora/Engine/TodoTrunk.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/EmailTemplatesMergeBootstrap.swift
         group: SharedEngine
       # DECISION 055.8 (2026-05-10 EOS-9) — one-time backfill:
