@@ -154,6 +154,14 @@ struct VoxhoraMacApp: App {
                     SendReminderSheet(pending: pending)
                         .environmentObject(reminderActionRouter)
                 }
+                #if VOXHORA_TODOS
+                // To-Dos / Reminders — present the to-do nag sheet on a
+                // notification body-tap (Done/Snooze actions skip this).
+                .sheet(item: $todoNotificationRouter.pendingTodo) { pending in
+                    TodoReminderSheet(pending: pending)
+                        .environmentObject(todoNotificationRouter)
+                }
+                #endif
                 .frame(minWidth: 980, minHeight: 680)
                 // Path A3b (2026-05-13) — degraded-launch alert (Mac
                 // companion to iOS VoxhoraApp). Fires when onAppear sets

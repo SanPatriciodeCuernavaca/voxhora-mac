@@ -369,6 +369,9 @@ targets:
       # (gated #if VOXHORA_TODOS).
       - path: ../voxhora-ios/Voxhora/Engine/TodoNotificationRouter.swift
         group: SharedEngine
+      # To-Dos / Reminders — shared client resolver (gated #if VOXHORA_TODOS).
+      - path: ../voxhora-ios/Voxhora/Engine/TodoClientResolver.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/EmailTemplatesMergeBootstrap.swift
         group: SharedEngine
       # DECISION 055.8 (2026-05-10 EOS-9) — one-time backfill:
@@ -831,6 +834,9 @@ targets:
       - path: ../voxhora-ios/Voxhora/Views/InitialContactSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/SendReminderSheet.swift
+        group: SharedViews
+      # To-Dos / Reminders — to-do nag sheet (gated #if VOXHORA_TODOS).
+      - path: ../voxhora-ios/Voxhora/Views/TodoReminderSheet.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/CallDurationSheet.swift
         group: SharedViews
