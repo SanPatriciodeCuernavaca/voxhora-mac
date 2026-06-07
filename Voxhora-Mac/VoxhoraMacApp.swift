@@ -408,12 +408,19 @@ struct VoxhoraMacApp: App {
                         AttorneyProfileSchemaV21Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                         // Step 2 (2026-06-06) — customVocabularyJSON field.
                         AttorneyProfileSchemaV22Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        // Step 2 appellate prep (2026-06-06) — travisAppellateEnabled field.
+                        AttorneyProfileSchemaV23Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                         // Step 2 Phase B (B4) — feed the in-memory JurisdictionRegistry
                         // from the synced profile so a firm's custom_<id> daily vocab
                         // resolves. Runs every launch (registry is in-memory). Gated;
                         // a no-op for Travis. Never flips jurisdictionKey.
                         #if VOXHORA_CUSTOM_VOCAB
                         CustomVocabularyRegistration.refresh(modelContext: modelContainer.mainContext)
+                        #endif
+                        // Step 2 appellate prep — push the attorney's appellate
+                        // toggle into the registry. Gated; no-op for the ~98%.
+                        #if VOXHORA_TRAVIS_APPELLATE
+                        TravisAppellateRegistration.refresh(modelContext: modelContainer.mainContext)
                         #endif
                         // Email templates (2026-06-05) — merge letter+email shelves into one.
                         EmailTemplatesMergeBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
