@@ -365,6 +365,10 @@ targets:
       # To-Dos / Reminders — daily-nag scheduler (gated #if VOXHORA_TODOS).
       - path: ../voxhora-ios/Voxhora/Engine/TodoReminderScheduler.swift
         group: SharedEngine
+      # To-Dos / Reminders — notification router + Done/Snooze category
+      # (gated #if VOXHORA_TODOS).
+      - path: ../voxhora-ios/Voxhora/Engine/TodoNotificationRouter.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/EmailTemplatesMergeBootstrap.swift
         group: SharedEngine
       # DECISION 055.8 (2026-05-10 EOS-9) — one-time backfill:

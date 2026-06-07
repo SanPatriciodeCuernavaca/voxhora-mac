@@ -50,6 +50,12 @@ struct VoxhoraMacApp: App {
     /// inside SendReminderSheet.
     @StateObject private var reminderActionRouter = ReminderActionRouter()
 
+    #if VOXHORA_TODOS
+    /// To-Dos / Reminders (2026-06-06) — routes a to-do nag body-tap to
+    /// TodoReminderSheet + handles the Done/Snooze action buttons.
+    @StateObject private var todoNotificationRouter = TodoNotificationRouter()
+    #endif
+
     /// DECISION 039 — drives `CalendarRefreshScheduler` Timer start /
     /// stop on scenePhase transitions. Mac has no BGAppRefreshTask
     /// equivalent (no BackgroundTasks framework on macOS); foreground
@@ -138,6 +144,11 @@ struct VoxhoraMacApp: App {
                 .funModeOverlay()  // DECISION 051 — global Fun Mode visual overlay
                 .environmentObject(pdfIntakeRouter)
                 .environmentObject(reminderActionRouter)
+                #if VOXHORA_TODOS
+                // To-Dos / Reminders — inject the to-do nag router
+                // (TodoReminderSheet reads it; sheet wired in T8).
+                .environmentObject(todoNotificationRouter)
+                #endif
                 .environment(appState)  // DECISION 054 follow-up
                 .sheet(item: $reminderActionRouter.pending) { pending in
                     SendReminderSheet(pending: pending)
@@ -566,6 +577,14 @@ struct VoxhoraMacApp: App {
                         // independently of iPhone (no cross-device
                         // dismiss coordination in v1).
                         VoxhoraNotificationDelegate.shared.router = reminderActionRouter
+                        #if VOXHORA_TODOS
+                        // To-Dos / Reminders — wire the to-do nag router + its
+                        // model context (action-button path) + register the
+                        // net-new TODO_REMINDER Done/Snooze category.
+                        VoxhoraNotificationDelegate.shared.todoRouter = todoNotificationRouter
+                        todoNotificationRouter.modelContext = modelContainer.mainContext
+                        TodoNotificationCategory.register()
+                        #endif
                         await SMSReminderScheduler.rescheduleAllOnLaunch(modelContext: modelContainer.mainContext)
                         #if VOXHORA_TODOS
                         // To-Dos / Reminders (2026-06-06) — rebuild the daily
