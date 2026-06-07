@@ -352,8 +352,11 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV23Bootstrap.swift
         group: SharedEngine
-      # To-Dos / Reminders (2026-06-06) — v23→v24 todoRemindersEnabled bootstrap.
+      # To-Dos / Reminders (2026-06-06) — v23→v24 todoRemindersEnabled bootstrap
+      # + the ceremonial Todo v1 bootstrap.
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV24Bootstrap.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/TodoSchemaV1Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/EmailTemplatesMergeBootstrap.swift
         group: SharedEngine

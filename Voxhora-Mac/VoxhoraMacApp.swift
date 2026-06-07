@@ -415,6 +415,9 @@ struct VoxhoraMacApp: App {
                         // todoRemindersEnabled master switch. Unconditional + inert
                         // (soaks the CloudKit migration ahead of the gated UI).
                         AttorneyProfileSchemaV24Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        // To-Dos / Reminders (2026-06-06) — ceremonial Todo v1
+                        // bootstrap (migrates nothing; defers via !todos.isEmpty).
+                        TodoSchemaV1Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                         // Step 2 Phase B (B4) — feed the in-memory JurisdictionRegistry
                         // from the synced profile so a firm's custom_<id> daily vocab
                         // resolves. Runs every launch (registry is in-memory). Gated;
