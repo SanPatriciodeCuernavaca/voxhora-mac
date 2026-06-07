@@ -251,6 +251,7 @@
 		BDDFF1812C5052FD8BA9D7E7 /* TravisAppellateRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F790EBDED68BCCFC3BA91BA /* TravisAppellateRegistration.swift */; };
 		BF4621719E6577999216E7C1 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C35F14697F4C491EAF62CC7 /* KeychainHelper.swift */; };
 		BFAC48314965E66BDB4DED2C /* ManualEntryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC034C1944EB53D7C9F589 /* ManualEntryForm.swift */; };
+		C1BFD84240E976B01A766FC0 /* AttorneyProfileSchemaV24Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3382419E09C7B1CCE581F922 /* AttorneyProfileSchemaV24Bootstrap.swift */; };
 		C1F73CE4E7C5E0D8E5F136DD /* MigrationImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6186B2D1CE77FB3B6F8872E5 /* MigrationImporter.swift */; };
 		C23AE41EADAC081A1B310822 /* LiquidGoldSplashVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98396DF886F2886C551C5BA6 /* LiquidGoldSplashVisual.swift */; };
 		C26D0AE5D52FD44B5B76C66F /* AttorneyProfileSchemaV10Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028F65FF4663B7829AB17929 /* AttorneyProfileSchemaV10Bootstrap.swift */; };
@@ -426,6 +427,7 @@
 		319866431B8441A693B944D4 /* CashierChimeSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashierChimeSound.swift; sourceTree = "<group>"; };
 		3259E3DE338EFE23C1ED6036 /* CustomVocabularyRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVocabularyRegistration.swift; sourceTree = "<group>"; };
 		3356D52B161689F9379A36C6 /* ReminderActionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReminderActionRouter.swift; path = "../voxhora-ios/Voxhora/Engine/ReminderActionRouter.swift"; sourceTree = "<group>"; };
+		3382419E09C7B1CCE581F922 /* AttorneyProfileSchemaV24Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV24Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV24Bootstrap.swift"; sourceTree = "<group>"; };
 		33CACD463F2031F907DE0EEF /* UserPreferencesSchemaV11Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV11Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV11Bootstrap.swift"; sourceTree = "<group>"; };
 		34DAD6ECE6E70C38B61501CD /* PCAffidavitImportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PCAffidavitImportSheet.swift; path = "../voxhora-ios/Voxhora/Views/PCAffidavitImportSheet.swift"; sourceTree = "<group>"; };
 		378A9C847AFABC90D5756DBB /* TabRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabRegistry.swift; path = "../voxhora-ios/Voxhora/Engine/TabRegistry.swift"; sourceTree = "<group>"; };
@@ -723,6 +725,7 @@
 				71EB7420A79F2DBB8BF47429 /* AttorneyProfileSchemaV21Bootstrap.swift */,
 				EFDC0E72FCF6CFD6904C5C5E /* AttorneyProfileSchemaV22Bootstrap.swift */,
 				E1D209A71258B81A150557DF /* AttorneyProfileSchemaV23Bootstrap.swift */,
+				3382419E09C7B1CCE581F922 /* AttorneyProfileSchemaV24Bootstrap.swift */,
 				595C2C4B41DA5B58D1BCDFB5 /* AuditLogger.swift */,
 				30B556EBC53B35CA86B39ADF /* AutoBillFeedback.swift */,
 				24FFA313513359941E81CCBC /* AutoBillingHelper.swift */,
@@ -1390,6 +1393,7 @@
 				4CA79C6B0BC497F328B7FD8B /* AttorneyProfileSchemaV21Bootstrap.swift in Sources */,
 				8F12326C9B40EA5196BF74BF /* AttorneyProfileSchemaV22Bootstrap.swift in Sources */,
 				736D7375A0AD6993A1F7020C /* AttorneyProfileSchemaV23Bootstrap.swift in Sources */,
+				C1BFD84240E976B01A766FC0 /* AttorneyProfileSchemaV24Bootstrap.swift in Sources */,
 				713A4F745D95593A9E2F46C3 /* AttorneyProfileSchemaV5Bootstrap.swift in Sources */,
 				FE5EA6A31FCC3D09C93DF411 /* AttorneyProfileSchemaV7Bootstrap.swift in Sources */,
 				1B09C4516A5EAF172133FC0A /* AttorneyProfileSchemaV8Bootstrap.swift in Sources */,

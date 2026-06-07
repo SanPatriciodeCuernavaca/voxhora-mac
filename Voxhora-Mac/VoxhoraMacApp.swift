@@ -411,6 +411,10 @@ struct VoxhoraMacApp: App {
                         AttorneyProfileSchemaV22Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                         // Step 2 appellate prep (2026-06-06) — travisAppellateEnabled field.
                         AttorneyProfileSchemaV23Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        // To-Dos / Reminders (2026-06-06) — v23→v24 adds the global
+                        // todoRemindersEnabled master switch. Unconditional + inert
+                        // (soaks the CloudKit migration ahead of the gated UI).
+                        AttorneyProfileSchemaV24Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                         // Step 2 Phase B (B4) — feed the in-memory JurisdictionRegistry
                         // from the synced profile so a firm's custom_<id> daily vocab
                         // resolves. Runs every launch (registry is in-memory). Gated;
