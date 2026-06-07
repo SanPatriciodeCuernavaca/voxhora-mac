@@ -55,7 +55,7 @@ settings:
       # release (release.sh, Release config) never defines VOXHORA_CUSTOM_VOCAB,
       # so Matt's released Mac app stays byte-for-byte Travis-only. DEBUG kept so
       # existing #if DEBUG code is unaffected.
-      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS
 
 targets:
   Voxhora-Mac:
@@ -104,6 +104,12 @@ targets:
       - path: ../voxhora-ios/Voxhora/Models/CalendarEvent.swift
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/ClientNote.swift
+        group: SharedModels
+      # To-Dos / Reminders (2026-06-06) — the Todo @Model rides the
+      # shared SwiftData schema on every target binding the CloudKit
+      # container (superset rule). Mac app + Mac Share compile it for
+      # schema parity.
+      - path: ../voxhora-ios/Voxhora/Models/Todo.swift
         group: SharedModels
       # DECISION 056 (Client Docs vault, 2026-05-11) — per-client
       # document vault. Bytes live in iCloud Drive ubiquitous container;
@@ -1032,6 +1038,12 @@ targets:
       - path: ../voxhora-ios/Voxhora/Models/CalendarEvent.swift
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/ClientNote.swift
+        group: SharedModels
+      # To-Dos / Reminders (2026-06-06) — the Todo @Model rides the
+      # shared SwiftData schema on every target binding the CloudKit
+      # container (superset rule). Mac app + Mac Share compile it for
+      # schema parity.
+      - path: ../voxhora-ios/Voxhora/Models/Todo.swift
         group: SharedModels
       # DECISION 056 (Client Docs vault, 2026-05-11) — per-client
       # document vault. Bytes live in iCloud Drive ubiquitous container;

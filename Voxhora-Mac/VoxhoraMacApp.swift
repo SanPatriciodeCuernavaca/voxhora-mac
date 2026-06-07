@@ -95,6 +95,7 @@ struct VoxhoraMacApp: App {
             Voucher.self,                 // DECISION 012 — Phase C voucher state model
             CalendarEvent.self,           // DECISION 022 — Calendar feature (DSA-driven court schedule)
             ClientNote.self,              // DECISION 040.2 — Client notes journal
+            Todo.self,                    // To-Dos / Reminders (2026-06-06) — own @Model, no relationship
             ClientDoc.self                // DECISION 056 — Client Docs vault (Session 1 data plumbing, 2026-05-11)
         ])
         let bootResult = ModelContainerBootstrap.boot(

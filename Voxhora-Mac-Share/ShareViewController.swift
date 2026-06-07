@@ -157,6 +157,7 @@ class ShareViewController: NSViewController {
                 AttorneyProfile.self, UserPreferences.self,
                 AuditLogEntry.self, Voucher.self,
                 CalendarEvent.self, ClientNote.self,
+                Todo.self,       // To-Dos / Reminders (2026-06-06): full union — schema-only ride-along
                 ClientDoc.self   // 2026-06-01 (audit H7): full 10-type union — a
                                  // non-superset Schema can silently halt the
                                  // CloudKit mirror (Client→ClientDoc cascade).
@@ -263,6 +264,7 @@ class ShareViewController: NSViewController {
                 AttorneyProfile.self, UserPreferences.self,
                 AuditLogEntry.self, Voucher.self,
                 CalendarEvent.self, ClientNote.self,
+                Todo.self,       // To-Dos / Reminders (2026-06-06): full union — schema-only ride-along
                 ClientDoc.self   // 2026-06-01 (audit H7): full 10-type union — a
                                  // non-superset Schema can silently halt the
                                  // CloudKit mirror (Client→ClientDoc cascade).
