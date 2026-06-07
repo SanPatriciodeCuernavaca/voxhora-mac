@@ -274,11 +274,13 @@
 		CC10B734CEC184046C887EBA /* CalendarEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B2877C23EBE85377EA7A0 /* CalendarEventRow.swift */; };
 		CCE72F1B8C92F9B9286378D8 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B4630C0FC2F0C8A52D98F /* ComingSoonView.swift */; };
 		CD8F6829848017E972FA9589 /* IntakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD718C8E822C3B84C62449E /* IntakeViewModel.swift */; };
+		CDA8AE707A42C1C06A5341E9 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55BFB4E1A17501E7C45CA /* TodoViewModel.swift */; };
 		CDB416633541447F1E11101E /* IntakeFilenameMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CBE5A51013EE290F1DCC7E /* IntakeFilenameMatcher.swift */; };
 		CDC9F4656AAA1D0C6D7259CA /* MailInboxWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85724110586CAA89B2292946 /* MailInboxWatcher.swift */; };
 		CDEDC3D14BFEC5446728FB44 /* AttorneyProfileDuplicateRecoveryBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94691A6266B93484892F6D /* AttorneyProfileDuplicateRecoveryBootstrap.swift */; };
 		CE51B470B12E648368D1717D /* PCAffidavitDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B508F96C239E88127CBA7 /* PCAffidavitDetector.swift */; };
 		D11F595E106B98EEA4CBCBE7 /* DropboxFetchToTempCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43674315CAF2AFB6963BBCE /* DropboxFetchToTempCache.swift */; };
+		D254E0561F05A609D066E802 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EC66174EC079E83086EED9 /* TodoView.swift */; };
 		D3CDE945059BFBA31CAC1CE7 /* RosterReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F98C329547921ED512F8 /* RosterReconciler.swift */; };
 		D3EC9049F13215CA828BA16E /* ClientToCaseBackfillBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4286A72BF7F513ADE3115071 /* ClientToCaseBackfillBootstrap.swift */; };
 		D4550C6A6DBCA9EB829108B8 /* CaseTypeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB7755BB55CE823BC38D0D /* CaseTypeFilter.swift */; };
@@ -438,12 +440,14 @@
 		3382419E09C7B1CCE581F922 /* AttorneyProfileSchemaV24Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV24Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV24Bootstrap.swift"; sourceTree = "<group>"; };
 		33CACD463F2031F907DE0EEF /* UserPreferencesSchemaV11Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV11Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV11Bootstrap.swift"; sourceTree = "<group>"; };
 		34DAD6ECE6E70C38B61501CD /* PCAffidavitImportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PCAffidavitImportSheet.swift; path = "../voxhora-ios/Voxhora/Views/PCAffidavitImportSheet.swift"; sourceTree = "<group>"; };
+		35F55BFB4E1A17501E7C45CA /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoViewModel.swift; path = "../voxhora-ios/Voxhora/Views/TodoViewModel.swift"; sourceTree = "<group>"; };
 		378A9C847AFABC90D5756DBB /* TabRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabRegistry.swift; path = "../voxhora-ios/Voxhora/Engine/TabRegistry.swift"; sourceTree = "<group>"; };
 		380D3D57127B7135A10BF2EA /* SuccessWaveBackdrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessWaveBackdrop.swift; sourceTree = "<group>"; };
 		3815538E8E94A934EF13022E /* AttorneyProfileSchemaV12Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV12Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV12Bootstrap.swift"; sourceTree = "<group>"; };
 		388E2CEE556B31DEE6733C16 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = "../voxhora-ios/Voxhora/Models/Entry.swift"; sourceTree = "<group>"; };
 		38D5F64BD11709E1D7F8844C /* SMSReminderScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMSReminderScheduler.swift; path = "../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift"; sourceTree = "<group>"; };
 		39925574BE4F91130F7EC56C /* MigrationFolderImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationFolderImporter.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationFolderImporter.swift"; sourceTree = "<group>"; };
+		39EC66174EC079E83086EED9 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoView.swift; path = "../voxhora-ios/Voxhora/Views/TodoView.swift"; sourceTree = "<group>"; };
 		3B16F6E3F91BB9ECE11C629A /* AutoIntakeWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoIntakeWatcher.swift; path = "../voxhora-ios/Voxhora/Engine/AutoIntakeWatcher.swift"; sourceTree = "<group>"; };
 		3B36373A57364B287B728BA8 /* PDFImportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PDFImportSheet.swift; path = "../voxhora-ios/Voxhora/Views/PDFImportSheet.swift"; sourceTree = "<group>"; };
 		3BBC034C1944EB53D7C9F589 /* ManualEntryForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ManualEntryForm.swift; path = "../voxhora-ios/Voxhora/Views/ManualEntryForm.swift"; sourceTree = "<group>"; };
@@ -949,6 +953,8 @@
 				C0E8A3F63A2040573248F50F /* TodayView.swift */,
 				92FD68B0A9B5B4C4C000496E /* TodayViewModel.swift */,
 				1C636D1F2E6E4BEC1D68A2FB /* TodoReminderSheet.swift */,
+				39EC66174EC079E83086EED9 /* TodoView.swift */,
+				35F55BFB4E1A17501E7C45CA /* TodoViewModel.swift */,
 				C0493A23B7C235DD52BFA5AB /* VouchersView.swift */,
 				0E08E962A3419E37518800E4 /* VoxHelpButton.swift */,
 				4A46FBF87537B49DC6BE185F /* VoxHelpView.swift */,
@@ -1644,6 +1650,8 @@
 				91BCC6B1FD1F7C797FDB5F35 /* TodoReminderSheet.swift in Sources */,
 				965C9DBAF6C4CA11DB0F2E75 /* TodoSchemaV1Bootstrap.swift in Sources */,
 				21789EB01D3C734608C3B30C /* TodoTrunk.swift in Sources */,
+				D254E0561F05A609D066E802 /* TodoView.swift in Sources */,
+				CDA8AE707A42C1C06A5341E9 /* TodoViewModel.swift in Sources */,
 				BDDFF1812C5052FD8BA9D7E7 /* TravisAppellateRegistration.swift in Sources */,
 				F7FEFCD2E8EE9F42AC71EEFF /* TravisCounty.swift in Sources */,
 				CA3D1D5C037341580BD31BAF /* TravisCountyAppointmentLetterParser.swift in Sources */,

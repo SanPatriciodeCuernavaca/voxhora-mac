@@ -835,8 +835,13 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/SendReminderSheet.swift
         group: SharedViews
-      # To-Dos / Reminders — to-do nag sheet (gated #if VOXHORA_TODOS).
+      # To-Dos / Reminders — to-do nag sheet + the To-Do page + its view
+      # model (gated #if VOXHORA_TODOS).
       - path: ../voxhora-ios/Voxhora/Views/TodoReminderSheet.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/TodoView.swift
+        group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/TodoViewModel.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/CallDurationSheet.swift
         group: SharedViews
