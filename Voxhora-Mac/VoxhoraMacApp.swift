@@ -567,6 +567,11 @@ struct VoxhoraMacApp: App {
                         // dismiss coordination in v1).
                         VoxhoraNotificationDelegate.shared.router = reminderActionRouter
                         await SMSReminderScheduler.rescheduleAllOnLaunch(modelContext: modelContainer.mainContext)
+                        #if VOXHORA_TODOS
+                        // To-Dos / Reminders (2026-06-06) — rebuild the daily
+                        // to-do nags from the live open set on every launch.
+                        await TodoReminderScheduler.rescheduleAllOnLaunch(modelContext: modelContainer.mainContext)
+                        #endif
 
                         // DECISION 058 Step 3 (2026-05-12) — Patrick
                         // Law Office Agent Phase 1 file watcher.
@@ -749,6 +754,11 @@ struct VoxhoraMacApp: App {
                             CalendarRefreshScheduler.startForegroundTimer(
                                 modelContext: modelContainer.mainContext
                             )
+                            #if VOXHORA_TODOS
+                            // To-Dos / Reminders — re-sync the daily nags on
+                            // foreground (a to-do may have changed elsewhere).
+                            await TodoReminderScheduler.rescheduleAllOnLaunch(modelContext: modelContainer.mainContext)
+                            #endif
                         case .background, .inactive:
                             CalendarRefreshScheduler.stopForegroundTimer()
                         @unknown default:

@@ -249,6 +249,7 @@
 		B938E2CE6D501CD93B535155 /* MigrationOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81056F3F8852111F29044989 /* MigrationOrchestrator.swift */; };
 		B93940057B59B0BB67452361 /* RatePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307B1CCF2CDD028620A2F9B /* RatePickerSheet.swift */; };
 		BA41B83D00EC784535E442B3 /* VoxHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A46FBF87537B49DC6BE185F /* VoxHelpView.swift */; };
+		BA5765180FA39D78C354FF9E /* TodoReminderScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DAC31495A7C2586C841CBB /* TodoReminderScheduler.swift */; };
 		BB0566F60B38F05DB6C701A1 /* TechShareCredentialsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A630D4E65ED99EAD0F4C50 /* TechShareCredentialsRow.swift */; };
 		BDDFF1812C5052FD8BA9D7E7 /* TravisAppellateRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F790EBDED68BCCFC3BA91BA /* TravisAppellateRegistration.swift */; };
 		BF4621719E6577999216E7C1 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C35F14697F4C491EAF62CC7 /* KeychainHelper.swift */; };
@@ -375,6 +376,7 @@
 		06F2E36264CA69ABE3178C6C /* CalendarEventTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarEventTrunk.swift; path = "../voxhora-ios/Voxhora/Engine/CalendarEventTrunk.swift"; sourceTree = "<group>"; };
 		0760D901F1EB6C9DEE7F7A8A /* ClientDocViewerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientDocViewerSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientDocViewerSheet.swift"; sourceTree = "<group>"; };
 		0829DF9A4CDD2914AF81C0DF /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		08DAC31495A7C2586C841CBB /* TodoReminderScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoReminderScheduler.swift; path = "../voxhora-ios/Voxhora/Engine/TodoReminderScheduler.swift"; sourceTree = "<group>"; };
 		0985A6B27CDC5622E9019A33 /* ClientSchemaV6Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV6Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV6Bootstrap.swift"; sourceTree = "<group>"; };
 		09DA8B1B466B568BC29F2AEF /* TravisCountySIPSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravisCountySIPSource.swift; sourceTree = "<group>"; };
 		0A760D13B3C6A6F693D84E42 /* AppleContactsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleContactsSection.swift; sourceTree = "<group>"; };
@@ -821,6 +823,7 @@
 				38D5F64BD11709E1D7F8844C /* SMSReminderScheduler.swift */,
 				378A9C847AFABC90D5756DBB /* TabRegistry.swift */,
 				A2BDFFE7FE69E92601919BF9 /* TechShareKeychainHelper.swift */,
+				08DAC31495A7C2586C841CBB /* TodoReminderScheduler.swift */,
 				891C4E9AE5A7A6C529FF78FD /* TodoSchemaV1Bootstrap.swift */,
 				E6D57D99290EE00A5F706346 /* TodoTrunk.swift */,
 				19A4DCD34803F412C0D0814A /* TravisCountyAppointmentLetterParser.swift */,
@@ -1626,6 +1629,7 @@
 				7B5E9375AB21CACDF1C764DE /* TodayView.swift in Sources */,
 				E31F4E7B900B7040B44F628B /* TodayViewModel.swift in Sources */,
 				661084ED4A3ED6688352ED77 /* Todo.swift in Sources */,
+				BA5765180FA39D78C354FF9E /* TodoReminderScheduler.swift in Sources */,
 				965C9DBAF6C4CA11DB0F2E75 /* TodoSchemaV1Bootstrap.swift in Sources */,
 				21789EB01D3C734608C3B30C /* TodoTrunk.swift in Sources */,
 				BDDFF1812C5052FD8BA9D7E7 /* TravisAppellateRegistration.swift in Sources */,
