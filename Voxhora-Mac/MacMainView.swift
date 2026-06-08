@@ -66,7 +66,12 @@ struct MacMainView: View {
         // normal sidebar + TabView surface appears. For Patrick's
         // existing Mac install: AttorneyProfile already exists →
         // gate falls through immediately → unchanged UX.
-        if profiles.isEmpty {
+        if appState.accountLocked {
+            // LLM Proxy kill switch (2026-06-07) — full-screen lock when the
+            // attorney's account is suspended server-side (AccountStatusService).
+            AccountLockedView()
+                .background(Color.voxPaper)
+        } else if profiles.isEmpty {
             OnboardingView()
                 .background(Color.voxPaper)
         } else {

@@ -200,6 +200,11 @@ struct VoxhoraMacApp: App {
                     Task { @MainActor in
                         AuditLogger.shared.modelContext = modelContainer.mainContext
 
+                        // LLM Proxy kill switch (2026-06-07) — check account status
+                        // at launch. Fail-open; only a definite server "suspended"
+                        // (or 30+ days unable to verify) locks the app.
+                        await AccountStatusService.refresh(appState)
+
                         // CloudKitSyncAuditor (2026-05-22) — subscribe to
                         // NSPersistentCloudKitContainer.eventChangedNotification
                         // for the Mac peer. Same defense-in-depth as iPhone +
@@ -775,6 +780,9 @@ struct VoxhoraMacApp: App {
                     Task { @MainActor in
                         switch newPhase {
                         case .active:
+                            // LLM Proxy kill switch — re-check on foreground in case
+                            // the account changed while the app was in the background.
+                            await AccountStatusService.refresh(appState)
                             await CalendarRefreshScheduler.runIfStale(
                                 modelContext: modelContainer.mainContext
                             )
