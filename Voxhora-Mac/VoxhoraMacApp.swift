@@ -178,6 +178,22 @@ struct VoxhoraMacApp: App {
                 } message: {
                     Text("Voxhora couldn't connect to iCloud when it started up. The app is working, but anything you bill right now will be lost when you quit. Quit and reopen in a few minutes — if the problem keeps happening, restart your Mac or check your iCloud settings.")
                 }
+                #if VOXHORA_SETUP
+                // Setup Assistant token drop-in (slice #1) — confirmation after a
+                // one-tap setup link is redeemed (mirrors iOS VoxhoraApp).
+                .alert(
+                    appState.connectResult?.title ?? "",
+                    isPresented: Binding(
+                        get: { appState.connectResult != nil },
+                        set: { if !$0 { appState.connectResult = nil } }
+                    ),
+                    presenting: appState.connectResult
+                ) { _ in
+                    Button("OK", role: .cancel) {}
+                } message: { result in
+                    Text(result.message)
+                }
+                #endif
                 // 2026-05-07 — Mac PDF handler. Mirrors VoxhoraApp's iOS
                 // handler (DECISION 025). Fires when a PDF opens via:
                 //   - Right-click in Finder/Mail/Safari → Open With → Voxhora-Mac
@@ -188,6 +204,19 @@ struct VoxhoraMacApp: App {
                 // rank handler in Info.plist's CFBundleDocumentTypes
                 // (project.yml info block).
                 .onOpenURL { url in
+                    #if VOXHORA_SETUP
+                    // Setup Assistant token drop-in (slice #1) — redeem a one-tap
+                    // setup code (voxhora://connect?code= or the voxhora.app
+                    // universal link) into the synced Keychain, then re-check
+                    // account status. Handled before PDF intake.
+                    if let code = VoxhoraConnectClaim.extractCode(from: url) {
+                        Task { @MainActor in
+                            appState.connectResult = await VoxhoraConnectClaim.redeem(code: code)
+                            await AccountStatusService.refresh(appState)
+                        }
+                        return
+                    }
+                    #endif
                     guard url.pathExtension.lowercased() == "pdf" else { return }
                     // Mac: no security-scoped resource bookkeeping needed
                     // for non-sandboxed apps (Voxhora-Mac is not sandboxed

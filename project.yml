@@ -55,7 +55,7 @@ settings:
       # release (release.sh, Release config) never defines VOXHORA_CUSTOM_VOCAB,
       # so Matt's released Mac app stays byte-for-byte Travis-only. DEBUG kept so
       # existing #if DEBUG code is unaffected.
-      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP
 
 targets:
   Voxhora-Mac:
