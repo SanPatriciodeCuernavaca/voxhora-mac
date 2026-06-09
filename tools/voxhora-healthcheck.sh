@@ -104,21 +104,26 @@ CONN=$(curl -s -m 20 -L -o /dev/null -w "%{http_code}" "$SITE/connect?code=healt
 if [ "$CONN" = "200" ]; then pass "voxhora.app/connect page reachable"
 else warn "voxhora.app/connect returned HTTP $CONN"; fi
 
-# 1f. TestFlight build status + expiry (needs the ASC .p8)
+# 1f. TestFlight latest-build expiry (needs the ASC .p8). Builds lapse 90 days
+#     after upload; an expired build locks external testers (e.g. Matt) out.
 if [ -f "$HOME/.private_keys/AuthKey_Q462G5J3Q4.p8" ]; then
-  TF=$(cd "$IOS" && TO 60 python3 tools/testflight_admin.py status 2>&1)
-  if echo "$TF" | grep -q "Recent builds"; then
-    echo "$TF" | sed 's/^/    /' >> "$REPORT"
-    # latest build line (first after the header); flag if it's expired
-    LATEST=$(echo "$TF" | grep -A1 "Recent builds" | tail -1)
-    if echo "$LATEST" | grep -q "expired=True"; then
-      fail "Latest TestFlight build is EXPIRED → external testers can't install. Upload a fresh build."
-    else
-      pass "TestFlight reachable; latest build not expired ($(echo "$LATEST" | sed 's/  */ /g' | cut -c1-60))"
-      warn "  (Claude routine: compute days-to-expiry from the uploaded date above; TestFlight builds lapse 90 days after upload — warn if <14 left.)"
-    fi
+  TF=$(cd "$IOS" && TO 60 python3 tools/testflight_admin.py health 2>&1)
+  echo "$TF" | sed 's/^/    /' >> "$REPORT"
+  TF_EXP=$(echo "$TF"  | sed -n 's/TF_EXPIRED=//p')
+  TF_DAYS=$(echo "$TF" | sed -n 's/TF_DAYS_TO_EXPIRY=//p')
+  TF_BUILD=$(echo "$TF" | sed -n 's/TF_LATEST_BUILD=//p')
+  if echo "$TF" | grep -q "TF_ERROR\|Traceback"; then
+    warn "TestFlight check failed (ASC API): $(echo "$TF" | tail -1)"
+  elif [ "$TF_EXP" = "True" ]; then
+    fail "TestFlight build $TF_BUILD is EXPIRED → external testers can't install/open. Upload a fresh build now."
+  elif [ -n "$TF_DAYS" ] && [ "$TF_DAYS" -le 14 ] 2>/dev/null; then
+    fail "TestFlight build $TF_BUILD expires in $TF_DAYS days (<2 weeks) → refresh ASAP."
+  elif [ -n "$TF_DAYS" ] && [ "$TF_DAYS" -le 30 ] 2>/dev/null; then
+    warn "TestFlight build $TF_BUILD expires in $TF_DAYS days — plan a refresh soon (90-day limit)."
+  elif [ -n "$TF_DAYS" ]; then
+    pass "TestFlight build $TF_BUILD healthy ($TF_DAYS days to expiry)"
   else
-    warn "TestFlight status check failed (ASC API). Output: $(echo "$TF" | tail -1)"
+    warn "TestFlight reachable but couldn't compute days-to-expiry"
   fi
 else
   warn "TestFlight check skipped — ASC key ~/.private_keys/AuthKey_Q462G5J3Q4.p8 not found"
