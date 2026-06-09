@@ -136,23 +136,41 @@ done
 
 # ---------------------------------------------------------------- 3. BUILDS
 # Compile-only. iOS uses a Simulator destination so no signing/devices needed.
+# SKIPPED on days when no .swift / project.yml changed since the last green
+# build (catches a compile regression only when there's new code to break) —
+# so a normal "nothing changed" morning finishes in seconds instead of ~15 min.
 say ""; say "## 3. Builds (both flag states)"
-build() { # label  workdir  xcodebuild-args...
-  local label="$1"; shift; local wd="$1"; shift
-  local r
-  r=$(cd "$wd" && TO 1200 xcodebuild "$@" build 2>&1 | grep -E "BUILD SUCCEEDED|BUILD FAILED|error:" | tail -3)
-  if echo "$r" | grep -q "BUILD SUCCEEDED"; then pass "build $label"
-  else fail "build $label: $(echo "$r" | grep error: | head -2 | tr '\n' ' ')"; fi
-}
-SIM='generic/platform=iOS Simulator'
-build "Mac Debug (flags on)"   "$MAC" -project Voxhora-Mac.xcodeproj -scheme Voxhora-Mac -configuration Debug   -destination 'platform=macOS'
-build "Mac Release (flags off)" "$MAC" -project Voxhora-Mac.xcodeproj -scheme Voxhora-Mac -configuration Release -destination 'platform=macOS'
-build "iOS Debug (flags on)"   "$IOS" -project Voxhora.xcodeproj -scheme Voxhora -configuration Debug   -destination "$SIM"
-build "iOS Release (flags off)" "$IOS" -project Voxhora.xcodeproj -scheme Voxhora -configuration Release -destination "$SIM"
+MARKER="$LOGDIR/.last-build-ok"
+CHANGED=$(find "$IOS" "$MAC" \( -name '*.swift' -o -name 'project.yml' -o -name '*.entitlements' \) -newer "$MARKER" \
+            -not -path '*/build-ios/*' -not -path '*/build/*' -not -path '*/build_archive/*' -not -path '*/.git/*' 2>/dev/null | head -1)
+if [ -f "$MARKER" ] && [ -z "$CHANGED" ]; then
+  pass "Builds skipped — no code change since the last green build ($(date -r "$MARKER" '+%b %d %H:%M'))"
+else
+  FAIL_BEFORE=$FAIL
+  build() { # label  workdir  xcodebuild-args...
+    local label="$1"; shift; local wd="$1"; shift
+    local r
+    r=$(cd "$wd" && TO 1200 xcodebuild "$@" build 2>&1 | grep -E "BUILD SUCCEEDED|BUILD FAILED|error:" | tail -3)
+    if echo "$r" | grep -q "BUILD SUCCEEDED"; then pass "build $label"
+    else fail "build $label: $(echo "$r" | grep error: | head -2 | tr '\n' ' ')"; fi
+  }
+  SIM='generic/platform=iOS Simulator'
+  build "Mac Debug (flags on)"   "$MAC" -project Voxhora-Mac.xcodeproj -scheme Voxhora-Mac -configuration Debug   -destination 'platform=macOS'
+  build "Mac Release (flags off)" "$MAC" -project Voxhora-Mac.xcodeproj -scheme Voxhora-Mac -configuration Release -destination 'platform=macOS'
+  build "iOS Debug (flags on)"   "$IOS" -project Voxhora.xcodeproj -scheme Voxhora -configuration Debug   -destination "$SIM"
+  build "iOS Release (flags off)" "$IOS" -project Voxhora.xcodeproj -scheme Voxhora -configuration Release -destination "$SIM"
+  # All four built clean → record the marker so tomorrow can skip if unchanged.
+  [ $FAIL -eq $FAIL_BEFORE ] && touch "$MARKER"
+fi
 
 # ---------------------------------------------------------------- SUMMARY
 say ""; say "==================================================================="
 say "SUMMARY: $PASS passed · $WARN warnings · $FAIL FAILED"
 say "==================================================================="
 echo "RESULT=$([ $FAIL -eq 0 ] && echo OK || echo FAIL) PASS=$PASS WARN=$WARN FAIL=$FAIL REPORT=$REPORT"
+
+# macOS notification with the green/red headline (works even when Claude is closed)
+if [ $FAIL -eq 0 ]; then TITLE="🟢 Voxhora healthy"; else TITLE="🔴 Voxhora: $FAIL issue(s)"; fi
+osascript -e "display notification \"$PASS passed · $WARN warn · $FAIL failed\" with title \"$TITLE\" subtitle \"$(date '+%b %d %-I:%M %p')\"" 2>/dev/null || true
+
 exit $([ $FAIL -eq 0 ] && echo 0 || echo 1)
