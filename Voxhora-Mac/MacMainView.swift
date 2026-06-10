@@ -71,12 +71,36 @@ struct MacMainView: View {
             // attorney's account is suspended server-side (AccountStatusService).
             AccountLockedView()
                 .background(Color.voxPaper)
+        } else if let p = profiles.first, termsGateNeeded(p) {
+            // First-launch Terms consent gate (VOXHORA_TERMS_GATE). Blocks the
+            // app until the attorney accepts; no-op when the flag is off.
+            termsGate(p)
+                .background(Color.voxPaper)
         } else if profiles.isEmpty {
             OnboardingView()
                 .background(Color.voxPaper)
         } else {
             mainContent
         }
+    }
+
+    /// True when the first-launch Terms gate should block the app for this
+    /// profile. Always false unless VOXHORA_TERMS_GATE is compiled in.
+    private func termsGateNeeded(_ p: AttorneyProfile) -> Bool {
+        #if VOXHORA_TERMS_GATE
+        return VoxhoraTerms.needsAcceptance(p)
+        #else
+        return false
+        #endif
+    }
+
+    @ViewBuilder
+    private func termsGate(_ p: AttorneyProfile) -> some View {
+        #if VOXHORA_TERMS_GATE
+        TermsGateView(profile: p)
+        #else
+        EmptyView()
+        #endif
     }
 
     @ViewBuilder

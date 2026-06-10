@@ -16,8 +16,28 @@ import AppKit
 import UniformTypeIdentifiers
 import Sparkle
 
+/// 2026-06-09 — App-termination cleanup. The Mail scan runs as an
+/// `osascript` subprocess; if Voxhora-Mac quits (Cmd-Q, graceful
+/// NSApp.terminate, or deploy.sh's `osascript … to quit`) while a scan is in
+/// flight, that subprocess would otherwise orphan to launchd and keep
+/// hammering Mail.app's AppleEvent queue for up to its full timeout
+/// (appointment scan 2700s / TechShare 1800s) — the root cause of the
+/// 2026-06-09 Mail freeze (orphaned osascripts surviving repeated app kills).
+/// `killAllScansNow()` reaps every in-flight scan subprocess before exit.
+/// (A hard SIGKILL / crash can't be caught — acceptable residual; the common
+/// quit paths all fire applicationWillTerminate.)
+final class VoxhoraMacAppDelegate: NSObject, NSApplicationDelegate {
+    func applicationWillTerminate(_ notification: Notification) {
+        MailInboxBridge.killAllScansNow()
+    }
+}
+
 @main
 struct VoxhoraMacApp: App {
+    /// Kills any in-flight Mail-scan osascript on quit so it can't orphan
+    /// and wedge Mail (2026-06-09). See VoxhoraMacAppDelegate above.
+    @NSApplicationDelegateAdaptor(VoxhoraMacAppDelegate.self) private var appDelegate
+
     /// Shared schema with iOS. Same container ID. Same models.
     let modelContainer: ModelContainer
 
@@ -468,6 +488,10 @@ struct VoxhoraMacApp: App {
                         // todoRemindersEnabled master switch. Unconditional + inert
                         // (soaks the CloudKit migration ahead of the gated UI).
                         AttorneyProfileSchemaV24Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        // Terms-of-Service gate (2026-06-09) — v24→v25 adds
+                        // termsAcceptedVersion + termsAcceptedAt. Unconditional +
+                        // inert (soaks the CloudKit migration ahead of the gate).
+                        AttorneyProfileSchemaV25Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                         // To-Dos / Reminders (2026-06-06) — ceremonial Todo v1
                         // bootstrap (migrates nothing; defers via !todos.isEmpty).
                         TodoSchemaV1Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
@@ -762,6 +786,45 @@ struct VoxhoraMacApp: App {
                             // handlers (master toggle / sender list /
                             // interval / processed mailbox name).
                             MailInboxWatcher.shared.setModelContext(modelContainer.mainContext)
+                            // Sticky-enable recovery for the two Mail-inbox
+                            // monitoring toggles (2026-06-09) — same latch
+                            // family as autoIntake above. mailInboxMonitoring
+                            // (appointment letters) + techshareMailboxScan (PC
+                            // affidavits) both default `false` + are
+                            // CloudKit-synced, so the UserPreferences hydration
+                            // race after a Mac deploy (a fresh empty prefs row
+                            // is created with the schema default before the
+                            // synced row replicates down) silently reverts them
+                            // to OFF — Patrick's autonomous intake stops every
+                            // time the Mac is updated. UserDefaults is
+                            // device-local + survives the deploy (lives in
+                            // ~/Library/Preferences/, not the SwiftData store),
+                            // so a flag set when Patrick first enables each
+                            // toggle (in SettingsView's onChange) persists.
+                            // One-way latch: restore to true ONLY when SwiftData
+                            // reports false but UserDefaults remembers true; an
+                            // explicit user-disable writes false, so a future
+                            // launch respects that intent. Backfill the marker
+                            // for a toggle enabled before this latch shipped
+                            // (object == nil → never written).
+                            let mailMonitorKey = "voxhora.mailInboxMonitoring.userHasEverEnabled"
+                            if !prefs.mailInboxMonitoringEnabled
+                               && UserDefaults.standard.bool(forKey: mailMonitorKey) {
+                                prefs.mailInboxMonitoringEnabled = true
+                                try? modelContainer.mainContext.save()
+                            } else if prefs.mailInboxMonitoringEnabled
+                               && UserDefaults.standard.object(forKey: mailMonitorKey) == nil {
+                                UserDefaults.standard.set(true, forKey: mailMonitorKey)
+                            }
+                            let techshareScanKey = "voxhora.techshareMailboxScan.userHasEverEnabled"
+                            if !prefs.techshareMailboxScanEnabled
+                               && UserDefaults.standard.bool(forKey: techshareScanKey) {
+                                prefs.techshareMailboxScanEnabled = true
+                                try? modelContainer.mainContext.save()
+                            } else if prefs.techshareMailboxScanEnabled
+                               && UserDefaults.standard.object(forKey: techshareScanKey) == nil {
+                                UserDefaults.standard.set(true, forKey: techshareScanKey)
+                            }
                             MailInboxWatcher.shared.refresh(
                                 enabled: prefs.mailInboxMonitoringEnabled,
                                 senders: prefs.mailInboxSenderFilter,

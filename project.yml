@@ -55,7 +55,7 @@ settings:
       # release (release.sh, Release config) never defines VOXHORA_CUSTOM_VOCAB,
       # so Matt's released Mac app stays byte-for-byte Travis-only. DEBUG kept so
       # existing #if DEBUG code is unaffected.
-      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE
 
 targets:
   Voxhora-Mac:
@@ -139,6 +139,11 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/CloudSyncMonitor.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CloudKitSyncAuditor.swift
+        group: SharedEngine
+      # Self-Diagnostics ("Check Setup") slice #1 (2026-06-09) — read-only
+      # diagnostics engine + model. Gated behind VOXHORA_DIAGNOSTICS (Debug),
+      # so Matt's Release build compiles these to nothing.
+      - path: ../voxhora-ios/Voxhora/Engine/Diagnostics
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/HapticFeedback.swift
         group: SharedEngine
@@ -355,6 +360,8 @@ targets:
       # To-Dos / Reminders (2026-06-06) — v23→v24 todoRemindersEnabled bootstrap
       # + the ceremonial Todo v1 bootstrap.
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV24Bootstrap.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV25Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/TodoSchemaV1Bootstrap.swift
         group: SharedEngine
@@ -637,6 +644,8 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/AppHeader.swift
         group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/TermsGateView.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ComingSoonView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/TodayView.swift
@@ -887,6 +896,10 @@ targets:
       - path: ../voxhora-ios/Voxhora/Views/SettingsView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/Settings
+        group: SharedViews
+      # Self-Diagnostics ("Check Setup") slice #1 (2026-06-09) — shared
+      # read-only report screen. Gated behind VOXHORA_DIAGNOSTICS (Debug).
+      - path: ../voxhora-ios/Voxhora/Views/Diagnostics
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/OnboardingView.swift
         group: SharedViews
