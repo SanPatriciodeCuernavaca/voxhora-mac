@@ -251,6 +251,9 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientDocTrunk.swift
         group: SharedEngine
+      # PC affidavit → client's first Document (QuickLook PDF preview).
+      - path: ../voxhora-ios/Voxhora/Engine/PCDocumentArchiver.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV8Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV11Bootstrap.swift
