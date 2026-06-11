@@ -152,10 +152,15 @@ if [ -f "$MARKER" ] && [ -z "$CHANGED" ]; then
   pass "Builds skipped — no code change since the last green build ($(date -r "$MARKER" '+%b %d %H:%M'))"
 else
   FAIL_BEFORE=$FAIL
+  # 2026-06-10 — isolate the healthcheck builds in their OWN DerivedData, wiped
+  # fresh each run, so a stale/corrupt shared cache (churned all day by
+  # deploy.sh) can't cause a false linker FAIL like the 2026-06-10 06:04 flake.
+  HC_DD="$LOGDIR/.dd-healthcheck"
+  rm -rf "$HC_DD"
   build() { # label  workdir  xcodebuild-args...
     local label="$1"; shift; local wd="$1"; shift
     local r
-    r=$(cd "$wd" && TO 1200 xcodebuild "$@" build 2>&1 | grep -E "BUILD SUCCEEDED|BUILD FAILED|error:" | tail -3)
+    r=$(cd "$wd" && TO 1200 xcodebuild "$@" -derivedDataPath "$HC_DD" build 2>&1 | grep -E "BUILD SUCCEEDED|BUILD FAILED|error:" | tail -3)
     if echo "$r" | grep -q "BUILD SUCCEEDED"; then pass "build $label"
     else fail "build $label: $(echo "$r" | grep error: | head -2 | tr '\n' ' ')"; fi
   }
