@@ -917,6 +917,9 @@ targets:
       # the MacMainView onboarding gate).
       - path: ../voxhora-ios/Voxhora/Views/WrongICloudAccountView.swift
         group: SharedViews
+      # Resilience rank 12 — "notifications blocked" reminder banner.
+      - path: ../voxhora-ios/Voxhora/Views/NotificationDeniedBanner.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Engine/Voice
         group: SharedEngine
 

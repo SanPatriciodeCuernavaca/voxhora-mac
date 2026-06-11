@@ -268,6 +268,7 @@
 		C1F73CE4E7C5E0D8E5F136DD /* MigrationImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6186B2D1CE77FB3B6F8872E5 /* MigrationImporter.swift */; };
 		C23AE41EADAC081A1B310822 /* LiquidGoldSplashVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98396DF886F2886C551C5BA6 /* LiquidGoldSplashVisual.swift */; };
 		C26D0AE5D52FD44B5B76C66F /* AttorneyProfileSchemaV10Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028F65FF4663B7829AB17929 /* AttorneyProfileSchemaV10Bootstrap.swift */; };
+		C516E2080210843ACD422A73 /* NotificationDeniedBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395F1127217E129E09A5965A /* NotificationDeniedBanner.swift */; };
 		C5F5D6089BB5D051CB9BAD5F /* FunModeImportPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D88781782F96E66BAF5D2A /* FunModeImportPicker.swift */; };
 		C65E9D1A80DA40B4E55B4330 /* RosterReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F98C329547921ED512F8 /* RosterReconciler.swift */; };
 		C66015FB062E78600DC4ACB8 /* TabRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A9C847AFABC90D5756DBB /* TabRegistry.swift */; };
@@ -462,6 +463,7 @@
 		3815538E8E94A934EF13022E /* AttorneyProfileSchemaV12Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV12Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV12Bootstrap.swift"; sourceTree = "<group>"; };
 		388E2CEE556B31DEE6733C16 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = "../voxhora-ios/Voxhora/Models/Entry.swift"; sourceTree = "<group>"; };
 		38D5F64BD11709E1D7F8844C /* SMSReminderScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMSReminderScheduler.swift; path = "../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift"; sourceTree = "<group>"; };
+		395F1127217E129E09A5965A /* NotificationDeniedBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationDeniedBanner.swift; path = "../voxhora-ios/Voxhora/Views/NotificationDeniedBanner.swift"; sourceTree = "<group>"; };
 		39925574BE4F91130F7EC56C /* MigrationFolderImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationFolderImporter.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationFolderImporter.swift"; sourceTree = "<group>"; };
 		39EC66174EC079E83086EED9 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoView.swift; path = "../voxhora-ios/Voxhora/Views/TodoView.swift"; sourceTree = "<group>"; };
 		3B16F6E3F91BB9ECE11C629A /* AutoIntakeWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoIntakeWatcher.swift; path = "../voxhora-ios/Voxhora/Engine/AutoIntakeWatcher.swift"; sourceTree = "<group>"; };
@@ -976,6 +978,7 @@
 				E3C3D8F81EB6DB12A496A99E /* MigrationView.swift */,
 				A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */,
 				F6F97FF969DF9EC78F8EA64B /* NotesButton.swift */,
+				395F1127217E129E09A5965A /* NotificationDeniedBanner.swift */,
 				3C83D8C9C38C7EEB56FB69B3 /* OnboardingView.swift */,
 				34DAD6ECE6E70C38B61501CD /* PCAffidavitImportSheet.swift */,
 				3B36373A57364B287B728BA8 /* PDFImportSheet.swift */,
@@ -1666,6 +1669,7 @@
 				AFDF0EE47FBCD5947804EB26 /* ModelContainerBootstrap.swift in Sources */,
 				C9E90DF1C2F3375CC6E95E8F /* MoneyCounter.swift in Sources */,
 				7E7712F93D77B6FBCF1FE557 /* NotesButton.swift in Sources */,
+				C516E2080210843ACD422A73 /* NotificationDeniedBanner.swift in Sources */,
 				F4840BC826C65ADA16C11B59 /* OnboardingView.swift in Sources */,
 				CE51B470B12E648368D1717D /* PCAffidavitDetector.swift in Sources */,
 				69A08795F14C608610518BB4 /* PCAffidavitDetectorRegistry.swift in Sources */,
