@@ -127,6 +127,12 @@ targets:
       # the same capture/edit/export functionality the iPhone has.
       - path: ../voxhora-ios/Voxhora/Engine/AuditLogger.swift
         group: SharedEngine
+      # Canonical Travis tenth-of-hour ROUND-UP billing math (audit M3/M4,
+      # 2026-06-10). Pure Foundation; CallDurationSheet (SharedViews) calls it
+      # to snap typed call durations to a billable tenth. Mac must compile it
+      # because the Engine/Parser dir is not whole-included here.
+      - path: ../voxhora-ios/Voxhora/Engine/Parser/BillingQuantity.swift
+        group: SharedEngine
       # Path A3 (2026-05-13) — graceful ModelContainer init + MetricKit
       # subscriber. Both new files share-sourced from voxhora-ios so iOS
       # + Mac stay in lockstep on launch-failure semantics.

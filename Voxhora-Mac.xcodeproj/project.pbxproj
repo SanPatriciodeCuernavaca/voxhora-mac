@@ -230,6 +230,7 @@
 		98C49AC7C4621A25B476DE00 /* CommaParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2EF99A8DA837195B7DB106 /* CommaParser.swift */; };
 		99E3374D5E71822E491819F8 /* DiscoveryPhotoBundleViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41138C6A3340009821F56A0C /* DiscoveryPhotoBundleViewer.swift */; };
 		9AE23D0D249272BBD818AFA7 /* ContactClientSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C59D0F59AB9D05694E5E65 /* ContactClientSheet.swift */; };
+		9B8A7A0F391A9A2C321C80A6 /* BillingQuantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8C0221A786E3D73A560383 /* BillingQuantity.swift */; };
 		9D99C43264EDD8E6ECD30744 /* DocsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECC92C9DF0BE884A7BE4B89 /* DocsButton.swift */; };
 		9DA87CEC02BF375E256AFB80 /* CustomVocabularySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038E84E0C91B3145D5D7294B /* CustomVocabularySpec.swift */; };
 		A1D81A4F358569B0CA7C5983 /* ClientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8658A67435BBE493CD2FBFF9 /* ClientsView.swift */; };
@@ -682,6 +683,7 @@
 		D82BAB93F881F673C0D28328 /* ClientRosterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientRosterImporter.swift; path = "../voxhora-ios/Voxhora/Engine/ClientRosterImporter.swift"; sourceTree = "<group>"; };
 		D9497DABAE1EA9AA1B33732C /* FunModeOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeOrchestrator.swift; sourceTree = "<group>"; };
 		DAE95870454B6263B30A5803 /* AttorneyProfileBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileBootstrap.swift"; sourceTree = "<group>"; };
+		DB8C0221A786E3D73A560383 /* BillingQuantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BillingQuantity.swift; path = "../voxhora-ios/Voxhora/Engine/Parser/BillingQuantity.swift"; sourceTree = "<group>"; };
 		DBD69F17802A870CE0CF0216 /* DiscoveryAudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryAudioPlayerView.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryAudioPlayerView.swift"; sourceTree = "<group>"; };
 		DD8600029768690C7AD5BB26 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		DEDCA32D59B09BC58C614A0A /* EmailTemplatesMergeBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmailTemplatesMergeBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/EmailTemplatesMergeBootstrap.swift"; sourceTree = "<group>"; };
@@ -792,6 +794,7 @@
 				437FCBA6BFC9D55D07E84168 /* AutoBillToastWindowController.swift */,
 				3B16F6E3F91BB9ECE11C629A /* AutoIntakeWatcher.swift */,
 				EFF0A946DDFECF35BA5E2BA2 /* BillingPreset.swift */,
+				DB8C0221A786E3D73A560383 /* BillingQuantity.swift */,
 				8EC43D473A12441D33B019D0 /* CalendarCleanupMigration.swift */,
 				06F2E36264CA69ABE3178C6C /* CalendarEventTrunk.swift */,
 				85C12954FC793A67555D5D15 /* CalendarRefreshScheduler.swift */,
@@ -1138,6 +1141,7 @@
 			isa = PBXGroup;
 			children = (
 				60CD557B103B7A12205BBD67 /* AnthropicClient.swift */,
+				DB8C0221A786E3D73A560383 /* BillingQuantity.swift */,
 				FD2EF99A8DA837195B7DB106 /* CommaParser.swift */,
 				E4EF8E0FD981879F274CFD93 /* LLMParser.swift */,
 				C826B3AD8B897A920663CF3B /* ParseEngine.swift */,
@@ -1514,6 +1518,7 @@
 				88E03E87887BCC8648004BCD /* BillTimeButton.swift in Sources */,
 				711F4021947C668C0F1A45B8 /* BillTimeEntryModeSection.swift in Sources */,
 				98086BE7E94C33E3CAD82581 /* BillingPreset.swift in Sources */,
+				9B8A7A0F391A9A2C321C80A6 /* BillingQuantity.swift in Sources */,
 				7288CA47BE6B7FD9C828032A /* CalendarCleanupMigration.swift in Sources */,
 				4EB2C37E7F9C77A10525C809 /* CalendarEvent.swift in Sources */,
 				CC10B734CEC184046C887EBA /* CalendarEventRow.swift in Sources */,
