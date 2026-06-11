@@ -60,6 +60,7 @@
 		2A1328A9A7BDEA64919FABF4 /* UserPreferencesBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414E99F6A181A848E705362 /* UserPreferencesBootstrap.swift */; };
 		2BFE1B620F7FB36A13AB91F5 /* VoxhoraArchitecture.json in Resources */ = {isa = PBXBuildFile; fileRef = 68625AD0AC4BF64F8F83610E /* VoxhoraArchitecture.json */; };
 		2CBE9395B8298EECFE55AFA6 /* VoxhoraArchitectureSummary.md in Resources */ = {isa = PBXBuildFile; fileRef = A45B370A2D2390279F13F9C9 /* VoxhoraArchitectureSummary.md */; };
+		2D7CDB1256899D65EBE8E19D /* WrongICloudAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A4AA3B128EAD5F69A60BCB /* WrongICloudAccountView.swift */; };
 		2EAF5DD47CF268934695A5C4 /* CloudDownloadVenueSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EDEB9E15EB8DBE36F096BE /* CloudDownloadVenueSettingsRow.swift */; };
 		2FD2D639C8AD9AAAAC9B40B5 /* DiscoveryBillSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33C829471EC6B67A9BDBA63 /* DiscoveryBillSheet.swift */; };
 		305CAAFBBB408858F70A4C64 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61BCD44624DFD57763A8B6 /* SettingsView.swift */; };
@@ -286,6 +287,7 @@
 		CDEDC3D14BFEC5446728FB44 /* AttorneyProfileDuplicateRecoveryBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94691A6266B93484892F6D /* AttorneyProfileDuplicateRecoveryBootstrap.swift */; };
 		CE51B470B12E648368D1717D /* PCAffidavitDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B508F96C239E88127CBA7 /* PCAffidavitDetector.swift */; };
 		D11F595E106B98EEA4CBCBE7 /* DropboxFetchToTempCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43674315CAF2AFB6963BBCE /* DropboxFetchToTempCache.swift */; };
+		D20F61F81835B4BD308656D2 /* iCloudAccountIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE932B11464ED70FCFACDEB /* iCloudAccountIdentity.swift */; };
 		D254E0561F05A609D066E802 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EC66174EC079E83086EED9 /* TodoView.swift */; };
 		D3CDE945059BFBA31CAC1CE7 /* RosterReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F98C329547921ED512F8 /* RosterReconciler.swift */; };
 		D3EC9049F13215CA828BA16E /* ClientToCaseBackfillBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4286A72BF7F513ADE3115071 /* ClientToCaseBackfillBootstrap.swift */; };
@@ -508,6 +510,7 @@
 		5A2B73049054ABBF5A5D13F8 /* AboutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSection.swift; sourceTree = "<group>"; };
 		5A78F311ED1342271D1303A5 /* AttorneyProfileSchemaV16Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV16Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV16Bootstrap.swift"; sourceTree = "<group>"; };
 		5A9ADEB131B32F3B2E06FE10 /* JurisdictionMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JurisdictionMutator.swift; path = "../voxhora-ios/Voxhora/Engine/JurisdictionMutator.swift"; sourceTree = "<group>"; };
+		5AE932B11464ED70FCFACDEB /* iCloudAccountIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = iCloudAccountIdentity.swift; path = "../voxhora-ios/Voxhora/Engine/iCloudAccountIdentity.swift"; sourceTree = "<group>"; };
 		5B70390562540199FCC88011 /* CaseTypeFilterPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTypeFilterPicker.swift; sourceTree = "<group>"; };
 		5BF98FED881A818D7D867F78 /* FunModeMediaTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeMediaTrunk.swift; sourceTree = "<group>"; };
 		5CCC4FD229E96BA1ABA5F164 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = "../voxhora-ios/Voxhora/Views/CalendarView.swift"; sourceTree = "<group>"; };
@@ -555,6 +558,7 @@
 		803307A27337803B86EC3AE7 /* ApplePaySuccessVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePaySuccessVisual.swift; sourceTree = "<group>"; };
 		81056F3F8852111F29044989 /* MigrationOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationOrchestrator.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationOrchestrator.swift"; sourceTree = "<group>"; };
 		8250A7251CDE96BC1083907A /* ClientFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientFilterSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientFilterSheet.swift"; sourceTree = "<group>"; };
+		82A4AA3B128EAD5F69A60BCB /* WrongICloudAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WrongICloudAccountView.swift; path = "../voxhora-ios/Voxhora/Views/WrongICloudAccountView.swift"; sourceTree = "<group>"; };
 		82B2D64769C1AC52D1C2EDF6 /* DiscoveryBulkInboxMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryBulkInboxMigration.swift; path = "../voxhora-ios/Voxhora/Engine/DiscoveryBulkInboxMigration.swift"; sourceTree = "<group>"; };
 		82C59D0F59AB9D05694E5E65 /* ContactClientSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactClientSheet.swift; path = "../voxhora-ios/Voxhora/Views/ContactClientSheet.swift"; sourceTree = "<group>"; };
 		8361CF4B36A55DA79B0B7FA3 /* UserImportedVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImportedVideoPlayerView.swift; sourceTree = "<group>"; };
@@ -818,6 +822,7 @@
 				00CCD14539D5E27D33C1166B /* ExportAdapter.swift */,
 				2A0CAD63A59A507B8854A117 /* GenericFreeformVocab.swift */,
 				9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */,
+				5AE932B11464ED70FCFACDEB /* iCloudAccountIdentity.swift */,
 				E9D25E4650CCFC096D2204F5 /* iCloudContainerHelper.swift */,
 				41CBE5A51013EE290F1DCC7E /* IntakeFilenameMatcher.swift */,
 				544A79FD4FEF82E09A643D4C /* Jurisdiction.swift */,
@@ -984,6 +989,7 @@
 				C0493A23B7C235DD52BFA5AB /* VouchersView.swift */,
 				0E08E962A3419E37518800E4 /* VoxHelpButton.swift */,
 				4A46FBF87537B49DC6BE185F /* VoxHelpView.swift */,
+				82A4AA3B128EAD5F69A60BCB /* WrongICloudAccountView.swift */,
 			);
 			name = SharedViews;
 			sourceTree = "<group>";
@@ -1741,6 +1747,8 @@
 				F8047BC76131C8E1BD71D24E /* WatchStatusIndicatorPredicateRegistry.swift in Sources */,
 				142AEE8F9F13C1AE4D5CF5A2 /* WatchTabOrderPicker.swift in Sources */,
 				1B833757CE427D8B2FDCBFC9 /* WatchViewSettingsSection.swift in Sources */,
+				2D7CDB1256899D65EBE8E19D /* WrongICloudAccountView.swift in Sources */,
+				D20F61F81835B4BD308656D2 /* iCloudAccountIdentity.swift in Sources */,
 				962A62F7A2591DEC7BB04927 /* iCloudContainerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

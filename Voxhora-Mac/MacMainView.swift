@@ -33,11 +33,31 @@
 
 import SwiftUI
 import SwiftData
+import CloudKit
 
 struct MacMainView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var allPreferences: [UserPreferences]
     @Query private var profiles: [AttorneyProfile]
+
+    // Resilience Hardening (2026-06-10, audit rank 1 + 8) — CloudKit
+    // hydration grace ported from iOS ContentView. The Mac onboarding
+    // gate previously jumped straight to OnboardingView the instant
+    // profiles.isEmpty was true, so a Sparkle update / new-Mac setup
+    // opened before iCloud finished syncing would let OnboardingView
+    // insert a SECOND AttorneyProfile (fresh UUID) — permanently
+    // splitting the attorney's roster/billing/calendar. We now wait the
+    // same 90s grace + verify iCloud availability before ever treating
+    // an empty profile set as "fresh user".
+    @State private var hydrationElapsed: Bool = false
+    @State private var iCloudAvailable: Bool = true
+    /// Attorney explicitly chose to continue onboarding on a DIFFERENT
+    /// iCloud account than the one this device was bound to.
+    @State private var mismatchOverridden: Bool = false
+
+    /// Generous grace — a fresh-Mac CloudKit cold-fetch with hundreds
+    /// of records can take 30-60s. Padded to 90s (matches iOS).
+    private static let hydrationGraceSeconds: Double = 90
     // 2026-05-15 — Initial Contact sidebar badge. Same predicate-
     // filtered @Query shape as MainTabView (iPhone). Filtering at
     // fetch time reduces body re-eval frequency vs raw allClients.
@@ -66,22 +86,87 @@ struct MacMainView: View {
         // normal sidebar + TabView surface appears. For Patrick's
         // existing Mac install: AttorneyProfile already exists →
         // gate falls through immediately → unchanged UX.
-        if appState.accountLocked {
-            // LLM Proxy kill switch (2026-06-07) — full-screen lock when the
-            // attorney's account is suspended server-side (AccountStatusService).
-            AccountLockedView()
-                .background(Color.voxPaper)
-        } else if let p = profiles.first, termsGateNeeded(p) {
-            // First-launch Terms consent gate (VOXHORA_TERMS_GATE). Blocks the
-            // app until the attorney accepts; no-op when the flag is off.
-            termsGate(p)
-                .background(Color.voxPaper)
-        } else if profiles.isEmpty {
-            OnboardingView()
-                .background(Color.voxPaper)
-        } else {
-            mainContent
+        Group {
+            if appState.accountLocked {
+                // LLM Proxy kill switch (2026-06-07) — full-screen lock when the
+                // attorney's account is suspended server-side (AccountStatusService).
+                AccountLockedView()
+                    .background(Color.voxPaper)
+            } else if let p = profiles.first, termsGateNeeded(p) {
+                // First-launch Terms consent gate (VOXHORA_TERMS_GATE). Blocks the
+                // app until the attorney accepts; no-op when the flag is off.
+                termsGate(p)
+                    .background(Color.voxPaper)
+            } else if !profiles.isEmpty {
+                mainContent
+            } else if iCloudAvailable && !hydrationElapsed {
+                // Resilience rank 1 — wait for CloudKit before onboarding.
+                cloudKitHydrationWaitView
+            } else if iCloudAccountIdentity.accountMismatch() && !mismatchOverridden {
+                // Resilience rank 8 — signed into a DIFFERENT iCloud account
+                // than this device's data. Warn before spawning a duplicate.
+                WrongICloudAccountView { mismatchOverridden = true }
+            } else {
+                OnboardingView()
+                    .background(Color.voxPaper)
+            }
         }
+        .task {
+            // Learn whether iCloud is available. Signed out / restricted →
+            // jump straight to OnboardingView (nothing to hydrate from).
+            let container = CKContainer(identifier: "iCloud.com.patrickfagerberg.voxhora")
+            let status = (try? await container.accountStatus()) ?? .couldNotDetermine
+            iCloudAvailable = (status == .available)
+            if iCloudAvailable {
+                try? await Task.sleep(nanoseconds: UInt64(Self.hydrationGraceSeconds * 1_000_000_000))
+            }
+            hydrationElapsed = true
+            rememberAccountIfProfileExists()
+        }
+        // Latch this device's home iCloud account the moment a profile
+        // is known to exist (rank 8 wrong-account detection depends on it).
+        .onChange(of: profiles.isEmpty) { _, isEmpty in
+            if !isEmpty { iCloudAccountIdentity.rememberCurrentAccount() }
+        }
+    }
+
+    private func rememberAccountIfProfileExists() {
+        if !profiles.isEmpty { iCloudAccountIdentity.rememberCurrentAccount() }
+    }
+
+    // MARK: - CloudKit hydration wait view (ported from iOS ContentView)
+
+    private var cloudKitHydrationWaitView: some View {
+        VStack(spacing: 24) {
+            Spacer()
+            ProgressView()
+                .scaleEffect(1.4)
+                .tint(.voxGold)
+            VStack(spacing: 8) {
+                Text("Syncing your account from iCloud")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(.voxInk)
+                Text("This usually takes a few seconds on a fresh device.")
+                    .font(.system(size: 13))
+                    .foregroundColor(.voxInkSoft)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.horizontal, 32)
+            Spacer()
+            VStack(spacing: 6) {
+                Text("Don't see anything after a minute?")
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundColor(.voxInkSoft)
+                Text("Check that you're signed in to the same iCloud account as your other Voxhora devices.")
+                    .font(.system(size: 11))
+                    .foregroundColor(.voxInkSoft)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.horizontal, 32)
+            .padding(.bottom, 40)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.voxPaper.ignoresSafeArea())
     }
 
     /// True when the first-launch Terms gate should block the app for this

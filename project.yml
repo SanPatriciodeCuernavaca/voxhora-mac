@@ -239,6 +239,10 @@ targets:
       # @Model row holds metadata + relative path only.
       - path: ../voxhora-ios/Voxhora/Engine/iCloudContainerHelper.swift
         group: SharedEngine
+      # Resilience Hardening (2026-06-10, audit ranks 1 + 8) — device-local
+      # iCloud-account sticky latch for wrong-Apple-ID / duplicate-profile guard.
+      - path: ../voxhora-ios/Voxhora/Engine/iCloudAccountIdentity.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientDocTrunk.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV8Bootstrap.swift
@@ -902,6 +906,10 @@ targets:
       - path: ../voxhora-ios/Voxhora/Views/Diagnostics
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/OnboardingView.swift
+        group: SharedViews
+      # Resilience rank 8 — wrong-iCloud-account warning screen (used by
+      # the MacMainView onboarding gate).
+      - path: ../voxhora-ios/Voxhora/Views/WrongICloudAccountView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Engine/Voice
         group: SharedEngine
