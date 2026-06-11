@@ -254,6 +254,11 @@ targets:
       # PC affidavit → client's first Document (QuickLook PDF preview).
       - path: ../voxhora-ios/Voxhora/Engine/PCDocumentArchiver.swift
         group: SharedEngine
+      # One-time backfill: render stored PC text → PDF → Documents (Maintenance).
+      - path: ../voxhora-ios/Voxhora/Engine/PCTextPDFRenderer.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/PCBackfillConverter.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV8Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV11Bootstrap.swift

@@ -102,6 +102,7 @@
 		449297D101C5B008803C0542 /* ClientContactsCleanupBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C79A0503FF7D918950453 /* ClientContactsCleanupBootstrap.swift */; };
 		463624E9A76FC6AD34D200FE /* IntroEmailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63BBCCA55A0DDEF37D986AE /* IntroEmailComposer.swift */; };
 		46740BCA2F614A40E765FB58 /* DiscoveryFolderScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28670C3751E16546A7AF04C6 /* DiscoveryFolderScanner.swift */; };
+		46BF43F8B120632341E85554 /* PCBackfillConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326FA180EF49A8EA8CE33DE /* PCBackfillConverter.swift */; };
 		47F95F0F0F8FB32FF4D939F6 /* ClientLookupEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCFCC08CD232CAFC594CB5 /* ClientLookupEngine.swift */; };
 		47FE833D5A83A2D2B62B0E5C /* ClientContactsBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B46A68E13A457501518B2 /* ClientContactsBridge.swift */; };
 		485F6500788A781F1BAFF8AF /* SilentSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9254E57CE4D802BF853390 /* SilentSound.swift */; };
@@ -241,6 +242,7 @@
 		A9B5C68BF02AB9982DAEBD49 /* CaseTypeFilterPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70390562540199FCC88011 /* CaseTypeFilterPicker.swift */; };
 		AA1BD7380461EB2980288E0C /* travis_county_appellate.json in Resources */ = {isa = PBXBuildFile; fileRef = 83BC51D427D08B933F9D4281 /* travis_county_appellate.json */; };
 		AB710069C2AF5185D470B194 /* ReminderActionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3356D52B161689F9379A36C6 /* ReminderActionRouter.swift */; };
+		AC2E1F547537C191E4F39557 /* PCTextPDFRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0812D1CC036471000774ADF8 /* PCTextPDFRenderer.swift */; };
 		AD8757C313E326A59799C735 /* TabRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A9C847AFABC90D5756DBB /* TabRegistry.swift */; };
 		AE6E047D38D8377D6C7F4694 /* TCCaseListImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673B747584289E2B2E2A5B0 /* TCCaseListImporter.swift */; };
 		AFC8233E431E9D6F8FEADD73 /* PorscheFlatSixSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB9F86941A94D922F0E311F /* PorscheFlatSixSound.swift */; };
@@ -400,6 +402,7 @@
 		06CF2380930335B04C6E1634 /* EditEntrySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditEntrySheet.swift; path = "../voxhora-ios/Voxhora/Views/EditEntrySheet.swift"; sourceTree = "<group>"; };
 		06F2E36264CA69ABE3178C6C /* CalendarEventTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarEventTrunk.swift; path = "../voxhora-ios/Voxhora/Engine/CalendarEventTrunk.swift"; sourceTree = "<group>"; };
 		0760D901F1EB6C9DEE7F7A8A /* ClientDocViewerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientDocViewerSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientDocViewerSheet.swift"; sourceTree = "<group>"; };
+		0812D1CC036471000774ADF8 /* PCTextPDFRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PCTextPDFRenderer.swift; path = "../voxhora-ios/Voxhora/Engine/PCTextPDFRenderer.swift"; sourceTree = "<group>"; };
 		0829DF9A4CDD2914AF81C0DF /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		08DAC31495A7C2586C841CBB /* TodoReminderScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoReminderScheduler.swift; path = "../voxhora-ios/Voxhora/Engine/TodoReminderScheduler.swift"; sourceTree = "<group>"; };
 		0985A6B27CDC5622E9019A33 /* ClientSchemaV6Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV6Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV6Bootstrap.swift"; sourceTree = "<group>"; };
@@ -557,6 +560,7 @@
 		6FED69476AFFE3DAAE67FE31 /* CaseTypeFilterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTypeFilterRegistry.swift; sourceTree = "<group>"; };
 		71A630D4E65ED99EAD0F4C50 /* TechShareCredentialsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechShareCredentialsRow.swift; sourceTree = "<group>"; };
 		71EB7420A79F2DBB8BF47429 /* AttorneyProfileSchemaV21Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV21Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV21Bootstrap.swift"; sourceTree = "<group>"; };
+		7326FA180EF49A8EA8CE33DE /* PCBackfillConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PCBackfillConverter.swift; path = "../voxhora-ios/Voxhora/Engine/PCBackfillConverter.swift"; sourceTree = "<group>"; };
 		73BBC537782440D60269C1A0 /* ModelContainerBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelContainerBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ModelContainerBootstrap.swift"; sourceTree = "<group>"; };
 		7414E99F6A181A848E705362 /* UserPreferencesBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesBootstrap.swift"; sourceTree = "<group>"; };
 		7722A93FCBFA23C7A418A6B4 /* TodoNotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoNotificationRouter.swift; path = "../voxhora-ios/Voxhora/Engine/TodoNotificationRouter.swift"; sourceTree = "<group>"; };
@@ -862,7 +866,9 @@
 				FCBBD36533D3A1CFA9ECC690 /* MigrationXLSXReader.swift */,
 				73BBC537782440D60269C1A0 /* ModelContainerBootstrap.swift */,
 				F33B508F96C239E88127CBA7 /* PCAffidavitDetector.swift */,
+				7326FA180EF49A8EA8CE33DE /* PCBackfillConverter.swift */,
 				99E167F74B5E2EAFCA501F71 /* PCDocumentArchiver.swift */,
+				0812D1CC036471000774ADF8 /* PCTextPDFRenderer.swift */,
 				FC5CBFAA8C1FBE08F2893786 /* PDFIntakeRouter.swift */,
 				56D795D2055B5C72C5E06022 /* PDFTextExtractor.swift */,
 				2A4DFEA105E040FADF25E2ED /* PhoneFormatter.swift */,
@@ -1692,7 +1698,9 @@
 				CE51B470B12E648368D1717D /* PCAffidavitDetector.swift in Sources */,
 				69A08795F14C608610518BB4 /* PCAffidavitDetectorRegistry.swift in Sources */,
 				D71BDC643DAEB9F024A4952F /* PCAffidavitImportSheet.swift in Sources */,
+				46BF43F8B120632341E85554 /* PCBackfillConverter.swift in Sources */,
 				8E866C0CF1A4293845781CF5 /* PCDocumentArchiver.swift in Sources */,
+				AC2E1F547537C191E4F39557 /* PCTextPDFRenderer.swift in Sources */,
 				EB15EA9612C653CBB17DA9E4 /* PDFImportSheet.swift in Sources */,
 				517572988C9C9FDF326A992E /* PDFIntakeRouter.swift in Sources */,
 				02F2AD7E3E2EE7B53BB96E69 /* PDFTextExtractor.swift in Sources */,
