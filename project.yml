@@ -243,6 +243,12 @@ targets:
       # iCloud-account sticky latch for wrong-Apple-ID / duplicate-profile guard.
       - path: ../voxhora-ios/Voxhora/Engine/iCloudAccountIdentity.swift
         group: SharedEngine
+      # Resilience rank 7 — recoverable Trash deletion for local discovery files.
+      - path: ../voxhora-ios/Voxhora/Engine/FileTrash.swift
+        group: SharedEngine
+      # Resilience rank 13 — plain-English URLError/file-error helper.
+      - path: ../voxhora-ios/Voxhora/Engine/PlainError.swift
+        group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientDocTrunk.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV8Bootstrap.swift
