@@ -56,6 +56,11 @@ settings:
       # so Matt's released Mac app stays byte-for-byte Travis-only. DEBUG kept so
       # existing #if DEBUG code is unaffected.
       SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE
+    Release:
+      # 2026-06-13 release promotion (Matt's Sparkle build): the 4 user-facing
+      # features go live. Deliberately EXCLUDED from Release: DEBUG, and the
+      # Patrick-only/not-ready flags VOXHORA_CUSTOM_VOCAB + VOXHORA_TRAVIS_APPELLATE.
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE
 
 targets:
   Voxhora-Mac:
