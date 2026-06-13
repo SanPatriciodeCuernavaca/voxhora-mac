@@ -351,6 +351,7 @@
 		EFDC077D2F78ABD00E7FC9CC /* CustomVocabularySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038E84E0C91B3145D5D7294B /* CustomVocabularySpec.swift */; };
 		F1D337EE0BA413A82C58564F /* ClientDocsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D167A9C0BD3B71691E7FD32 /* ClientDocsSheet.swift */; };
 		F1F6A830D8DD0C61758C458A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8600029768690C7AD5BB26 /* ShareViewController.swift */; };
+		F3E6E257607CB01782DC97AB /* MugShotFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D18153FC052E3E85AC63339 /* MugShotFetcher.swift */; };
 		F44DF440F7A03E62CBD6335F /* ClientNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC0EB8E919F40C19F92A9E /* ClientNote.swift */; };
 		F4840BC826C65ADA16C11B59 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C83D8C9C38C7EEB56FB69B3 /* OnboardingView.swift */; };
 		F665D5546F98410BE62F50A3 /* ClientRosterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E61B19B018766AC9F1E5F54 /* ClientRosterRow.swift */; };
@@ -551,6 +552,7 @@
 		68EC0EB8E919F40C19F92A9E /* ClientNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientNote.swift; path = "../voxhora-ios/Voxhora/Models/ClientNote.swift"; sourceTree = "<group>"; };
 		692FFE1B87CF90C6D57353F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C90D7B5BC9FBE85A8A78175 /* CaseTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaseTrunk.swift; path = "../voxhora-ios/Voxhora/Engine/CaseTrunk.swift"; sourceTree = "<group>"; };
+		6D18153FC052E3E85AC63339 /* MugShotFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MugShotFetcher.swift; path = "../voxhora-ios/Voxhora/Engine/MugShotFetcher.swift"; sourceTree = "<group>"; };
 		6DDCFCC08CD232CAFC594CB5 /* ClientLookupEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientLookupEngine.swift; path = "../voxhora-ios/Voxhora/Engine/ClientLookupEngine.swift"; sourceTree = "<group>"; };
 		6F23CE139A349942F1EDCB6D /* ClientToDoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientToDoSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientToDoSheet.swift"; sourceTree = "<group>"; };
 		6F5FD45B5420D16938E21A4F /* WatchStatusIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchStatusIndicator.swift; path = "../voxhora-ios/Voxhora/Engine/WatchStatusIndicator.swift"; sourceTree = "<group>"; };
@@ -868,6 +870,7 @@
 				2442664128F99446BC36900E /* MigrationVocabularyRegistry.swift */,
 				FCBBD36533D3A1CFA9ECC690 /* MigrationXLSXReader.swift */,
 				73BBC537782440D60269C1A0 /* ModelContainerBootstrap.swift */,
+				6D18153FC052E3E85AC63339 /* MugShotFetcher.swift */,
 				F33B508F96C239E88127CBA7 /* PCAffidavitDetector.swift */,
 				7326FA180EF49A8EA8CE33DE /* PCBackfillConverter.swift */,
 				99E167F74B5E2EAFCA501F71 /* PCDocumentArchiver.swift */,
@@ -1697,6 +1700,7 @@
 				39591D2A036E01A867C95AA4 /* MigrationXLSXReader.swift in Sources */,
 				AFDF0EE47FBCD5947804EB26 /* ModelContainerBootstrap.swift in Sources */,
 				C9E90DF1C2F3375CC6E95E8F /* MoneyCounter.swift in Sources */,
+				F3E6E257607CB01782DC97AB /* MugShotFetcher.swift in Sources */,
 				7E7712F93D77B6FBCF1FE557 /* NotesButton.swift in Sources */,
 				C516E2080210843ACD422A73 /* NotificationDeniedBanner.swift in Sources */,
 				F4840BC826C65ADA16C11B59 /* OnboardingView.swift in Sources */,
@@ -2019,7 +2023,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrickfagerberg.voxhora.mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_MUGSHOT";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;

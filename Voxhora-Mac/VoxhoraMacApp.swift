@@ -140,6 +140,14 @@ struct VoxhoraMacApp: App {
         // SIP custody status updates without needing iPhone-side polls.
         SIPPollScheduler.registerBackgroundTask()
 
+        #if VOXHORA_MUGSHOT
+        // Booking-photo auto-fetch (Mac agent). Daily NSBackgroundActivity-
+        // Scheduler; files the client's booking photo into their Documents
+        // vault during the site's ~2-week availability window. Mac-only scrape;
+        // CloudKit syncs the JPEG to every device.
+        MugShotFetcher.registerBackgroundActivity()
+        #endif
+
         // DECISION 026 — wire VoxhoraNotificationDelegate so reminder
         // notification taps route into the ReminderActionRouter on Mac.
         UNUserNotificationCenter.current().delegate = VoxhoraNotificationDelegate.shared
@@ -621,6 +629,13 @@ struct VoxhoraMacApp: App {
                         // identically on both platforms (no platform-
                         // specific code path).
                         SIPPollScheduler.runForegroundCheckIfStale(modelContext: modelContainer.mainContext)
+
+                        #if VOXHORA_MUGSHOT
+                        // Foreground kick (cooldown-gated) so a freshly-opened
+                        // Mac gets a recent booking-photo sweep even if the
+                        // daily background activity was deferred.
+                        MugShotFetcher.runForegroundSweepIfDue()
+                        #endif
 
                         // DECISION 039 — Calendar auto-refresh on Mac.
                         // Mac doesn't ship BGAppRefreshTask (no
