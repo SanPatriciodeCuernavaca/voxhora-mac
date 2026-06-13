@@ -291,6 +291,8 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/ClientDocViewerSheet.swift
         group: SharedViews
+      - path: ../voxhora-ios/Voxhora/Views/MugShotThumbView.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/DocsButton.swift
         group: SharedViews
       # DECISION 044 (Apple Contacts auto-sync, 2026-05-06) — one-way
