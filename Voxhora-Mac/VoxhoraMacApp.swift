@@ -634,7 +634,7 @@ struct VoxhoraMacApp: App {
                         // Foreground kick (cooldown-gated) so a freshly-opened
                         // Mac gets a recent booking-photo sweep even if the
                         // daily background activity was deferred.
-                        MugShotFetcher.runForegroundSweepIfDue()
+                        MugShotFetcher.runForegroundSweepIfDue(modelContext: modelContainer.mainContext)
                         #endif
 
                         // DECISION 039 — Calendar auto-refresh on Mac.
