@@ -22,6 +22,7 @@
 		08F1E5B57E7D5F6E4F41F563 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3C3625A0290B1BC1B73A2 /* CalendarViewModel.swift */; };
 		09360A098D30C9687B86A22C /* ClientContactsBackfillBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E8EA2D92FF70AAB9E6CEFA /* ClientContactsBackfillBootstrap.swift */; };
 		0B69D04F0D23FA07CD9CB9E4 /* TravisCountySIPSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DA8B1B466B568BC29F2AEF /* TravisCountySIPSource.swift */; };
+		0BC62082CB1BB7E1CD300C14 /* BookingPhotoRequestQueueObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17DBAF592F459CCA4BB4AF9 /* BookingPhotoRequestQueueObserver.swift */; };
 		0BFD0A09F3206928B2B16456 /* ClientNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC0EB8E919F40C19F92A9E /* ClientNote.swift */; };
 		0C9B8C1D6498C46C303866C2 /* ClientPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A14C24E3DAAF84900AE12 /* ClientPickerView.swift */; };
 		0CD0F2D286F99F718B95A66E /* ApplePaySuccessVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803307A27337803B86EC3AE7 /* ApplePaySuccessVisual.swift */; };
@@ -259,6 +260,7 @@
 		B4816A4042E69451F9B1A48A /* MigrationFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E3026B3E0689A9270C1935 /* MigrationFileReader.swift */; };
 		B4B22AEE0FD4B40F5E7891DA /* CommunicationsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68056ECFEC853917FC94535F /* CommunicationsSection.swift */; };
 		B5152E7B4D32821F4F3B6CC7 /* ContinuityCameraResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264B4F9EF71EE9BE5D4F145 /* ContinuityCameraResponder.swift */; };
+		B5173CA1393C01A43DD877D6 /* BookingPhotoRequestComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA332F7FE57E092CA8AA3E0E /* BookingPhotoRequestComposer.swift */; };
 		B59F4470ECE9A152E804A583 /* DiscoveryBillTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76E89D8658521D6988E7515 /* DiscoveryBillTimer.swift */; };
 		B741B6B41544ACF30E3A48AF /* DiagnosticCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22E0A31C739D2498FB8CC1F /* DiagnosticCheck.swift */; };
 		B76D4E10AD27F833EF8F3A26 /* MugShotSourceTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2198B3D5DAF8C578197809 /* MugShotSourceTag.swift */; };
@@ -674,6 +676,7 @@
 		C7E4DAB6ABF0B1988081E40A /* ClientDocTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientDocTrunk.swift; path = "../voxhora-ios/Voxhora/Engine/ClientDocTrunk.swift"; sourceTree = "<group>"; };
 		C826B3AD8B897A920663CF3B /* ParseEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseEngine.swift; sourceTree = "<group>"; };
 		C82DCDEFBEAFEB668D659D89 /* Voxhora-Mac-Share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Voxhora-Mac-Share.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA332F7FE57E092CA8AA3E0E /* BookingPhotoRequestComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookingPhotoRequestComposer.swift; path = "../voxhora-ios/Voxhora/Engine/BookingPhotoRequestComposer.swift"; sourceTree = "<group>"; };
 		CB1A3C2170156D57D0CE7FB6 /* FunModeVisualRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeVisualRegistry.swift; sourceTree = "<group>"; };
 		CBD8ADAAA89393C01FD576A4 /* UserPreferencesSchemaV10Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV10Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV10Bootstrap.swift"; sourceTree = "<group>"; };
 		CC9254E57CE4D802BF853390 /* SilentSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentSound.swift; sourceTree = "<group>"; };
@@ -684,6 +687,7 @@
 		CFAF71DD7941599E41B3C95A /* ClientDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientDoc.swift; path = "../voxhora-ios/Voxhora/Models/ClientDoc.swift"; sourceTree = "<group>"; };
 		CFB268BA71FA62F4FAD30FF9 /* MigrationOrphanCleanup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationOrphanCleanup.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationOrphanCleanup.swift"; sourceTree = "<group>"; };
 		D003F636532917B30878C52A /* ClientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientDetailView.swift; path = "../voxhora-ios/Voxhora/Views/ClientDetailView.swift"; sourceTree = "<group>"; };
+		D17DBAF592F459CCA4BB4AF9 /* BookingPhotoRequestQueueObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookingPhotoRequestQueueObserver.swift; path = "../voxhora-ios/Voxhora/Engine/BookingPhotoRequestQueueObserver.swift"; sourceTree = "<group>"; };
 		D1F3C3625A0290B1BC1B73A2 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarViewModel.swift; path = "../voxhora-ios/Voxhora/Views/CalendarViewModel.swift"; sourceTree = "<group>"; };
 		D1F75057C52E8B7B366A4DBD /* ClientRosterImporterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRosterImporterRegistry.swift; sourceTree = "<group>"; };
 		D2731F9AB15C10BD113EB514 /* AddClientSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddClientSheet.swift; path = "../voxhora-ios/Voxhora/Views/AddClientSheet.swift"; sourceTree = "<group>"; };
@@ -807,6 +811,8 @@
 				3B16F6E3F91BB9ECE11C629A /* AutoIntakeWatcher.swift */,
 				EFF0A946DDFECF35BA5E2BA2 /* BillingPreset.swift */,
 				DB8C0221A786E3D73A560383 /* BillingQuantity.swift */,
+				CA332F7FE57E092CA8AA3E0E /* BookingPhotoRequestComposer.swift */,
+				D17DBAF592F459CCA4BB4AF9 /* BookingPhotoRequestQueueObserver.swift */,
 				8EC43D473A12441D33B019D0 /* CalendarCleanupMigration.swift */,
 				06F2E36264CA69ABE3178C6C /* CalendarEventTrunk.swift */,
 				85C12954FC793A67555D5D15 /* CalendarRefreshScheduler.swift */,
@@ -1537,6 +1543,8 @@
 				711F4021947C668C0F1A45B8 /* BillTimeEntryModeSection.swift in Sources */,
 				98086BE7E94C33E3CAD82581 /* BillingPreset.swift in Sources */,
 				9B8A7A0F391A9A2C321C80A6 /* BillingQuantity.swift in Sources */,
+				B5173CA1393C01A43DD877D6 /* BookingPhotoRequestComposer.swift in Sources */,
+				0BC62082CB1BB7E1CD300C14 /* BookingPhotoRequestQueueObserver.swift in Sources */,
 				7288CA47BE6B7FD9C828032A /* CalendarCleanupMigration.swift in Sources */,
 				4EB2C37E7F9C77A10525C809 /* CalendarEvent.swift in Sources */,
 				CC10B734CEC184046C887EBA /* CalendarEventRow.swift in Sources */,

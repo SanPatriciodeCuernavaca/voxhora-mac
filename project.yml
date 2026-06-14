@@ -275,6 +275,13 @@ targets:
       # references it; shared by APD scraper, TCSO reply, and manual paths).
       - path: ../voxhora-ios/Voxhora/Engine/MugShotSourceTag.swift
         group: SharedEngine
+      # TCSO booking-photo records-request — pure email builder + queue observer
+      # (VOXHORA_MUGSHOT_REQUEST; logic gated, inert in Release). The Mac drafts
+      # too, and compiles IntakeView (queue trigger) + the review surface.
+      - path: ../voxhora-ios/Voxhora/Engine/BookingPhotoRequestComposer.swift
+        group: SharedEngine
+      - path: ../voxhora-ios/Voxhora/Engine/BookingPhotoRequestQueueObserver.swift
+        group: SharedEngine
       # One-time backfill: render stored PC text → PDF → Documents (Maintenance).
       - path: ../voxhora-ios/Voxhora/Engine/PCTextPDFRenderer.swift
         group: SharedEngine
