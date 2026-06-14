@@ -55,7 +55,10 @@ settings:
       # release (release.sh, Release config) never defines VOXHORA_CUSTOM_VOCAB,
       # so Matt's released Mac app stays byte-for-byte Travis-only. DEBUG kept so
       # existing #if DEBUG code is unaffected.
-      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_MUGSHOT
+      # VOXHORA_MUGSHOT_REQUEST (2026-06-13) — TCSO booking-photo records-request
+      # system (auto-draft on intake-Accept + attorney-confirms-before-send).
+      # Debug-only, soaking. Distinct from VOXHORA_MUGSHOT (the APD scraper).
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_MUGSHOT VOXHORA_MUGSHOT_REQUEST
     Release:
       # 2026-06-13 release promotion (Matt's Sparkle build): the 4 user-facing
       # features go live. Deliberately EXCLUDED from Release: DEBUG, and the
@@ -268,6 +271,10 @@ targets:
       # Booking-photo auto-fetch (Mac agent; VOXHORA_MUGSHOT). os(macOS)-gated.
       - path: ../voxhora-ios/Voxhora/Engine/MugShotFetcher.swift
         group: SharedEngine
+      # Booking-photo source-tag helper (UNFLAGGED — Client.needsBookingPhotoRequest
+      # references it; shared by APD scraper, TCSO reply, and manual paths).
+      - path: ../voxhora-ios/Voxhora/Engine/MugShotSourceTag.swift
+        group: SharedEngine
       # One-time backfill: render stored PC text → PDF → Documents (Maintenance).
       - path: ../voxhora-ios/Voxhora/Engine/PCTextPDFRenderer.swift
         group: SharedEngine
@@ -278,6 +285,9 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV11Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV12Bootstrap.swift
+        group: SharedEngine
+      # v12→v13 (2026-06-13) — TCSO booking-photo request stamps.
+      - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV13Bootstrap.swift
         group: SharedEngine
       # DECISION 056 Session 2 (Client Docs UI surface, 2026-05-11) —
       # cross-platform views for the per-client document vault.
@@ -396,6 +406,9 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV24Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV25Bootstrap.swift
+        group: SharedEngine
+      # v25→v26 (2026-06-13) — TCSO booking-photo request policy toggle.
+      - path: ../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV26Bootstrap.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/TodoSchemaV1Bootstrap.swift
         group: SharedEngine
@@ -1145,6 +1158,10 @@ targets:
       # because Client.swift references ClientDoc via the docs:
       # [ClientDoc]? relationship.
       - path: ../voxhora-ios/Voxhora/Models/ClientDoc.swift
+        group: SharedModels
+      # Booking-photo source-tag helper (UNFLAGGED). Client.needsBookingPhotoRequest
+      # names MugShot, so the Share extension (compiles Client.swift) needs it too.
+      - path: ../voxhora-ios/Voxhora/Engine/MugShotSourceTag.swift
         group: SharedModels
       - path: ../voxhora-ios/Voxhora/Models/ParsedAppointmentIntake.swift
         group: SharedModels

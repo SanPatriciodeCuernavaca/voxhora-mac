@@ -375,6 +375,10 @@ struct VoxhoraMacApp: App {
                         // wiring. Seeds historicalBookingNumbers for the
                         // currently-in-custody roster on first run.
                         ClientSchemaV12Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        // Client v12 → v13 (2026-06-13) — TCSO booking-photo
+                        // request stamps (VOXHORA_MUGSHOT_REQUEST). Additive
+                        // default-safe; no seed.
+                        ClientSchemaV13Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
                         // DECISION 044 — Apple Contacts backfill on Mac.
                         // Independent of iPhone (each device runs its own
@@ -500,6 +504,10 @@ struct VoxhoraMacApp: App {
                         // termsAcceptedVersion + termsAcceptedAt. Unconditional +
                         // inert (soaks the CloudKit migration ahead of the gate).
                         AttorneyProfileSchemaV25Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        // TCSO booking-photo request policy (2026-06-13) —
+                        // v25→v26 adds tcsoBookingPhotoRequestEnabled.
+                        // Unconditional + inert (soaks ahead of the gated UI).
+                        AttorneyProfileSchemaV26Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
                         // To-Dos / Reminders (2026-06-06) — ceremonial Todo v1
                         // bootstrap (migrates nothing; defers via !todos.isEmpty).
                         TodoSchemaV1Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
