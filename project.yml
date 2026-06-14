@@ -845,6 +845,9 @@ targets:
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/IntakeView.swift
         group: SharedViews
+      # TCSO booking-photo request review queue (Intake tab; VOXHORA_MUGSHOT_REQUEST).
+      - path: ../voxhora-ios/Voxhora/Views/BookingPhotoRequestQueueSection.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Views/IntakeViewModel.swift
         group: SharedViews
       # Migration Import Portal v1 (2026-05-16) — public-Voxhora-first
