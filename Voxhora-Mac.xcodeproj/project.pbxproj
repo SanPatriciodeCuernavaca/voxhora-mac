@@ -332,6 +332,7 @@
 		E532D0F5E73800C9C796898D /* Vortex in Frameworks */ = {isa = PBXBuildFile; productRef = 9A205C6C2E1C26A72B2F93AE /* Vortex */; };
 		E539A220702CD294CAF85FCE /* VoxHelpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E5D40E2EA787B9A3A58C54 /* VoxHelpService.swift */; };
 		E53B940D5321A342A637D2C7 /* CalendarSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B936E5F9A9CE63F58A36B07F /* CalendarSource.swift */; };
+		E55EC970F4B38B368CFDF1A3 /* BookingPhotoRequestSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8791E7990F70EC85ED5F9 /* BookingPhotoRequestSettings.swift */; };
 		E5EE216F6FBFB1F88A003708 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAB84EF5EE57FAFA512932 /* Client.swift */; };
 		E63785C9A47366580F4B7E33 /* MacMessagesSendTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B633A3FB1CFD373573A8022 /* MacMessagesSendTracker.swift */; };
 		E669B0FF816438B07D617A8F /* UserImportedVisualEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673FBDCE6FA3E0707E33A1AC /* UserImportedVisualEffect.swift */; };
@@ -596,6 +597,7 @@
 		85CE5FEA20C5EAA974D30175 /* GoldFlashVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldFlashVisual.swift; sourceTree = "<group>"; };
 		8658A67435BBE493CD2FBFF9 /* ClientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientsView.swift; path = "../voxhora-ios/Voxhora/Views/ClientsView.swift"; sourceTree = "<group>"; };
 		869B95D1AB516BC1984C7EAA /* DiagnosticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsEngine.swift; sourceTree = "<group>"; };
+		86B8791E7990F70EC85ED5F9 /* BookingPhotoRequestSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPhotoRequestSettings.swift; sourceTree = "<group>"; };
 		8722A2F4D30508BECE73BA64 /* DiscoveryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryTabView.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryTabView.swift"; sourceTree = "<group>"; };
 		87430CBF117FB5CE086DF625 /* VoxhoraUserManual.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = VoxhoraUserManual.md; sourceTree = "<group>"; };
 		87F4A6276554B3AA236E868F /* UserPreferencesSchemaV15Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV15Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV15Bootstrap.swift"; sourceTree = "<group>"; };
@@ -1237,6 +1239,7 @@
 				5A2B73049054ABBF5A5D13F8 /* AboutSection.swift */,
 				0A760D13B3C6A6F693D84E42 /* AppleContactsSection.swift */,
 				2EAD38DC0EEE6404C3FD4D8C /* BillTimeEntryModeSection.swift */,
+				86B8791E7990F70EC85ED5F9 /* BookingPhotoRequestSettings.swift */,
 				5B70390562540199FCC88011 /* CaseTypeFilterPicker.swift */,
 				F0EDEB9E15EB8DBE36F096BE /* CloudDownloadVenueSettingsRow.swift */,
 				534FD9A9DE7EA94FFE32C41F /* CloudPCSynopsisSettingsRow.swift */,
@@ -1545,6 +1548,7 @@
 				9B8A7A0F391A9A2C321C80A6 /* BillingQuantity.swift in Sources */,
 				B5173CA1393C01A43DD877D6 /* BookingPhotoRequestComposer.swift in Sources */,
 				0BC62082CB1BB7E1CD300C14 /* BookingPhotoRequestQueueObserver.swift in Sources */,
+				E55EC970F4B38B368CFDF1A3 /* BookingPhotoRequestSettings.swift in Sources */,
 				7288CA47BE6B7FD9C828032A /* CalendarCleanupMigration.swift in Sources */,
 				4EB2C37E7F9C77A10525C809 /* CalendarEvent.swift in Sources */,
 				CC10B734CEC184046C887EBA /* CalendarEventRow.swift in Sources */,
