@@ -230,7 +230,7 @@ codesign --force --options runtime --timestamp --sign "$SIGNING_IDENTITY" \
   --entitlements Voxhora-Mac-Share/Voxhora-Mac-Share.entitlements \
   "$APP_PATH/Contents/PlugIns/Voxhora-Mac-Share.appex" 2>&1 | tail -1
 codesign --force --options runtime --timestamp --sign "$SIGNING_IDENTITY" \
-  --entitlements Voxhora-Mac/Voxhora-Mac.entitlements \
+  --entitlements Voxhora-Mac/Voxhora-Mac-Release.entitlements \
   "$APP_PATH" 2>&1 | tail -1
 
 # Verify before notarization so we catch any seal issue locally.

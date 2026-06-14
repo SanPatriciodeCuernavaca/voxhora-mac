@@ -69,6 +69,12 @@ settings:
       # features go live. Deliberately EXCLUDED from Release: DEBUG, and the
       # Patrick-only/not-ready flags VOXHORA_CUSTOM_VOCAB + VOXHORA_TRAVIS_APPELLATE.
       SWIFT_ACTIVE_COMPILATION_CONDITIONS: VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE
+      # 2026-06-14 CloudKit env split — the Release (Matt/Sparkle) build seals
+      # against its OWN entitlements file so the Production CloudKit flip (Step 3
+      # of the migration) only touches Matt's build, NOT Patrick's Debug Mac
+      # (which keeps base CODE_SIGN_ENTITLEMENTS = Voxhora-Mac.entitlements =
+      # Development). release.sh's final codesign also points here.
+      CODE_SIGN_ENTITLEMENTS: Voxhora-Mac/Voxhora-Mac-Release.entitlements
 
 targets:
   Voxhora-Mac:
@@ -96,6 +102,7 @@ targets:
       - path: Voxhora-Mac
         excludes:
           - "Voxhora-Mac.entitlements"
+          - "Voxhora-Mac-Release.entitlements"
 
       # SHARED models — single source of truth lives in the iOS project.
       # Direct references; no copy, no drift. CloudKit schema matches both

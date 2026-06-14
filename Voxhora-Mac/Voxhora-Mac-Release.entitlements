@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	═══════════════════════════════════════════════════════════════════════
+	RELEASE (Matt / Sparkle) entitlements — 2026-06-14 CloudKit env split.
+
+	WHY A SEPARATE FILE: Voxhora-Mac.entitlements is consumed by BOTH
+	deploy.sh (Patrick's Debug) AND, previously, release.sh's final codesign.
+	Adding the Production CloudKit key to that shared file would also flip
+	Patrick's Debug Mac to Production (a Debug build honors the key when it's
+	set), hiding his Development data — a HARD-RULE violation. So the Release
+	pipeline now seals against THIS file instead:
+	  • release.sh  → --entitlements Voxhora-Mac/Voxhora-Mac-Release.entitlements
+	  • project.yml → Release config CODE_SIGN_ENTITLEMENTS points here
+	Debug (deploy.sh) keeps using Voxhora-Mac.entitlements (no env key →
+	Development), so Patrick stays on Development no matter what.
+
+	CURRENT STATE: identical to Voxhora-Mac.entitlements (still Development —
+	NO icloud-container-environment key). The product has NOT been flipped to
+	Production yet; per the HARD RULE, Matt's Development data must be exported
+	and verified in Production BEFORE the flip.
+
+	TO FLIP TO PRODUCTION (Step 3 of the migration, Release build only):
+	uncomment the two lines marked ⟵ FLIP below, then run release.sh. The
+	embedded Dev-ID Direct profile already authorizes the Production value
+	(verified 2026-06-14 — see voxhora_cloudkit_prod_migration_tool memory).
+	═══════════════════════════════════════════════════════════════════════
+	-->
+
+	<!-- ⟵ FLIP: uncomment to move the RELEASE build to the Production CloudKit DB
+	<key>com.apple.developer.icloud-container-environment</key>
+	<string>Production</string>
+	-->
+
+	<key>com.apple.application-identifier</key>
+	<string>S4GM27H6N5.com.patrickfagerberg.voxhora.mac</string>
+	<key>com.apple.developer.team-identifier</key>
+	<string>S4GM27H6N5</string>
+	<key>com.apple.developer.icloud-container-identifiers</key>
+	<array>
+		<string>iCloud.com.patrickfagerberg.voxhora</string>
+	</array>
+	<key>com.apple.developer.icloud-services</key>
+	<array>
+		<string>CloudKit</string>
+		<string>CloudDocuments</string>
+	</array>
+	<key>com.apple.developer.ubiquity-container-identifiers</key>
+	<array>
+		<string>iCloud.com.patrickfagerberg.voxhora</string>
+	</array>
+	<key>com.apple.developer.aps-environment</key>
+	<string>production</string>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.patrickfagerberg.voxhora</string>
+	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>S4GM27H6N5.com.patrickfagerberg.voxhora.shared</string>
+	</array>
+	<key>com.apple.security.automation.apple-events</key>
+	<true/>
+	<key>com.apple.security.cs.allow-jit</key>
+	<true/>
+	<key>com.apple.security.cs.disable-library-validation</key>
+	<true/>
+</dict>
+</plist>
