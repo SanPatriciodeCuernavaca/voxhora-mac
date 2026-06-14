@@ -214,6 +214,7 @@
 		8EC4DF885DF5D741F9D88EBF /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654CE2F681E11BED3C9F0E10 /* StatusView.swift */; };
 		8EF655845EEE6DB25370AB0A /* JurisdictionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494A405C15054196903FEF3 /* JurisdictionRegistry.swift */; };
 		8F12326C9B40EA5196BF74BF /* AttorneyProfileSchemaV22Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC0E72FCF6CFD6904C5C5E /* AttorneyProfileSchemaV22Bootstrap.swift */; };
+		8FC80EC4ABA38A1C84FD2A81 /* MigrationInlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9A38C5C21517B9CD4946 /* MigrationInlineView.swift */; };
 		91BCC6B1FD1F7C797FDB5F35 /* TodoReminderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C636D1F2E6E4BEC1D68A2FB /* TodoReminderSheet.swift */; };
 		9256E12B6CD5D124FF6F52C2 /* ClientSchemaV12Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E0EEA2EE49BD9EEE03E2EB /* ClientSchemaV12Bootstrap.swift */; };
 		92B9F2F21BA003722C2FF88D /* FunModeHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FF20B6F8305E38AFD5DA5 /* FunModeHaptics.swift */; };
@@ -253,6 +254,7 @@
 		B08F01D7E8852FB40ECF9E71 /* AttorneyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE49BD1B301B49CA563624F /* AttorneyProfile.swift */; };
 		B13F971A0E1821DDB44D1830 /* CheckForUpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340EFE7D55A70A0F35F56A3 /* CheckForUpdatesView.swift */; };
 		B1AABF2162BE7EFBF8462128 /* FunModeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D0A287B5B743D644BF0A9 /* FunModeSection.swift */; };
+		B1AE11214E3D329CBD5C7CB5 /* FullBackupMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D173182884BDFEF174311005 /* FullBackupMigrator.swift */; };
 		B28B28051590FCC2517920CE /* AppearBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4B351DAD437B011FF5EFD /* AppearBadge.swift */; };
 		B2E2FBAC393B54F6654F6237 /* SuccessWaveBackdrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D3D57127B7135A10BF2EA /* SuccessWaveBackdrop.swift */; };
 		B3DFCF8A652939EA35F58FD6 /* UserPreferencesSchemaV16Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D7771C95B081836541346 /* UserPreferencesSchemaV16Bootstrap.swift */; };
@@ -563,6 +565,7 @@
 		689B71D14071DD2E7A0DBDF8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		68EC0EB8E919F40C19F92A9E /* ClientNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientNote.swift; path = "../voxhora-ios/Voxhora/Models/ClientNote.swift"; sourceTree = "<group>"; };
 		692FFE1B87CF90C6D57353F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6A7A9A38C5C21517B9CD4946 /* MigrationInlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationInlineView.swift; path = "../voxhora-ios/Voxhora/Views/MigrationInlineView.swift"; sourceTree = "<group>"; };
 		6C90D7B5BC9FBE85A8A78175 /* CaseTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaseTrunk.swift; path = "../voxhora-ios/Voxhora/Engine/CaseTrunk.swift"; sourceTree = "<group>"; };
 		6D18153FC052E3E85AC63339 /* MugShotFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MugShotFetcher.swift; path = "../voxhora-ios/Voxhora/Engine/MugShotFetcher.swift"; sourceTree = "<group>"; };
 		6DDCFCC08CD232CAFC594CB5 /* ClientLookupEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientLookupEngine.swift; path = "../voxhora-ios/Voxhora/Engine/ClientLookupEngine.swift"; sourceTree = "<group>"; };
@@ -691,6 +694,7 @@
 		CFAF71DD7941599E41B3C95A /* ClientDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientDoc.swift; path = "../voxhora-ios/Voxhora/Models/ClientDoc.swift"; sourceTree = "<group>"; };
 		CFB268BA71FA62F4FAD30FF9 /* MigrationOrphanCleanup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationOrphanCleanup.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationOrphanCleanup.swift"; sourceTree = "<group>"; };
 		D003F636532917B30878C52A /* ClientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientDetailView.swift; path = "../voxhora-ios/Voxhora/Views/ClientDetailView.swift"; sourceTree = "<group>"; };
+		D173182884BDFEF174311005 /* FullBackupMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FullBackupMigrator.swift; path = "../voxhora-ios/Voxhora/Engine/FullBackupMigrator.swift"; sourceTree = "<group>"; };
 		D17DBAF592F459CCA4BB4AF9 /* BookingPhotoRequestQueueObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookingPhotoRequestQueueObserver.swift; path = "../voxhora-ios/Voxhora/Engine/BookingPhotoRequestQueueObserver.swift"; sourceTree = "<group>"; };
 		D1F3C3625A0290B1BC1B73A2 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarViewModel.swift; path = "../voxhora-ios/Voxhora/Views/CalendarViewModel.swift"; sourceTree = "<group>"; };
 		D1F75057C52E8B7B366A4DBD /* ClientRosterImporterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRosterImporterRegistry.swift; sourceTree = "<group>"; };
@@ -867,6 +871,7 @@
 				DEDCA32D59B09BC58C614A0A /* EmailTemplatesMergeBootstrap.swift */,
 				00CCD14539D5E27D33C1166B /* ExportAdapter.swift */,
 				BFA5D76D3250B99F93B0FC85 /* FileTrash.swift */,
+				D173182884BDFEF174311005 /* FullBackupMigrator.swift */,
 				2A0CAD63A59A507B8854A117 /* GenericFreeformVocab.swift */,
 				9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */,
 				5AE932B11464ED70FCFACDEB /* iCloudAccountIdentity.swift */,
@@ -1020,6 +1025,7 @@
 				ECE82C93BC815DDA3F59C326 /* MigrationBatchImportView.swift */,
 				29430B54A8242877C210F9F9 /* MigrationCSVImportView.swift */,
 				11780B5AFF64A9A9AFFD2C64 /* MigrationFolderBulkDropSheet.swift */,
+				6A7A9A38C5C21517B9CD4946 /* MigrationInlineView.swift */,
 				59692B9F0FACF4DCFD5BCAC8 /* MigrationPreviewView.swift */,
 				E3C3D8F81EB6DB12A496A99E /* MigrationView.swift */,
 				A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */,
@@ -1675,6 +1681,7 @@
 				069760821762C79BC069EF9E /* ExportAdapterRegistry.swift in Sources */,
 				1188CED4226E16163DA9B7E1 /* FileTrash.swift in Sources */,
 				96468C43AB9FB925D771BA3A /* Fonts.swift in Sources */,
+				B1AE11214E3D329CBD5C7CB5 /* FullBackupMigrator.swift in Sources */,
 				6CDE0C1D371EF0CA021C305C /* FunModeBootstrap.swift in Sources */,
 				92B9F2F21BA003722C2FF88D /* FunModeHaptics.swift in Sources */,
 				C5F5D6089BB5D051CB9BAD5F /* FunModeImportPicker.swift in Sources */,
@@ -1723,6 +1730,7 @@
 				95B7E1BF070518D69F7A3F5C /* MigrationFolderBulkDropSheet.swift in Sources */,
 				9727EBF3664DACE8120C7409 /* MigrationFolderImporter.swift in Sources */,
 				C1F73CE4E7C5E0D8E5F136DD /* MigrationImporter.swift in Sources */,
+				8FC80EC4ABA38A1C84FD2A81 /* MigrationInlineView.swift in Sources */,
 				B938E2CE6D501CD93B535155 /* MigrationOrchestrator.swift in Sources */,
 				E6834E4211C3FB1F9613B55B /* MigrationOrphanCleanup.swift in Sources */,
 				885ED9A9E213D49BF2B6245B /* MigrationPreviewView.swift in Sources */,
@@ -2058,7 +2066,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrickfagerberg.voxhora.mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_MUGSHOT VOXHORA_MUGSHOT_REQUEST";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_MUGSHOT VOXHORA_MUGSHOT_REQUEST VOXHORA_MIGRATION";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
