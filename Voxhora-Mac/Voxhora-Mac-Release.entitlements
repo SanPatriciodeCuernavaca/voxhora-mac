@@ -3,37 +3,30 @@
 <plist version="1.0">
 <dict>
 	<!--
-	═══════════════════════════════════════════════════════════════════════
-	RELEASE (Matt / Sparkle) entitlements — 2026-06-14 CloudKit env split.
+	RELEASE (Matt / Sparkle) entitlements. 2026-06-14 CloudKit env split.
+	Plain ASCII only: codesign's AMFI entitlements parser is stricter than
+	plutil and rejects non-ASCII / commented-out keys (it failed 0.2.51 the
+	first time on this file). Keep this file ASCII and comment-light.
 
-	WHY A SEPARATE FILE: Voxhora-Mac.entitlements is consumed by BOTH
-	deploy.sh (Patrick's Debug) AND, previously, release.sh's final codesign.
-	Adding the Production CloudKit key to that shared file would also flip
-	Patrick's Debug Mac to Production (a Debug build honors the key when it's
-	set), hiding his Development data — a HARD-RULE violation. So the Release
-	pipeline now seals against THIS file instead:
-	  • release.sh  → --entitlements Voxhora-Mac/Voxhora-Mac-Release.entitlements
-	  • project.yml → Release config CODE_SIGN_ENTITLEMENTS points here
-	Debug (deploy.sh) keeps using Voxhora-Mac.entitlements (no env key →
-	Development), so Patrick stays on Development no matter what.
+	WHY A SEPARATE FILE: Voxhora-Mac.entitlements is also used by deploy.sh
+	(Patrick's Debug). Putting the Production CloudKit key in that shared file
+	would flip Patrick's Debug Mac to Production too and hide his Development
+	data. So the Release pipeline (release.sh final codesign + the Release
+	config CODE_SIGN_ENTITLEMENTS in project.yml) seals against THIS file
+	instead; Debug keeps Voxhora-Mac.entitlements = Development.
 
-	CURRENT STATE: identical to Voxhora-Mac.entitlements (still Development —
-	NO icloud-container-environment key). The product has NOT been flipped to
-	Production yet; per the HARD RULE, Matt's Development data must be exported
-	and verified in Production BEFORE the flip.
+	CURRENT STATE: identical to Voxhora-Mac.entitlements (Development; no
+	icloud-container-environment key). The product is NOT flipped to
+	Production yet. Per the HARD RULE, Matt's Development data must be
+	exported and verified in Production BEFORE the flip.
 
-	TO FLIP TO PRODUCTION (Step 3 of the migration, Release build only):
-	uncomment the two lines marked ⟵ FLIP below, then run release.sh. The
-	embedded Dev-ID Direct profile already authorizes the Production value
-	(verified 2026-06-14 — see voxhora_cloudkit_prod_migration_tool memory).
-	═══════════════════════════════════════════════════════════════════════
+	TO FLIP THE RELEASE BUILD TO PRODUCTION (migration Step 3): add an
+	icloud-container-environment entitlement set to the string Production
+	inside this dict (key name com.apple.developer.icloud-container-environment),
+	then run release.sh. The embedded Dev-ID Direct profile already authorizes
+	the Production value (verified 2026-06-14). See the
+	voxhora_cloudkit_prod_migration_tool memory + the migration handoff.
 	-->
-
-	<!-- ⟵ FLIP: uncomment to move the RELEASE build to the Production CloudKit DB
-	<key>com.apple.developer.icloud-container-environment</key>
-	<string>Production</string>
-	-->
-
 	<key>com.apple.application-identifier</key>
 	<string>S4GM27H6N5.com.patrickfagerberg.voxhora.mac</string>
 	<key>com.apple.developer.team-identifier</key>
