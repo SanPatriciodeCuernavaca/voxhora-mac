@@ -150,6 +150,17 @@ PROJECT_YML="project.yml"
 /usr/bin/sed -i '' "s/^        CFBundleVersion: \"[0-9]*\"$/        CFBundleVersion: \"$BUILD\"/" "$PROJECT_YML"
 done_ "CFBundleShortVersionString=$VERSION  CFBundleVersion=$BUILD (Info.plist + project.yml)"
 
+# Regenerate the Xcode project from project.yml so the GENERATED
+# Info.plists (main app AND the Share appex) re-emit the bumped version.
+# Without this step the appex archives with whatever Info.plist was on
+# disk from the last manual regen — the recurring stale-appex bug
+# (0.2.49 appex shipped inside the 0.2.51 app; root-caused in the
+# 2026-07-02 codebase analysis). release_ios.sh has always done this,
+# which is why iOS versions never skew.
+command -v xcodegen >/dev/null 2>&1 || die "xcodegen not installed (brew install xcodegen)"
+xcodegen generate >/dev/null
+done_ "xcodegen regenerated project — app + Share appex Info.plists now $VERSION/$BUILD"
+
 # ─── ARCHIVE ───────────────────────────────────────────────────────────
 say "Archiving Release build…"
 # Standard 2-stage Apple Developer ID pattern:
