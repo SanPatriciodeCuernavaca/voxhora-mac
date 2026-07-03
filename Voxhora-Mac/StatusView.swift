@@ -90,7 +90,7 @@ struct StatusView: View {
 
                 Spacer()
 
-                Text("CloudKit container: iCloud.com.patrickfagerberg.voxhora")
+                Text("CloudKit container: \(VoxhoraSchema.cloudKitContainerID)")
                     .font(.caption)
                     .foregroundStyle(.tertiary)
             }

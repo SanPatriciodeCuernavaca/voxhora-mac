@@ -152,20 +152,14 @@ class ShareViewController: NSViewController {
     @MainActor
     private func runSave(state: PDFIntakeShareFormState, parsed: ParsedAppointmentIntake) async {
         do {
-            let schema = Schema([
-                Entry.self, Client.self, Case.self,
-                AttorneyProfile.self, UserPreferences.self,
-                AuditLogEntry.self, Voucher.self,
-                CalendarEvent.self, ClientNote.self,
-                Todo.self,       // To-Dos / Reminders (2026-06-06): full union — schema-only ride-along
-                ClientDoc.self   // 2026-06-01 (audit H7): full 10-type union — a
-                                 // non-superset Schema can silently halt the
-                                 // CloudKit mirror (Client→ClientDoc cascade).
-            ])
+            // 2026-07-02 — schema + container ID from VoxhoraSchema
+            // (single source of truth; superset by construction — was
+            // audit-H7's hand-copied full-union list).
+            let schema = VoxhoraSchema.schema()
             let configuration = ModelConfiguration(
                 schema: schema,
                 isStoredInMemoryOnly: false,
-                cloudKitDatabase: .private("iCloud.com.patrickfagerberg.voxhora")
+                cloudKitDatabase: .private(VoxhoraSchema.cloudKitContainerID)
             )
             let container = try ModelContainer(for: schema, configurations: [configuration])
             let context = container.mainContext
@@ -259,20 +253,14 @@ class ShareViewController: NSViewController {
 
     private func readJurisdictionKey() -> String {
         do {
-            let schema = Schema([
-                Entry.self, Client.self, Case.self,
-                AttorneyProfile.self, UserPreferences.self,
-                AuditLogEntry.self, Voucher.self,
-                CalendarEvent.self, ClientNote.self,
-                Todo.self,       // To-Dos / Reminders (2026-06-06): full union — schema-only ride-along
-                ClientDoc.self   // 2026-06-01 (audit H7): full 10-type union — a
-                                 // non-superset Schema can silently halt the
-                                 // CloudKit mirror (Client→ClientDoc cascade).
-            ])
+            // 2026-07-02 — schema + container ID from VoxhoraSchema
+            // (single source of truth; superset by construction — was
+            // audit-H7's hand-copied full-union list).
+            let schema = VoxhoraSchema.schema()
             let configuration = ModelConfiguration(
                 schema: schema,
                 isStoredInMemoryOnly: false,
-                cloudKitDatabase: .private("iCloud.com.patrickfagerberg.voxhora")
+                cloudKitDatabase: .private(VoxhoraSchema.cloudKitContainerID)
             )
             let container = try ModelContainer(for: schema, configurations: [configuration])
             let context = ModelContext(container)

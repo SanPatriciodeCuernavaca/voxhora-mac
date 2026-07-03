@@ -111,22 +111,13 @@ struct VoxhoraMacApp: App {
         // prior fatalError). ModelContainerBootstrap returns the
         // container + a `degraded` flag the lawyer's session is in
         // in-memory mode, recorded to audit chain in onAppear.
-        let schema = Schema([
-            Entry.self,
-            Client.self,
-            Case.self,
-            AttorneyProfile.self,
-            UserPreferences.self,
-            AuditLogEntry.self,
-            Voucher.self,                 // DECISION 012 — Phase C voucher state model
-            CalendarEvent.self,           // DECISION 022 — Calendar feature (DSA-driven court schedule)
-            ClientNote.self,              // DECISION 040.2 — Client notes journal
-            Todo.self,                    // To-Dos / Reminders (2026-06-06) — own @Model, no relationship
-            ClientDoc.self                // DECISION 056 — Client Docs vault (Session 1 data plumbing, 2026-05-11)
-        ])
+        // 2026-07-02 — schema list + container ID now come from
+        // VoxhoraSchema, the single source of truth shared by all 7
+        // former hand-maintained Schema sites (superset by construction).
+        let schema = VoxhoraSchema.schema()
         let bootResult = ModelContainerBootstrap.boot(
             schema: schema,
-            cloudKitContainerID: "iCloud.com.patrickfagerberg.voxhora"
+            cloudKitContainerID: VoxhoraSchema.cloudKitContainerID
         )
         modelContainer = bootResult.container
         containerDegradedToInMemory = bootResult.degraded
@@ -272,6 +263,12 @@ struct VoxhoraMacApp: App {
                         // Path A3 (2026-05-13) — record degraded init to
                         // audit chain when CloudKit fallback was hit.
                         if containerDegradedToInMemory {
+                            // 2026-07-02 (analysis Beat 3) — this audit row
+                            // lands in the IN-MEMORY store and evaporates on
+                            // quit. Remember the degraded session in
+                            // UserDefaults so the next HEALTHY launch writes
+                            // the durable row.
+                            UserDefaults.standard.set(true, forKey: "voxhora.degradedLaunchPending")
                             AuditLogger.shared.log(
                                 eventType: .modelContainerInitDegraded,
                                 payload: [
@@ -285,6 +282,17 @@ struct VoxhoraMacApp: App {
                             // so the WindowGroup-level .alert fires for
                             // the lawyer.
                             appState.containerDegradedToInMemory = true
+                        } else if UserDefaults.standard.bool(forKey: "voxhora.degradedLaunchPending") {
+                            UserDefaults.standard.removeObject(forKey: "voxhora.degradedLaunchPending")
+                            AuditLogger.shared.log(
+                                eventType: .modelContainerInitDegraded,
+                                payload: [
+                                    "platform": "macOS",
+                                    "operation": "prior_session_was_degraded",
+                                    "note": "a previous launch ran in-memory; any billing from that session was lost"
+                                ],
+                                attorneyId: ""
+                            )
                         }
 
                         // Path A3 (2026-05-13) — start MetricKit subscriber

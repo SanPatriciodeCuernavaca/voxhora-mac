@@ -63,12 +63,16 @@ settings:
       # Debug-config only so it never reaches Matt's Sparkle Release build; the
       # migration is driven by dev-signed builds (export on a Development build,
       # import on the Production build after the entitlement flip).
-      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_MUGSHOT VOXHORA_MUGSHOT_REQUEST VOXHORA_MIGRATION
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_MUGSHOT VOXHORA_MUGSHOT_REQUEST VOXHORA_MIGRATION VOXHORA_FAST_ROSTER
     Release:
       # 2026-06-13 release promotion (Matt's Sparkle build): the 4 user-facing
       # features go live. Deliberately EXCLUDED from Release: DEBUG, and the
       # Patrick-only/not-ready flags VOXHORA_CUSTOM_VOCAB + VOXHORA_TRAVIS_APPELLATE.
-      SWIFT_ACTIVE_COMPILATION_CONDITIONS: VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE
+      # VOXHORA_FAST_ROSTER added to BOTH Mac configs 2026-07-02 (codebase-
+      # analysis Wave 2) — the flag was never defined on Mac at all, so
+      # every Mac build (incl. Matt's Sparkle Release) ran the unbounded
+      # full-Entry-table roster path.
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_FAST_ROSTER
       # 2026-06-14 CloudKit env split — the Release (Matt/Sparkle) build seals
       # against its OWN entitlements file so the Production CloudKit flip (Step 3
       # of the migration) only touches Matt's build, NOT Patrick's Debug Mac
@@ -157,6 +161,14 @@ targets:
       # subscriber. Both new files share-sourced from voxhora-ios so iOS
       # + Mac stay in lockstep on launch-failure semantics.
       - path: ../voxhora-ios/Voxhora/Engine/ModelContainerBootstrap.swift
+        group: SharedEngine
+      # 2026-07-02 — single source of truth for the Schema union +
+      # CloudKit container ID (schema-superset by construction).
+      - path: ../voxhora-ios/Voxhora/Engine/VoxhoraSchema.swift
+        group: SharedEngine
+      # 2026-07-02 — FAST_ROSTER scoped-fetch engine (flag promoted to
+      # both Mac configs this date; the file was iOS-glob-only before).
+      - path: ../voxhora-ios/Voxhora/Engine/ActiveRosterEntries.swift
         group: SharedEngine
       # VOXHORA_MIGRATION (2026-06-14) — one-time CloudKit Dev→Prod full-data
       # export/import. Whole file is #if VOXHORA_MIGRATION, so it compiles to
@@ -1226,6 +1238,10 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/RosterReconciler.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/AuditLogger.swift
+        group: SharedEngine
+      # 2026-07-02 — single source of truth for the Schema union +
+      # CloudKit container ID (schema-superset by construction).
+      - path: ../voxhora-ios/Voxhora/Engine/VoxhoraSchema.swift
         group: SharedEngine
     settings:
       base:

@@ -114,7 +114,7 @@ struct MacMainView: View {
         .task {
             // Learn whether iCloud is available. Signed out / restricted →
             // jump straight to OnboardingView (nothing to hydrate from).
-            let container = CKContainer(identifier: "iCloud.com.patrickfagerberg.voxhora")
+            let container = CKContainer(identifier: VoxhoraSchema.cloudKitContainerID)
             let status = (try? await container.accountStatus()) ?? .couldNotDetermine
             iCloudAvailable = (status == .available)
             if iCloudAvailable {
