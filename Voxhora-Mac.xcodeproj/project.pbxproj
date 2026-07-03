@@ -98,6 +98,7 @@
 		40CC4FD86E2CD92007882B76 /* travis_county.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F5E24AA1CA60519F9616870 /* travis_county.json */; };
 		40D633B0940FA2997FF32701 /* TodoBillSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FDAC41FC3B8E98F5DDD01 /* TodoBillSheet.swift */; };
 		40ECAEA09DDE0978CE34759B /* ClientSchemaV7Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4FE6AB4FB32535813FAE3 /* ClientSchemaV7Bootstrap.swift */; };
+		413748EB104E467105DD926F /* ClientIntakeFieldApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3AEC51E8BD2042B933985 /* ClientIntakeFieldApplier.swift */; };
 		42384CA3FD156F8FD64B9F57 /* VouchersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0493A23B7C235DD52BFA5AB /* VouchersView.swift */; };
 		4259FB9B5F6D9F8619062C86 /* QuickAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C0900489FD4AD30369786 /* QuickAction.swift */; };
 		4348518749EE5FEF7F663765 /* CourtsLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A11E040C0A52AB44D3923 /* CourtsLookup.swift */; };
@@ -288,6 +289,7 @@
 		C65E9D1A80DA40B4E55B4330 /* RosterReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F98C329547921ED512F8 /* RosterReconciler.swift */; };
 		C66015FB062E78600DC4ACB8 /* TabRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A9C847AFABC90D5756DBB /* TabRegistry.swift */; };
 		C67E4EFACA49607548D28C90 /* AttorneyProfileSchemaV19Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC00BA8D4B681400B14AE5D /* AttorneyProfileSchemaV19Bootstrap.swift */; };
+		C68816684078E835D1B6EEDC /* ClientIntakeFieldApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3AEC51E8BD2042B933985 /* ClientIntakeFieldApplier.swift */; };
 		C85E21398CCBC0E46CACB615 /* LLMParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EF8E0FD981879F274CFD93 /* LLMParser.swift */; };
 		C8DCBB12F1F0BF75059DD44A /* ClientDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAF71DD7941599E41B3C95A /* ClientDoc.swift */; };
 		C950545AE5C0033F4FD9E309 /* CashRainVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F9C96FDFB7D31B5FBFEBF /* CashRainVisual.swift */; };
@@ -749,6 +751,7 @@
 		F53A798B43F5FCC2F5D5103B /* MigrationActivityListImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationActivityListImportView.swift; path = "../voxhora-ios/Voxhora/Views/Migration/MigrationActivityListImportView.swift"; sourceTree = "<group>"; };
 		F5E8EA2D92FF70AAB9E6CEFA /* ClientContactsBackfillBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientContactsBackfillBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientContactsBackfillBootstrap.swift"; sourceTree = "<group>"; };
 		F6F97FF969DF9EC78F8EA64B /* NotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotesButton.swift; path = "../voxhora-ios/Voxhora/Views/NotesButton.swift"; sourceTree = "<group>"; };
+		F8F3AEC51E8BD2042B933985 /* ClientIntakeFieldApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientIntakeFieldApplier.swift; path = "../voxhora-ios/Voxhora/Engine/ClientIntakeFieldApplier.swift"; sourceTree = "<group>"; };
 		F9228490307BE85E5C40AD12 /* DownloadJobsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DownloadJobsManager.swift; path = "../voxhora-ios/Voxhora/Engine/DownloadJobsManager.swift"; sourceTree = "<group>"; };
 		FB8B185AF226D2D39E92C4F6 /* SIPPollScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SIPPollScheduler.swift; path = "../voxhora-ios/Voxhora/Engine/SIPPollScheduler.swift"; sourceTree = "<group>"; };
 		FC3007AAA1EBF6E6910742A3 /* MacAccessProbes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacAccessProbes.swift; sourceTree = "<group>"; };
@@ -842,6 +845,7 @@
 				AF0B46A68E13A457501518B2 /* ClientContactsBridge.swift */,
 				454C79A0503FF7D918950453 /* ClientContactsCleanupBootstrap.swift */,
 				C7E4DAB6ABF0B1988081E40A /* ClientDocTrunk.swift */,
+				F8F3AEC51E8BD2042B933985 /* ClientIntakeFieldApplier.swift */,
 				6DDCFCC08CD232CAFC594CB5 /* ClientLookupEngine.swift */,
 				9A07B4CFB1035071593F942A /* ClientLookupSidebarModel.swift */,
 				285FDDC4CD4111E88C6DD495 /* ClientNoteTrunk.swift */,
@@ -1605,6 +1609,7 @@
 				F1D337EE0BA413A82C58564F /* ClientDocsSheet.swift in Sources */,
 				68C8E92568A9493BB12CA7A2 /* ClientFilterSheet.swift in Sources */,
 				EA78392419752556D10E8ADE /* ClientInfoSheet.swift in Sources */,
+				413748EB104E467105DD926F /* ClientIntakeFieldApplier.swift in Sources */,
 				47F95F0F0F8FB32FF4D939F6 /* ClientLookupEngine.swift in Sources */,
 				01C6BD94329F4A61B1E6E60C /* ClientLookupSidebar.swift in Sources */,
 				80E40CE38282E0BFAF1F1BBF /* ClientLookupSidebarModel.swift in Sources */,
@@ -1866,6 +1871,7 @@
 				6E7AB288C861DA31ADF9A4A5 /* Case.swift in Sources */,
 				8B519AFEB95B6453DDE3EA51 /* Client.swift in Sources */,
 				C8DCBB12F1F0BF75059DD44A /* ClientDoc.swift in Sources */,
+				C68816684078E835D1B6EEDC /* ClientIntakeFieldApplier.swift in Sources */,
 				F44DF440F7A03E62CBD6335F /* ClientNote.swift in Sources */,
 				DFF508DD3102DB0D96BCDB7B /* ClientTrunk.swift in Sources */,
 				EFDC077D2F78ABD00E7FC9CC /* CustomVocabularySpec.swift in Sources */,

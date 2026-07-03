@@ -212,6 +212,10 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/ClientTrunk.swift
         group: SharedEngine
+      # Wave 4 (2026-07-03) — canonical PDF-intake field apply shared by
+      # PDFImportSheet + both Share extensions (notes re-import guard).
+      - path: ../voxhora-ios/Voxhora/Engine/ClientIntakeFieldApplier.swift
+        group: SharedEngine
       # Client Lookup with Sidebar (2026-05-28) — 5-dimension filter engine
       # + @Observable sidebar-state singleton. Pure read-side; no schema.
       - path: ../voxhora-ios/Voxhora/Engine/ClientLookupEngine.swift
@@ -1234,6 +1238,9 @@ targets:
       # ClientContactsBridge calls in ClientTrunk are #if !VOXHORA_SHARE_EXTENSION
       # gated (Apple Contacts mirror not invoked from extension sandbox).
       - path: ../voxhora-ios/Voxhora/Engine/ClientTrunk.swift
+        group: SharedEngine
+      # Wave 4 (2026-07-03) — canonical PDF-intake field apply (notes guard).
+      - path: ../voxhora-ios/Voxhora/Engine/ClientIntakeFieldApplier.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/RosterReconciler.swift
         group: SharedEngine

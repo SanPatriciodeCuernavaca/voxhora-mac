@@ -37,6 +37,10 @@ class ShareViewController: NSViewController {
     private var hostingController: NSHostingController<AnyView>?
     private var statusLabel: NSTextField?
 
+    /// Wave 4 (2026-07-03) — controller-owned save-status channel; the
+    /// form renders the failed-save banner + Try Again from this.
+    private let saveStatus = PDFIntakeShareSaveStatus()
+
     // MARK: - Lifecycle
 
     override func loadView() {
@@ -116,6 +120,7 @@ class ShareViewController: NSViewController {
         // iOS extension uses — single source of truth.
         let form = PDFIntakeShareForm(
             parsed: parsed,
+            saveStatus: saveStatus,
             onSave: { [weak self] state in
                 Task { @MainActor [weak self] in
                     await self?.runSave(state: state, parsed: parsed)
@@ -189,43 +194,37 @@ class ShareViewController: NSViewController {
                 target = ClientTrunk.forceCreate(candidate: candidate, modelContext: context)
             }
 
-            target.name = state.name
-            target.appointmentNumber = parsed.appointmentNumber
-            target.preferredLanguage = state.preferredLanguage
-            target.phone1 = state.phone1
-            if !target.phone1.isEmpty && target.phone1Type.isEmpty { target.phone1Type = "Mobile" }
-            target.phone2 = state.phone2
-            if !target.phone2.isEmpty && target.phone2Type.isEmpty { target.phone2Type = "Mobile" }
-            target.email = state.email
-            target.addressStreet = state.addressStreet
-            target.addressCity = state.addressCity
-            target.addressState = state.addressState
-            target.addressZip = state.addressZip
-            target.dateOfBirth = state.dobEnabled ? state.dateOfBirth : nil
-            target.arrestDate = state.arrestDateEnabled ? state.arrestDate : nil
-            if state.arrestDateEnabled {
-                target.intakeDate = state.arrestDate
-            } else if target.intakeDate < Client.intakeDateSentinelCutoff {
-                target.intakeDate = Date()
-            }
-            target.inmateInCustody = state.inCustody
-            if !parsed.bookingNumber.isEmpty {
-                target.inmateBookingNumber = parsed.bookingNumber
-            }
-            var notesAggregate = state.attorneyNotes
-            if !parsed.notesFromPDF.isEmpty {
-                let prefix = "[from intake PDF]\n"
-                let pdfSection = "\(prefix)\(parsed.notesFromPDF)"
-                notesAggregate = notesAggregate.isEmpty
-                    ? pdfSection
-                    : "\(notesAggregate)\n\n\(pdfSection)"
-            }
-            if !notesAggregate.isEmpty {
-                target.attorneyNotes = target.attorneyNotes.isEmpty
-                    ? notesAggregate
-                    : "\(target.attorneyNotes)\n\n\(notesAggregate)"
-            }
+            // Wave 4 (2026-07-03) — canonical apply via
+            // ClientIntakeFieldApplier (one applier for PDFImportSheet +
+            // both Share extensions; kills the drift that duplicated the
+            // "[from intake PDF]" notes block on every re-share). Custody:
+            // this form HAS a toggle → the lawyer's choice is authoritative.
+            ClientIntakeFieldApplier.apply(
+                ClientIntakeFieldValues(
+                    name: state.name,
+                    appointmentNumber: parsed.appointmentNumber,
+                    preferredLanguage: state.preferredLanguage,
+                    phone1: state.phone1,
+                    phone2: state.phone2,
+                    email: state.email,
+                    addressStreet: state.addressStreet,
+                    addressCity: state.addressCity,
+                    addressState: state.addressState,
+                    addressZip: state.addressZip,
+                    dateOfBirth: state.dobEnabled ? state.dateOfBirth : nil,
+                    arrestDate: state.arrestDateEnabled ? state.arrestDate : nil,
+                    custodyFormToggle: state.inCustody,
+                    attorneyNotes: state.attorneyNotes,
+                    bookingNumber: parsed.bookingNumber,
+                    notesFromPDF: parsed.notesFromPDF
+                ),
+                to: target
+            )
 
+            try context.save()
+
+            // Audit-log AFTER the save landed (Wave 4 truthfulness — the
+            // row never claims a client that didn't save).
             AuditLogger.shared.log(
                 eventType: .clientCreatedFromPDF,
                 payload: [
@@ -239,14 +238,26 @@ class ShareViewController: NSViewController {
                 attorneyId: attorneyId
             )
 
-            try context.save()
+            complete()
         } catch {
+            // Wave 4 (2026-07-03, mockup-approved) — the panel STAYS OPEN:
+            // banner + Try Again with the form still filled. Pre-Wave-4
+            // this stderr'd and dismissed as if the save worked.
             FileHandle.standardError.write(
                 "Voxhora-Mac-Share save error: \(error)\n".data(using: .utf8) ?? Data()
             )
+            AuditLogger.shared.log(
+                eventType: .modelSaveFailed,
+                payload: [
+                    "callSite": "ShareViewController.runSave(mac_share_extension)",
+                    "error": "\(error)",
+                    "errorType": String(describing: type(of: error))
+                ],
+                attorneyId: ""
+            )
+            saveStatus.errorMessage = "Save failed — the client was NOT saved."
+            saveStatus.isSaving = false
         }
-
-        complete()
     }
 
     // MARK: - Shared SwiftData read (jurisdictionKey resolution)
