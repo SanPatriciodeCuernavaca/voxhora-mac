@@ -181,7 +181,11 @@ struct VoxhoraMacApp: App {
                         .environmentObject(todoNotificationRouter)
                 }
                 #endif
-                .frame(minWidth: 980, minHeight: 680)
+                // 2026-07-03 (11-inch audit, Matt's Mac) — minHeight 680
+                // exceeded a short display's usable area with the Dock
+                // visible (~674 at 1366×768), so the window's bottom edge
+                // sat under the Dock. 600 fits every Mac laptop screen.
+                .frame(minWidth: 980, minHeight: 600)
                 // Path A3b (2026-05-13) — degraded-launch alert (Mac
                 // companion to iOS VoxhoraApp). Fires when onAppear sets
                 // appState.containerDegradedToInMemory = true on Tier 2
