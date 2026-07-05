@@ -183,9 +183,10 @@ seal_variant "export-development" "Voxhora EXPORT tool" "$RELEASE_ENTITLEMENTS" 
 seal_variant "import-production"  "Voxhora IMPORT tool" "$IMPORT_ENTITLEMENTS"  1
 
 # ─── NOTARIZE BOTH (submit both, then poll both) ───────────────────────
+# Plain parallel arrays — macOS ships bash 3.2, which has no `declare -A`.
 say "Submitting both apps to Apple notarization…"
-declare -a NAMES=("export-development" "import-production")
-declare -A SUBMISSION_IDS
+NAMES=("export-development" "import-production")
+SIDS=()
 for name in "${NAMES[@]}"; do
   zip_path="$BUILD_DIR/$name.zip"
   ditto -c -k --keepParent "$BUILD_DIR/$name/Voxhora-Mac.app" "$zip_path"
@@ -193,12 +194,13 @@ for name in "${NAMES[@]}"; do
     --keychain-profile "$NOTARY_PROFILE" --output-format json 2>&1)"
   sid="$(echo "$submit_output" | grep -oE '"id":"[a-f0-9-]+"' | head -1 | cut -d'"' -f4)"
   [[ -n "$sid" ]] || { echo "$submit_output"; die "Notarization submit failed for $name"; }
-  SUBMISSION_IDS[$name]="$sid"
+  SIDS+=("$sid")
   echo "  $name → submission $sid"
 done
 
-for name in "${NAMES[@]}"; do
-  sid="${SUBMISSION_IDS[$name]}"
+for i in "${!NAMES[@]}"; do
+  name="${NAMES[$i]}"
+  sid="${SIDS[$i]}"
   until status="$(xcrun notarytool info "$sid" \
     --keychain-profile "$NOTARY_PROFILE" 2>/dev/null \
     | grep -E '^\s*status:' | awk '{print $2}')" \
