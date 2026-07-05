@@ -967,6 +967,13 @@ struct VoxhoraMacApp: App {
             // openWindow(id:) call via @Environment(\.openWindow).
             CommandGroup(after: .windowList) {
                 DiscoveryPortalMenuButton()
+                // Migration Phase 0 (2026-07-05) — Window-menu entry for the
+                // one-time Dev→Prod migration window. Tool builds only
+                // (Patrick's Debug + the two hand-installed tool apps);
+                // compiled out of Matt's Sparkle Release.
+                #if VOXHORA_MIGRATION
+                MigrationDataMenuButton()
+                #endif
             }
         }
 
@@ -1005,6 +1012,22 @@ struct VoxhoraMacApp: App {
         }
         .windowResizability(.contentMinSize)
         .defaultSize(width: 1400, height: 900)
+
+        // Migration Phase 0 (2026-07-05) — standalone window for the
+        // one-time Dev→Prod migration (MigrationInlineView + a live
+        // entitlement-read environment badge). A WINDOW, not a Settings
+        // section, because the IMPORT step runs on a FRESH store where
+        // ContentView is gated on onboarding and the Settings tab is
+        // unreachable. Same scene pattern as VoxHelp above. Tool builds
+        // only — compiled out of Matt's Sparkle Release.
+        #if VOXHORA_MIGRATION
+        Window("Data Migration", id: "data-migration") {
+            MigrationDataWindowView()
+                .modelContainer(modelContainer)
+        }
+        .windowResizability(.contentMinSize)
+        .defaultSize(width: 520, height: 480)
+        #endif
     }
 }
 
