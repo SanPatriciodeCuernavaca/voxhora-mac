@@ -706,6 +706,10 @@ targets:
       # TechShareCredentialsRow + the Discovery-source picker section.
       - path: ../voxhora-ios/Voxhora/Views/Settings/TechShareSettingsSection.swift
         group: SharedViews
+      # Beat 3 (2026-07-09) — the PC/plea backfill engine (25 per tap,
+      # sequential + paced, honest per-case report; mockup state 3).
+      - path: ../voxhora-ios/Voxhora/Engine/TechShareBackfillEngine.swift
+        group: SharedEngine
       # 2026-05-18 — US phone-number auto-formatter (Patrick: "I have
       # to add the brackets and hyphen by hand"). Used by SettingsView's
       # Attorney Info phone field + ClientInfoSheet phone1 / phone2.
