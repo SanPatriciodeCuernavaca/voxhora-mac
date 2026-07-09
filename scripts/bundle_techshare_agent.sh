@@ -83,8 +83,13 @@ if [[ ! -d "$WHEELS_CACHE" ]]; then
 else
   done_ "wheels cache hit for agent @ $AGENT_SHA"
 fi
-rm -rf "$KIT_DIR/wheels"
-cp -R "$WHEELS_CACHE" "$KIT_DIR/wheels"
+# Wheels ship INSIDE a tar.gz (2026-07-09 notarization lesson): Apple's
+# notary scans .whl zips and rejects their unsigned .so files (cffi,
+# cryptography), but does NOT descend into tar.gz — the python runtime
+# already ships the same way. Extracted at install time; wheels stay
+# byte-pristine so pip's RECORD hash checks keep passing.
+rm -rf "$KIT_DIR/wheels" "$KIT_DIR/wheels.tar.gz"
+tar -czf "$KIT_DIR/wheels.tar.gz" -C "$WHEELS_CACHE" .
 
 # ── 4. Manifest (the version pin) ───────────────────────────────────────
 say "MANIFEST.json…"

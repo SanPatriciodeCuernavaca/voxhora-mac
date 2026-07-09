@@ -11,7 +11,6 @@
 		01787CECF3A0C118B1D798FE /* DiscoveryAudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD69F17802A870CE0CF0216 /* DiscoveryAudioPlayerView.swift */; };
 		01C6BD94329F4A61B1E6E60C /* ClientLookupSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A316A384C342FD441E4A5849 /* ClientLookupSidebar.swift */; };
 		01FD3EEDE19DB6A5F7979C3B /* AudioEngineHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D1E928BA8D4B92EAF5F03 /* AudioEngineHelper.swift */; };
-		02BC47659430E614FC1069AB /* cryptography-49.0.0-cp311-abi3-macosx_11_0_arm64.whl in Resources */ = {isa = PBXBuildFile; fileRef = 7097E7D49DFD7A03E9B3A187 /* cryptography-49.0.0-cp311-abi3-macosx_11_0_arm64.whl */; };
 		02F2AD7E3E2EE7B53BB96E69 /* PDFTextExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D795D2055B5C72C5E06022 /* PDFTextExtractor.swift */; };
 		0466FA66EB9A99F8F70FBC6E /* CaseTypeFilterRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FED69476AFFE3DAAE67FE31 /* CaseTypeFilterRegistry.swift */; };
 		05C1F68AAEC23EA523021C64 /* AttorneyProfileSchemaV15Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DE9359E523C48F8343EC0 /* AttorneyProfileSchemaV15Bootstrap.swift */; };
@@ -24,14 +23,12 @@
 		09360A098D30C9687B86A22C /* ClientContactsBackfillBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E8EA2D92FF70AAB9E6CEFA /* ClientContactsBackfillBootstrap.swift */; };
 		0B69D04F0D23FA07CD9CB9E4 /* TravisCountySIPSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DA8B1B466B568BC29F2AEF /* TravisCountySIPSource.swift */; };
 		0BC62082CB1BB7E1CD300C14 /* BookingPhotoRequestQueueObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17DBAF592F459CCA4BB4AF9 /* BookingPhotoRequestQueueObserver.swift */; };
-		0BD6125459F2F1D49B063D9F /* olefile-0.47-py2.py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = A37B78C5D413806471A7BAFA /* olefile-0.47-py2.py3-none-any.whl */; };
 		0BFD0A09F3206928B2B16456 /* ClientNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC0EB8E919F40C19F92A9E /* ClientNote.swift */; };
 		0C9B8C1D6498C46C303866C2 /* ClientPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A14C24E3DAAF84900AE12 /* ClientPickerView.swift */; };
 		0CD0F2D286F99F718B95A66E /* ApplePaySuccessVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803307A27337803B86EC3AE7 /* ApplePaySuccessVisual.swift */; };
 		0D4B1CD61F75AE151FBA22BD /* CalendarEventTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2E36264CA69ABE3178C6C /* CalendarEventTrunk.swift */; };
 		0DC48E9480B7CE1BF2F7A57C /* DiscoveryBulkInboxMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B2D64769C1AC52D1C2EDF6 /* DiscoveryBulkInboxMigration.swift */; };
 		0E0D32D5FBC7748D0D3C2147 /* DropboxAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BBF6F5B5B8F7A7A4C85BC8 /* DropboxAPIClient.swift */; };
-		0E1E2728830EE0031720C90E /* pcodedmp-1.2.6-py2.py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 867E6D6825FBF851FC2B57EC /* pcodedmp-1.2.6-py2.py3-none-any.whl */; };
 		0E4B5ADF70D78998E84E053A /* MacAccessProbes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3007AAA1EBF6E6910742A3 /* MacAccessProbes.swift */; };
 		0ED17C72FE7D78FE11D335B5 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2092AC7EBC40033CF8F72FE /* Case.swift */; };
 		0F994846BDBD81712AE59EBC /* CalendarRefreshScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C12954FC793A67555D5D15 /* CalendarRefreshScheduler.swift */; };
@@ -41,12 +38,10 @@
 		140909679FFA617BC89F7E0A /* AddClientSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2731F9AB15C10BD113EB514 /* AddClientSheet.swift */; };
 		14236A41C857ACD364C4A78F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388E2CEE556B31DEE6733C16 /* Entry.swift */; };
 		142AEE8F9F13C1AE4D5CF5A2 /* WatchTabOrderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AFF1D5204545AF349CA2A /* WatchTabOrderPicker.swift */; };
-		14D4BF6A42002844FF0EDED3 /* compressed_rtf-1.0.7-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = A56D614C781ED14201A14D3C /* compressed_rtf-1.0.7-py3-none-any.whl */; };
 		16F67406B07C511BA6CBB4D9 /* DiscoveryStagingUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD8AE527662DDF0A484860F /* DiscoveryStagingUploader.swift */; };
 		1710D22FB7B200898CC4D341 /* DropboxAccountSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416D3DB87640E7AB01817FDA /* DropboxAccountSettingsRow.swift */; };
 		177B9B3C109C28C053969E21 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BF4F34B672795ECBEDF44D /* UserPreferences.swift */; };
 		18FDB5733E5AC42A3FBF4673 /* MailInboxBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571B86A3B851095150C1C1EA /* MailInboxBridge.swift */; };
-		1B042DF0BC912A014DD0B301 /* rtfde-0.1.2.2-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = A99E60D332DB850321DDABCC /* rtfde-0.1.2.2-py3-none-any.whl */; };
 		1B09C4516A5EAF172133FC0A /* AttorneyProfileSchemaV8Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AE4B66DE16BD9F74FB855C /* AttorneyProfileSchemaV8Bootstrap.swift */; };
 		1B64D60D40AC0F0F18F369CB /* AttorneyProfileSchemaV17Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AC15EFD59141D29C8FCDB6 /* AttorneyProfileSchemaV17Bootstrap.swift */; };
 		1B833757CE427D8B2FDCBFC9 /* WatchViewSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC2CF18EA9C98906146161 /* WatchViewSettingsSection.swift */; };
@@ -56,8 +51,6 @@
 		204A8F8EB0942C691B3EAE62 /* WatchIndicatorColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203EC8295F94DFEDD500C736 /* WatchIndicatorColor.swift */; };
 		21789EB01D3C734608C3B30C /* TodoTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D57D99290EE00A5F706346 /* TodoTrunk.swift */; };
 		218072DE132B6816AAB046E8 /* VoxhoraSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD6E67067FD002E070A029E /* VoxhoraSchema.swift */; };
-		2224B2C70491ED92F10EC38E /* jaraco_functools-4.5.0-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 86ACCACD20C0E370C430C063 /* jaraco_functools-4.5.0-py3-none-any.whl */; };
-		222DE405ACF177B8C331C74B /* python-standalone.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 6F6D9AFE051A22A220F6FE23 /* python-standalone.tar.gz */; };
 		23226D30F37A02B9A424D070 /* AutoBillFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B556EBC53B35CA86B39ADF /* AutoBillFeedback.swift */; };
 		2368AF9129C3FD1CB07CD959 /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A0986E172331CBECB1B9D /* Voucher.swift */; };
 		248EDAE9FC5A98395BEEAC5C /* AuditLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AB9777FAC1A6297B4C217A /* AuditLogEntry.swift */; };
@@ -69,12 +62,10 @@
 		274E126D5C8801965456D1FC /* ClientNoteTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285FDDC4CD4111E88C6DD495 /* ClientNoteTrunk.swift */; };
 		291A488777149DF4BC32ACCF /* AttorneyProfileSchemaV14Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F68D1AC18667A942C4F65E /* AttorneyProfileSchemaV14Bootstrap.swift */; };
 		2A1328A9A7BDEA64919FABF4 /* UserPreferencesBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414E99F6A181A848E705362 /* UserPreferencesBootstrap.swift */; };
-		2AD03765020E48036E1048D6 /* urllib3-2.7.0-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = EBFFE114F30B3C56C83ED274 /* urllib3-2.7.0-py3-none-any.whl */; };
 		2BFE1B620F7FB36A13AB91F5 /* VoxhoraArchitecture.json in Resources */ = {isa = PBXBuildFile; fileRef = 68625AD0AC4BF64F8F83610E /* VoxhoraArchitecture.json */; };
 		2CBE9395B8298EECFE55AFA6 /* VoxhoraArchitectureSummary.md in Resources */ = {isa = PBXBuildFile; fileRef = A45B370A2D2390279F13F9C9 /* VoxhoraArchitectureSummary.md */; };
 		2D7CDB1256899D65EBE8E19D /* WrongICloudAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A4AA3B128EAD5F69A60BCB /* WrongICloudAccountView.swift */; };
 		2EAF5DD47CF268934695A5C4 /* CloudDownloadVenueSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EDEB9E15EB8DBE36F096BE /* CloudDownloadVenueSettingsRow.swift */; };
-		2EC6A8EA8D7A681922F539E2 /* keyring-25.7.0-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = C40F5509FFEEA7AF1F4420D3 /* keyring-25.7.0-py3-none-any.whl */; };
 		2FD2D639C8AD9AAAAC9B40B5 /* DiscoveryBillSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33C829471EC6B67A9BDBA63 /* DiscoveryBillSheet.swift */; };
 		305CAAFBBB408858F70A4C64 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61BCD44624DFD57763A8B6 /* SettingsView.swift */; };
 		30834F9F0E7AF25347997832 /* AppointmentLetterParserRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D27C88B65F064C1C11028C5 /* AppointmentLetterParserRegistry.swift */; };
@@ -83,7 +74,6 @@
 		30F2FE9B1040D009EA84E02C /* CustomVocabularyRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3259E3DE338EFE23C1ED6036 /* CustomVocabularyRegistration.swift */; };
 		319B0C2F43AA17F25A1CB843 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC4FD229E96BA1ABA5F164 /* CalendarView.swift */; };
 		320409A82114E26DA3B3703A /* WatchBillingPresetsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25913F17E7A0E5A53FFE9946 /* WatchBillingPresetsSection.swift */; };
-		32A3B2109EF2F4E33B8EB295 /* voxhora_techshare_agent-0.2.0-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 2D27C757B07477790E0F906D /* voxhora_techshare_agent-0.2.0-py3-none-any.whl */; };
 		3383EA608D9E54F1832D6C9A /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BF4F34B672795ECBEDF44D /* UserPreferences.swift */; };
 		339F565CBA693E3AEEE6760F /* CustomJurisdiction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D8CFF3998667E6991191F /* CustomJurisdiction.swift */; };
 		34967FAA3666AD50666BFB36 /* CloudKitSyncAuditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDA7E09E7BA7B50BABE1CA /* CloudKitSyncAuditor.swift */; };
@@ -97,7 +87,6 @@
 		39591D2A036E01A867C95AA4 /* MigrationXLSXReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBBD36533D3A1CFA9ECC690 /* MigrationXLSXReader.swift */; };
 		3A5CCFAB8A8B7803B1962C2B /* UserPreferencesSchemaV11Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CACD463F2031F907DE0EEF /* UserPreferencesSchemaV11Bootstrap.swift */; };
 		3A6D28742FF35DF8082DCDC9 /* AgentJobsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED31529C5511CB6F8A2FA0BF /* AgentJobsClient.swift */; };
-		3ABADD472DDC053548AEAEF8 /* more_itertools-11.1.0-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = A35BBF5A675DAE7228038B9C /* more_itertools-11.1.0-py3-none-any.whl */; };
 		3ACB0544E25F2A2E5E10DB68 /* DiscoveryWatchedAuditSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2861D0A22345EFB90E967DD /* DiscoveryWatchedAuditSession.swift */; };
 		3AEB0E22B4B479FD34857519 /* AppleContactsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A760D13B3C6A6F693D84E42 /* AppleContactsSection.swift */; };
 		3BFC547158E0F0D2A86DBCF6 /* DSAFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C22FC2EA827A2019EA10B26 /* DSAFetcher.swift */; };
@@ -110,7 +99,6 @@
 		40D633B0940FA2997FF32701 /* TodoBillSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FDAC41FC3B8E98F5DDD01 /* TodoBillSheet.swift */; };
 		40ECAEA09DDE0978CE34759B /* ClientSchemaV7Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4FE6AB4FB32535813FAE3 /* ClientSchemaV7Bootstrap.swift */; };
 		413748EB104E467105DD926F /* ClientIntakeFieldApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3AEC51E8BD2042B933985 /* ClientIntakeFieldApplier.swift */; };
-		414FB38937ECD942A2B5E8B3 /* pycparser-3.0-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 66498FEEA2F62DE3F41E76B6 /* pycparser-3.0-py3-none-any.whl */; };
 		42384CA3FD156F8FD64B9F57 /* VouchersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0493A23B7C235DD52BFA5AB /* VouchersView.swift */; };
 		4259FB9B5F6D9F8619062C86 /* QuickAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C0900489FD4AD30369786 /* QuickAction.swift */; };
 		4348518749EE5FEF7F663765 /* CourtsLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A11E040C0A52AB44D3923 /* CourtsLookup.swift */; };
@@ -119,7 +107,6 @@
 		46516B026EB4339580571073 /* TechShareSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C3F8D206C13D59C635395 /* TechShareSettingsSection.swift */; };
 		46740BCA2F614A40E765FB58 /* DiscoveryFolderScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28670C3751E16546A7AF04C6 /* DiscoveryFolderScanner.swift */; };
 		46BF43F8B120632341E85554 /* PCBackfillConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326FA180EF49A8EA8CE33DE /* PCBackfillConverter.swift */; };
-		47D89EDDEC0F4A7DDADD3ABA /* agent-src.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 9A17F3CF27A63C1BBA548F55 /* agent-src.tar.gz */; };
 		47F95F0F0F8FB32FF4D939F6 /* ClientLookupEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDCFCC08CD232CAFC594CB5 /* ClientLookupEngine.swift */; };
 		47FE833D5A83A2D2B62B0E5C /* ClientContactsBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B46A68E13A457501518B2 /* ClientContactsBridge.swift */; };
 		485F6500788A781F1BAFF8AF /* SilentSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9254E57CE4D802BF853390 /* SilentSound.swift */; };
@@ -145,7 +132,6 @@
 		56C76D61F033BA7512839C8F /* GoldCheckmarkBurstVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AD3362FF6588790A7242E4 /* GoldCheckmarkBurstVisual.swift */; };
 		576C5BFD7579A6898F0DC214 /* CriminalDefense.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABDFA227C18EF75136D525 /* CriminalDefense.swift */; };
 		57F64E97E9285B48B29A055B /* AttorneyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE49BD1B301B49CA563624F /* AttorneyProfile.swift */; };
-		5867971A9D4386253E49205E /* certifi-2026.6.17-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 887E157CC28742420A9F94CF /* certifi-2026.6.17-py3-none-any.whl */; };
 		58E86431AFBF289AF5E30EBF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EF5F4639F5578B46D5033 /* AppState.swift */; };
 		5AB300C15BEC028028FBF3A1 /* ConfettiBurstVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19449102B01AA6CA9CE54D04 /* ConfettiBurstVisual.swift */; };
 		5B28DBC482A11F21CDC2EC87 /* VoxhoraUserManual.md in Resources */ = {isa = PBXBuildFile; fileRef = 87430CBF117FB5CE086DF625 /* VoxhoraUserManual.md */; };
@@ -156,7 +142,6 @@
 		618DC81E1525133F1458E03B /* FunModeVisualRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A3C2170156D57D0CE7FB6 /* FunModeVisualRegistry.swift */; };
 		61944459F7E4A86E6AEF4977 /* GenericCSVImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47958C68799AE2979D027653 /* GenericCSVImporter.swift */; };
 		61BB3F106776B52CD3D544BC /* TravisCountyAppointmentLetterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4DCD34803F412C0D0814A /* TravisCountyAppointmentLetterParser.swift */; };
-		62BA95EA01E70BE92CDD4777 /* soupsieve-2.8.4-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = AB5CD45C1EF11379612EA8B0 /* soupsieve-2.8.4-py3-none-any.whl */; };
 		6387D78D770837A352223DF8 /* UserImportedVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361CF4B36A55DA79B0B7FA3 /* UserImportedVideoPlayerView.swift */; };
 		63B26FFD92F04F7C9514FC45 /* FunModePlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0150DE863075A85481D950F /* FunModePlayerPool.swift */; };
 		659DC17B25487E0764C3CF53 /* AppointmentLetterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A69EA34F2D87B3BCB54004 /* AppointmentLetterParser.swift */; };
@@ -193,7 +178,6 @@
 		73172C958989B8D3DA0BF83D /* ReminderConfigPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4706AC8453DA9273FF2AF54E /* ReminderConfigPicker.swift */; };
 		736D7375A0AD6993A1F7020C /* AttorneyProfileSchemaV23Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D209A71258B81A150557DF /* AttorneyProfileSchemaV23Bootstrap.swift */; };
 		7397447414941ADD905B5AFA /* SimpleHapticVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0822194C3E51A68C61CDC /* SimpleHapticVisual.swift */; };
-		744B368084678EAA5B0A766E /* oletools-0.60.2-py2.py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = AF1DC2A9307E9C92DEDB92A6 /* oletools-0.60.2-py2.py3-none-any.whl */; };
 		762D4BA115912ABD9B7E6563 /* MigrationBatchImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE82C93BC815DDA3F59C326 /* MigrationBatchImportView.swift */; };
 		76D5C3E93B8918EB9936758D /* AppointmentLetterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A69EA34F2D87B3BCB54004 /* AppointmentLetterParser.swift */; };
 		78B3941830CBB60785ADC523 /* AutoBillToastWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FCBA6BFC9D55D07E84168 /* AutoBillToastWindowController.swift */; };
@@ -221,16 +205,13 @@
 		863998EFFA89848EAE8E6BF6 /* DropboxOAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3157D20CA8252CA99A6D08F /* DropboxOAuthManager.swift */; };
 		868B530D640D1375722B3BD3 /* AttorneyProfileSchemaV18Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB4AFAF6F79B93E16D551 /* AttorneyProfileSchemaV18Bootstrap.swift */; };
 		86E53DB3D12D148AAED094A0 /* CloudSyncMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B952A83D3149FE7C966E5CF /* CloudSyncMonitor.swift */; };
-		87968FD6CBAA0FB1E9726069 /* idna-3.18-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 28FFEFD7A0E3CC0B7C2298ED /* idna-3.18-py3-none-any.whl */; };
 		87BB6E5E075B1308636BD729 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388E2CEE556B31DEE6733C16 /* Entry.swift */; };
 		885817822A78A4454D249FED /* DiscoveryPortalWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E59E8502E5034C33C46458 /* DiscoveryPortalWindowView.swift */; };
 		885ED9A9E213D49BF2B6245B /* MigrationPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59692B9F0FACF4DCFD5BCAC8 /* MigrationPreviewView.swift */; };
-		88D6C09B05DBDFBF8CEEFF34 /* pyparsing-3.3.2-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 53F5F7A320EA92B5FE40C891 /* pyparsing-3.3.2-py3-none-any.whl */; };
 		88E03E87887BCC8648004BCD /* BillTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998A1628A332504B82459282 /* BillTimeButton.swift */; };
 		897A1F659D7E525483C093A9 /* PracticeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418EF8556A1686491D6F1AB /* PracticeArea.swift */; };
 		897AE471DC65BE4942FDB36A /* CashierChimeSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319866431B8441A693B944D4 /* CashierChimeSound.swift */; };
 		8B519AFEB95B6453DDE3EA51 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAB84EF5EE57FAFA512932 /* Client.swift */; };
-		8B5DA36F4DEAFF4D1670F749 /* tzlocal-5.4.4-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 73A79C2BF51EC7B535EB4497 /* tzlocal-5.4.4-py3-none-any.whl */; };
 		8E385E3F24AD8E208B325628 /* ClientRosterImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82BAB93F881F673C0D28328 /* ClientRosterImporter.swift */; };
 		8E3D5E3815641BA81AFFF20B /* MacMailSendTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC31DC98A7A6CBA14B8AD7 /* MacMailSendTracker.swift */; };
 		8E866C0CF1A4293845781CF5 /* PCDocumentArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E167F74B5E2EAFCA501F71 /* PCDocumentArchiver.swift */; };
@@ -264,8 +245,6 @@
 		A26E64763FD21E93CD5206C0 /* ChampagnePopVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A19A76CE6C3DAC79493CA1 /* ChampagnePopVisual.swift */; };
 		A4425E0026C43127AE57D0B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 692FFE1B87CF90C6D57353F6 /* Assets.xcassets */; };
 		A4DCA1D654B42A3D72CE798B /* DiscoveryDownloadsSettingsRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A22BBB2C78D5F9AA1700D /* DiscoveryDownloadsSettingsRows.swift */; };
-		A57484AD57BFCD86B4A98DBB /* MANIFEST.json in Resources */ = {isa = PBXBuildFile; fileRef = D414C6D9A2183D81C048E6AE /* MANIFEST.json */; };
-		A57A549D9FFBCE2128777DE5 /* extract_msg-0.55.0-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = E03D266676552BD1F4593C78 /* extract_msg-0.55.0-py3-none-any.whl */; };
 		A6190307EDA0FCABD010CED5 /* PDFIntakeShareForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C72061F442338249AFEC303 /* PDFIntakeShareForm.swift */; };
 		A7CC26331669D02176912563 /* ActiveRosterEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0C3BF11C0EA845E0FBE90 /* ActiveRosterEntries.swift */; };
 		A7E27231A47635E7B21CB01D /* MigrationColumnMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C2BF950576589DDFFE924 /* MigrationColumnMapping.swift */; };
@@ -300,14 +279,10 @@
 		BA41B83D00EC784535E442B3 /* VoxHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A46FBF87537B49DC6BE185F /* VoxHelpView.swift */; };
 		BA5765180FA39D78C354FF9E /* TodoReminderScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DAC31495A7C2586C841CBB /* TodoReminderScheduler.swift */; };
 		BB0566F60B38F05DB6C701A1 /* TechShareCredentialsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A630D4E65ED99EAD0F4C50 /* TechShareCredentialsRow.swift */; };
-		BB58AF27721374987D26C4BB /* charset_normalizer-3.4.9-cp312-cp312-macosx_10_13_universal2.whl in Resources */ = {isa = PBXBuildFile; fileRef = 95B5E8A20FCC2D4DC1A67088 /* charset_normalizer-3.4.9-cp312-cp312-macosx_10_13_universal2.whl */; };
-		BCBC4D3F8EB6665AE346BF60 /* red_black_tree_mod-1.22-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = E3FAA32D714D8EFD1CE1B186 /* red_black_tree_mod-1.22-py3-none-any.whl */; };
-		BCEF33D17672315B24F198B1 /* cffi-2.1.0-cp312-cp312-macosx_11_0_arm64.whl in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CD42E14C57F9EC7213CB7 /* cffi-2.1.0-cp312-cp312-macosx_11_0_arm64.whl */; };
 		BDDFF1812C5052FD8BA9D7E7 /* TravisAppellateRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F790EBDED68BCCFC3BA91BA /* TravisAppellateRegistration.swift */; };
 		BE3429E131F6BCA453EB7588 /* BookingPhotoRequestQueueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E8F2B3E7491F9C1D24CA7 /* BookingPhotoRequestQueueSection.swift */; };
 		BF4621719E6577999216E7C1 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C35F14697F4C491EAF62CC7 /* KeychainHelper.swift */; };
 		BFAC48314965E66BDB4DED2C /* ManualEntryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC034C1944EB53D7C9F589 /* ManualEntryForm.swift */; };
-		C0CE7CC07923ED94DE93390F /* beautifulsoup4-4.13.5-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = E750B75CF19BA85A2E374D5C /* beautifulsoup4-4.13.5-py3-none-any.whl */; };
 		C1BFD84240E976B01A766FC0 /* AttorneyProfileSchemaV24Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3382419E09C7B1CCE581F922 /* AttorneyProfileSchemaV24Bootstrap.swift */; };
 		C1F73CE4E7C5E0D8E5F136DD /* MigrationImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6186B2D1CE77FB3B6F8872E5 /* MigrationImporter.swift */; };
 		C23AE41EADAC081A1B310822 /* LiquidGoldSplashVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98396DF886F2886C551C5BA6 /* LiquidGoldSplashVisual.swift */; };
@@ -325,7 +300,6 @@
 		C9E90DF1C2F3375CC6E95E8F /* MoneyCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11FB83FA4DE27BE91EDC76A /* MoneyCounter.swift */; };
 		CA3D1D5C037341580BD31BAF /* TravisCountyAppointmentLetterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4DCD34803F412C0D0814A /* TravisCountyAppointmentLetterParser.swift */; };
 		CA86F16597B48A735931A7FA /* DiscoveryStorageSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A2F24211F0F274248542F /* DiscoveryStorageSettingsRow.swift */; };
-		CAE8258E5F5C8867ED91D511 /* easygui-0.98.3-py2.py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 621660F44A2686E3808B5ED1 /* easygui-0.98.3-py2.py3-none-any.whl */; };
 		CC10B734CEC184046C887EBA /* CalendarEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B2877C23EBE85377EA7A0 /* CalendarEventRow.swift */; };
 		CCE72F1B8C92F9B9286378D8 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B4630C0FC2F0C8A52D98F /* ComingSoonView.swift */; };
 		CD8F6829848017E972FA9589 /* IntakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD718C8E822C3B84C62449E /* IntakeViewModel.swift */; };
@@ -334,7 +308,6 @@
 		CDC9F4656AAA1D0C6D7259CA /* MailInboxWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85724110586CAA89B2292946 /* MailInboxWatcher.swift */; };
 		CDEDC3D14BFEC5446728FB44 /* AttorneyProfileDuplicateRecoveryBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94691A6266B93484892F6D /* AttorneyProfileDuplicateRecoveryBootstrap.swift */; };
 		CE51B470B12E648368D1717D /* PCAffidavitDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B508F96C239E88127CBA7 /* PCAffidavitDetector.swift */; };
-		CE72DF7C5A78C1C49958C208 /* requests-2.34.2-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 4DB010E1A891FD3076AA662A /* requests-2.34.2-py3-none-any.whl */; };
 		CEC02FF06FD3C2D84E979A97 /* MailAccessBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DDE3125655D215C1635BD /* MailAccessBanner.swift */; };
 		D11F595E106B98EEA4CBCBE7 /* DropboxFetchToTempCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43674315CAF2AFB6963BBCE /* DropboxFetchToTempCache.swift */; };
 		D20F61F81835B4BD308656D2 /* iCloudAccountIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE932B11464ED70FCFACDEB /* iCloudAccountIdentity.swift */; };
@@ -345,7 +318,6 @@
 		D596329267BADF7C1561ADF9 /* MetricKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20756C034F376B57BB5C19 /* MetricKitManager.swift */; };
 		D5A821150B1B1820901AA78A /* AnthropicClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD557B103B7A12205BBD67 /* AnthropicClient.swift */; };
 		D5B333C0F30945507055C98B /* ParsedAppointmentIntake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A10C326087E5D7119FB2D8D /* ParsedAppointmentIntake.swift */; };
-		D5C8EA9A852D805DDEA416F2 /* jaraco_context-6.1.2-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 9272807A1B599A3E232C840A /* jaraco_context-6.1.2-py3-none-any.whl */; };
 		D5DEA1B25A096B1C61E5DA67 /* InitialContactSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88B1C7465F6FC10DB3DA50 /* InitialContactSheet.swift */; };
 		D5F811C5CB9BA6536230243E /* PlainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AEC8EEBFD65A7B206014B2 /* PlainError.swift */; };
 		D71BDC643DAEB9F024A4952F /* PCAffidavitImportSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD6ECE6E70C38B61501CD /* PCAffidavitImportSheet.swift */; };
@@ -357,8 +329,6 @@
 		DB652FBDB1831AE38CBE11F8 /* HistoricalCSVImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26596725B5427C5008818B5 /* HistoricalCSVImporter.swift */; };
 		DDA1C9E5C8093E77B19A73B0 /* ClientDocViewerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0760D901F1EB6C9DEE7F7A8A /* ClientDocViewerSheet.swift */; };
 		DE1C6628400DCC8CDEC08810 /* VoxHelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E08E962A3419E37518800E4 /* VoxHelpButton.swift */; };
-		DF0B0FB8A22CCFBF9BDA4DF1 /* ebcdic-1.1.1-py2.py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 75861D8A69D98AA895CAAE89 /* ebcdic-1.1.1-py2.py3-none-any.whl */; };
-		DF5815331D9EB4ACDB8E470F /* lark-1.3.1-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = EA66D84C178B198DE6AB8322 /* lark-1.3.1-py3-none-any.whl */; };
 		DFED1636E18C3BE5F22CF2C0 /* DiagnosticsUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2CCC44B4ED92BD74A65A8 /* DiagnosticsUploader.swift */; };
 		DFF508DD3102DB0D96BCDB7B /* ClientTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AADBA0931A72085F12BFC5 /* ClientTrunk.swift */; };
 		E0480E4F79F404A6472E19B0 /* AttorneyProfileSchemaV25Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197B2AE791B854BD6D0DD97A /* AttorneyProfileSchemaV25Bootstrap.swift */; };
@@ -374,7 +344,6 @@
 		E53B940D5321A342A637D2C7 /* CalendarSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B936E5F9A9CE63F58A36B07F /* CalendarSource.swift */; };
 		E55EC970F4B38B368CFDF1A3 /* BookingPhotoRequestSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8791E7990F70EC85ED5F9 /* BookingPhotoRequestSettings.swift */; };
 		E5EE216F6FBFB1F88A003708 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAB84EF5EE57FAFA512932 /* Client.swift */; };
-		E603DD392770DAF9E102B924 /* colorclass-2.2.2-py2.py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 38DA3F4C9162AE9BDA65A8A4 /* colorclass-2.2.2-py2.py3-none-any.whl */; };
 		E63785C9A47366580F4B7E33 /* MacMessagesSendTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B633A3FB1CFD373573A8022 /* MacMessagesSendTracker.swift */; };
 		E669B0FF816438B07D617A8F /* UserImportedVisualEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673FBDCE6FA3E0707E33A1AC /* UserImportedVisualEffect.swift */; };
 		E6834E4211C3FB1F9613B55B /* MigrationOrphanCleanup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB268BA71FA62F4FAD30FF9 /* MigrationOrphanCleanup.swift */; };
@@ -384,9 +353,7 @@
 		EA78392419752556D10E8ADE /* ClientInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670A5DE312FB6615266B84BA /* ClientInfoSheet.swift */; };
 		EAD59AE89ADC1DBDE3C83FB2 /* DiscoveryVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24007B5E00871FB7819B3610 /* DiscoveryVideoPlayerView.swift */; };
 		EB15EA9612C653CBB17DA9E4 /* PDFImportSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B36373A57364B287B728BA8 /* PDFImportSheet.swift */; };
-		EB4D979C2A3D12390B404E51 /* typing_extensions-4.16.0-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 702393E524A24A17A4DB70CE /* typing_extensions-4.16.0-py3-none-any.whl */; };
 		ECB3921E45AA90D0ECB9C559 /* SlotMachineJackpotVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DE1FDAFBBA58793FA1692 /* SlotMachineJackpotVisual.swift */; };
-		ED06B34194CF2A3E2BD53CAF /* msoffcrypto_tool-6.0.0-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = A345B6BE1C63B70BBD0A32E8 /* msoffcrypto_tool-6.0.0-py3-none-any.whl */; };
 		ED432477B3D03648A83BAAE1 /* EntryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311776BEA2710C9537636A /* EntryRow.swift */; };
 		EDA128DBAFC7145C2DCCC089 /* LetterTemplatesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2551A82E82F4ABDB8E42F9D4 /* LetterTemplatesSection.swift */; };
 		EDD5711AFA72FBBDD34A5A00 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7D0508231B9BABFBE314D6 /* CalendarEvent.swift */; };
@@ -398,7 +365,6 @@
 		EEDFD65C209B23E658FA5A2D /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4DFEA105E040FADF25E2ED /* PhoneFormatter.swift */; };
 		EF5C586162E9C185FA5E54E2 /* DiscoveryEvidenceGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62A637A77C779A7D685682 /* DiscoveryEvidenceGridView.swift */; };
 		EF7E163EC3479E484D5DAFB8 /* SendReminderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A369697E063CE2E27236110 /* SendReminderSheet.swift */; };
-		EFB83CD70A1A5AF958252C47 /* jaraco.classes-3.4.0-py3-none-any.whl in Resources */ = {isa = PBXBuildFile; fileRef = 648190D53126522F20B45727 /* jaraco.classes-3.4.0-py3-none-any.whl */; };
 		EFDC077D2F78ABD00E7FC9CC /* CustomVocabularySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038E84E0C91B3145D5D7294B /* CustomVocabularySpec.swift */; };
 		F1D337EE0BA413A82C58564F /* ClientDocsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D167A9C0BD3B71691E7FD32 /* ClientDocsSheet.swift */; };
 		F1F6A830D8DD0C61758C458A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8600029768690C7AD5BB26 /* ShareViewController.swift */; };
@@ -501,7 +467,6 @@
 		2757BCC5C782B691B9A4A193 /* ClientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientsViewModel.swift; path = "../voxhora-ios/Voxhora/Views/ClientsViewModel.swift"; sourceTree = "<group>"; };
 		285FDDC4CD4111E88C6DD495 /* ClientNoteTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientNoteTrunk.swift; path = "../voxhora-ios/Voxhora/Engine/ClientNoteTrunk.swift"; sourceTree = "<group>"; };
 		28670C3751E16546A7AF04C6 /* DiscoveryFolderScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryFolderScanner.swift; path = "../voxhora-ios/Voxhora/Engine/DiscoveryFolderScanner.swift"; sourceTree = "<group>"; };
-		28FFEFD7A0E3CC0B7C2298ED /* idna-3.18-py3-none-any.whl */ = {isa = PBXFileReference; path = "idna-3.18-py3-none-any.whl"; sourceTree = "<group>"; };
 		29430B54A8242877C210F9F9 /* MigrationCSVImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationCSVImportView.swift; path = "../voxhora-ios/Voxhora/Views/Migration/MigrationCSVImportView.swift"; sourceTree = "<group>"; };
 		2A026AA58A460630A9B852D5 /* ClientCommunicationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientCommunicationRouter.swift; path = "../voxhora-ios/Voxhora/Engine/ClientCommunicationRouter.swift"; sourceTree = "<group>"; };
 		2A0CAD63A59A507B8854A117 /* GenericFreeformVocab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericFreeformVocab.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/Vocabularies/GenericFreeformVocab.swift"; sourceTree = "<group>"; };
@@ -512,7 +477,6 @@
 		2B633A3FB1CFD373573A8022 /* MacMessagesSendTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MacMessagesSendTracker.swift; path = "../voxhora-ios/Voxhora/Engine/MacMessagesSendTracker.swift"; sourceTree = "<group>"; };
 		2C1DE9359E523C48F8343EC0 /* AttorneyProfileSchemaV15Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV15Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV15Bootstrap.swift"; sourceTree = "<group>"; };
 		2C35F14697F4C491EAF62CC7 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeychainHelper.swift; path = "../voxhora-ios/Voxhora/Engine/KeychainHelper.swift"; sourceTree = "<group>"; };
-		2D27C757B07477790E0F906D /* voxhora_techshare_agent-0.2.0-py3-none-any.whl */ = {isa = PBXFileReference; path = "voxhora_techshare_agent-0.2.0-py3-none-any.whl"; sourceTree = "<group>"; };
 		2D3D8CFF3998667E6991191F /* CustomJurisdiction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomJurisdiction.swift; sourceTree = "<group>"; };
 		2EAD38DC0EEE6404C3FD4D8C /* BillTimeEntryModeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillTimeEntryModeSection.swift; sourceTree = "<group>"; };
 		2FCDA7E09E7BA7B50BABE1CA /* CloudKitSyncAuditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudKitSyncAuditor.swift; path = "../voxhora-ios/Voxhora/Engine/CloudKitSyncAuditor.swift"; sourceTree = "<group>"; };
@@ -531,7 +495,6 @@
 		3815538E8E94A934EF13022E /* AttorneyProfileSchemaV12Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV12Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV12Bootstrap.swift"; sourceTree = "<group>"; };
 		388E2CEE556B31DEE6733C16 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = "../voxhora-ios/Voxhora/Models/Entry.swift"; sourceTree = "<group>"; };
 		38D5F64BD11709E1D7F8844C /* SMSReminderScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMSReminderScheduler.swift; path = "../voxhora-ios/Voxhora/Engine/SMSReminderScheduler.swift"; sourceTree = "<group>"; };
-		38DA3F4C9162AE9BDA65A8A4 /* colorclass-2.2.2-py2.py3-none-any.whl */ = {isa = PBXFileReference; path = "colorclass-2.2.2-py2.py3-none-any.whl"; sourceTree = "<group>"; };
 		395F1127217E129E09A5965A /* NotificationDeniedBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationDeniedBanner.swift; path = "../voxhora-ios/Voxhora/Views/NotificationDeniedBanner.swift"; sourceTree = "<group>"; };
 		39925574BE4F91130F7EC56C /* MigrationFolderImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationFolderImporter.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationFolderImporter.swift"; sourceTree = "<group>"; };
 		39EC66174EC079E83086EED9 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoView.swift; path = "../voxhora-ios/Voxhora/Views/TodoView.swift"; sourceTree = "<group>"; };
@@ -559,10 +522,8 @@
 		4A46FBF87537B49DC6BE185F /* VoxHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoxHelpView.swift; path = "../voxhora-ios/Voxhora/Views/VoxHelpView.swift"; sourceTree = "<group>"; };
 		4B952A83D3149FE7C966E5CF /* CloudSyncMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudSyncMonitor.swift; path = "../voxhora-ios/Voxhora/Engine/CloudSyncMonitor.swift"; sourceTree = "<group>"; };
 		4C22FC2EA827A2019EA10B26 /* DSAFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSAFetcher.swift; sourceTree = "<group>"; };
-		4C6CD42E14C57F9EC7213CB7 /* cffi-2.1.0-cp312-cp312-macosx_11_0_arm64.whl */ = {isa = PBXFileReference; path = "cffi-2.1.0-cp312-cp312-macosx_11_0_arm64.whl"; sourceTree = "<group>"; };
 		4C94691A6266B93484892F6D /* AttorneyProfileDuplicateRecoveryBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileDuplicateRecoveryBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileDuplicateRecoveryBootstrap.swift"; sourceTree = "<group>"; };
 		4CDC2CF18EA9C98906146161 /* WatchViewSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchViewSettingsSection.swift; sourceTree = "<group>"; };
-		4DB010E1A891FD3076AA662A /* requests-2.34.2-py3-none-any.whl */ = {isa = PBXFileReference; path = "requests-2.34.2-py3-none-any.whl"; sourceTree = "<group>"; };
 		4E553FEDE19A037D641F418E /* AttorneyProfileSchemaV20Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV20Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV20Bootstrap.swift"; sourceTree = "<group>"; };
 		4EE4B351DAD437B011FF5EFD /* AppearBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppearBadge.swift; path = "../voxhora-ios/Voxhora/Views/AppearBadge.swift"; sourceTree = "<group>"; };
 		4F510543CC041158FB104776 /* TodoClientResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoClientResolver.swift; path = "../voxhora-ios/Voxhora/Engine/TodoClientResolver.swift"; sourceTree = "<group>"; };
@@ -572,7 +533,6 @@
 		5325BD4C3F694CDF19C89D10 /* ContactsAuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactsAuthorizationManager.swift; path = "../voxhora-ios/Voxhora/Engine/ContactsAuthorizationManager.swift"; sourceTree = "<group>"; };
 		534FD9A9DE7EA94FFE32C41F /* CloudPCSynopsisSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudPCSynopsisSettingsRow.swift; sourceTree = "<group>"; };
 		53BBF6F5B5B8F7A7A4C85BC8 /* DropboxAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DropboxAPIClient.swift; path = "../voxhora-ios/Voxhora/Engine/DropboxAPIClient.swift"; sourceTree = "<group>"; };
-		53F5F7A320EA92B5FE40C891 /* pyparsing-3.3.2-py3-none-any.whl */ = {isa = PBXFileReference; path = "pyparsing-3.3.2-py3-none-any.whl"; sourceTree = "<group>"; };
 		544A79FD4FEF82E09A643D4C /* Jurisdiction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Jurisdiction.swift; path = "../voxhora-ios/Voxhora/Engine/Jurisdiction.swift"; sourceTree = "<group>"; };
 		550C2680FB57614AD163AB49 /* DiscoveryContextRailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryContextRailView.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryContextRailView.swift"; sourceTree = "<group>"; };
 		553FBA164A6485B0B35A4C46 /* DiscoverySourcePickerSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverySourcePickerSettingsRow.swift; sourceTree = "<group>"; };
@@ -599,15 +559,12 @@
 		6059A6AD2B5EDF163FD63A95 /* TravisCountyVocab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravisCountyVocab.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/Vocabularies/TravisCountyVocab.swift"; sourceTree = "<group>"; };
 		60CD557B103B7A12205BBD67 /* AnthropicClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnthropicClient.swift; sourceTree = "<group>"; };
 		6186B2D1CE77FB3B6F8872E5 /* MigrationImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationImporter.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationImporter.swift"; sourceTree = "<group>"; };
-		621660F44A2686E3808B5ED1 /* easygui-0.98.3-py2.py3-none-any.whl */ = {isa = PBXFileReference; path = "easygui-0.98.3-py2.py3-none-any.whl"; sourceTree = "<group>"; };
 		62AC15EFD59141D29C8FCDB6 /* AttorneyProfileSchemaV17Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV17Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV17Bootstrap.swift"; sourceTree = "<group>"; };
 		6327EE3D17287A47D2E364C4 /* UserPreferencesSchemaV9Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV9Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV9Bootstrap.swift"; sourceTree = "<group>"; };
-		648190D53126522F20B45727 /* jaraco.classes-3.4.0-py3-none-any.whl */ = {isa = PBXFileReference; path = "jaraco.classes-3.4.0-py3-none-any.whl"; sourceTree = "<group>"; };
 		649E8F2B3E7491F9C1D24CA7 /* BookingPhotoRequestQueueSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookingPhotoRequestQueueSection.swift; path = "../voxhora-ios/Voxhora/Views/BookingPhotoRequestQueueSection.swift"; sourceTree = "<group>"; };
 		654CE2F681E11BED3C9F0E10 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		657D1E03DB0AF448DCC130EA /* CaseInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaseInfoSheet.swift; path = "../voxhora-ios/Voxhora/Views/CaseInfoSheet.swift"; sourceTree = "<group>"; };
 		657E28DDFE41355BF7543D75 /* UserPreferencesSchemaV8Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV8Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV8Bootstrap.swift"; sourceTree = "<group>"; };
-		66498FEEA2F62DE3F41E76B6 /* pycparser-3.0-py3-none-any.whl */ = {isa = PBXFileReference; path = "pycparser-3.0-py3-none-any.whl"; sourceTree = "<group>"; };
 		670A5DE312FB6615266B84BA /* ClientInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientInfoSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientInfoSheet.swift"; sourceTree = "<group>"; };
 		673FBDCE6FA3E0707E33A1AC /* UserImportedVisualEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImportedVisualEffect.swift; sourceTree = "<group>"; };
 		68056ECFEC853917FC94535F /* CommunicationsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationsSection.swift; sourceTree = "<group>"; };
@@ -623,22 +580,17 @@
 		6DDCFCC08CD232CAFC594CB5 /* ClientLookupEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientLookupEngine.swift; path = "../voxhora-ios/Voxhora/Engine/ClientLookupEngine.swift"; sourceTree = "<group>"; };
 		6F23CE139A349942F1EDCB6D /* ClientToDoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientToDoSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientToDoSheet.swift"; sourceTree = "<group>"; };
 		6F5FD45B5420D16938E21A4F /* WatchStatusIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchStatusIndicator.swift; path = "../voxhora-ios/Voxhora/Engine/WatchStatusIndicator.swift"; sourceTree = "<group>"; };
-		6F6D9AFE051A22A220F6FE23 /* python-standalone.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "python-standalone.tar.gz"; sourceTree = "<group>"; };
 		6F790EBDED68BCCFC3BA91BA /* TravisAppellateRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravisAppellateRegistration.swift; sourceTree = "<group>"; };
 		6F8A0986E172331CBECB1B9D /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Voucher.swift; path = "../voxhora-ios/Voxhora/Models/Voucher.swift"; sourceTree = "<group>"; };
 		6F9A22BBB2C78D5F9AA1700D /* DiscoveryDownloadsSettingsRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryDownloadsSettingsRows.swift; sourceTree = "<group>"; };
 		6FB9F86941A94D922F0E311F /* PorscheFlatSixSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorscheFlatSixSound.swift; sourceTree = "<group>"; };
 		6FED69476AFFE3DAAE67FE31 /* CaseTypeFilterRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTypeFilterRegistry.swift; sourceTree = "<group>"; };
-		702393E524A24A17A4DB70CE /* typing_extensions-4.16.0-py3-none-any.whl */ = {isa = PBXFileReference; path = "typing_extensions-4.16.0-py3-none-any.whl"; sourceTree = "<group>"; };
-		7097E7D49DFD7A03E9B3A187 /* cryptography-49.0.0-cp311-abi3-macosx_11_0_arm64.whl */ = {isa = PBXFileReference; path = "cryptography-49.0.0-cp311-abi3-macosx_11_0_arm64.whl"; sourceTree = "<group>"; };
 		71A630D4E65ED99EAD0F4C50 /* TechShareCredentialsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechShareCredentialsRow.swift; sourceTree = "<group>"; };
 		71EB7420A79F2DBB8BF47429 /* AttorneyProfileSchemaV21Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV21Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV21Bootstrap.swift"; sourceTree = "<group>"; };
 		7326FA180EF49A8EA8CE33DE /* PCBackfillConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PCBackfillConverter.swift; path = "../voxhora-ios/Voxhora/Engine/PCBackfillConverter.swift"; sourceTree = "<group>"; };
-		73A79C2BF51EC7B535EB4497 /* tzlocal-5.4.4-py3-none-any.whl */ = {isa = PBXFileReference; path = "tzlocal-5.4.4-py3-none-any.whl"; sourceTree = "<group>"; };
 		73BBC537782440D60269C1A0 /* ModelContainerBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelContainerBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ModelContainerBootstrap.swift"; sourceTree = "<group>"; };
 		73C0C3BF11C0EA845E0FBE90 /* ActiveRosterEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActiveRosterEntries.swift; path = "../voxhora-ios/Voxhora/Engine/ActiveRosterEntries.swift"; sourceTree = "<group>"; };
 		7414E99F6A181A848E705362 /* UserPreferencesBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesBootstrap.swift"; sourceTree = "<group>"; };
-		75861D8A69D98AA895CAAE89 /* ebcdic-1.1.1-py2.py3-none-any.whl */ = {isa = PBXFileReference; path = "ebcdic-1.1.1-py2.py3-none-any.whl"; sourceTree = "<group>"; };
 		7722A93FCBFA23C7A418A6B4 /* TodoNotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoNotificationRouter.swift; path = "../voxhora-ios/Voxhora/Engine/TodoNotificationRouter.swift"; sourceTree = "<group>"; };
 		796C41AF48B1DB28D332B713 /* ClientCleanupEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientCleanupEngine.swift; path = "../voxhora-ios/Voxhora/Engine/ClientCleanupEngine.swift"; sourceTree = "<group>"; };
 		7A27D61BACD98A491DE74753 /* MigrationStagedEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationStagedEntry.swift; path = "../voxhora-ios/Voxhora/Engine/Migration/MigrationStagedEntry.swift"; sourceTree = "<group>"; };
@@ -659,14 +611,11 @@
 		85C12954FC793A67555D5D15 /* CalendarRefreshScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarRefreshScheduler.swift; path = "../voxhora-ios/Voxhora/Engine/CalendarRefreshScheduler.swift"; sourceTree = "<group>"; };
 		85CE5FEA20C5EAA974D30175 /* GoldFlashVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldFlashVisual.swift; sourceTree = "<group>"; };
 		8658A67435BBE493CD2FBFF9 /* ClientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientsView.swift; path = "../voxhora-ios/Voxhora/Views/ClientsView.swift"; sourceTree = "<group>"; };
-		867E6D6825FBF851FC2B57EC /* pcodedmp-1.2.6-py2.py3-none-any.whl */ = {isa = PBXFileReference; path = "pcodedmp-1.2.6-py2.py3-none-any.whl"; sourceTree = "<group>"; };
 		869B95D1AB516BC1984C7EAA /* DiagnosticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsEngine.swift; sourceTree = "<group>"; };
-		86ACCACD20C0E370C430C063 /* jaraco_functools-4.5.0-py3-none-any.whl */ = {isa = PBXFileReference; path = "jaraco_functools-4.5.0-py3-none-any.whl"; sourceTree = "<group>"; };
 		86B8791E7990F70EC85ED5F9 /* BookingPhotoRequestSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPhotoRequestSettings.swift; sourceTree = "<group>"; };
 		8722A2F4D30508BECE73BA64 /* DiscoveryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryTabView.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryTabView.swift"; sourceTree = "<group>"; };
 		87430CBF117FB5CE086DF625 /* VoxhoraUserManual.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = VoxhoraUserManual.md; sourceTree = "<group>"; };
 		87F4A6276554B3AA236E868F /* UserPreferencesSchemaV15Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV15Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV15Bootstrap.swift"; sourceTree = "<group>"; };
-		887E157CC28742420A9F94CF /* certifi-2026.6.17-py3-none-any.whl */ = {isa = PBXFileReference; path = "certifi-2026.6.17-py3-none-any.whl"; sourceTree = "<group>"; };
 		891C4E9AE5A7A6C529FF78FD /* TodoSchemaV1Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoSchemaV1Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/TodoSchemaV1Bootstrap.swift"; sourceTree = "<group>"; };
 		89B94FF2944915539C69FCFA /* UserPreferencesSchemaV12Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV12Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV12Bootstrap.swift"; sourceTree = "<group>"; };
 		8ACF995AF8947DA5CC1772C5 /* PCAffidavitDetectorRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCAffidavitDetectorRegistry.swift; sourceTree = "<group>"; };
@@ -676,20 +625,17 @@
 		8EC43D473A12441D33B019D0 /* CalendarCleanupMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarCleanupMigration.swift; path = "../voxhora-ios/Voxhora/Engine/CalendarCleanupMigration.swift"; sourceTree = "<group>"; };
 		8F5B4630C0FC2F0C8A52D98F /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComingSoonView.swift; path = "../voxhora-ios/Voxhora/Views/ComingSoonView.swift"; sourceTree = "<group>"; };
 		9072662AFBE806732F9A22D0 /* CallTrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CallTrackingService.swift; path = "../voxhora-ios/Voxhora/Engine/CallTrackingService.swift"; sourceTree = "<group>"; };
-		9272807A1B599A3E232C840A /* jaraco_context-6.1.2-py3-none-any.whl */ = {isa = PBXFileReference; path = "jaraco_context-6.1.2-py3-none-any.whl"; sourceTree = "<group>"; };
 		92FD68B0A9B5B4C4C000496E /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodayViewModel.swift; path = "../voxhora-ios/Voxhora/Views/TodayViewModel.swift"; sourceTree = "<group>"; };
 		936DDE3125655D215C1635BD /* MailAccessBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailAccessBanner.swift; sourceTree = "<group>"; };
 		94482DC11EFAE0B8BA4A467D /* DiscoveryPDFViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryPDFViewerView.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryPDFViewerView.swift"; sourceTree = "<group>"; };
 		9494A405C15054196903FEF3 /* JurisdictionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JurisdictionRegistry.swift; sourceTree = "<group>"; };
 		94E59E8502E5034C33C46458 /* DiscoveryPortalWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryPortalWindowView.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryPortalWindowView.swift"; sourceTree = "<group>"; };
-		95B5E8A20FCC2D4DC1A67088 /* charset_normalizer-3.4.9-cp312-cp312-macosx_10_13_universal2.whl */ = {isa = PBXFileReference; path = "charset_normalizer-3.4.9-cp312-cp312-macosx_10_13_universal2.whl"; sourceTree = "<group>"; };
 		96AB9777FAC1A6297B4C217A /* AuditLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuditLogEntry.swift; path = "../voxhora-ios/Voxhora/Models/AuditLogEntry.swift"; sourceTree = "<group>"; };
 		97DC31DC98A7A6CBA14B8AD7 /* MacMailSendTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MacMailSendTracker.swift; path = "../voxhora-ios/Voxhora/Engine/MacMailSendTracker.swift"; sourceTree = "<group>"; };
 		98396DF886F2886C551C5BA6 /* LiquidGoldSplashVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGoldSplashVisual.swift; sourceTree = "<group>"; };
 		998A1628A332504B82459282 /* BillTimeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BillTimeButton.swift; path = "../voxhora-ios/Voxhora/Views/BillTimeButton.swift"; sourceTree = "<group>"; };
 		99E167F74B5E2EAFCA501F71 /* PCDocumentArchiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PCDocumentArchiver.swift; path = "../voxhora-ios/Voxhora/Engine/PCDocumentArchiver.swift"; sourceTree = "<group>"; };
 		9A07B4CFB1035071593F942A /* ClientLookupSidebarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientLookupSidebarModel.swift; path = "../voxhora-ios/Voxhora/Engine/ClientLookupSidebarModel.swift"; sourceTree = "<group>"; };
-		9A17F3CF27A63C1BBA548F55 /* agent-src.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "agent-src.tar.gz"; sourceTree = "<group>"; };
 		9A92818F1B337F438AFC0601 /* VoxSpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoxSpeechRecognizer.swift; sourceTree = "<group>"; };
 		9BC3D454D9FFE0693C607C8E /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HapticFeedback.swift; path = "../voxhora-ios/Voxhora/Engine/HapticFeedback.swift"; sourceTree = "<group>"; };
 		9BFE2182C2587A7D7574C711 /* AttorneyProfileSchemaV5Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV5Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV5Bootstrap.swift"; sourceTree = "<group>"; };
@@ -705,9 +651,6 @@
 		A2DC665D3F9C6928397F0296 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Todo.swift; path = "../voxhora-ios/Voxhora/Models/Todo.swift"; sourceTree = "<group>"; };
 		A307B1CCF2CDD028620A2F9B /* RatePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatePickerSheet.swift; path = "../voxhora-ios/Voxhora/Views/RatePickerSheet.swift"; sourceTree = "<group>"; };
 		A316A384C342FD441E4A5849 /* ClientLookupSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientLookupSidebar.swift; path = "../voxhora-ios/Voxhora/Views/ClientLookupSidebar.swift"; sourceTree = "<group>"; };
-		A345B6BE1C63B70BBD0A32E8 /* msoffcrypto_tool-6.0.0-py3-none-any.whl */ = {isa = PBXFileReference; path = "msoffcrypto_tool-6.0.0-py3-none-any.whl"; sourceTree = "<group>"; };
-		A35BBF5A675DAE7228038B9C /* more_itertools-11.1.0-py3-none-any.whl */ = {isa = PBXFileReference; path = "more_itertools-11.1.0-py3-none-any.whl"; sourceTree = "<group>"; };
-		A37B78C5D413806471A7BAFA /* olefile-0.47-py2.py3-none-any.whl */ = {isa = PBXFileReference; path = "olefile-0.47-py2.py3-none-any.whl"; sourceTree = "<group>"; };
 		A3B44ECDFE46EC9B67CAACA9 /* DiscoveryQuickLookViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryQuickLookViewer.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryQuickLookViewer.swift"; sourceTree = "<group>"; };
 		A3FD1F5F5A001CD56B1870C4 /* StampApprovedVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampApprovedVisual.swift; sourceTree = "<group>"; };
 		A418EF8556A1686491D6F1AB /* PracticeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PracticeArea.swift; path = "../voxhora-ios/Voxhora/Engine/PracticeArea.swift"; sourceTree = "<group>"; };
@@ -716,18 +659,14 @@
 		A46887959339EDF84AF7D243 /* SendDiagnosticsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDiagnosticsSheet.swift; sourceTree = "<group>"; };
 		A4E0EEA2EE49BD9EEE03E2EB /* ClientSchemaV12Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV12Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV12Bootstrap.swift"; sourceTree = "<group>"; };
 		A4F68D1AC18667A942C4F65E /* AttorneyProfileSchemaV14Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV14Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV14Bootstrap.swift"; sourceTree = "<group>"; };
-		A56D614C781ED14201A14D3C /* compressed_rtf-1.0.7-py3-none-any.whl */ = {isa = PBXFileReference; path = "compressed_rtf-1.0.7-py3-none-any.whl"; sourceTree = "<group>"; };
 		A63BBCCA55A0DDEF37D986AE /* IntroEmailComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroEmailComposer.swift; sourceTree = "<group>"; };
 		A6A08A9525AFA021FF87F49A /* AttorneyProfileSchemaV26Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV26Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV26Bootstrap.swift"; sourceTree = "<group>"; };
-		A99E60D332DB850321DDABCC /* rtfde-0.1.2.2-py3-none-any.whl */ = {isa = PBXFileReference; path = "rtfde-0.1.2.2-py3-none-any.whl"; sourceTree = "<group>"; };
 		A9F0822194C3E51A68C61CDC /* SimpleHapticVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleHapticVisual.swift; sourceTree = "<group>"; };
-		AB5CD45C1EF11379612EA8B0 /* soupsieve-2.8.4-py3-none-any.whl */ = {isa = PBXFileReference; path = "soupsieve-2.8.4-py3-none-any.whl"; sourceTree = "<group>"; };
 		AC99A880E197DDA41F771BE9 /* ClientDocsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientDocsRow.swift; path = "../voxhora-ios/Voxhora/Views/ClientDocsRow.swift"; sourceTree = "<group>"; };
 		AD203F2938416BF371285634 /* WatchStatusIndicatorPredicateRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchStatusIndicatorPredicateRegistry.swift; path = "../voxhora-ios/Voxhora/Engine/WatchStatusIndicatorPredicateRegistry.swift"; sourceTree = "<group>"; };
 		AEA25E9BC256864E5EB3C5F2 /* AttorneyProfileSchemaV9Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV9Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV9Bootstrap.swift"; sourceTree = "<group>"; };
 		AEE2C3F3931EE39184443BBC /* VoucherCSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherCSVExporter.swift; sourceTree = "<group>"; };
 		AF0B46A68E13A457501518B2 /* ClientContactsBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientContactsBridge.swift; path = "../voxhora-ios/Voxhora/Engine/ClientContactsBridge.swift"; sourceTree = "<group>"; };
-		AF1DC2A9307E9C92DEDB92A6 /* oletools-0.60.2-py2.py3-none-any.whl */ = {isa = PBXFileReference; path = "oletools-0.60.2-py2.py3-none-any.whl"; sourceTree = "<group>"; };
 		AFE2E56A01DA15249E356026 /* TravisCountyPCAffidavitDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravisCountyPCAffidavitDetector.swift; sourceTree = "<group>"; };
 		B0A0611F5084F5E2F965D697 /* ClientNotesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientNotesSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientNotesSheet.swift"; sourceTree = "<group>"; };
 		B1BBB4AFAF6F79B93E16D551 /* AttorneyProfileSchemaV18Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV18Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV18Bootstrap.swift"; sourceTree = "<group>"; };
@@ -751,7 +690,6 @@
 		C1A69EA34F2D87B3BCB54004 /* AppointmentLetterParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentLetterParser.swift; path = "../voxhora-ios/Voxhora/Engine/AppointmentLetterParser.swift"; sourceTree = "<group>"; };
 		C33C829471EC6B67A9BDBA63 /* DiscoveryBillSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryBillSheet.swift; path = "../voxhora-ios/Voxhora/Views/DiscoveryBillSheet.swift"; sourceTree = "<group>"; };
 		C37CDAF797D77D53F793342C /* PorscheMoneyDropVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorscheMoneyDropVisual.swift; sourceTree = "<group>"; };
-		C40F5509FFEEA7AF1F4420D3 /* keyring-25.7.0-py3-none-any.whl */ = {isa = PBXFileReference; path = "keyring-25.7.0-py3-none-any.whl"; sourceTree = "<group>"; };
 		C4A19A76CE6C3DAC79493CA1 /* ChampagnePopVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampagnePopVisual.swift; sourceTree = "<group>"; };
 		C7ABDFA227C18EF75136D525 /* CriminalDefense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriminalDefense.swift; sourceTree = "<group>"; };
 		C7E4DAB6ABF0B1988081E40A /* ClientDocTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientDocTrunk.swift; path = "../voxhora-ios/Voxhora/Engine/ClientDocTrunk.swift"; sourceTree = "<group>"; };
@@ -776,7 +714,6 @@
 		D2BF4F34B672795ECBEDF44D /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferences.swift; path = "../voxhora-ios/Voxhora/Models/UserPreferences.swift"; sourceTree = "<group>"; };
 		D3157D20CA8252CA99A6D08F /* DropboxOAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DropboxOAuthManager.swift; path = "../voxhora-ios/Voxhora/Engine/DropboxOAuthManager.swift"; sourceTree = "<group>"; };
 		D3F9143719DF8FF247587FA4 /* DownloadQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DownloadQueue.swift; path = "../voxhora-ios/Voxhora/Engine/DownloadQueue.swift"; sourceTree = "<group>"; };
-		D414C6D9A2183D81C048E6AE /* MANIFEST.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MANIFEST.json; sourceTree = "<group>"; };
 		D5D44F529615CFB6047CE302 /* TechShareBackfillEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TechShareBackfillEngine.swift; path = "../voxhora-ios/Voxhora/Engine/TechShareBackfillEngine.swift"; sourceTree = "<group>"; };
 		D7BB8AC5D0764DDC0DBB7769 /* IntakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IntakeView.swift; path = "../voxhora-ios/Voxhora/Views/IntakeView.swift"; sourceTree = "<group>"; };
 		D82BAB93F881F673C0D28328 /* ClientRosterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientRosterImporter.swift; path = "../voxhora-ios/Voxhora/Engine/ClientRosterImporter.swift"; sourceTree = "<group>"; };
@@ -790,7 +727,6 @@
 		DF1232A2D896FCDCDE3D0D4C /* llm_system_prompt.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = llm_system_prompt.md; sourceTree = "<group>"; };
 		DF942744E0FB96851CE6FADB /* travis_county_courts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = travis_county_courts.json; sourceTree = "<group>"; };
 		E0150DE863075A85481D950F /* FunModePlayerPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModePlayerPool.swift; sourceTree = "<group>"; };
-		E03D266676552BD1F4593C78 /* extract_msg-0.55.0-py3-none-any.whl */ = {isa = PBXFileReference; path = "extract_msg-0.55.0-py3-none-any.whl"; sourceTree = "<group>"; };
 		E1D209A71258B81A150557DF /* AttorneyProfileSchemaV23Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV23Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV23Bootstrap.swift"; sourceTree = "<group>"; };
 		E2092AC7EBC40033CF8F72FE /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Case.swift; path = "../voxhora-ios/Voxhora/Models/Case.swift"; sourceTree = "<group>"; };
 		E26596725B5427C5008818B5 /* HistoricalCSVImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalCSVImporter.swift; sourceTree = "<group>"; };
@@ -798,19 +734,15 @@
 		E311AB7FC1336BC2B4CABD43 /* FunModeSoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeSoundEffect.swift; sourceTree = "<group>"; };
 		E3C26098F419D2519846A77A /* CallDurationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CallDurationSheet.swift; path = "../voxhora-ios/Voxhora/Views/CallDurationSheet.swift"; sourceTree = "<group>"; };
 		E3C3D8F81EB6DB12A496A99E /* MigrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationView.swift; path = "../voxhora-ios/Voxhora/Views/Migration/MigrationView.swift"; sourceTree = "<group>"; };
-		E3FAA32D714D8EFD1CE1B186 /* red_black_tree_mod-1.22-py3-none-any.whl */ = {isa = PBXFileReference; path = "red_black_tree_mod-1.22-py3-none-any.whl"; sourceTree = "<group>"; };
 		E4EF8E0FD981879F274CFD93 /* LLMParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMParser.swift; sourceTree = "<group>"; };
 		E69060C543C666AEFF956A93 /* JurisdictionIndexBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JurisdictionIndexBuilder.swift; sourceTree = "<group>"; };
 		E6D57D99290EE00A5F706346 /* TodoTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoTrunk.swift; path = "../voxhora-ios/Voxhora/Engine/TodoTrunk.swift"; sourceTree = "<group>"; };
-		E750B75CF19BA85A2E374D5C /* beautifulsoup4-4.13.5-py3-none-any.whl */ = {isa = PBXFileReference; path = "beautifulsoup4-4.13.5-py3-none-any.whl"; sourceTree = "<group>"; };
 		E76E89D8658521D6988E7515 /* DiscoveryBillTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoveryBillTimer.swift; path = "../voxhora-ios/Voxhora/Engine/DiscoveryBillTimer.swift"; sourceTree = "<group>"; };
 		E7EAB84EF5EE57FAFA512932 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Client.swift; path = "../voxhora-ios/Voxhora/Models/Client.swift"; sourceTree = "<group>"; };
 		E89D0A287B5B743D644BF0A9 /* FunModeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunModeSection.swift; sourceTree = "<group>"; };
 		E9119857B047DE4731B5F56E /* ClientSchemaV11Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientSchemaV11Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/ClientSchemaV11Bootstrap.swift"; sourceTree = "<group>"; };
 		E9960D86615B44C7CDF44E72 /* AttorneyProfileQuickActionsRecoveryBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileQuickActionsRecoveryBootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileQuickActionsRecoveryBootstrap.swift"; sourceTree = "<group>"; };
 		E9D25E4650CCFC096D2204F5 /* iCloudContainerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = iCloudContainerHelper.swift; path = "../voxhora-ios/Voxhora/Engine/iCloudContainerHelper.swift"; sourceTree = "<group>"; };
-		EA66D84C178B198DE6AB8322 /* lark-1.3.1-py3-none-any.whl */ = {isa = PBXFileReference; path = "lark-1.3.1-py3-none-any.whl"; sourceTree = "<group>"; };
-		EBFFE114F30B3C56C83ED274 /* urllib3-2.7.0-py3-none-any.whl */ = {isa = PBXFileReference; path = "urllib3-2.7.0-py3-none-any.whl"; sourceTree = "<group>"; };
 		ECE82C93BC815DDA3F59C326 /* MigrationBatchImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MigrationBatchImportView.swift; path = "../voxhora-ios/Voxhora/Views/Migration/MigrationBatchImportView.swift"; sourceTree = "<group>"; };
 		ED31529C5511CB6F8A2FA0BF /* AgentJobsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AgentJobsClient.swift; path = "../voxhora-ios/Voxhora/Engine/AgentJobsClient.swift"; sourceTree = "<group>"; };
 		EE3D7771C95B081836541346 /* UserPreferencesSchemaV16Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV16Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV16Bootstrap.swift"; sourceTree = "<group>"; };
@@ -1214,44 +1146,6 @@
 			path = "../voxhora-ios/Voxhora/Engine/AppointmentLetterParsers";
 			sourceTree = "<group>";
 		};
-		66F968B3478149C66E210C4E /* wheels */ = {
-			isa = PBXGroup;
-			children = (
-				E750B75CF19BA85A2E374D5C /* beautifulsoup4-4.13.5-py3-none-any.whl */,
-				887E157CC28742420A9F94CF /* certifi-2026.6.17-py3-none-any.whl */,
-				4C6CD42E14C57F9EC7213CB7 /* cffi-2.1.0-cp312-cp312-macosx_11_0_arm64.whl */,
-				95B5E8A20FCC2D4DC1A67088 /* charset_normalizer-3.4.9-cp312-cp312-macosx_10_13_universal2.whl */,
-				38DA3F4C9162AE9BDA65A8A4 /* colorclass-2.2.2-py2.py3-none-any.whl */,
-				A56D614C781ED14201A14D3C /* compressed_rtf-1.0.7-py3-none-any.whl */,
-				7097E7D49DFD7A03E9B3A187 /* cryptography-49.0.0-cp311-abi3-macosx_11_0_arm64.whl */,
-				621660F44A2686E3808B5ED1 /* easygui-0.98.3-py2.py3-none-any.whl */,
-				75861D8A69D98AA895CAAE89 /* ebcdic-1.1.1-py2.py3-none-any.whl */,
-				E03D266676552BD1F4593C78 /* extract_msg-0.55.0-py3-none-any.whl */,
-				28FFEFD7A0E3CC0B7C2298ED /* idna-3.18-py3-none-any.whl */,
-				9272807A1B599A3E232C840A /* jaraco_context-6.1.2-py3-none-any.whl */,
-				86ACCACD20C0E370C430C063 /* jaraco_functools-4.5.0-py3-none-any.whl */,
-				648190D53126522F20B45727 /* jaraco.classes-3.4.0-py3-none-any.whl */,
-				C40F5509FFEEA7AF1F4420D3 /* keyring-25.7.0-py3-none-any.whl */,
-				EA66D84C178B198DE6AB8322 /* lark-1.3.1-py3-none-any.whl */,
-				A35BBF5A675DAE7228038B9C /* more_itertools-11.1.0-py3-none-any.whl */,
-				A345B6BE1C63B70BBD0A32E8 /* msoffcrypto_tool-6.0.0-py3-none-any.whl */,
-				A37B78C5D413806471A7BAFA /* olefile-0.47-py2.py3-none-any.whl */,
-				AF1DC2A9307E9C92DEDB92A6 /* oletools-0.60.2-py2.py3-none-any.whl */,
-				867E6D6825FBF851FC2B57EC /* pcodedmp-1.2.6-py2.py3-none-any.whl */,
-				66498FEEA2F62DE3F41E76B6 /* pycparser-3.0-py3-none-any.whl */,
-				53F5F7A320EA92B5FE40C891 /* pyparsing-3.3.2-py3-none-any.whl */,
-				E3FAA32D714D8EFD1CE1B186 /* red_black_tree_mod-1.22-py3-none-any.whl */,
-				4DB010E1A891FD3076AA662A /* requests-2.34.2-py3-none-any.whl */,
-				A99E60D332DB850321DDABCC /* rtfde-0.1.2.2-py3-none-any.whl */,
-				AB5CD45C1EF11379612EA8B0 /* soupsieve-2.8.4-py3-none-any.whl */,
-				702393E524A24A17A4DB70CE /* typing_extensions-4.16.0-py3-none-any.whl */,
-				73A79C2BF51EC7B535EB4497 /* tzlocal-5.4.4-py3-none-any.whl */,
-				EBFFE114F30B3C56C83ED274 /* urllib3-2.7.0-py3-none-any.whl */,
-				2D27C757B07477790E0F906D /* voxhora_techshare_agent-0.2.0-py3-none-any.whl */,
-			);
-			path = wheels;
-			sourceTree = "<group>";
-		};
 		75A609A2CC81C7EEE83A5D58 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1313,7 +1207,6 @@
 			isa = PBXGroup;
 			children = (
 				F20F1B14B91C56508039AF8E /* Sync */,
-				E72C38DE21A99A7F31341ED3 /* TechShareAgentKit */,
 				692FFE1B87CF90C6D57353F6 /* Assets.xcassets */,
 				2340EFE7D55A70A0F35F56A3 /* CheckForUpdatesView.swift */,
 				2264B4F9EF71EE9BE5D4F145 /* ContinuityCameraResponder.swift */,
@@ -1427,17 +1320,6 @@
 				CC9254E57CE4D802BF853390 /* SilentSound.swift */,
 			);
 			path = Sounds;
-			sourceTree = "<group>";
-		};
-		E72C38DE21A99A7F31341ED3 /* TechShareAgentKit */ = {
-			isa = PBXGroup;
-			children = (
-				66F968B3478149C66E210C4E /* wheels */,
-				9A17F3CF27A63C1BBA548F55 /* agent-src.tar.gz */,
-				D414C6D9A2183D81C048E6AE /* MANIFEST.json */,
-				6F6D9AFE051A22A220F6FE23 /* python-standalone.tar.gz */,
-			);
-			path = TechShareAgentKit;
 			sourceTree = "<group>";
 		};
 		EA1E8D741309B08C7879CFCE /* SharedModels */ = {
@@ -1630,47 +1512,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4425E0026C43127AE57D0B6 /* Assets.xcassets in Resources */,
-				A57484AD57BFCD86B4A98DBB /* MANIFEST.json in Resources */,
 				2BFE1B620F7FB36A13AB91F5 /* VoxhoraArchitecture.json in Resources */,
 				2CBE9395B8298EECFE55AFA6 /* VoxhoraArchitectureSummary.md in Resources */,
 				5B28DBC482A11F21CDC2EC87 /* VoxhoraUserManual.md in Resources */,
-				47D89EDDEC0F4A7DDADD3ABA /* agent-src.tar.gz in Resources */,
-				C0CE7CC07923ED94DE93390F /* beautifulsoup4-4.13.5-py3-none-any.whl in Resources */,
-				5867971A9D4386253E49205E /* certifi-2026.6.17-py3-none-any.whl in Resources */,
-				BCEF33D17672315B24F198B1 /* cffi-2.1.0-cp312-cp312-macosx_11_0_arm64.whl in Resources */,
-				BB58AF27721374987D26C4BB /* charset_normalizer-3.4.9-cp312-cp312-macosx_10_13_universal2.whl in Resources */,
-				E603DD392770DAF9E102B924 /* colorclass-2.2.2-py2.py3-none-any.whl in Resources */,
-				14D4BF6A42002844FF0EDED3 /* compressed_rtf-1.0.7-py3-none-any.whl in Resources */,
-				02BC47659430E614FC1069AB /* cryptography-49.0.0-cp311-abi3-macosx_11_0_arm64.whl in Resources */,
-				CAE8258E5F5C8867ED91D511 /* easygui-0.98.3-py2.py3-none-any.whl in Resources */,
-				DF0B0FB8A22CCFBF9BDA4DF1 /* ebcdic-1.1.1-py2.py3-none-any.whl in Resources */,
-				A57A549D9FFBCE2128777DE5 /* extract_msg-0.55.0-py3-none-any.whl in Resources */,
-				87968FD6CBAA0FB1E9726069 /* idna-3.18-py3-none-any.whl in Resources */,
-				EFB83CD70A1A5AF958252C47 /* jaraco.classes-3.4.0-py3-none-any.whl in Resources */,
-				D5C8EA9A852D805DDEA416F2 /* jaraco_context-6.1.2-py3-none-any.whl in Resources */,
-				2224B2C70491ED92F10EC38E /* jaraco_functools-4.5.0-py3-none-any.whl in Resources */,
-				2EC6A8EA8D7A681922F539E2 /* keyring-25.7.0-py3-none-any.whl in Resources */,
-				DF5815331D9EB4ACDB8E470F /* lark-1.3.1-py3-none-any.whl in Resources */,
 				7DE66386C78AA008ECD90160 /* llm_system_prompt.md in Resources */,
-				3ABADD472DDC053548AEAEF8 /* more_itertools-11.1.0-py3-none-any.whl in Resources */,
-				ED06B34194CF2A3E2BD53CAF /* msoffcrypto_tool-6.0.0-py3-none-any.whl in Resources */,
-				0BD6125459F2F1D49B063D9F /* olefile-0.47-py2.py3-none-any.whl in Resources */,
-				744B368084678EAA5B0A766E /* oletools-0.60.2-py2.py3-none-any.whl in Resources */,
-				0E1E2728830EE0031720C90E /* pcodedmp-1.2.6-py2.py3-none-any.whl in Resources */,
-				414FB38937ECD942A2B5E8B3 /* pycparser-3.0-py3-none-any.whl in Resources */,
-				88D6C09B05DBDFBF8CEEFF34 /* pyparsing-3.3.2-py3-none-any.whl in Resources */,
-				222DE405ACF177B8C331C74B /* python-standalone.tar.gz in Resources */,
-				BCBC4D3F8EB6665AE346BF60 /* red_black_tree_mod-1.22-py3-none-any.whl in Resources */,
-				CE72DF7C5A78C1C49958C208 /* requests-2.34.2-py3-none-any.whl in Resources */,
-				1B042DF0BC912A014DD0B301 /* rtfde-0.1.2.2-py3-none-any.whl in Resources */,
-				62BA95EA01E70BE92CDD4777 /* soupsieve-2.8.4-py3-none-any.whl in Resources */,
 				40CC4FD86E2CD92007882B76 /* travis_county.json in Resources */,
 				AA1BD7380461EB2980288E0C /* travis_county_appellate.json in Resources */,
 				25D2C54FDB742F4D29433770 /* travis_county_courts.json in Resources */,
-				EB4D979C2A3D12390B404E51 /* typing_extensions-4.16.0-py3-none-any.whl in Resources */,
-				8B5DA36F4DEAFF4D1670F749 /* tzlocal-5.4.4-py3-none-any.whl in Resources */,
-				2AD03765020E48036E1048D6 /* urllib3-2.7.0-py3-none-any.whl in Resources */,
-				32A3B2109EF2F4E33B8EB295 /* voxhora_techshare_agent-0.2.0-py3-none-any.whl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

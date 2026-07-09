@@ -107,6 +107,12 @@ targets:
         excludes:
           - "Voxhora-Mac.entitlements"
           - "Voxhora-Mac-Release.entitlements"
+          # TechShareAgentKit is embedded by the dedicated pre-codesign
+          # script phase — NOT via this source glob (2026-07-09: the glob
+          # was ALSO adding every wheel flat at Resources root — the thing
+          # notarization actually rejected — and stale refs broke builds
+          # whenever the kit was regenerated).
+          - "TechShareAgentKit"
 
       # SHARED models — single source of truth lives in the iOS project.
       # Direct references; no copy, no drift. CloudKit schema matches both
@@ -1079,8 +1085,8 @@ targets:
         #
         # Current shipped: v0.1.0 build 2 (first Sparkle release 2026-05-19).
         # Next release.sh run will bump both lines below and Info.plist together.
-        CFBundleShortVersionString: "0.2.57"
-        CFBundleVersion: "60"
+        CFBundleShortVersionString: "0.2.58"
+        CFBundleVersion: "61"
         LSApplicationCategoryType: public.app-category.business
         NSHumanReadableCopyright: "Voxhora — Patrick Fagerberg"
         # DECISION 044 — Contacts permission usage description. Same
@@ -1305,8 +1311,8 @@ targets:
       path: Voxhora-Mac-Share/Info.plist
       properties:
         CFBundleDisplayName: Voxhora
-        CFBundleShortVersionString: "0.2.57"
-        CFBundleVersion: "60"
+        CFBundleShortVersionString: "0.2.58"
+        CFBundleVersion: "61"
         # NSExtension declaration — share-services point + principal
         # class. Activation rule (predicate string) restricts the
         # extension to PDF attachments (com.adobe.pdf UTI conformance).
