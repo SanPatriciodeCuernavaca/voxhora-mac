@@ -692,6 +692,15 @@ targets:
       # ~/voxhora-techshare-agent CLI reads the same creds.
       - path: ../voxhora-ios/Voxhora/Engine/TechShareKeychainHelper.swift
         group: SharedEngine
+      # TechShare productization Beat 1 (spec 2026-07-09) — manages the
+      # EMBEDDED agent: installs the bundled TechShareAgentKit (relocatable
+      # Python + agent + wheels, built by scripts/bundle_techshare_agent.sh)
+      # into ~/Library/Application Support/Voxhora/TechShareAgent with no
+      # terminal/network, and resolves the agent executable for every
+      # subprocess call (managed install → Patrick's dev checkout fallback).
+      # Mac-only content (#if os(macOS)); compiles empty elsewhere.
+      - path: ../voxhora-ios/Voxhora/Engine/TechShareAgentRuntime.swift
+        group: SharedEngine
       # 2026-05-18 — US phone-number auto-formatter (Patrick: "I have
       # to add the brackets and hyphen by hand"). Used by SettingsView's
       # Attorney Info phone field + ClientInfoSheet phone1 / phone2.
@@ -1019,6 +1028,27 @@ targets:
     settings:
       base:
         ENABLE_HARDENED_RUNTIME: YES
+    # TechShare productization Beat 1 (2026-07-09) — embed the agent kit
+    # into Resources when it has been built (scripts/bundle_techshare_agent.sh).
+    # Runs BEFORE the implicit CodeSign pass, so the kit is covered by the
+    # bundle seal (this is the correct use of postBuildScripts — the
+    # 2026-05-02 disablement below concerned copying the SIGNED app out,
+    # which needs post-sign ordering; embedding resources needs pre-sign).
+    # Kit absent (fresh checkout / dev Mac) → loud note, build proceeds,
+    # TechShareAgentRuntime falls back to the dev agent checkout.
+    postBuildScripts:
+      - name: "Embed TechShareAgentKit (if built)"
+        script: |
+          KIT="$SRCROOT/Voxhora-Mac/TechShareAgentKit"
+          DST="$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/TechShareAgentKit"
+          rm -rf "$DST"
+          if [ -f "$KIT/MANIFEST.json" ]; then
+            /usr/bin/ditto "$KIT" "$DST"
+            echo "note: TechShareAgentKit embedded — $(cat "$KIT/MANIFEST.json" | tr -d '\n')"
+          else
+            echo "note: TechShareAgentKit not present — dev build; runtime uses the dev agent checkout"
+          fi
+        basedOnDependencyAnalysis: false
     # 2026-05-07 — Info.plist generated from this YAML block on every
     # xcodegen pass. Lives at Voxhora-Mac/Info.plist (committed under
     # version control). The Mac-specific keys previously declared via

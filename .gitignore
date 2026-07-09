@@ -73,3 +73,5 @@ build_archive/
 # Matt->Production migration tool DMGs (hand-delivered, NEVER on the appcast;
 # kept out of releases/ so generate_appcast can never scan them).
 migration-tools/
+Voxhora-Mac/TechShareAgentKit/
+vendor-cache/
