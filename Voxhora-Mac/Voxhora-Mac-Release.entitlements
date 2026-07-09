@@ -2,35 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<!--
-	RELEASE (Matt / Sparkle) entitlements. 2026-06-14 CloudKit env split.
-	Plain ASCII only: codesign's AMFI entitlements parser is stricter than
-	plutil and rejects non-ASCII / commented-out keys (it failed 0.2.51 the
-	first time on this file). Keep this file ASCII and comment-light.
-
-	WHY A SEPARATE FILE: Voxhora-Mac.entitlements is also used by deploy.sh
-	(Patrick's Debug). Putting the Production CloudKit key in that shared file
-	would flip Patrick's Debug Mac to Production too and hide his Development
-	data. So the Release pipeline (release.sh final codesign + the Release
-	config CODE_SIGN_ENTITLEMENTS in project.yml) seals against THIS file
-	instead; Debug keeps Voxhora-Mac.entitlements = Development.
-
-	CURRENT STATE: identical to Voxhora-Mac.entitlements (Development; no
-	icloud-container-environment key). The product is NOT flipped to
-	Production yet. Per the HARD RULE, Matt's Development data must be
-	exported and verified in Production BEFORE the flip.
-
-	TO FLIP THE RELEASE BUILD TO PRODUCTION (migration Step 3): add an
-	icloud-container-environment entitlement set to the string Production
-	inside this dict (key name com.apple.developer.icloud-container-environment),
-	then run release.sh. The embedded Dev-ID Direct profile already authorizes
-	the Production value (verified 2026-06-14). See the
-	voxhora_cloudkit_prod_migration_tool memory + the migration handoff.
-	-->
 	<key>com.apple.application-identifier</key>
 	<string>S4GM27H6N5.com.patrickfagerberg.voxhora.mac</string>
-	<key>com.apple.developer.team-identifier</key>
-	<string>S4GM27H6N5</string>
+	<key>com.apple.developer.aps-environment</key>
+	<string>production</string>
+	<key>com.apple.developer.icloud-container-environment</key>
+	<string>Production</string>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
 		<string>iCloud.com.patrickfagerberg.voxhora</string>
@@ -40,19 +17,15 @@
 		<string>CloudKit</string>
 		<string>CloudDocuments</string>
 	</array>
+	<key>com.apple.developer.team-identifier</key>
+	<string>S4GM27H6N5</string>
 	<key>com.apple.developer.ubiquity-container-identifiers</key>
 	<array>
 		<string>iCloud.com.patrickfagerberg.voxhora</string>
 	</array>
-	<key>com.apple.developer.aps-environment</key>
-	<string>production</string>
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.com.patrickfagerberg.voxhora</string>
-	</array>
-	<key>keychain-access-groups</key>
-	<array>
-		<string>S4GM27H6N5.com.patrickfagerberg.voxhora.shared</string>
 	</array>
 	<key>com.apple.security.automation.apple-events</key>
 	<true/>
@@ -60,5 +33,9 @@
 	<true/>
 	<key>com.apple.security.cs.disable-library-validation</key>
 	<true/>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>S4GM27H6N5.com.patrickfagerberg.voxhora.shared</string>
+	</array>
 </dict>
 </plist>
