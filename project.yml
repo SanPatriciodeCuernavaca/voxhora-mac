@@ -701,6 +701,11 @@ targets:
       # Mac-only content (#if os(macOS)); compiles empty elsewhere.
       - path: ../voxhora-ios/Voxhora/Engine/TechShareAgentRuntime.swift
         group: SharedEngine
+      # Beat 2 (2026-07-09) — the TechShare Settings section (Connect &
+      # Verify + kill switch + last-run line; mockup-approved). Replaces
+      # TechShareCredentialsRow + the Discovery-source picker section.
+      - path: ../voxhora-ios/Voxhora/Views/Settings/TechShareSettingsSection.swift
+        group: SharedViews
       # 2026-05-18 — US phone-number auto-formatter (Patrick: "I have
       # to add the brackets and hyphen by hand"). Used by SettingsView's
       # Attorney Info phone field + ClientInfoSheet phone1 / phone2.
