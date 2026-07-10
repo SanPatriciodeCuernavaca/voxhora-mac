@@ -81,10 +81,12 @@ xcrun devicectl device install app --device 73F7A09B-BB62-5D03-B583-AA9AB685464E
 xcrun devicectl device process launch --device 73F7A09B-BB62-5D03-B583-AA9AB685464E --terminate-existing com.patrickfagerberg.voxhora
 ```
 
-### Apple Watch (deploy embedded watchOS app)
-```bash
-xcrun devicectl device install app --device 08274665-3118-5DCF-934E-502F315D9BF6 ~/Library/Developer/Xcode/DerivedData/Voxhora-bewrilmthojyvhclggrcdvbvydnj/Build/Products/Debug-iphoneos/Voxhora.app/Watch/Voxhora.app
-```
+### Apple Watch — NO deploy step (HARD RULE, Patrick 2026-07-02 + 2026-07-10)
+The Watch updates itself through the iPhone over-install above — never run a
+direct devicectl install to the Watch in routine deploys. (Direct install of the
+EMBEDDED `Voxhora.app/Watch/Voxhora.app` always fails with IXRemoteErrorDomain
+error 5; the standalone `Debug-watchos` build to the Watch UDID is a manual
+RECOVERY step only, and even then over-install, never delete.)
 
 ### Mac (single-slot procedure)
 ```bash
