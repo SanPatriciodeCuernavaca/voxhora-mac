@@ -58,12 +58,12 @@ settings:
       # VOXHORA_MUGSHOT_REQUEST (2026-06-13) — TCSO booking-photo records-request
       # system (auto-draft on intake-Accept + attorney-confirms-before-send).
       # Debug-only, soaking. Distinct from VOXHORA_MUGSHOT (the APD scraper).
-      # VOXHORA_MIGRATION (2026-06-14) — one-time CloudKit Development→Production
-      # full-data export/import tool (FullBackupMigrator + Settings buttons).
-      # Debug-config only so it never reaches Matt's Sparkle Release build; the
-      # migration is driven by dev-signed builds (export on a Development build,
-      # import on the Production build after the entitlement flip).
-      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_MUGSHOT VOXHORA_MUGSHOT_REQUEST VOXHORA_MIGRATION VOXHORA_FAST_ROSTER
+      # VOXHORA_MIGRATION — RETIRED 2026-07-10 (Patrick): the one-time CloudKit
+      # Development→Production migration completed 2026-07-08 (Matt's 5,819 rows).
+      # Flag removed from all builds; the source files stay (whole-file
+      # #if VOXHORA_MIGRATION → compile to nothing). Re-enable for a future
+      # environment move by re-adding the flag here.
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG VOXHORA_CUSTOM_VOCAB VOXHORA_TRAVIS_APPELLATE VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_MUGSHOT VOXHORA_MUGSHOT_REQUEST VOXHORA_FAST_ROSTER
     Release:
       # 2026-06-13 release promotion (Matt's Sparkle build): the 4 user-facing
       # features go live. Deliberately EXCLUDED from Release: DEBUG, and the
