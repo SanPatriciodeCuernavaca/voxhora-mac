@@ -37,9 +37,49 @@ PY_RELEASE="20241206"
 PY_TARBALL="cpython-${PY_VERSION}+${PY_RELEASE}-aarch64-apple-darwin-install_only.tar.gz"
 PY_URL="https://github.com/astral-sh/python-build-standalone/releases/download/${PY_RELEASE}/${PY_TARBALL}"
 
+# Developer ID — the notary descends into every archive layer (tar.gz →
+# tar → whl/zip) and requires each nested Mach-O to carry a VALID
+# Developer ID signature + secure timestamp + (executables) hardened
+# runtime. python-build-standalone binaries AND PyPI wheels ship
+# ad-hoc/unsigned, so we sign them here (2026-07-09 notarization saga).
+SIGN_ID="Developer ID Application: Richard Patrick Fagerberg (S4GM27H6N5)"
+
 say()  { printf "\n\033[1;34m▸ %s\033[0m\n" "$*"; }
 done_(){ printf "  \033[1;32m✓\033[0m %s\n" "$*"; }
 die()  { printf "\n\033[1;31m✗ %s\033[0m\n" "$*" >&2; exit 1; }
+
+# Developer-ID-sign every Mach-O under $1 (recursively, by file(1) magic —
+# NOT the exec bit; many .so lack it). Hardened runtime + secure
+# timestamp satisfy all three notary complaints. Verifies each sign stuck
+# (capture-to-var, never `| grep -q` — under `set -o pipefail` grep -q
+# SIGPIPEs its producer and the pipe falsely reports failure). Returns
+# the count signed.
+sign_machos_in_dir() {
+  local root="$1" label="$2"
+  local machos=()
+  # Enumerate by file(1) magic. A universal (fat) binary prints THREE
+  # lines — a "Mach-O universal binary" header plus one
+  # "(for architecture …)" continuation per slice; keep only the header
+  # (drop continuations) and strip ":[tab/space]Mach-O…" to the bare
+  # path. codesign signs all slices of a fat binary in one call.
+  while IFS= read -r f; do machos+=("$f"); done < <(
+    find "$root" -type f -exec file {} + 2>/dev/null \
+      | grep "Mach-O" \
+      | grep -v "(for architecture" \
+      | sed 's/:[[:space:]]*Mach-O.*//'
+  )
+  for macho in "${machos[@]}"; do
+    codesign --force --timestamp --options runtime --sign "$SIGN_ID" "$macho" \
+      || die "codesign failed for ${macho#$root/} ($label)"
+    local vout
+    vout="$(codesign -dvvv "$macho" 2>&1 || true)"
+    case "$vout" in
+      *"Authority=Developer ID Application"*) : ;;
+      *) die "sign did not stick for ${macho#$root/} ($label)" ;;
+    esac
+  done
+  echo "${#machos[@]}"
+}
 
 [[ -d "$AGENT_REPO/.git" ]] || die "agent repo not found at $AGENT_REPO"
 mkdir -p "$KIT_DIR" "$CACHE_DIR"
@@ -57,7 +97,28 @@ else
   [[ "$EXPECT" == "$ACTUAL" ]] || die "cached python tarball sha mismatch — delete $CACHE_DIR/$PY_TARBALL and re-run"
   done_ "cache hit, sha verified"
 fi
-cp "$CACHE_DIR/$PY_TARBALL" "$KIT_DIR/python-standalone.tar.gz"
+# The runtime's own Mach-Os (python3.12, libpython3.12.dylib, and any
+# lib-dynload extensions) ship ad-hoc from python-build-standalone — the
+# notary rejects them at this nesting depth. Extract → Developer-ID-sign
+# → re-tar. Cached by the tarball's sha so repeat builds are fast.
+PY_SIGNED_CACHE="$CACHE_DIR/python-signed-$(cat "$CACHE_DIR/$PY_TARBALL.sha256" | cut -c1-16)"
+if [[ ! -f "$PY_SIGNED_CACHE" ]]; then
+  say "Signing the Python runtime's Mach-Os (Developer ID + hardened runtime)…"
+  PYSIGN_TMP="$(mktemp -d)"
+  tar -xzf "$CACHE_DIR/$PY_TARBALL" -C "$PYSIGN_TMP"
+  py_count="$(sign_machos_in_dir "$PYSIGN_TMP" "python runtime")"
+  # Re-tar preserving the top-level `python/` prefix. Absolute output
+  # path — the tar runs from inside $PYSIGN_TMP so a relative one would
+  # resolve to a nonexistent dir (same class as the wheel-repack fix).
+  PY_SIGNED_ABS="$(cd "$CACHE_DIR" && pwd)/$(basename "$PY_SIGNED_CACHE")"
+  ( cd "$PYSIGN_TMP" && tar -czf "$PY_SIGNED_ABS.tmp" . )
+  mv "$PY_SIGNED_ABS.tmp" "$PY_SIGNED_CACHE"
+  rm -rf "$PYSIGN_TMP"
+  done_ "signed $py_count runtime Mach-O(s)"
+else
+  done_ "signed-runtime cache hit"
+fi
+cp "$PY_SIGNED_CACHE" "$KIT_DIR/python-standalone.tar.gz"
 
 # ── 2. Agent source (committed HEAD only — never the dirty tree) ────────
 say "Agent source (git archive HEAD)…"
@@ -84,14 +145,11 @@ else
   done_ "wheels cache hit for agent @ $AGENT_SHA"
 fi
 # ── 3b. Developer-ID-sign every Mach-O inside the wheels ────────────────
-# Notarization lesson #2 (2026-07-09): the notary descends into EVERY
-# archive layer (zip, whl, tar.gz) and requires each nested Mach-O to
-# carry a VALID Developer ID signature + secure timestamp. PyPI wheels
-# (cffi, cryptography, …) ship ad-hoc/unsigned .so files → rejected at
-# any depth; python-build-standalone passes because Astral signs theirs.
-# So: sign the .so/.dylib members with Patrick's Developer ID and
-# rewrite each wheel's RECORD hashes so pip's verification still passes.
-SIGN_ID="Developer ID Application: Richard Patrick Fagerberg (S4GM27H6N5)"
+# The notary descends into EVERY archive layer (zip, whl, tar.gz) and
+# requires each nested Mach-O to carry a valid Developer ID signature +
+# secure timestamp. PyPI wheels (cffi, cryptography, …) ship
+# ad-hoc/unsigned .so files → sign them, then rewrite each wheel's RECORD
+# hashes so pip's install verification still passes.
 say "Signing nested Mach-Os inside wheels (Developer ID + timestamp)…"
 SIGNED_WHEELS="$CACHE_DIR/wheels-signed-$AGENT_SHA"
 if [[ ! -d "$SIGNED_WHEELS" ]]; then
@@ -107,26 +165,7 @@ if [[ ! -d "$SIGNED_WHEELS" ]]; then
     if printf '%s' "$whl_listing" | grep -qE '\.(so|dylib)'; then
       WTMP="$(mktemp -d)"
       unzip -qq "$whl" -d "$WTMP"
-      # No `find | while` (that runs the body in a pipe subshell where a
-      # codesign failure can't abort the script — 2026-07-09 bug: wheels
-      # shipped adhoc). Collect into an array, sign + VERIFY in the main
-      # shell.
-      machos=()
-      while IFS= read -r -d '' m; do machos+=("$m"); done \
-        < <(find "$WTMP" \( -name "*.so" -o -name "*.dylib" \) -print0)
-      for macho in "${machos[@]}"; do
-        codesign --force --timestamp --options runtime --sign "$SIGN_ID" "$macho" \
-          || die "codesign failed for $(basename "$macho") in $(basename "$whl")"
-        # Capture to a var first — piping codesign into `grep -q` under
-        # `set -o pipefail` reports the pipe as FAILED because grep -q
-        # SIGPIPEs codesign on match (2026-07-09 false alarm; the sign
-        # actually stuck).
-        verify_out="$(codesign -dvvv "$macho" 2>&1 || true)"
-        case "$verify_out" in
-          *"Authority=Developer ID Application"*) : ;;
-          *) die "sign did not stick for $(basename "$macho") in $(basename "$whl")" ;;
-        esac
-      done
+      wc="$(sign_machos_in_dir "$WTMP" "$(basename "$whl")")"
       # Rewrite RECORD hashes for the members we just modified.
       python3 - "$WTMP" <<'PYEOF'
 import base64, hashlib, os, sys

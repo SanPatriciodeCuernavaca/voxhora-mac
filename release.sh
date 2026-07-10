@@ -255,6 +255,16 @@ codesign -d --entitlements - --xml "$APP_PATH" 2>/dev/null | grep -q "applicatio
   || die "Main app entitlements missing com.apple.application-identifier — AMFI will SIGKILL at launch. Fix Voxhora-Mac/Voxhora-Mac.entitlements."
 done_ ".app codesigned + verified (+ application-identifier present)"
 
+# Notary pre-flight (2026-07-09) — replicate Apple's recursive descent
+# into every nested archive (tar.gz → tar → whl/zip, the embedded
+# TechShare agent kit) and assert each nested Mach-O is Developer-ID
+# signed + timestamped + hardened, LOCALLY. Catches a kit-signing
+# regression in seconds instead of after a 10-15 min notary round trip
+# (that saga is why this gate exists).
+say "Notary pre-flight (recursive nested-Mach-O audit)…"
+"$(dirname "$0")/scripts/notary_preflight.sh" "$APP_PATH" \
+  || die "Notary pre-flight failed — a nested Mach-O would be rejected. Re-run scripts/bundle_techshare_agent.sh (kit signing) before releasing."
+
 # ─── NOTARIZE ──────────────────────────────────────────────────────────
 say "Submitting to Apple notarization (typically 2–5 min)…"
 ZIP_PATH="$BUILD_DIR/Voxhora-Mac.zip"
