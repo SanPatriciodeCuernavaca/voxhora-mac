@@ -114,9 +114,16 @@ xcrun devicectl device copy from --device <UDID> --source Documents/voxhora-call
 sqlite3 ~/Library/Group\ Containers/group.com.patrickfagerberg.voxhora/Library/Application\ Support/default.store "SELECT * FROM ZAUDITLOGENTRY ORDER BY ZTIMESTAMP DESC LIMIT 10;"
 ```
 
-### Devices
+### iPad (same universal build — deploy in lockstep with Mac + iPhone)
+```bash
+xcrun devicectl device install app --device F5C362D0-1456-56D2-BDC9-66CF1F038F29 ~/Library/Developer/Xcode/DerivedData/Voxhora-bewrilmthojyvhclggrcdvbvydnj/Build/Products/Debug-iphoneos/Voxhora.app
+xcrun devicectl device process launch --device F5C362D0-1456-56D2-BDC9-66CF1F038F29 --terminate-existing com.patrickfagerberg.voxhora
+```
+
+### Devices (Patrick's — NEVER deploy to Matt's iPhone 17 / Watch SE 3 / his Mac)
 * iPhone 13 Pro UDID: `73F7A09B-BB62-5D03-B583-AA9AB685464E`
-* Apple Watch Series 11 UDID: `08274665-3118-5DCF-934E-502F315D9BF6`
+* iPad Pro 13-inch (M5) UDID: `F5C362D0-1456-56D2-BDC9-66CF1F038F29`
+* Apple Watch Series 11 UDID: `08274665-3118-5DCF-934E-502F315D9BF6` (updates via iPhone — no direct install)
 
 ---
 
