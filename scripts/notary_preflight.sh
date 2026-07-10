@@ -34,14 +34,19 @@ check_macho() {
     *"Authority=Developer ID Application"*) : ;;
     *) problems+=" no-DeveloperID-signature" ;;
   esac
+  # SECURE timestamp only. `Signed Time=` is the ad-hoc/local clock and
+  # the notary rejects it (review finding #8) — accept only `Timestamp=`,
+  # which codesign prints solely for an RFC-3161 secure timestamp.
   case "$out" in
-    *"Signed Time"*|*"Timestamp="*) : ;;   # secure timestamp present
+    *"Timestamp="*) : ;;
     *) problems+=" no-secure-timestamp" ;;
   esac
-  # Hardened runtime: flag 0x10000 in the CodeDirectory. Required on
-  # executables; harmless-but-present on our signed dylibs/.so too.
+  # Hardened runtime: the CodeDirectory `flags=…(runtime)` marker. Match
+  # the parenthesized flag ONLY — the bare word "runtime" appears in
+  # unrelated codesign output (e.g. a library path), which falsely
+  # passed a non-hardened binary (review finding #7).
   case "$out" in
-    *"flags=0x10000(runtime)"*|*"runtime"*) : ;;
+    *"(runtime)"*) : ;;
     *) problems+=" no-hardened-runtime" ;;
   esac
   if [[ -n "$problems" ]]; then
