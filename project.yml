@@ -732,7 +732,7 @@ targets:
       - path: ../voxhora-ios/Voxhora/Engine/Parser
         group: SharedEngine
       # VoxHelp Phase 1 Edit #2 (2026-05-20) — in-app AI assistant
-      # service. Loads bundled VoxhoraArchitecture.json + builds the
+      # service. Builds the cached Anthropic system prompt from the bundled
       # cached Anthropic system prompt. Folder glob so Edit #3-5
       # additions land automatically.
       - path: ../voxhora-ios/Voxhora/Engine/VoxHelp

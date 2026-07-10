@@ -26,6 +26,9 @@
 #   - Sparkle tools at $SPARKLE_TOOLS (Step 3)
 #   - gh CLI authenticated for SanPatriciodeCuernavaca/voxhora-mac
 #   - Clean git working tree (no uncommitted changes)
+#   - Sibling ../voxhora-ios checkout with scripts/voxhelp_gate.sh (the
+#     VoxHelp knowledge-freshness gate — pre-flight 4b; shared with the
+#     TestFlight train)
 #
 # After-action: Matt's Mac (and every Voxhora-Mac user's Mac) checks
 # the appcast URL within 24h, sees the new version, downloads the
@@ -123,24 +126,19 @@ done
 done_ "Sparkle tools (sign_update, generate_appcast)"
 
 # 4b. VoxHelp knowledge freshness — VoxHelp answers from the bundled USER
-# MANUAL + slim architecture summary, NOT the full architecture JSON. If the
-# JSON has newer commits than either of those two, the in-app assistant would
-# ship answering from a stale picture of the app (the exact failure found
-# 2026-07-10: the 07-09 "bundle refresh" updated only the JSON while the two
-# files actually in VoxHelp's prompt sat a month behind). Update the manual +
-# summary — or, if the JSON change truly had no user-facing impact, override
-# once with VOXHELP_STALE_OK=1 ./release.sh <version>.
+# MANUAL + slim architecture summary, NOT the full architecture JSON (the
+# exact failure found 2026-07-10: a "bundle refresh" updated only the JSON
+# while the two files actually in VoxHelp's prompt sat a month behind).
+# Delegated to the SHARED gate in voxhora-ios so the TestFlight train
+# (release_ios.sh) runs the identical check. The gate FAILS LOUDLY on a
+# missing checkout, dirty knowledge files, or staleness — it never silently
+# passes; VOXHELP_STALE_OK=1 prints a loud SKIPPED line, not a green check.
 IOS_REPO="../voxhora-ios"
-VOXHELP_JSON_TS="$(git -C "$IOS_REPO" log -1 --format=%ct -- Voxhora/Resources/VoxhoraArchitecture.json 2>/dev/null || echo 0)"
-VOXHELP_MANUAL_TS="$(git -C "$IOS_REPO" log -1 --format=%ct -- Voxhora/Resources/VoxhoraUserManual.md 2>/dev/null || echo 0)"
-VOXHELP_SUMMARY_TS="$(git -C "$IOS_REPO" log -1 --format=%ct -- Voxhora/Resources/VoxhoraArchitectureSummary.md 2>/dev/null || echo 0)"
-if [[ "${VOXHELP_STALE_OK:-0}" != "1" ]] && { [[ "$VOXHELP_MANUAL_TS" -lt "$VOXHELP_JSON_TS" ]] || [[ "$VOXHELP_SUMMARY_TS" -lt "$VOXHELP_JSON_TS" ]]; }; then
-  die "VoxHelp knowledge is STALE: VoxhoraArchitecture.json has commits newer than
-       VoxhoraUserManual.md and/or VoxhoraArchitectureSummary.md (the files VoxHelp
-       actually answers from). Refresh those two in voxhora-ios, commit, then release.
-       Truly no user-facing change? Override once: VOXHELP_STALE_OK=1 ./release.sh $VERSION"
-fi
-done_ "VoxHelp knowledge sources fresh (manual + summary ≥ architecture JSON)"
+VOXHELP_GATE="$IOS_REPO/scripts/voxhelp_gate.sh"
+[[ -x "$VOXHELP_GATE" ]] || die "VoxHelp freshness gate not found/executable at $VOXHELP_GATE.
+       The sibling voxhora-ios checkout (with scripts/voxhelp_gate.sh) is a
+       pre-flight requirement — the Mac bundle ships that repo's manual."
+"$VOXHELP_GATE" || die "VoxHelp knowledge gate failed (see message above)."
 
 # 5. gh CLI authenticated for our repo
 if ! gh auth status >/dev/null 2>&1; then
