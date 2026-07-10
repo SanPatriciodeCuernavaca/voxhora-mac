@@ -122,6 +122,26 @@ for tool in sign_update generate_appcast; do
 done
 done_ "Sparkle tools (sign_update, generate_appcast)"
 
+# 4b. VoxHelp knowledge freshness — VoxHelp answers from the bundled USER
+# MANUAL + slim architecture summary, NOT the full architecture JSON. If the
+# JSON has newer commits than either of those two, the in-app assistant would
+# ship answering from a stale picture of the app (the exact failure found
+# 2026-07-10: the 07-09 "bundle refresh" updated only the JSON while the two
+# files actually in VoxHelp's prompt sat a month behind). Update the manual +
+# summary — or, if the JSON change truly had no user-facing impact, override
+# once with VOXHELP_STALE_OK=1 ./release.sh <version>.
+IOS_REPO="../voxhora-ios"
+VOXHELP_JSON_TS="$(git -C "$IOS_REPO" log -1 --format=%ct -- Voxhora/Resources/VoxhoraArchitecture.json 2>/dev/null || echo 0)"
+VOXHELP_MANUAL_TS="$(git -C "$IOS_REPO" log -1 --format=%ct -- Voxhora/Resources/VoxhoraUserManual.md 2>/dev/null || echo 0)"
+VOXHELP_SUMMARY_TS="$(git -C "$IOS_REPO" log -1 --format=%ct -- Voxhora/Resources/VoxhoraArchitectureSummary.md 2>/dev/null || echo 0)"
+if [[ "${VOXHELP_STALE_OK:-0}" != "1" ]] && { [[ "$VOXHELP_MANUAL_TS" -lt "$VOXHELP_JSON_TS" ]] || [[ "$VOXHELP_SUMMARY_TS" -lt "$VOXHELP_JSON_TS" ]]; }; then
+  die "VoxHelp knowledge is STALE: VoxhoraArchitecture.json has commits newer than
+       VoxhoraUserManual.md and/or VoxhoraArchitectureSummary.md (the files VoxHelp
+       actually answers from). Refresh those two in voxhora-ios, commit, then release.
+       Truly no user-facing change? Override once: VOXHELP_STALE_OK=1 ./release.sh $VERSION"
+fi
+done_ "VoxHelp knowledge sources fresh (manual + summary ≥ architecture JSON)"
+
 # 5. gh CLI authenticated for our repo
 if ! gh auth status >/dev/null 2>&1; then
   die "gh CLI not authenticated. Run: gh auth login"

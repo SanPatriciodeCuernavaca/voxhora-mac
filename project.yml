@@ -1039,6 +1039,11 @@ targets:
       # subdirectory: "Jurisdictions"). xcodegen adds each file at the right depth.
       - path: ../voxhora-ios/Voxhora/Resources
         group: SharedResources
+        excludes:
+          # VoxHelp reads the user manual + slim summary since 2026-06-06;
+          # the full architecture JSON is a repo-only regeneration source
+          # and must not ship in the bundle (232 KB dead weight).
+          - "VoxhoraArchitecture.json"
 
     settings:
       base:

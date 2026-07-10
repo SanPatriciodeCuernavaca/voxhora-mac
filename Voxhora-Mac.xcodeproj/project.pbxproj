@@ -62,7 +62,6 @@
 		274E126D5C8801965456D1FC /* ClientNoteTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285FDDC4CD4111E88C6DD495 /* ClientNoteTrunk.swift */; };
 		291A488777149DF4BC32ACCF /* AttorneyProfileSchemaV14Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F68D1AC18667A942C4F65E /* AttorneyProfileSchemaV14Bootstrap.swift */; };
 		2A1328A9A7BDEA64919FABF4 /* UserPreferencesBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414E99F6A181A848E705362 /* UserPreferencesBootstrap.swift */; };
-		2BFE1B620F7FB36A13AB91F5 /* VoxhoraArchitecture.json in Resources */ = {isa = PBXBuildFile; fileRef = 68625AD0AC4BF64F8F83610E /* VoxhoraArchitecture.json */; };
 		2CBE9395B8298EECFE55AFA6 /* VoxhoraArchitectureSummary.md in Resources */ = {isa = PBXBuildFile; fileRef = A45B370A2D2390279F13F9C9 /* VoxhoraArchitectureSummary.md */; };
 		2D7CDB1256899D65EBE8E19D /* WrongICloudAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A4AA3B128EAD5F69A60BCB /* WrongICloudAccountView.swift */; };
 		2EAF5DD47CF268934695A5C4 /* CloudDownloadVenueSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EDEB9E15EB8DBE36F096BE /* CloudDownloadVenueSettingsRow.swift */; };
@@ -568,7 +567,6 @@
 		670A5DE312FB6615266B84BA /* ClientInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientInfoSheet.swift; path = "../voxhora-ios/Voxhora/Views/ClientInfoSheet.swift"; sourceTree = "<group>"; };
 		673FBDCE6FA3E0707E33A1AC /* UserImportedVisualEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImportedVisualEffect.swift; sourceTree = "<group>"; };
 		68056ECFEC853917FC94535F /* CommunicationsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationsSection.swift; sourceTree = "<group>"; };
-		68625AD0AC4BF64F8F83610E /* VoxhoraArchitecture.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VoxhoraArchitecture.json; sourceTree = "<group>"; };
 		6896CB6847B5B61EA108ACAF /* AppHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppHeader.swift; path = "../voxhora-ios/Voxhora/Views/AppHeader.swift"; sourceTree = "<group>"; };
 		689B71D14071DD2E7A0DBDF8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		68EC0EB8E919F40C19F92A9E /* ClientNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientNote.swift; path = "../voxhora-ios/Voxhora/Models/ClientNote.swift"; sourceTree = "<group>"; };
@@ -1400,7 +1398,6 @@
 			children = (
 				5A893B0C7BD8D427FBF21910 /* Jurisdictions */,
 				DF1232A2D896FCDCDE3D0D4C /* llm_system_prompt.md */,
-				68625AD0AC4BF64F8F83610E /* VoxhoraArchitecture.json */,
 				A45B370A2D2390279F13F9C9 /* VoxhoraArchitectureSummary.md */,
 				87430CBF117FB5CE086DF625 /* VoxhoraUserManual.md */,
 			);
@@ -1512,7 +1509,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4425E0026C43127AE57D0B6 /* Assets.xcassets in Resources */,
-				2BFE1B620F7FB36A13AB91F5 /* VoxhoraArchitecture.json in Resources */,
 				2CBE9395B8298EECFE55AFA6 /* VoxhoraArchitectureSummary.md in Resources */,
 				5B28DBC482A11F21CDC2EC87 /* VoxhoraUserManual.md in Resources */,
 				7DE66386C78AA008ECD90160 /* llm_system_prompt.md in Resources */,
