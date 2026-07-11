@@ -1117,8 +1117,8 @@ targets:
         #
         # Current shipped: v0.1.0 build 2 (first Sparkle release 2026-05-19).
         # Next release.sh run will bump both lines below and Info.plist together.
-        CFBundleShortVersionString: "0.2.62"
-        CFBundleVersion: "68"
+        CFBundleShortVersionString: "0.2.63"
+        CFBundleVersion: "69"
         LSApplicationCategoryType: public.app-category.business
         NSHumanReadableCopyright: "Voxhora — Patrick Fagerberg"
         # DECISION 044 — Contacts permission usage description. Same
@@ -1343,8 +1343,8 @@ targets:
       path: Voxhora-Mac-Share/Info.plist
       properties:
         CFBundleDisplayName: Voxhora
-        CFBundleShortVersionString: "0.2.62"
-        CFBundleVersion: "68"
+        CFBundleShortVersionString: "0.2.63"
+        CFBundleVersion: "69"
         # NSExtension declaration — share-services point + principal
         # class. Activation rule (predicate string) restricts the
         # extension to PDF attachments (com.adobe.pdf UTI conformance).
