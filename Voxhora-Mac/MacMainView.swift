@@ -69,6 +69,10 @@ struct MacMainView: View {
     /// writes false and the binding stays honest.
     @AppStorage(LearnVoxhoraTourState.forceShowKey) private var learnTourForceShow: Bool = false
 
+    /// The app-level Bill Time capture-sheet slot (2026-07-11) — see the
+    /// .sheet(item:) below + CaptureSheetRouter (BillTimeButton.swift).
+    @ObservedObject private var captureRouter = CaptureSheetRouter.shared
+
     /// Generous grace — a fresh-Mac CloudKit cold-fetch with hundreds
     /// of records can take 30-60s. Padded to 90s (matches iOS).
     private static let hydrationGraceSeconds: Double = 90
@@ -150,6 +154,20 @@ struct MacMainView: View {
             // screens; app sheets present above it by design.
             LearnVoxhoraCoachCard()
                 .padding(22)
+        }
+        // Bill Time capture sheet — the ONE app-level slot (2026-07-11).
+        // Same CaptureSheetRouter as iOS MainTabView: per-row
+        // BillTimeButtons sit in lazy containers and must never host
+        // their own sheet (covered lazy rows get torn down and the
+        // re-presented sheet arrives with fresh, wiped capture state —
+        // live-caught on iPhone; Mac routes identically so the shared
+        // button has ONE presentation path).
+        .sheet(item: $captureRouter.session) { session in
+            CaptureView(
+                lockedClient: session.client,
+                lockIsSoft: session.softLock,
+                captureMode: $captureRouter.captureMode
+            )
         }
         .task {
             // Learn whether iCloud is available. Signed out / restricted →
