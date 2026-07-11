@@ -62,6 +62,13 @@ struct MacMainView: View {
     @AppStorage(SetupAssistantState.completedKey) private var setupAssistantComplete: Bool = false
     @AppStorage("voxhora.setupAssistant.forceShow") private var setupAssistantForceShow: Bool = false
 
+    /// Learn Voxhora tour preview gate (2026-07-11). Device-local flag —
+    /// the ONLY entry until all eight demonstrations are built + verified
+    /// (then the real entry points are the Setup Assistant Done button +
+    /// Settings → Learn Voxhora). @AppStorage so dismissing the sheet
+    /// writes false and the binding stays honest.
+    @AppStorage(LearnVoxhoraTourState.forceShowKey) private var learnTourForceShow: Bool = false
+
     /// Generous grace — a fresh-Mac CloudKit cold-fetch with hundreds
     /// of records can take 30-60s. Padded to 90s (matches iOS).
     private static let hydrationGraceSeconds: Double = 90
@@ -129,6 +136,12 @@ struct MacMainView: View {
                 OnboardingView()
                     .background(Color.voxPaper)
             }
+        }
+        .sheet(isPresented: $learnTourForceShow) {
+            // Learn Voxhora tour hub (2026-07-11) — preview-gated; see the
+            // @AppStorage above. Routed through voxSheetFrame (HARD RULE).
+            LearnVoxhoraView()
+                .voxSheetFrame(width: 620, height: 760)
         }
         .task {
             // Learn whether iCloud is available. Signed out / restricted →

@@ -391,6 +391,14 @@ struct VoxhoraMacApp: App {
                         // request stamps (VOXHORA_MUGSHOT_REQUEST). Additive
                         // default-safe; no seed.
                         ClientSchemaV13Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+                        // Client v13 → v14 (2026-07-11) — Learn Voxhora tour
+                        // practice-client flag. Additive default-safe; no seed.
+                        ClientSchemaV14Bootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
+
+                        // Learn Voxhora tour — collapse duplicate practice
+                        // clients / honor a pending removal (crash between
+                        // the tour's finish and the delete). No-op normally.
+                        LearnVoxhoraPracticeClient.sweepIfNeeded(modelContext: modelContainer.mainContext)
 
                         // DECISION 044 — Apple Contacts backfill on Mac.
                         // Independent of iPhone (each device runs its own

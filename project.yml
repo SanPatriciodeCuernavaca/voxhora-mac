@@ -162,6 +162,11 @@ targets:
       # consumer but compiles everywhere so the engine set stays uniform.
       - path: ../voxhora-ios/Voxhora/Engine/SetupAssistantState.swift
         group: SharedEngine
+      # Learn Voxhora tour engine (2026-07-11): the eight demonstrations,
+      # device-local progress (mirrors SetupAssistantState), and the
+      # practice-client sandbox lifecycle (Client.isPracticeClient v14).
+      - path: ../voxhora-ios/Voxhora/Engine/LearnVoxhoraTour.swift
+        group: SharedEngine
       # Canonical Travis tenth-of-hour ROUND-UP billing math (audit M3/M4,
       # 2026-06-10). Pure Foundation; CallDurationSheet (SharedViews) calls it
       # to snap typed call durations to a billable tenth. Mac must compile it
@@ -279,6 +284,11 @@ targets:
       # engines. Presented by MacMainView's first-run gate.
       - path: ../voxhora-ios/Voxhora/Views/SetupAssistantView.swift
         group: SharedViews
+      # Learn Voxhora tour hub (2026-07-11). Preview-gated behind
+      # voxhora.learnTour.forceShow until all demonstrations are built;
+      # presented by MacMainView in a voxSheetFrame sheet.
+      - path: ../voxhora-ios/Voxhora/Views/LearnVoxhoraView.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Engine/CalendarCleanupMigration.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CaseTypeFilter.swift
@@ -344,6 +354,9 @@ targets:
         group: SharedEngine
       # v12→v13 (2026-06-13) — TCSO booking-photo request stamps.
       - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV13Bootstrap.swift
+        group: SharedEngine
+      # v13→v14 (2026-07-11) — Learn Voxhora tour practice-client flag.
+      - path: ../voxhora-ios/Voxhora/Engine/ClientSchemaV14Bootstrap.swift
         group: SharedEngine
       # DECISION 056 Session 2 (Client Docs UI surface, 2026-05-11) —
       # cross-platform views for the per-client document vault.
