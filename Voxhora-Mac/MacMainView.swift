@@ -87,7 +87,19 @@ struct MacMainView: View {
         // existing Mac install: AttorneyProfile already exists →
         // gate falls through immediately → unchanged UX.
         Group {
-            if appState.accountLocked {
+            if UserDefaults.standard.bool(forKey: "voxhora.setupAssistant.forceShow") {
+                // Preview-only branch (2026-07-10, increment 1). Inert unless
+                // `defaults write …voxhora.setupAssistant.forceShow -bool YES`
+                // is set on this Mac — cannot trap a real install. Lets
+                // Patrick click through the new Setup Assistant on his own
+                // Mac before it's wired into the real first-run gate. The
+                // real gate (profile-exists + !SetupAssistantState.isComplete
+                // + fresh-install backfill) lands in a later increment.
+                SetupAssistantView {
+                    UserDefaults.standard.set(false, forKey: "voxhora.setupAssistant.forceShow")
+                }
+                .background(Color.voxPaper)
+            } else if appState.accountLocked {
                 // LLM Proxy kill switch (2026-06-07) — full-screen lock when the
                 // attorney's account is suspended server-side (AccountStatusService).
                 AccountLockedView()

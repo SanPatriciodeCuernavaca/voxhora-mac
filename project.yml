@@ -157,6 +157,11 @@ targets:
       # the same capture/edit/export functionality the iPhone has.
       - path: ../voxhora-ios/Voxhora/Engine/AuditLogger.swift
         group: SharedEngine
+      # First-run Setup Assistant device-local completion flag (2026-07-10).
+      # Pure Foundation; MacMainView gate + the wizard read it. Mac-only
+      # consumer but compiles everywhere so the engine set stays uniform.
+      - path: ../voxhora-ios/Voxhora/Engine/SetupAssistantState.swift
+        group: SharedEngine
       # Canonical Travis tenth-of-hour ROUND-UP billing math (audit M3/M4,
       # 2026-06-10). Pure Foundation; CallDurationSheet (SharedViews) calls it
       # to snap typed call durations to a billable tenth. Mac must compile it
@@ -268,6 +273,11 @@ targets:
       # NavigationLink push back to root. Used by TabRegistry's
       # content closures.
       - path: ../voxhora-ios/Voxhora/Views/TabResetGate.swift
+        group: SharedViews
+      # First-run Setup Assistant wizard (2026-07-10, Mac-only #if os(macOS)).
+      # Reuses TechShareSettingsSection + the shipped mail/dropbox/notif
+      # engines. Presented by MacMainView's first-run gate.
+      - path: ../voxhora-ios/Voxhora/Views/SetupAssistantView.swift
         group: SharedViews
       - path: ../voxhora-ios/Voxhora/Engine/CalendarCleanupMigration.swift
         group: SharedEngine
