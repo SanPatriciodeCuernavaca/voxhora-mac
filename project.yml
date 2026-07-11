@@ -289,6 +289,10 @@ targets:
       # presented by MacMainView in a voxSheetFrame sheet.
       - path: ../voxhora-ios/Voxhora/Views/LearnVoxhoraView.swift
         group: SharedViews
+      # Learn Voxhora floating coach card (2026-07-11) — overlaid by
+      # MacMainView while a demonstration is running.
+      - path: ../voxhora-ios/Voxhora/Views/LearnVoxhoraCoachCard.swift
+        group: SharedViews
       - path: ../voxhora-ios/Voxhora/Engine/CalendarCleanupMigration.swift
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CaseTypeFilter.swift

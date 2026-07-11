@@ -143,6 +143,14 @@ struct MacMainView: View {
             LearnVoxhoraView()
                 .voxSheetFrame(width: 620, height: 760)
         }
+        .overlay(alignment: .bottomTrailing) {
+            // Learn Voxhora coach card (2026-07-11) — renders ONLY while a
+            // demonstration is running (tour model activeItem != nil, set
+            // exclusively from the hub). Floats bottom-right over the real
+            // screens; app sheets present above it by design.
+            LearnVoxhoraCoachCard()
+                .padding(22)
+        }
         .task {
             // Learn whether iCloud is available. Signed out / restricted →
             // jump straight to OnboardingView (nothing to hydrate from).
