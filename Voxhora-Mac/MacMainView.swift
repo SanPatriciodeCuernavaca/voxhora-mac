@@ -55,6 +55,13 @@ struct MacMainView: View {
     /// iCloud account than the one this device was bound to.
     @State private var mismatchOverridden: Bool = false
 
+    /// First-run Setup Assistant gate (2026-07-10). @AppStorage so a write
+    /// from the wizard's finish OR the launch backfill re-renders this view
+    /// reactively (plain UserDefaults would not). `forceShow` re-arms the
+    /// wizard for a preview even after completion.
+    @AppStorage(SetupAssistantState.completedKey) private var setupAssistantComplete: Bool = false
+    @AppStorage("voxhora.setupAssistant.forceShow") private var setupAssistantForceShow: Bool = false
+
     /// Generous grace — a fresh-Mac CloudKit cold-fetch with hundreds
     /// of records can take 30-60s. Padded to 90s (matches iOS).
     private static let hydrationGraceSeconds: Double = 90
@@ -87,19 +94,7 @@ struct MacMainView: View {
         // existing Mac install: AttorneyProfile already exists →
         // gate falls through immediately → unchanged UX.
         Group {
-            if UserDefaults.standard.bool(forKey: "voxhora.setupAssistant.forceShow") {
-                // Preview-only branch (2026-07-10, increment 1). Inert unless
-                // `defaults write …voxhora.setupAssistant.forceShow -bool YES`
-                // is set on this Mac — cannot trap a real install. Lets
-                // Patrick click through the new Setup Assistant on his own
-                // Mac before it's wired into the real first-run gate. The
-                // real gate (profile-exists + !SetupAssistantState.isComplete
-                // + fresh-install backfill) lands in a later increment.
-                SetupAssistantView {
-                    UserDefaults.standard.set(false, forKey: "voxhora.setupAssistant.forceShow")
-                }
-                .background(Color.voxPaper)
-            } else if appState.accountLocked {
+            if appState.accountLocked {
                 // LLM Proxy kill switch (2026-06-07) — full-screen lock when the
                 // attorney's account is suspended server-side (AccountStatusService).
                 AccountLockedView()
@@ -108,6 +103,18 @@ struct MacMainView: View {
                 // First-launch Terms consent gate (VOXHORA_TERMS_GATE). Blocks the
                 // app until the attorney accepts; no-op when the flag is off.
                 termsGate(p)
+                    .background(Color.voxPaper)
+            } else if showSetupAssistant {
+                // First-run Setup Assistant (2026-07-10). Shows once, AFTER a
+                // profile exists (OnboardingView made it) and terms are
+                // accepted, until finished on this Mac. Existing installs are
+                // marked complete by the launch backfill in VoxhoraMacApp, so
+                // Patrick / Matt never see it. `setupAssistantComplete` is
+                // @AppStorage on SetupAssistantState.completedKey, so finishing
+                // (or the backfill) flips this branch reactively — no stale
+                // wizard, no disappearing window. `forceShow` re-arms it for a
+                // preview even once complete.
+                SetupAssistantView(onComplete: completeSetupAssistant)
                     .background(Color.voxPaper)
             } else if !profiles.isEmpty {
                 mainContent
@@ -189,6 +196,22 @@ struct MacMainView: View {
         #else
         return false
         #endif
+    }
+
+    /// Show the first-run Setup Assistant only once a profile exists (the
+    /// wizard's TechShare/storage steps assume one) and setup hasn't
+    /// finished on this Mac — or whenever the preview flag re-arms it.
+    private var showSetupAssistant: Bool {
+        !profiles.isEmpty && (!setupAssistantComplete || setupAssistantForceShow)
+    }
+
+    /// Wizard finished (or skipped to the end). Persist completion and drop
+    /// any preview re-arm; @AppStorage flips `showSetupAssistant` false so
+    /// the app content appears in the same window.
+    private func completeSetupAssistant() {
+        SetupAssistantState.markComplete()
+        setupAssistantComplete = true
+        setupAssistantForceShow = false
     }
 
     @ViewBuilder

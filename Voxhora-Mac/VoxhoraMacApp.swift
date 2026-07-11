@@ -702,6 +702,28 @@ struct VoxhoraMacApp: App {
                         // the Destroy-source toggle). Must happen
                         // BEFORE the first start() call.
                         AutoIntakeWatcher.shared.setModelContext(modelContainer.mainContext)
+
+                        // First-run Setup Assistant launch backfill (2026-07-10).
+                        // The wizard shows only to genuinely fresh installs.
+                        // On the FIRST launch of a build that has the wizard, if
+                        // an AttorneyProfile ALREADY exists, this is a
+                        // pre-existing attorney (Patrick / Matt) who is already
+                        // set up → mark setup complete so the wizard never
+                        // appears for them. A truly fresh install has no profile
+                        // at launch (OnboardingView creates it later), so this
+                        // no-ops and the wizard shows after onboarding. One-shot,
+                        // device-local — same latch family as the sticky-enable
+                        // backfills below. Runs BEFORE the WindowGroup's gate
+                        // consults @AppStorage(SetupAssistantState.completedKey).
+                        let setupBackfillKey = "voxhora.setupAssistant.launchBackfillRan"
+                        if !UserDefaults.standard.bool(forKey: setupBackfillKey) {
+                            UserDefaults.standard.set(true, forKey: setupBackfillKey)
+                            let existing = (try? modelContainer.mainContext.fetch(FetchDescriptor<AttorneyProfile>())) ?? []
+                            if !existing.isEmpty && !SetupAssistantState.isComplete {
+                                SetupAssistantState.markComplete()
+                            }
+                        }
+
                         // (2) Read current Auto-intake settings and
                         // start the watcher if the master toggle is
                         // ON. Reactive restart on settings change is
