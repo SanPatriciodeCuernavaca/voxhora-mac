@@ -68,16 +68,21 @@ sign_machos_in_dir() {
       | grep -v "(for architecture" \
       | sed 's/:[[:space:]]*Mach-O.*//'
   )
-  for macho in "${machos[@]}"; do
-    codesign --force --timestamp --options runtime --sign "$SIGN_ID" "$macho" \
-      || die "codesign failed for ${macho#$root/} ($label)"
-    local vout
-    vout="$(codesign -dvvv "$macho" 2>&1 || true)"
-    case "$vout" in
-      *"Authority=Developer ID Application"*) : ;;
-      *) die "sign did not stick for ${macho#$root/} ($label)" ;;
-    esac
-  done
+  # Empty-array expansion under `set -u` on bash 3.2 (macOS default) is an
+  # "unbound variable" error, so the loop must be guarded — this helper is
+  # now called on EVERY wheel, most of which contain zero Mach-Os.
+  if [[ ${#machos[@]} -gt 0 ]]; then
+    for macho in "${machos[@]}"; do
+      codesign --force --timestamp --options runtime --sign "$SIGN_ID" "$macho" \
+        || die "codesign failed for ${macho#$root/} ($label)"
+      local vout
+      vout="$(codesign -dvvv "$macho" 2>&1 || true)"
+      case "$vout" in
+        *"Authority=Developer ID Application"*) : ;;
+        *) die "sign did not stick for ${macho#$root/} ($label)" ;;
+      esac
+    done
+  fi
   echo "${#machos[@]}"
 }
 
@@ -156,17 +161,20 @@ if [[ ! -d "$SIGNED_WHEELS" ]]; then
   rm -rf "$SIGNED_WHEELS.tmp"
   cp -R "$WHEELS_CACHE" "$SIGNED_WHEELS.tmp"
   for whl in "$SIGNED_WHEELS.tmp"/*.whl; do
-    # Capture the listing first — `unzip -l | grep -q` under
-    # `set -o pipefail` reports the pipe FAILED because grep -q SIGPIPEs
-    # unzip on an early match, so wheels with a .so listed early were
-    # non-deterministically skipped (2026-07-09 — cffi/cryptography
-    # slipped through unsigned while charset happened to sign).
-    whl_listing="$(unzip -l "$whl" 2>/dev/null || true)"
-    if printf '%s' "$whl_listing" | grep -qE '\.(so|dylib)'; then
-      WTMP="$(mktemp -d)"
-      unzip -qq "$whl" -d "$WTMP"
-      wc="$(sign_machos_in_dir "$WTMP" "$(basename "$whl")")"
-      # Rewrite RECORD hashes for the members we just modified.
+    # Sign by Mach-O MAGIC, never by filename. The old gate grepped the
+    # listing for `\.(so|dylib)` and skipped any wheel without one — which
+    # silently shipped imageio-ffmpeg's extension-less `ffmpeg-macos-…`
+    # EXECUTABLE ad-hoc-signed (2026-07-11). The notary rejects ANY nested
+    # ad-hoc Mach-O regardless of name, so extract every wheel, let
+    # sign_machos_in_dir (file(1)-magic based) decide, and only rewrite +
+    # repack the ones that actually contained a Mach-O.
+    WTMP="$(mktemp -d)"
+    unzip -qq "$whl" -d "$WTMP"
+    wc="$(sign_machos_in_dir "$WTMP" "$(basename "$whl")")"
+    if [[ "$wc" -gt 0 ]]; then
+      # Rewrite RECORD hashes for EVERY file on disk (a superset of what we
+      # re-signed — Mach-Os with no extension are covered too; recompute is
+      # idempotent for untouched members so the RECORD always matches disk).
       python3 - "$WTMP" <<'PYEOF'
 import base64, hashlib, os, sys
 root = sys.argv[1]
@@ -184,23 +192,26 @@ for line in open(record_path):
         continue
     path = line.split(",")[0]
     full = os.path.join(root, path)
-    if path.endswith((".so", ".dylib")) and os.path.exists(full):
-        data = open(full, "rb").read()
-        digest = base64.urlsafe_b64encode(hashlib.sha256(data).digest()).rstrip(b"=").decode()
-        lines_out.append(f"{path},sha256={digest},{len(data)}")
-    else:
+    # The RECORD line for RECORD itself carries no hash — leave verbatim.
+    if os.path.abspath(full) == os.path.abspath(record_path) or not os.path.exists(full):
         lines_out.append(line)
+        continue
+    data = open(full, "rb").read()
+    digest = base64.urlsafe_b64encode(hashlib.sha256(data).digest()).rstrip(b"=").decode()
+    lines_out.append(f"{path},sha256={digest},{len(data)}")
 open(record_path, "w").write("\n".join(lines_out) + "\n")
 PYEOF
       # Absolute path — the repack runs from inside $WTMP, so a relative
       # "$whl" would resolve to a nonexistent dir (2026-07-09 bug: the
       # wheel got rm'd then the zip silently failed, dropping it).
+      # NB: zip preserves the unix exec bit (in the external attrs) even
+      # with -X, and pip restores it on install — ffmpeg stays runnable.
       whl_abs="$(cd "$(dirname "$whl")" && pwd)/$(basename "$whl")"
       rm -f "$whl_abs"
       (cd "$WTMP" && zip -qq -r -X "$whl_abs" .) || die "wheel repack failed: $(basename "$whl")"
-      rm -rf "$WTMP"
-      done_ "signed $(basename "$whl")"
+      done_ "signed $wc Mach-O(s) in $(basename "$whl")"
     fi
+    rm -rf "$WTMP"
   done
   mv "$SIGNED_WHEELS.tmp" "$SIGNED_WHEELS"
 else
