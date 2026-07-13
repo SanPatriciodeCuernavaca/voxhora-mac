@@ -157,6 +157,10 @@ targets:
       # the same capture/edit/export functionality the iPhone has.
       - path: ../voxhora-ios/Voxhora/Engine/AuditLogger.swift
         group: SharedEngine
+      # Printable court docket PDF engine (2026-07-13, mockup-approved) —
+      # pure CoreGraphics/CoreText, one drawing path for iOS + Mac.
+      - path: ../voxhora-ios/Voxhora/Engine/DocketPDFGenerator.swift
+        group: SharedEngine
       # First-run Setup Assistant device-local completion flag (2026-07-10).
       # Pure Foundation; MacMainView gate + the wizard read it. Mac-only
       # consumer but compiles everywhere so the engine set stays uniform.
