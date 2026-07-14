@@ -80,8 +80,9 @@ bad=[]; near=[]
 for t in d.get("tokens",[]):
     if "env-seed" in (t.get("attorney_name") or ""): continue
     cap=t.get("monthly_cap_usd") or 0; sp=t.get("spent_this_month_usd") or 0
-    if cap and sp>=cap: bad.append(f"{t.get(\"attorney_name\")} ${sp:.2f}/${cap:.0f}")
-    elif cap and sp>=0.8*cap: near.append(f"{t.get(\"attorney_name\")} ${sp:.2f}/${cap:.0f}")
+    nm=t.get("attorney_name") or "?"
+    if cap and sp>=cap: bad.append(f"{nm} ${sp:.2f}/${cap:.0f}")
+    elif cap and sp>=0.8*cap: near.append(f"{nm} ${sp:.2f}/${cap:.0f}")
 print("BAD:"+";".join(bad)+"|NEAR:"+";".join(near))
 ' 2>/dev/null)
   if [ "$SPEND" = "ERR" ] || [ -z "$SPEND" ]; then warn "Could not read token spend (admin auth or API issue)"
