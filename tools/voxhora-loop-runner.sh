@@ -35,11 +35,23 @@ cd "$PROJECT_DIR" || { echo "FATAL: project dir missing" | tee "$LOG"; exit 1; }
   echo "=== $TASK run $STAMP (headless claude -p via launchd) ==="
   # caffeinate -i: no idle sleep while the loop runs (the 3am nightly
   # previously died to sleep 20 minutes in).
-  caffeinate -i /opt/homebrew/bin/claude -p "$PROMPT" \
-    --dangerously-skip-permissions \
-    --add-dir "$HOME/voxhora-ios" --add-dir "$HOME/voxhora-mac" \
-    --add-dir "$HOME/Obsidian/Voxhora"
-  RC=$?
+  # One automatic retry on a transient API drop ("Connection closed
+  # mid-response" killed 11 of 46 runs Jul 15-19, including both
+  # nightlies on Jul 18+19 and the weekly's debut). A short pause, then
+  # the SAME prompt again; a second failure is a real outage and stays
+  # a loud exit 1.
+  for ATTEMPT in 1 2; do
+    caffeinate -i /opt/homebrew/bin/claude -p "$PROMPT" \
+      --dangerously-skip-permissions \
+      --add-dir "$HOME/voxhora-ios" --add-dir "$HOME/voxhora-mac" \
+      --add-dir "$HOME/Obsidian/Voxhora"
+    RC=$?
+    [ $RC -eq 0 ] && break
+    if [ $ATTEMPT -eq 1 ]; then
+      echo "--- attempt 1 failed (exit $RC) at $(date '+%Y-%m-%d %H:%M:%S'); retrying in 90s ---"
+      sleep 90
+    fi
+  done
   echo "=== exit $RC at $(date '+%Y-%m-%d %H:%M:%S') ==="
   exit $RC
 } >> "$LOG" 2>&1
