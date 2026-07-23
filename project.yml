@@ -1121,7 +1121,7 @@ targets:
         #
         # Current shipped: v0.1.0 build 2 (first Sparkle release 2026-05-19).
         # Next release.sh run will bump both lines below and Info.plist together.
-        CFBundleShortVersionString: "0.2.68"
+        CFBundleShortVersionString: "0.2.69"
         CFBundleVersion: "74"
         LSApplicationCategoryType: public.app-category.business
         NSHumanReadableCopyright: "Voxhora — Patrick Fagerberg"
@@ -1347,7 +1347,7 @@ targets:
       path: Voxhora-Mac-Share/Info.plist
       properties:
         CFBundleDisplayName: Voxhora
-        CFBundleShortVersionString: "0.2.68"
+        CFBundleShortVersionString: "0.2.69"
         CFBundleVersion: "74"
         # NSExtension declaration — share-services point + principal
         # class. Activation rule (predicate string) restricts the
