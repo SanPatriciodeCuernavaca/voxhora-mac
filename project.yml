@@ -613,6 +613,10 @@ targets:
       # download-queue.json — queue survives Voxhora-Mac quit + relaunch.
       - path: ../voxhora-ios/Voxhora/Engine/DownloadQueue.swift
         group: SharedEngine
+      # Pure, testable wake/resume decisions for the download queue (kept off
+      # the Mac-only queue so the logic is unit-testable in VoxhoraTests).
+      - path: ../voxhora-ios/Voxhora/Engine/DiscoveryQueueWakePolicy.swift
+        group: SharedEngine
       # Cloud-Native Discovery Phase 2 (2026-05-28) — Mac-only
       # (#if os(macOS)) upload+verify+delete engine for the cloud-only
       # Discovery staging pipeline. When AttorneyProfile.discoveryCloudOnly
