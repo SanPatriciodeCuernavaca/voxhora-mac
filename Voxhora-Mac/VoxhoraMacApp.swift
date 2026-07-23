@@ -82,6 +82,11 @@ struct VoxhoraMacApp: App {
     /// Timer covers Mac's always-on workflow.
     @Environment(\.scenePhase) private var scenePhase
 
+    /// Debounce anchor for the heavier .active re-checks (2026-07-20
+    /// perf review) — distantPast so the FIRST activation (launch)
+    /// always runs them.
+    @MainActor static var lastActivationChecks = Date.distantPast
+
     /// DECISION 054 follow-up (2026-05-10) — shared @Observable
     /// model. Same as iPhone's VoxhoraApp.swift. Injected into the
     /// Mac SwiftUI environment so case-info sheets can mutate the
@@ -937,20 +942,32 @@ struct VoxhoraMacApp: App {
                     Task { @MainActor in
                         switch newPhase {
                         case .active:
-                            // LLM Proxy kill switch — re-check on foreground in case
-                            // the account changed while the app was in the background.
-                            await AccountStatusService.refresh(appState)
-                            await CalendarRefreshScheduler.runIfStale(
-                                modelContext: modelContainer.mainContext
-                            )
+                            // The foreground Timer restart is cheap and always runs;
+                            // the heavier re-checks (proxy account status, calendar
+                            // staleness scan, full to-do reschedule) are debounced —
+                            // 2026-07-20 perf review: every Cmd-Tab back into the app
+                            // ran a network round-trip + an audit-table scan + a full
+                            // reminder reschedule, felt as a foreground hitch. 5-min
+                            // debounce; all three have their own staleness logic on
+                            // top, this just stops the per-Cmd-Tab churn.
                             CalendarRefreshScheduler.startForegroundTimer(
                                 modelContext: modelContainer.mainContext
                             )
-                            #if VOXHORA_TODOS
-                            // To-Dos / Reminders — re-sync the daily nags on
-                            // foreground (a to-do may have changed elsewhere).
-                            await TodoReminderScheduler.rescheduleAllOnLaunch(modelContext: modelContainer.mainContext)
-                            #endif
+                            let now = Date()
+                            if now.timeIntervalSince(Self.lastActivationChecks) > 300 {
+                                Self.lastActivationChecks = now
+                                // LLM Proxy kill switch — re-check on foreground in case
+                                // the account changed while the app was in the background.
+                                await AccountStatusService.refresh(appState)
+                                await CalendarRefreshScheduler.runIfStale(
+                                    modelContext: modelContainer.mainContext
+                                )
+                                #if VOXHORA_TODOS
+                                // To-Dos / Reminders — re-sync the daily nags on
+                                // foreground (a to-do may have changed elsewhere).
+                                await TodoReminderScheduler.rescheduleAllOnLaunch(modelContext: modelContainer.mainContext)
+                                #endif
+                            }
                         case .background, .inactive:
                             CalendarRefreshScheduler.stopForegroundTimer()
                         @unknown default:
