@@ -146,8 +146,15 @@ if [ -d "$STAGING" ]; then
     # printf, NOT echo — staged filenames can contain literal backslashes
     # (Windows-zip artifacts) that echo would mangle into fake "clients".
     N=$(printf '%s\n' "$STALE" | grep -c .)
-    SZ=$(printf '%s\n' "$STALE" | tr '\n' '\0' | xargs -0 du -ch 2>/dev/null | tail -1 | awk '{print $1}')
-    CLIENTS=$(printf '%s\n' "$STALE" | sed "s|$STAGING/||" | cut -d/ -f1 | sort -u | paste -sd ', ' -)
+    # Sum every file's byte size and format once — NOT `du -ch | tail -1`, which
+    # on a huge list splits into multiple du runs and tail keeps only the last
+    # chunk's total (undercount in exactly the 35GB-stranding case this catches).
+    SZ=$(printf '%s\n' "$STALE" | tr '\n' '\0' | xargs -0 stat -f %z 2>/dev/null \
+         | awk '{s+=$1} END {if (s>=1e9) printf "%.1fG", s/1e9; else printf "%.0fM", s/1e6}')
+    # paste -sd, (SINGLE-char delim) then add spaces — `paste -sd ', '` on BSD
+    # treats ',' and ' ' as ALTERNATING delimiters and mangles multi-client
+    # lists ("Seator,Perez Lorca,Kim").
+    CLIENTS=$(printf '%s\n' "$STALE" | sed "s|$STAGING/||" | cut -d/ -f1 | sort -u | paste -sd, - | sed 's/,/, /g')
     fail "Discovery upload stragglers: $N file(s) / $SZ staged >24h without reaching Dropbox — clients: $CLIENTS. Check the DISCOVERY_CLOUD_UPLOAD_FAILED audit rows for the error."
   fi
 else
