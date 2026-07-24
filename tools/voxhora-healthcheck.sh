@@ -130,6 +130,30 @@ else
   warn "TestFlight check skipped — ASC key ~/.private_keys/AuthKey_Q462G5J3Q4.p8 not found"
 fi
 
+# 1g. Discovery upload stragglers (2026-07-23, Patrick). Downloaded discovery
+#     stages in ~/Library/Caches/Voxhora/DiscoveryStaging/<client>/ and must
+#     reach Dropbox within hours (upload pass + orphan sweep). Anything still
+#     staged after 24h means uploads are silently failing (bad filename,
+#     token problem, dead network) and the Portal is missing files the
+#     attorney thinks he has. 35GB of strandings accumulated invisibly over
+#     2 months before this check existed.
+STAGING="$HOME/Library/Caches/Voxhora/DiscoveryStaging"
+if [ -d "$STAGING" ]; then
+  STALE=$(find "$STAGING" -type f -mtime +1 -not -name ".DS_Store" 2>/dev/null)
+  if [ -z "$STALE" ]; then
+    pass "Discovery staging clean (no files older than 24h awaiting upload)"
+  else
+    # printf, NOT echo — staged filenames can contain literal backslashes
+    # (Windows-zip artifacts) that echo would mangle into fake "clients".
+    N=$(printf '%s\n' "$STALE" | grep -c .)
+    SZ=$(printf '%s\n' "$STALE" | tr '\n' '\0' | xargs -0 du -ch 2>/dev/null | tail -1 | awk '{print $1}')
+    CLIENTS=$(printf '%s\n' "$STALE" | sed "s|$STAGING/||" | cut -d/ -f1 | sort -u | paste -sd ', ' -)
+    fail "Discovery upload stragglers: $N file(s) / $SZ staged >24h without reaching Dropbox — clients: $CLIENTS. Check the DISCOVERY_CLOUD_UPLOAD_FAILED audit rows for the error."
+  fi
+else
+  pass "Discovery staging clean (no staging directory)"
+fi
+
 # ------------------------------------------------------------- 2. CODE GATES
 say ""; say "## 2. Code gates (byte-identity / invariant tests)"
 for gate in jurisdiction-golden-master custom-jurisdiction-gate travis-appellate-gate; do
