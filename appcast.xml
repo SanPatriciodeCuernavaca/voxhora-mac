@@ -3,12 +3,20 @@
     <channel>
         <title>Voxhora-Mac</title>
         <item>
+            <title>0.2.71</title>
+            <pubDate>Thu, 23 Jul 2026 22:10:05 -0500</pubDate>
+            <sparkle:version>77</sparkle:version>
+            <sparkle:shortVersionString>0.2.71</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.1</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/SanPatriciodeCuernavaca/voxhora-mac/releases/download/v0.2.71/Voxhora-Mac-0.2.71.dmg" length="57835169" type="application/octet-stream" sparkle:edSignature="mr9UQ7Kv92peUQwXBQgAB+bLV9LFrxDWyyc+e6hAcr6vmQro6kanL9ABDxbG3Pmt9FMlTkmlWkd7deyUGBWICA=="/>
+        </item>
+        <item>
             <title>0.2.70</title>
             <pubDate>Thu, 23 Jul 2026 20:01:57 -0500</pubDate>
             <sparkle:version>76</sparkle:version>
             <sparkle:shortVersionString>0.2.70</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.1</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/SanPatriciodeCuernavaca/voxhora-mac/releases/download/v0.2.70/Voxhora-Mac-0.2.70.dmg" length="57830238" type="application/octet-stream" sparkle:edSignature="ulBQwPe8l4QXA/G8kmyNhr11WZKw9ntS5AvP/Tp3qdT515RbLjTi0GtRQW9wW0Sf6dPU4gQnEVJismt/svwWBw=="/>
+            <enclosure url="https://github.com/SanPatriciodeCuernavaca/voxhora-mac/releases/download/v0.2.71/Voxhora-Mac-0.2.70.dmg" length="57830238" type="application/octet-stream" sparkle:edSignature="ulBQwPe8l4QXA/G8kmyNhr11WZKw9ntS5AvP/Tp3qdT515RbLjTi0GtRQW9wW0Sf6dPU4gQnEVJismt/svwWBw=="/>
         </item>
         <item>
             <title>0.2.69</title>
@@ -16,15 +24,7 @@
             <sparkle:version>75</sparkle:version>
             <sparkle:shortVersionString>0.2.69</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.1</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/SanPatriciodeCuernavaca/voxhora-mac/releases/download/v0.2.70/Voxhora-Mac-0.2.69.dmg" length="57811472" type="application/octet-stream" sparkle:edSignature="sGDmiIXpohRGHf59wTX8QNDCmuNbGK2H/rg4aTFCYzK6Hr1glvh31wHxjyDnJrQHhxBQb7kf4JanHC/gAuRHBw=="/>
-        </item>
-        <item>
-            <title>0.2.68</title>
-            <pubDate>Wed, 22 Jul 2026 19:39:57 -0500</pubDate>
-            <sparkle:version>74</sparkle:version>
-            <sparkle:shortVersionString>0.2.68</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.1</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/SanPatriciodeCuernavaca/voxhora-mac/releases/download/v0.2.70/Voxhora-Mac-0.2.68.dmg" length="57786906" type="application/octet-stream" sparkle:edSignature="1yDQYtm6yTVDprIz80ZRTWJ+xAk+bGFTP7Luj323J0CEHo+b7CdTnWCt5Ot/77L2YGKTS8tQ3jgrkFq70qgUAQ=="/>
+            <enclosure url="https://github.com/SanPatriciodeCuernavaca/voxhora-mac/releases/download/v0.2.71/Voxhora-Mac-0.2.69.dmg" length="57811472" type="application/octet-stream" sparkle:edSignature="sGDmiIXpohRGHf59wTX8QNDCmuNbGK2H/rg4aTFCYzK6Hr1glvh31wHxjyDnJrQHhxBQb7kf4JanHC/gAuRHBw=="/>
         </item>
     </channel>
 </rss>
