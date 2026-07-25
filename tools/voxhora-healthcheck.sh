@@ -161,6 +161,28 @@ else
   pass "Discovery staging clean (no staging directory)"
 fi
 
+# 1h. Discovery download + upload FAILURES in the last 24h (2026-07-25, Patrick:
+#     "verify the health of discovery downloads AND uploads"). 1g catches stuck
+#     uploads (staging >24h); this catches outright FAILED downloads/uploads
+#     recorded in the audit chain, so a failure is surfaced even after its
+#     staged bytes are gone.
+AUDIT_DB="$HOME/Library/Group Containers/group.com.patrickfagerberg.voxhora/Library/Application Support/default.store"
+if [ -f "$AUDIT_DB" ] && command -v sqlite3 >/dev/null 2>&1; then
+  # Core Data timestamps are (unix epoch − 978307200); 24h ago in that scale:
+  CUT=$(( $(date +%s) - 86400 - 978307200 ))
+  DL_FAIL=$(sqlite3 "$AUDIT_DB" "SELECT count(*) FROM ZAUDITLOGENTRY WHERE ZEVENTTYPE='DISCOVERY_DOWNLOAD_FAILED' AND ZTIMESTAMP > $CUT;" 2>/dev/null)
+  UL_FAIL=$(sqlite3 "$AUDIT_DB" "SELECT count(*) FROM ZAUDITLOGENTRY WHERE ZEVENTTYPE='DISCOVERY_CLOUD_UPLOAD_FAILED' AND ZTIMESTAMP > $CUT;" 2>/dev/null)
+  DL_FAIL=${DL_FAIL:-0}; UL_FAIL=${UL_FAIL:-0}
+  if [ "$DL_FAIL" -eq 0 ] && [ "$UL_FAIL" -eq 0 ] 2>/dev/null; then
+    pass "Discovery transfers healthy (no failed downloads or uploads in the last 24h)"
+  else
+    CAUSES=$(sqlite3 "$AUDIT_DB" "SELECT DISTINCT json_extract(ZPAYLOADJSON,'\$.causeNumber') FROM ZAUDITLOGENTRY WHERE ZEVENTTYPE IN ('DISCOVERY_DOWNLOAD_FAILED','DISCOVERY_CLOUD_UPLOAD_FAILED') AND ZTIMESTAMP > $CUT AND json_extract(ZPAYLOADJSON,'\$.causeNumber') IS NOT NULL;" 2>/dev/null | paste -sd, - | sed 's/,/, /g')
+    fail "Discovery failures in last 24h: $DL_FAIL download(s), $UL_FAIL upload(s) — causes: ${CAUSES:-unknown}. Check the DISCOVERY_*_FAILED audit rows (errorTail) for why."
+  fi
+else
+  warn "Discovery failure check skipped — audit store not found or sqlite3 unavailable"
+fi
+
 # ------------------------------------------------------------- 2. CODE GATES
 say ""; say "## 2. Code gates (byte-identity / invariant tests)"
 for gate in jurisdiction-golden-master custom-jurisdiction-gate travis-appellate-gate; do
