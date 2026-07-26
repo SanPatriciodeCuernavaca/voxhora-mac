@@ -172,8 +172,13 @@ struct MacMainView: View {
         .task {
             // Learn whether iCloud is available. Signed out / restricted →
             // jump straight to OnboardingView (nothing to hydrate from).
-            let container = CKContainer(identifier: VoxhoraSchema.cloudKitContainerID)
-            let status = (try? await container.accountStatus()) ?? .couldNotDetermine
+            // Off-main (2026-07-26): a `.task` inherits the main actor, and
+            // CKContainer's synchronous init takes a CloudKit lock — on the
+            // main thread that deadlocks against Core Data's CloudKit queue and
+            // the window never draws. Caught live during a 26 GB deletion sync.
+            let status = (try? await CloudSyncMonitor.accountStatusOffMain(
+                containerIdentifier: VoxhoraSchema.cloudKitContainerID
+            )) ?? .couldNotDetermine
             iCloudAvailable = (status == .available)
             if iCloudAvailable {
                 try? await Task.sleep(nanoseconds: UInt64(Self.hydrationGraceSeconds * 1_000_000_000))
