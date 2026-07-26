@@ -352,6 +352,7 @@
 		E669B0FF816438B07D617A8F /* UserImportedVisualEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673FBDCE6FA3E0707E33A1AC /* UserImportedVisualEffect.swift */; };
 		E6834E4211C3FB1F9613B55B /* MigrationOrphanCleanup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB268BA71FA62F4FAD30FF9 /* MigrationOrphanCleanup.swift */; };
 		E6A47EEE83D7C4900E1AE43E /* LearnVoxhoraCoachCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2987E28FCD32A5821509C07A /* LearnVoxhoraCoachCard.swift */; };
+		E899F6951B8D6CD24853137F /* VoucherModeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD2FD10D65600F38316058 /* VoucherModeBanner.swift */; };
 		E9540F114EFFAB4A6644B6CF /* StampApprovedVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FD1F5F5A001CD56B1870C4 /* StampApprovedVisual.swift */; };
 		E9E2335CE86A9533C8496EEB /* DiscoveryContextRailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550C2680FB57614AD163AB49 /* DiscoveryContextRailView.swift */; };
 		EA4874F1F2F589DB97C7A6A0 /* CaseSynopsisGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F062125A1D9A9747A6A7837 /* CaseSynopsisGenerator.swift */; };
@@ -499,6 +500,7 @@
 		33CACD463F2031F907DE0EEF /* UserPreferencesSchemaV11Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferencesSchemaV11Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/UserPreferencesSchemaV11Bootstrap.swift"; sourceTree = "<group>"; };
 		34DAD6ECE6E70C38B61501CD /* PCAffidavitImportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PCAffidavitImportSheet.swift; path = "../voxhora-ios/Voxhora/Views/PCAffidavitImportSheet.swift"; sourceTree = "<group>"; };
 		35F55BFB4E1A17501E7C45CA /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoViewModel.swift; path = "../voxhora-ios/Voxhora/Views/TodoViewModel.swift"; sourceTree = "<group>"; };
+		36CD2FD10D65600F38316058 /* VoucherModeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoucherModeBanner.swift; path = "../voxhora-ios/Voxhora/Views/VoucherModeBanner.swift"; sourceTree = "<group>"; };
 		378A9C847AFABC90D5756DBB /* TabRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabRegistry.swift; path = "../voxhora-ios/Voxhora/Engine/TabRegistry.swift"; sourceTree = "<group>"; };
 		380D3D57127B7135A10BF2EA /* SuccessWaveBackdrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessWaveBackdrop.swift; sourceTree = "<group>"; };
 		3815538E8E94A934EF13022E /* AttorneyProfileSchemaV12Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttorneyProfileSchemaV12Bootstrap.swift; path = "../voxhora-ios/Voxhora/Engine/AttorneyProfileSchemaV12Bootstrap.swift"; sourceTree = "<group>"; };
@@ -1090,6 +1092,7 @@
 				1C636D1F2E6E4BEC1D68A2FB /* TodoReminderSheet.swift */,
 				39EC66174EC079E83086EED9 /* TodoView.swift */,
 				35F55BFB4E1A17501E7C45CA /* TodoViewModel.swift */,
+				36CD2FD10D65600F38316058 /* VoucherModeBanner.swift */,
 				C0493A23B7C235DD52BFA5AB /* VouchersView.swift */,
 				0E08E962A3419E37518800E4 /* VoxHelpButton.swift */,
 				4A46FBF87537B49DC6BE185F /* VoxHelpView.swift */,
@@ -1902,6 +1905,7 @@
 				2718B8D6E6CA9AAE4BF59C6D /* UserPreferencesSchemaV9Bootstrap.swift in Sources */,
 				2368AF9129C3FD1CB07CD959 /* Voucher.swift in Sources */,
 				EE728C9B4A4D758BDFD6537C /* VoucherCSVExporter.swift in Sources */,
+				E899F6951B8D6CD24853137F /* VoucherModeBanner.swift in Sources */,
 				42384CA3FD156F8FD64B9F57 /* VouchersView.swift in Sources */,
 				DE1C6628400DCC8CDEC08810 /* VoxHelpButton.swift in Sources */,
 				E539A220702CD294CAF85FCE /* VoxHelpService.swift in Sources */,
