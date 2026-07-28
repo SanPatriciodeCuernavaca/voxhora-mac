@@ -26,9 +26,21 @@ import Sparkle
 /// `killAllScansNow()` reaps every in-flight scan subprocess before exit.
 /// (A hard SIGKILL / crash can't be caught — acceptable residual; the common
 /// quit paths all fire applicationWillTerminate.)
+/// 2026-07-28 — the discovery download agent had the SAME orphaning bug the
+/// Mail scan fixed above, and it was never added to this cleanup. Deploying
+/// while Roberto Ruiz's discovery was downloading quit Voxhora-Mac; the agent
+/// reparented to launchd and kept going; the relaunched app restored the queue
+/// item and started a SECOND agent on the same cause. Both wrote the same
+/// `.partial` with independent offsets — one truncating while the other
+/// appended past the hole — leaving a 2.5 GB body-cam video that was 78%
+/// zeros. Reaping here closes the graceful-quit path; DownloadQueue's
+/// restore-on-launch reaper closes the residual this comment calls acceptable
+/// for Mail (SIGKILL, crash, `pkill`), which is NOT acceptable for evidence
+/// files.
 final class VoxhoraMacAppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ notification: Notification) {
         MailInboxBridge.killAllScansNow()
+        DownloadJobsManager.shared.killAllFetchesNow()
     }
 }
 
