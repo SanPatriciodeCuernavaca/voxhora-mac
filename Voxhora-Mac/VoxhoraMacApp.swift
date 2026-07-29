@@ -715,7 +715,9 @@ struct VoxhoraMacApp: App {
                         // iPhone/iPad/Watch (same trap-#15 wiring note as the
                         // CCA repair above).
                         CaseTrunk.repairPCStompedChargeLabels(
-                            modelContext: modelContainer.mainContext
+                            modelContext: modelContainer.mainContext,
+                            attorneyId: (try? modelContainer.mainContext
+                                .fetch(FetchDescriptor<AttorneyProfile>()))?.first?.attorneyId ?? ""
                         )
 
                         // DECISION 026 — SMS reminder rebuild on Mac.
