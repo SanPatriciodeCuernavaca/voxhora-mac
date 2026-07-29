@@ -708,6 +708,16 @@ struct VoxhoraMacApp: App {
                                 .fetch(FetchDescriptor<AttorneyProfile>()))?.first?.attorneyId ?? ""
                         )
 
+                        // 2026-07-29 one-shot: restore the 7 charge labels a
+                        // shared PC affidavit stomped before the fill-blanks-
+                        // only gate existed (the Rangel mislabel). Runs on the
+                        // Mac only — repaired Case rows CloudKit-mirror to
+                        // iPhone/iPad/Watch (same trap-#15 wiring note as the
+                        // CCA repair above).
+                        CaseTrunk.repairPCStompedChargeLabels(
+                            modelContext: modelContainer.mainContext
+                        )
+
                         // DECISION 026 — SMS reminder rebuild on Mac.
                         // Mac doesn't have BGAppRefreshTask but
                         // UNUserNotificationCenter scheduling works
