@@ -72,7 +72,18 @@ settings:
       # analysis Wave 2) — the flag was never defined on Mac at all, so
       # every Mac build (incl. Matt's Sparkle Release) ran the unbounded
       # full-Entry-table roster path.
-      SWIFT_ACTIVE_COMPILATION_CONDITIONS: VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_FAST_ROSTER
+      #
+      # 2026-07-29 release promotion — VOXHORA_MUGSHOT + VOXHORA_MUGSHOT_REQUEST
+      # (Patrick's call, a new attorney onboards today). Both are required
+      # TOGETHER: _REQUEST gates the Settings section, the Intake request queue
+      # and the mail watcher's reply pass, while VOXHORA_MUGSHOT gates the
+      # photo actually SHOWING (calendar thumbnail, "Set as booking photo").
+      # Promoting only one ships half a feature. The TCSO loop was proven end
+      # to end on real mail 2026-07-28 20:12 (filed to Francisco Rivera,
+      # 0 errors) and soaked overnight. VoxHelp's manual documents it as
+      # shipped as of commit be0ad5c — without this promotion a Release build
+      # would describe a feature it does not contain.
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: VOXHORA_TODOS VOXHORA_SETUP VOXHORA_DIAGNOSTICS VOXHORA_TERMS_GATE VOXHORA_FAST_ROSTER VOXHORA_MUGSHOT VOXHORA_MUGSHOT_REQUEST
       # 2026-06-14 CloudKit env split — the Release (Matt/Sparkle) build seals
       # against its OWN entitlements file so the Production CloudKit flip (Step 3
       # of the migration) only touches Matt's build, NOT Patrick's Debug Mac
