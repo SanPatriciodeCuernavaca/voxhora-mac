@@ -696,6 +696,18 @@ struct VoxhoraMacApp: App {
                             modelContext: modelContainer.mainContext
                         )
 
+                        // 2026-07-29 one-shot: repair the CCA first-appearance
+                        // events mis-parsed before the Setting Type column fix.
+                        // MUST live here too — VoxhoraApp.swift is the iOS
+                        // entry point and App-init wiring does not share
+                        // (CLAUDE.md trap #15); the corrupted events were
+                        // written on this Mac.
+                        CalendarEventTrunk.repairMisparsedCCAFirstAppearances(
+                            modelContext: modelContainer.mainContext,
+                            attorneyId: (try? modelContainer.mainContext
+                                .fetch(FetchDescriptor<AttorneyProfile>()))?.first?.attorneyId ?? ""
+                        )
+
                         // DECISION 026 — SMS reminder rebuild on Mac.
                         // Mac doesn't have BGAppRefreshTask but
                         // UNUserNotificationCenter scheduling works
