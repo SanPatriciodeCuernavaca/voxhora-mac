@@ -140,6 +140,15 @@ VOXHELP_GATE="$IOS_REPO/scripts/voxhelp_gate.sh"
        pre-flight requirement — the Mac bundle ships that repo's manual."
 "$VOXHELP_GATE" || die "VoxHelp knowledge gate failed (see message above)."
 
+# 4c. 24-hour release soak (Patrick, 2026-07-30 — "one bad error can
+# ruin my voxhora brand"). Matt never receives code written the same
+# day: Patrick's own devices soak every change first. Shared gate in
+# voxhora-ios, like 4b. Emergency override: SOAK_OK=1 (loud, never
+# silent).
+SOAK_GATE="$IOS_REPO/scripts/soak_gate.sh"
+[[ -x "$SOAK_GATE" ]] || die "Soak gate not found/executable at $SOAK_GATE."
+"$SOAK_GATE" || die "Release soak gate failed (see message above)."
+
 # 5. gh CLI authenticated for our repo
 if ! gh auth status >/dev/null 2>&1; then
   die "gh CLI not authenticated. Run: gh auth login"

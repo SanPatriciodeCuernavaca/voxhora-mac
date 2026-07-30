@@ -201,6 +201,42 @@ else
   warn "Discovery failure check skipped — audit store not found or sqlite3 unavailable"
 fi
 
+# 1i. Docket coverage tripwire (2026-07-30, Patrick's error-reduction
+#     program — data watches data). Every UPCOMING county-docket setting
+#     should belong to a cause number Voxhora tracks as a Case. An orphan
+#     setting means the county expects an appearance on a case the app
+#     doesn't know — a missed-court-date risk, the exact brand-killer
+#     class. Cause numbers are canonicalized (strip non-alphanumerics,
+#     uppercase) so format differences can never hide a gap.
+if [ -f "$AUDIT_DB" ] && command -v python3 >/dev/null 2>&1; then
+  ORPHANS=$(python3 - "$AUDIT_DB" <<'PYEOF'
+import re, sqlite3, sys, datetime
+db = sqlite3.connect(f"file:{sys.argv[1]}?mode=ro", uri=True)
+def key(s):
+    return re.sub(r'[^A-Z0-9]', '', (s or '').upper())
+now_cd = (datetime.datetime.now() - datetime.datetime(2001, 1, 1)).total_seconds()
+case_keys = {key(r[0]) for r in db.execute("SELECT ZCASENUMBER FROM ZCASE") if key(r[0])}
+rows = db.execute(
+    "SELECT ZCLIENTNAME, ZCASENUMBER FROM ZCALENDAREVENT "
+    "WHERE ZDATE >= ? AND ZSOURCE IN ('dsa','dsa_auto')", (now_cd,))
+seen, out = set(), []
+for client, cause in rows:
+    k = key(cause)
+    if k and k not in case_keys and k not in seen:
+        seen.add(k)
+        out.append(f"{client or 'unknown'} ({cause})")
+print("; ".join(out[:10]) + (f" …and {len(out)-10} more" if len(out) > 10 else ""))
+PYEOF
+)
+  if [ -z "$ORPHANS" ]; then
+    pass "Docket coverage: every upcoming county setting matches a tracked case"
+  else
+    fail "Docket coverage gap: upcoming county setting(s) with NO matching case — missed-court-date risk: $ORPHANS"
+  fi
+else
+  warn "Docket coverage check skipped — audit store or python3 unavailable"
+fi
+
 # ------------------------------------------------------------- 2. CODE GATES
 say ""; say "## 2. Code gates (byte-identity / invariant tests)"
 for gate in jurisdiction-golden-master custom-jurisdiction-gate travis-appellate-gate; do
