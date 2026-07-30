@@ -139,7 +139,25 @@ fi
 #     2 months before this check existed.
 STAGING="$HOME/Library/Caches/Voxhora/DiscoveryStaging"
 if [ -d "$STAGING" ]; then
-  STALE=$(find "$STAGING" -type f -mtime +1 -not -name ".DS_Store" 2>/dev/null)
+  # Exclusions MUST mirror DiscoveryStagingUploader.isIntentionallySkipped
+  # (2026-07-30): files the uploader deliberately never uploads — encrypted
+  # in-car video (.av3/.av), its Windows player (dll/exe/ax/ocx/manifest),
+  # Dropbox-disallowed junk (Thumbs.db etc.), and "~$" Office lock stubs —
+  # stay in staging BY DESIGN ("skipped, never deleted") and are not
+  # stragglers. In-flight ".partial" download markers are a download
+  # concern, not an upload backlog (warned separately below). Counting
+  # skipped files here false-FAILed on 81 healthy Gamboa player files.
+  STALE=$(find "$STAGING" -type f -mtime +1 \
+      -not -name ".DS_Store" -not -iname "Thumbs.db" -not -iname "desktop.ini" \
+      -not -name ".dropbox" -not -name ".dropbox.attr" \
+      -not -name '~$*' -not -name "*.partial" \
+      -not -iname "*.av3" -not -iname "*.av" \
+      -not -iname "*.dll" -not -iname "*.exe" -not -iname "*.ax" \
+      -not -iname "*.ocx" -not -iname "*.manifest" 2>/dev/null)
+  STALE_PARTIALS=$(find "$STAGING" -type f -name "*.partial" -mtime +1 2>/dev/null | grep -c . || true)
+  if [ "${STALE_PARTIALS:-0}" -gt 0 ]; then
+    warn "Discovery staging: $STALE_PARTIALS stale .partial download scrap(s) older than 24h (reclaimable space, not an upload failure)"
+  fi
   if [ -z "$STALE" ]; then
     pass "Discovery staging clean (no files older than 24h awaiting upload)"
   else
