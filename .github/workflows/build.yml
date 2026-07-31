@@ -7,9 +7,18 @@ name: Build voxhora-mac
 # project.yml relative paths. CI checks out BOTH repos so the build can
 # resolve those references.
 
+# 2026-07-31 — push-to-main triggers REMOVED, same reason as voxhora-ios.
+# This account hit 2000/2000 free Actions minutes on 2026-07-31 and GitHub
+# refused to start any further macOS job; this repo accounted for $6.01 of the
+# $18.10 month. macOS bills at 10x, leaving ~200 REAL macOS-minutes/month, so
+# a build on every direct push to main is not affordable and a daily schedule
+# is well over budget.
+#
+# Runs on PRs (the Codex plan's review unit) and on demand. Per-commit
+# coverage on main is carried by the nightly run on Patrick's own Mac, which
+# builds this target daily for free.
+
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
