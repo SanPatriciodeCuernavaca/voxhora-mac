@@ -708,6 +708,17 @@ struct VoxhoraMacApp: App {
                                 .fetch(FetchDescriptor<AttorneyProfile>()))?.first?.attorneyId ?? ""
                         )
 
+                        // 2026-07-30 one-shot: restore Monica Armijo
+                        // Mendoza's 08-12 First Appearance, deleted by the
+                        // mirror sweep before the county published her cause.
+                        // Runs AFTER the DSA reconcile above, so if the county
+                        // has since published it the restore stands down.
+                        CalendarEventTrunk.restoreArmijoMendozaFirstAppearance(
+                            modelContext: modelContainer.mainContext,
+                            attorneyId: (try? modelContainer.mainContext
+                                .fetch(FetchDescriptor<AttorneyProfile>()))?.first?.attorneyId ?? ""
+                        )
+
                         // 2026-07-29 one-shot: restore the 7 charge labels a
                         // shared PC affidavit stomped before the fill-blanks-
                         // only gate existed (the Rangel mislabel). Runs on the
