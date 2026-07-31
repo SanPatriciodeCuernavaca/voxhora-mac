@@ -32,6 +32,40 @@ jobs:
           path: voxhora-ios
           token: ${{ secrets.VOXHORA_IOS_PAT }}
 
+      - name: Record which sources this build compiled
+        # 2026-07-31 — Codex Reliability Plan, Milestone 1 slice 1B.
+        #
+        # The Mac target compiles shared Engine/Models straight out of the
+        # neighboring iOS repo via project.yml folder-globs. Until now a Mac
+        # CI run never said WHICH iOS revision it compiled, so a green Mac
+        # build could not be traced back to the shared source that produced
+        # it. This step makes both identities explicit in the log and the run
+        # summary.
+        #
+        # NOTE: the checkout step above takes voxhora-ios at its DEFAULT
+        # BRANCH — it is not pinned. So this records what was used; it does
+        # not yet guarantee what will be used. The committed source lock that
+        # makes the iOS revision deterministic is Milestone 4, deliberately
+        # out of scope here.
+        run: |
+          set -euo pipefail
+          MAC_SHA=$(git -C voxhora-mac rev-parse HEAD)
+          IOS_SHA=$(git -C voxhora-ios rev-parse HEAD)
+          MAC_REF=$(git -C voxhora-mac rev-parse --abbrev-ref HEAD || echo "detached")
+          IOS_REF=$(git -C voxhora-ios rev-parse --abbrev-ref HEAD || echo "detached")
+          echo "voxhora-mac : $MAC_SHA ($MAC_REF)"
+          echo "voxhora-ios : $IOS_SHA ($IOS_REF)   <-- shared Engine/Models source"
+          {
+            echo "### Source provenance"
+            echo ""
+            echo "| Repository | Commit | Ref |"
+            echo "|---|---|---|"
+            echo "| voxhora-mac | \`$MAC_SHA\` | $MAC_REF |"
+            echo "| voxhora-ios (shared) | \`$IOS_SHA\` | $IOS_REF |"
+            echo ""
+            echo "_iOS revision is UNPINNED until Milestone 4's source lock._"
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode_16.0.app/Contents/Developer || sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
