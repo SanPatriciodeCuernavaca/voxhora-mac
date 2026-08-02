@@ -7,9 +7,18 @@ name: Build voxhora-mac
 # project.yml relative paths. CI checks out BOTH repos so the build can
 # resolve those references.
 
+# 2026-07-31 — push-to-main triggers REMOVED, same reason as voxhora-ios.
+# This account hit 2000/2000 free Actions minutes on 2026-07-31 and GitHub
+# refused to start any further macOS job; this repo accounted for $6.01 of the
+# $18.10 month. macOS bills at 10x, leaving ~200 REAL macOS-minutes/month, so
+# a build on every direct push to main is not affordable and a daily schedule
+# is well over budget.
+#
+# Runs on PRs (the Codex plan's review unit) and on demand. Per-commit
+# coverage on main is carried by the nightly run on Patrick's own Mac, which
+# builds this target daily for free.
+
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -32,8 +41,63 @@ jobs:
           path: voxhora-ios
           token: ${{ secrets.VOXHORA_IOS_PAT }}
 
+      - name: Record which sources this build compiled
+        # 2026-07-31 — Codex Reliability Plan, Milestone 1 slice 1B.
+        #
+        # The Mac target compiles shared Engine/Models straight out of the
+        # neighboring iOS repo via project.yml folder-globs. Until now a Mac
+        # CI run never said WHICH iOS revision it compiled, so a green Mac
+        # build could not be traced back to the shared source that produced
+        # it. This step makes both identities explicit in the log and the run
+        # summary.
+        #
+        # NOTE: the checkout step above takes voxhora-ios at its DEFAULT
+        # BRANCH — it is not pinned. So this records what was used; it does
+        # not yet guarantee what will be used. The committed source lock that
+        # makes the iOS revision deterministic is Milestone 4, deliberately
+        # out of scope here.
+        run: |
+          set -euo pipefail
+          MAC_SHA=$(git -C voxhora-mac rev-parse HEAD)
+          IOS_SHA=$(git -C voxhora-ios rev-parse HEAD)
+          MAC_REF=$(git -C voxhora-mac rev-parse --abbrev-ref HEAD || echo "detached")
+          IOS_REF=$(git -C voxhora-ios rev-parse --abbrev-ref HEAD || echo "detached")
+          echo "voxhora-mac : $MAC_SHA ($MAC_REF)"
+          echo "voxhora-ios : $IOS_SHA ($IOS_REF)   <-- shared Engine/Models source"
+          {
+            echo "### Source provenance"
+            echo ""
+            echo "| Repository | Commit | Ref |"
+            echo "|---|---|---|"
+            echo "| voxhora-mac | \`$MAC_SHA\` | $MAC_REF |"
+            echo "| voxhora-ios (shared) | \`$IOS_SHA\` | $IOS_REF |"
+            echo ""
+            echo "_iOS revision is UNPINNED until Milestone 4's source lock._"
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_16.0.app/Contents/Developer || sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+        # 2026-08-01 — do NOT pin Xcode 16 here, and do NOT "simplify" this to
+        # /Applications/Xcode.app: the image default is 16.4, still an Xcode 16,
+        # which reproduces the failure below.
+        #
+        # This is what broke the Mac build. Xcode 16's macOS 15 SDK marks
+        # MXMetricPayload unavailable on macOS, so MetricKitManager.swift —
+        # shared source compiled out of voxhora-ios — failed with
+        # "'MXMetricPayload' is unavailable in macOS" and "cannot override
+        # 'didReceive'". The macOS 26 SDK marks it macos(10.15), and this file
+        # has been compiling on Patrick's Mac under Xcode 26.6 all along.
+        #
+        # The `||` fallback that used to be on this line never fired —
+        # Xcode_16.0.app exists on the runner as a symlink to Xcode_16.app.
+        #
+        # Take the newest Xcode the runner actually has. sort -V (not lexical)
+        # so 26.10 > 26.9 later on. "Verify Xcode version" below prints the
+        # result — trust that, not this comment.
+        run: |
+          set -euo pipefail
+          DEV="$(ls -d /Applications/Xcode_*.app | sort -V | tail -1)/Contents/Developer"
+          echo "Selecting: $DEV"
+          sudo xcode-select -s "$DEV"
 
       - name: Verify Xcode version
         run: xcodebuild -version
