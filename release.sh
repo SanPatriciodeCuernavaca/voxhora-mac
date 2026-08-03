@@ -149,6 +149,44 @@ SOAK_GATE="$IOS_REPO/scripts/soak_gate.sh"
 [[ -x "$SOAK_GATE" ]] || die "Soak gate not found/executable at $SOAK_GATE."
 "$SOAK_GATE" || die "Release soak gate failed (see message above)."
 
+# 4d. Agent kit freshness (2026-08-03). The Mac app and the TechShare agent
+# ship as a MATCHED PAIR, but release.sh only ever asserted the bundled kit
+# was SIGNED — never that it was CURRENT. On 2026-08-03 the kit inside the
+# app was from 07-27: a week old, missing the whole agent half of Milestone
+# 5 (is_present_in_portal — "seen must mean verified in Dropbox"). A release
+# would have shipped attorneys the Mac half of a discovery-durability fix
+# with none of the agent half.
+#
+# Patrick's Mac runs the DEV CHECKOUT, never the kit, so he cannot feel this
+# drift — which is exactly why it must be a machine gate rather than a
+# habit. Emergency override: KIT_STALE_OK=1 (loud, never silent).
+AGENT_REPO="$HOME/voxhora-techshare-agent"
+KIT_MANIFEST="Voxhora-Mac/TechShareAgentKit/MANIFEST.json"
+[[ -d "$AGENT_REPO/.git" ]] || die "Agent repo not found at $AGENT_REPO — the kit's provenance cannot be verified."
+[[ -f "$KIT_MANIFEST" ]] || die "No bundled agent kit at $KIT_MANIFEST. Run: scripts/bundle_techshare_agent.sh"
+
+KIT_SHA="$(sed -n 's/.*"agentSha"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$KIT_MANIFEST")"
+AGENT_HEAD="$(git -C "$AGENT_REPO" rev-parse --short HEAD)"
+AGENT_DIRTY="$(git -C "$AGENT_REPO" status --porcelain -- src tests 2>/dev/null)"
+
+if [[ "${KIT_STALE_OK:-0}" == "1" ]]; then
+  printf "\033[1;33m  ⚠ SKIPPED agent-kit freshness gate (KIT_STALE_OK=1) — kit %s vs agent %s\033[0m\n" \
+    "${KIT_SHA:-none}" "$AGENT_HEAD"
+else
+  [[ -n "$KIT_SHA" ]] || die "Could not read agentSha from $KIT_MANIFEST — rebuild with scripts/bundle_techshare_agent.sh"
+  [[ -z "$AGENT_DIRTY" ]] || die "Agent repo has uncommitted changes under src/ or tests/:
+$AGENT_DIRTY
+       The kit is built from a COMMIT, so whatever you have been testing in the
+       dev checkout is not what attorneys would receive. Commit, then re-run
+       scripts/bundle_techshare_agent.sh."
+  [[ "$KIT_SHA" == "$AGENT_HEAD" ]] || die "Bundled agent kit is STALE — kit was built from $KIT_SHA, agent HEAD is $AGENT_HEAD.
+       The Mac app and agent ship as a matched pair; releasing now would give
+       attorneys agent code $KIT_SHA while this build expects $AGENT_HEAD.
+       Fix: scripts/bundle_techshare_agent.sh (then rebuild so the app
+       re-bundles the new kit)."
+  done_ "Agent kit current (kit $KIT_SHA == agent HEAD $AGENT_HEAD, tree clean)"
+fi
+
 # 5. gh CLI authenticated for our repo
 if ! gh auth status >/dev/null 2>&1; then
   die "gh CLI not authenticated. Run: gh auth login"
