@@ -334,6 +334,53 @@ struct VoxhoraMacApp: App {
                         // sync from the other device.
                         AttorneyProfileBootstrap.runIfNeeded(modelContext: modelContainer.mainContext)
 
+                        // Agent kit updates ride Sparkle (2026-08-03).
+                        // TechShareAgentRuntime.installIfNeeded documents itself
+                        // as "safe to call from the Connect flow AND on every app
+                        // launch (that's how agent updates ride Sparkle)" — but
+                        // the Connect button was its ONLY caller, so an attorney
+                        // who connected once kept that kit forever. A Sparkle
+                        // build could ship a newer agent and they would never
+                        // receive it; only a disconnect/reconnect nobody would
+                        // think to do could update them.
+                        //
+                        // Found while checking why a release was safe: the kit
+                        // inside the app was a week stale AND would not have
+                        // installed anyway. Left unwired this would have stranded
+                        // Milestone 5's entire agent half — is_present_in_portal
+                        // ("seen must mean verified in Dropbox"), the staged
+                        // re-download skip, and both truncation guards — bundled
+                        // in the app but never running on an attorney's Mac.
+                        //
+                        // Idempotent: no-op once installedVersion == kitVersion,
+                        // so this costs a string compare on a normal launch. The
+                        // unpack itself already runs on a detached task inside
+                        // performInstall, so the main actor is never blocked by
+                        // the tarballs — this must stay true (whole-file work on
+                        // the main actor has frozen this app before).
+                        // Its own Task so a first-run install never delays the
+                        // rest of launch. Fail-soft: the dev-checkout and
+                        // Connect-flow paths both still work if this throws.
+                        Task {
+                            guard TechShareAgentRuntime.needsInstall() else { return }
+                            let attorneyId = (try? modelContainer.mainContext
+                                .fetch(FetchDescriptor<AttorneyProfile>()))?.first?.attorneyId ?? ""
+                            do {
+                                try await TechShareAgentRuntime.shared
+                                    .installIfNeeded(attorneyId: attorneyId)
+                            } catch {
+                                AuditLogger.shared.log(
+                                    eventType: .settingChanged,
+                                    payload: [
+                                        "field": "techShareAgentKit",
+                                        "action": "launchInstallFailed",
+                                        "error": String(describing: error).prefix(300).description
+                                    ],
+                                    attorneyId: attorneyId
+                                )
+                            }
+                        }
+
                         // Client info schema v5 (Client info screen feature,
                         // 2026-05-04 evening) — same intakeDate ← createdAt
                         // backfill as iPhone side. Idempotent + UserDefaults-
