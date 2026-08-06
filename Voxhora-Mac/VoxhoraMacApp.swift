@@ -281,6 +281,13 @@ struct VoxhoraMacApp: App {
                         // audit chain within minutes.
                         CloudKitSyncAuditor.shared.start()
 
+                        // AuditRetentionEngine (2026-08-05, sync-fix
+                        // Phase 2) — cap the mirrored audit chain at N
+                        // days. The Mac is also where the supervised
+                        // backlog drain runs:
+                        //   open /Applications/Voxhora-Mac.app --args -VoxhoraDrainAudit
+                        AuditRetentionEngine.startIfAppropriate()
+
                         // Path A3 (2026-05-13) — record degraded init to
                         // audit chain when CloudKit fallback was hit.
                         if containerDegradedToInMemory {

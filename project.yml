@@ -214,6 +214,11 @@ targets:
         group: SharedEngine
       - path: ../voxhora-ios/Voxhora/Engine/CloudKitSyncAuditor.swift
         group: SharedEngine
+      # 2026-08-05 sync-fix Phase 2 — retention cap on the mirrored audit
+      # chain; the Mac also hosts the supervised backlog drain
+      # (-VoxhoraDrainAudit).
+      - path: ../voxhora-ios/Voxhora/Engine/AuditRetentionEngine.swift
+        group: SharedEngine
       # Self-Diagnostics ("Check Setup") slice #1 (2026-06-09) — read-only
       # diagnostics engine + model. Gated behind VOXHORA_DIAGNOSTICS (Debug),
       # so Matt's Release build compiles these to nothing.
