@@ -412,6 +412,30 @@ gh release create "$RELEASE_TAG" \
 done_ "GitHub Release published"
 
 # ─── APPCAST ───────────────────────────────────────────────────────────
+# HOLD_APPCAST=1 (2026-08-07) — publish the Release for NEW installs while
+# leaving the auto-update feed untouched, so existing users (Matt) stay on
+# the previous version until the soak completes. voxhora.app/start links to
+# releases/latest, so a new attorney gets this build immediately; Sparkle
+# reads appcast.xml, which this mode does not change. Finish the rollout
+# later with ./publish-appcast.sh (regenerates the feed and pushes).
+if [ "${HOLD_APPCAST:-0}" = "1" ]; then
+  printf "\n\033[1;33m⚠ HOLD_APPCAST=1 — the auto-update feed will NOT be touched.\n"
+  printf "  New installs from voxhora.app/start get %s immediately.\n" "$VERSION"
+  printf "  EXISTING users stay on the previous version until you run:\n"
+  printf "      cd %s && ./publish-appcast.sh\033[0m\n\n" "$(pwd)"
+  say "Committing version bump only (appcast held)…"
+  git add "$INFOPLIST" "$PROJECT_YML" Voxhora-Mac-Share/Info.plist
+  git commit -m "Release Voxhora-Mac $VERSION (build $BUILD) — appcast HELD" \
+    -m "GitHub Release published for new installs; auto-update feed intentionally not regenerated (soak in progress). Run ./publish-appcast.sh to roll out to existing users."
+  git push
+  done_ "Pushed version bump (auto-update feed untouched)"
+  say "🚀  Released Voxhora-Mac $VERSION (build $BUILD) — NEW INSTALLS ONLY"
+  printf "  DMG:      %s\n" "$DMG_PATH"
+  printf "  Release:  https://github.com/%s/%s/releases/tag/%s\n" "$REPO_OWNER" "$REPO_NAME" "$RELEASE_TAG"
+  printf "  Feed:     UNCHANGED — existing users still on the old version\n"
+  exit 0
+fi
+
 say "Regenerating appcast.xml…"
 "$SPARKLE_TOOLS/generate_appcast" \
   --download-url-prefix "$APPCAST_URL_PREFIX/$RELEASE_TAG/" \
