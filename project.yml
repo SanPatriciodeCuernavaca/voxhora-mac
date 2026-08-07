@@ -223,6 +223,10 @@ targets:
       # Caches/Voxhora, writes STORAGE_PRESSURE_WARNING; deletes nothing).
       - path: ../voxhora-ios/Voxhora/Engine/StorageTripwire.swift
         group: SharedEngine
+      # 2026-08-07 hands-off downloads — patient auto-retry ladder for
+      # failed/partial discovery runs (DownloadQueue's tick consumes it).
+      - path: ../voxhora-ios/Voxhora/Engine/DiscoveryAutoRetryPolicy.swift
+        group: SharedEngine
       # Self-Diagnostics ("Check Setup") slice #1 (2026-06-09) — read-only
       # diagnostics engine + model. Gated behind VOXHORA_DIAGNOSTICS (Debug),
       # so Matt's Release build compiles these to nothing.
