@@ -219,6 +219,10 @@ targets:
       # (-VoxhoraDrainAudit).
       - path: ../voxhora-ios/Voxhora/Engine/AuditRetentionEngine.swift
         group: SharedEngine
+      # 2026-08-07 temp-cache T5 — launch-time storage tripwire (measures
+      # Caches/Voxhora, writes STORAGE_PRESSURE_WARNING; deletes nothing).
+      - path: ../voxhora-ios/Voxhora/Engine/StorageTripwire.swift
+        group: SharedEngine
       # Self-Diagnostics ("Check Setup") slice #1 (2026-06-09) — read-only
       # diagnostics engine + model. Gated behind VOXHORA_DIAGNOSTICS (Debug),
       # so Matt's Release build compiles these to nothing.

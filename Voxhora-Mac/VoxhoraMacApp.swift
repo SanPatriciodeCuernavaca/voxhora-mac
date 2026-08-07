@@ -288,6 +288,19 @@ struct VoxhoraMacApp: App {
                         //   open /Applications/Voxhora-Mac.app --args -VoxhoraDrainAudit
                         AuditRetentionEngine.startIfAppropriate()
 
+                        // ViewTmpSweeper (2026-08-06, T1) — wipe the
+                        // viewer temp cache orphaned by crash / force-quit
+                        // mid-view. No view session spans a launch, so a
+                        // full wipe is always correct. Own Task: a large
+                        // orphan must not delay the rest of launch.
+                        Task {
+                            await ViewTmpSweeper.sweepAtLaunch()
+                            // StorageTripwire (2026-08-07, T5) — AFTER
+                            // the sweep, so reclaimed viewer temps never
+                            // read as pressure. Measures only; ≤1 row/24h.
+                            await StorageTripwire.checkAtLaunch()
+                        }
+
                         // Path A3 (2026-05-13) — record degraded init to
                         // audit chain when CloudKit fallback was hit.
                         if containerDegradedToInMemory {
