@@ -184,8 +184,21 @@ else
 fi
 
 say "Verifying the old feed too…"
-sleep 5
-./tools/check_appcast.sh "$OLD_FEED" || die "Old feed is not serving correctly — existing users may not see $VERSION."
+# raw.githubusercontent serves `cache-control: max-age=300`. The first version
+# of this waited 5 SECONDS against that 5-MINUTE cache, so it reported the old
+# feed broken on a publish that had in fact succeeded — the push had landed and
+# the repo already contained the new appcast. Poll until the CDN catches up
+# rather than accusing a good release.
+OLD_OK=0
+for i in $(seq 1 30); do
+  LIVEOLD=$(curl -sS -L -m 30 "$OLD_FEED" 2>/dev/null \
+    | sed -n 's|.*<sparkle:shortVersionString>\([^<]*\)</sparkle:shortVersionString>.*|\1|p' | head -1 || true)
+  if [ "$LIVEOLD" = "$VERSION" ]; then OLD_OK=1; break; fi
+  printf "  … CDN still caching (attempt %s/30, serving '%s')\n" "$i" "${LIVEOLD:-nothing}"
+  sleep 20
+done
+[ "$OLD_OK" = "1" ] || die "Old feed still not serving $VERSION after 10 minutes. The commit may have landed — check the repo before re-running."
+./tools/check_appcast.sh "$OLD_FEED" || die "Old feed serves $VERSION but an enclosure is unreachable — existing users would see an update they cannot install."
 
 printf "\n\033[1;32m🚀 %s published on BOTH feeds.\033[0m\n" "$VERSION"
 printf "  new: %s\n" "$NEW_FEED"
