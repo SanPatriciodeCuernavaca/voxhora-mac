@@ -57,7 +57,10 @@ INFOPLIST="Voxhora-Mac/Info.plist"
 RELEASES_DIR="releases"
 REPO_OWNER="SanPatriciodeCuernavaca"
 REPO_NAME="voxhora-mac"
-APPCAST_URL_PREFIX="https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/download"
+# NOTE (2026-08-08): there is deliberately no APPCAST_URL_PREFIX here any more.
+# Sparkle enclosure URLs are owned solely by publish-appcast.sh and point at
+# voxhora.app/downloads/ — never at this repo, which is private and would 404
+# for every user without auth.
 
 # ─── HELPERS ───────────────────────────────────────────────────────────
 say()  { printf "\n\033[1;34m▸ %s\033[0m\n" "$*"; }
@@ -413,16 +416,39 @@ done_ "GitHub Release published"
 
 # ─── APPCAST ───────────────────────────────────────────────────────────
 # HOLD_APPCAST=1 (2026-08-07) — publish the Release for NEW installs while
-# leaving the auto-update feed untouched, so existing users (Matt) stay on
-# the previous version until the soak completes. voxhora.app/start links to
-# releases/latest, so a new attorney gets this build immediately; Sparkle
-# reads appcast.xml, which this mode does not change. Finish the rollout
-# later with ./publish-appcast.sh (regenerates the feed and pushes).
+# leaving the auto-update feed untouched, so existing users (Matt) stay on the
+# previous version until the soak completes. Sparkle reads appcast.xml, which
+# this mode does not change. Finish the rollout with ./publish-appcast.sh.
+#
+# CORRECTED 2026-08-08: this block used to claim "voxhora.app/start links to
+# releases/latest, so a new attorney gets this build immediately". That stopped
+# being true on 2026-08-07, when /start moved to voxhora.app/downloads/ — and
+# nothing in this script ever copied the DMG there. Both prior copies were made
+# by hand. So HOLD mode was printing a promise it did not keep: a new attorney
+# kept downloading whatever stale DMG happened to be sitting in voxhora-public.
+# It now does the copy, which is also what makes the claim below honest.
+#
+# Only the STABLE filename is written here. The versioned file Sparkle points at
+# is immutable and must not appear until its feed does — see publish-appcast.sh.
 if [ "${HOLD_APPCAST:-0}" = "1" ]; then
   printf "\n\033[1;33m⚠ HOLD_APPCAST=1 — the auto-update feed will NOT be touched.\n"
-  printf "  New installs from voxhora.app/start get %s immediately.\n" "$VERSION"
   printf "  EXISTING users stay on the previous version until you run:\n"
-  printf "      cd %s && ./publish-appcast.sh\033[0m\n\n" "$(pwd)"
+  printf "      cd %s && ./publish-appcast.sh %s\033[0m\n\n" "$(pwd)" "$RELEASE_TAG"
+
+  say "Updating the attorney-facing download on voxhora.app…"
+  PUBLIC_REPO="/Users/patrickfagerberg/voxhora-public"
+  [ -d "$PUBLIC_REPO" ] || die "voxhora-public checkout missing at $PUBLIC_REPO — new installs would serve a stale DMG."
+  cp "$DMG_PATH" "$PUBLIC_REPO/downloads/Voxhora-Mac.dmg"
+  git -C "$PUBLIC_REPO" add downloads/Voxhora-Mac.dmg
+  if git -C "$PUBLIC_REPO" diff --cached --quiet; then
+    done_ "voxhora.app download already current"
+  else
+    git -C "$PUBLIC_REPO" commit -q -m "Serve $VERSION as the Mac download" \
+      -m "New installs from voxhora.app/start get $VERSION. Auto-update feed intentionally unchanged (soak in progress)."
+    git -C "$PUBLIC_REPO" push -q
+    done_ "New installs from voxhora.app/start now get $VERSION"
+  fi
+
   say "Committing version bump only (appcast held)…"
   git add "$INFOPLIST" "$PROJECT_YML" Voxhora-Mac-Share/Info.plist
   git commit -m "Release Voxhora-Mac $VERSION (build $BUILD) — appcast HELD" \
@@ -431,37 +457,37 @@ if [ "${HOLD_APPCAST:-0}" = "1" ]; then
   done_ "Pushed version bump (auto-update feed untouched)"
   say "🚀  Released Voxhora-Mac $VERSION (build $BUILD) — NEW INSTALLS ONLY"
   printf "  DMG:      %s\n" "$DMG_PATH"
-  printf "  Release:  https://github.com/%s/%s/releases/tag/%s\n" "$REPO_OWNER" "$REPO_NAME" "$RELEASE_TAG"
+  printf "  Download: https://voxhora.app/downloads/Voxhora-Mac.dmg (updated)\n"
   printf "  Feed:     UNCHANGED — existing users still on the old version\n"
   exit 0
 fi
 
-say "Regenerating appcast.xml…"
-"$SPARKLE_TOOLS/generate_appcast" \
-  --download-url-prefix "$APPCAST_URL_PREFIX/$RELEASE_TAG/" \
-  --maximum-deltas 0 \
-  "$RELEASES_DIR" \
-  || die "generate_appcast FAILED"
-
-# generate_appcast writes appcast.xml INTO $RELEASES_DIR. Promote to repo root.
-mv "$RELEASES_DIR/appcast.xml" appcast.xml
-done_ "appcast.xml at repo root"
-
-# ─── COMMIT + PUSH ─────────────────────────────────────────────────────
-say "Committing version bump + appcast.xml…"
+# ─── COMMIT THE VERSION BUMP ───────────────────────────────────────────
+# The appcast is NOT generated here any more (2026-08-08). It used to be built
+# inline with --download-url-prefix pointing at this repo's GitHub Releases —
+# the repo that is going private, where every enclosure would 404 without auth.
+# Feed publication now lives in ONE place, publish-appcast.sh, which serves the
+# DMG from voxhora.app, publishes the new feed home before redirecting the old
+# one, and verifies both. Two implementations would have drifted.
+say "Committing version bump…"
 # Voxhora-Mac-Share/Info.plist is regenerated by the xcodegen step above
 # (2026-07-02 stale-appex fix) — commit it too or every release leaves a
 # dirty tree.
-git add appcast.xml "$INFOPLIST" "$PROJECT_YML" Voxhora-Mac-Share/Info.plist
+git add "$INFOPLIST" "$PROJECT_YML" Voxhora-Mac-Share/Info.plist
 git commit -m "Release Voxhora-Mac $VERSION (build $BUILD)" \
-  -m "Auto-generated by release.sh: bumped Info.plist version + regenerated appcast.xml after GitHub Release $RELEASE_TAG."
+  -m "Version bump for GitHub Release $RELEASE_TAG. Feed published separately by publish-appcast.sh."
 git push
-done_ "Pushed to main"
+done_ "Pushed version bump"
+
+# ─── PUBLISH THE FEED ──────────────────────────────────────────────────
+say "Publishing the Sparkle feed…"
+./publish-appcast.sh "$RELEASE_TAG" || die "publish-appcast.sh FAILED — the build is released but existing users will NOT see it."
 
 # ─── SUMMARY ───────────────────────────────────────────────────────────
 say "🚀  Released Voxhora-Mac $VERSION (build $BUILD)"
 printf "  DMG:      %s\n" "$DMG_PATH"
-printf "  Release:  https://github.com/%s/%s/releases/tag/%s\n" "$REPO_OWNER" "$REPO_NAME" "$RELEASE_TAG"
-printf "  Appcast:  https://raw.githubusercontent.com/%s/%s/main/appcast.xml\n" "$REPO_OWNER" "$REPO_NAME"
-printf "\n  Matt's Mac auto-checks within 24h. To force immediate check on any\n"
-printf "  installed Voxhora-Mac, open the app menu → Check for Updates…\n\n"
+printf "  Download: https://voxhora.app/downloads/Voxhora-Mac.dmg\n"
+printf "  Appcast:  https://voxhora.app/appcast.xml\n"
+printf "\n  Existing Macs auto-check roughly every 24h, and only while the app is\n"
+printf "  running. To force a check: app menu → Check for Updates…\n"
+printf "  Nothing confirms an update landed — ask the user to read Voxhora → About.\n\n"

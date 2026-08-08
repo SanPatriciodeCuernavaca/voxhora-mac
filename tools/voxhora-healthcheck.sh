@@ -237,6 +237,29 @@ else
   warn "Docket coverage check skipped — audit store or python3 unavailable"
 fi
 
+# 1z. Sparkle update feed — can existing Macs still RECEIVE an update?
+# Added 2026-08-08. Until now nothing watched this: the healthcheck covered the
+# proxy, AASA, /connect and TestFlight expiry, but never the appcast. That gap
+# is why the feed's 0.2.83 and 0.2.82 entries sat dead (404) for days unnoticed.
+# It is the highest-consequence silent failure in the system — Sparkle's
+# BACKGROUND checks swallow network errors, so a broken feed shows the user
+# nothing at all, and the first symptom is an attorney months behind on fixes.
+#
+# Checks the feed the SHIPPED app actually polls (read from Info.plist) AND that
+# every enclosure in it is fetchable — a feed that parses perfectly while
+# pointing at dead DMGs looks green and delivers nothing.
+if [ -x "$MAC/tools/check_appcast.sh" ]; then
+  FEEDOUT=$(TO 240 "$MAC/tools/check_appcast.sh" 2>&1); rc=$?
+  FEEDSUM=$(echo "$FEEDOUT" | grep -E "newest advertised|FEED " | tr '\n' ' ')
+  if [ $rc -eq 0 ]; then
+    pass "Update feed healthy — $FEEDSUM"
+  else
+    fail "UPDATE FEED BROKEN — existing Macs are silently receiving no updates. $FEEDSUM"
+  fi
+else
+  warn "Update-feed check skipped — tools/check_appcast.sh not found or not executable"
+fi
+
 # ------------------------------------------------------------- 2. CODE GATES
 say ""; say "## 2. Code gates (byte-identity / invariant tests)"
 for gate in jurisdiction-golden-master custom-jurisdiction-gate travis-appellate-gate; do

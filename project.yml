@@ -1217,12 +1217,31 @@ targets:
         # entitlements the agent needs). See `Voxhora - Distribution and
         # Public-Launch Plan 2026-05-19.md` and `sparkle-credentials/README.md`.
         # SUFeedURL is the RSS feed Sparkle polls every 24h to discover
-        # new releases. Hosted free via GitHub's raw.githubusercontent.com
-        # — no separate CDN needed. SUPublicEDKey is the public half of
-        # the EdDSA keypair generated 2026-05-19; the private half lives
-        # in macOS Keychain + Voxhora_Backups/sparkle-credentials/ and
-        # is required to sign every release DMG (via release.sh).
-        SUFeedURL: https://raw.githubusercontent.com/SanPatriciodeCuernavaca/voxhora-mac/main/appcast.xml
+        # new releases. MOVED off raw.githubusercontent.com 2026-08-08, in
+        # 0.2.87, so the Mac source repo could be made private: the feed and
+        # the DMG both used to be served BY the repo that was going private,
+        # and a private repo returns 404 to an unauthenticated Sparkle. That
+        # would have killed auto-updates for every existing install with no
+        # error anyone would ever see (background checks swallow network
+        # failures; only a manual "Check for Updates…" shows an alert).
+        #
+        # Now served from voxhora-public via GitHub Pages, which must stay
+        # public forever — making THAT repo private unpublishes voxhora.app
+        # and frees the domain for takeover.
+        #
+        # NOTE: this value is baked into the shipped binary and there is no
+        # runtime override (SPUStandardUpdaterController is built with a nil
+        # updaterDelegate, so feedURLString(for:) never runs). Changing where
+        # the app looks for updates therefore requires shipping a new build
+        # THROUGH the old feed first. Old installs that never got 0.2.87 are
+        # covered by the public shell repo that still answers the old URL.
+        #
+        # SUPublicEDKey is the public half of the EdDSA keypair generated
+        # 2026-05-19; the private half lives in macOS Keychain +
+        # Voxhora_Backups/sparkle-credentials/ and is required to sign every
+        # release DMG (via release.sh). The signature covers DMG BYTES only,
+        # not the URL, so re-hosting needs no re-signing.
+        SUFeedURL: https://voxhora.app/appcast.xml
         SUPublicEDKey: w2XWFE/kzeQK0BFLW6jRw5kSpb1pNMQ+4gvlljT+RWM=
         SUEnableInstallerLauncherService: true
         SUEnableAutomaticChecks: true

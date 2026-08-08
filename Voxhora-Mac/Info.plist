@@ -61,7 +61,7 @@
 	<key>SUEnableInstallerLauncherService</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>https://raw.githubusercontent.com/SanPatriciodeCuernavaca/voxhora-mac/main/appcast.xml</string>
+	<string>https://voxhora.app/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>w2XWFE/kzeQK0BFLW6jRw5kSpb1pNMQ+4gvlljT+RWM=</string>
 </dict>
