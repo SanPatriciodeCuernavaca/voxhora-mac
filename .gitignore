@@ -75,3 +75,8 @@ build_archive/
 migration-tools/
 Voxhora-Mac/TechShareAgentKit/
 vendor-cache/
+
+# 2026-08-07 — internal working notes stay OUT of this PUBLIC repo.
+# They carried device UDIDs, deploy procedures, and colleague names.
+CLAUDE.md
+AGENTS.md
