@@ -3,28 +3,12 @@
     <channel>
         <title>Voxhora-Mac</title>
         <item>
-            <title>0.2.84</title>
-            <pubDate>Tue, 04 Aug 2026 11:56:33 -0500</pubDate>
-            <sparkle:version>90</sparkle:version>
-            <sparkle:shortVersionString>0.2.84</sparkle:shortVersionString>
+            <title>0.2.89</title>
+            <pubDate>Sat, 08 Aug 2026 11:23:05 -0500</pubDate>
+            <sparkle:version>95</sparkle:version>
+            <sparkle:shortVersionString>0.2.89</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.1</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/SanPatriciodeCuernavaca/voxhora-mac/releases/download/v0.2.84/Voxhora-Mac-0.2.84.dmg" length="58470927" type="application/octet-stream" sparkle:edSignature="5VtB2cdPLZXRcpuohGRZ/iV+uMv3Rv2cPuhbf2Ti9FwFaMKvPjX85EfmwzGR1F5xflt+SycV+DVxGwUWfRaWCA=="/>
-        </item>
-        <item>
-            <title>0.2.83</title>
-            <pubDate>Thu, 30 Jul 2026 18:11:59 -0500</pubDate>
-            <sparkle:version>89</sparkle:version>
-            <sparkle:shortVersionString>0.2.83</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.1</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/SanPatriciodeCuernavaca/voxhora-mac/releases/download/v0.2.84/Voxhora-Mac-0.2.83.dmg" length="57581872" type="application/octet-stream" sparkle:edSignature="NsTpd9TJAq7iVEfE66FBO576P/9Zs/sffjIiM82dmHwwRZuiysn386gXQ6SLbJs8eFs4Iyt4OzSEVX+Xl+2LAA=="/>
-        </item>
-        <item>
-            <title>0.2.82</title>
-            <pubDate>Wed, 29 Jul 2026 18:19:26 -0500</pubDate>
-            <sparkle:version>88</sparkle:version>
-            <sparkle:shortVersionString>0.2.82</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.1</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/SanPatriciodeCuernavaca/voxhora-mac/releases/download/v0.2.84/Voxhora-Mac-0.2.82.dmg" length="58329179" type="application/octet-stream" sparkle:edSignature="Hh8OAyrOh9MrEpIeFMPxwy9t2RKfaSfV22PyFnFGiBV7lZrgu0wn7YfG33v6TeUiRpCpVS7iQnhrUFycWMSMCw=="/>
+            <enclosure url="https://voxhora.app/downloads/Voxhora-Mac-0.2.89.dmg" length="58640164" type="application/octet-stream" sparkle:edSignature="g0F6zNH7iNtJNwpJrHjjDf6XFMDtx3YDGk7E3fVMAAr0rgrox/qmkkdqUm4Hb9IZ+5DMbEeFF+TJytH5FgRlBw=="/>
         </item>
     </channel>
 </rss>
