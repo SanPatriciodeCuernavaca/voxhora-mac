@@ -98,9 +98,20 @@ cp "$DMG_SRC" "$STAGE/$DMG_VERSIONED"
 [ -f "$STAGE/appcast.xml" ] || die "generate_appcast produced no appcast.xml"
 
 # Prove the generated feed says what we think before anything is published.
-GEN_URL=$(grep -o 'url="[^"]*"' "$STAGE/appcast.xml" | head -1 | sed 's/url="//;s/"//')
-GEN_VER=$(grep -o 'sparkle:shortVersionString="[^"]*"' "$STAGE/appcast.xml" | head -1 | sed 's/.*="//;s/"//')
-[ -n "$GEN_URL" ] || die "generated appcast has no enclosure URL"
+#
+# 2026-08-08: the version was read as an ATTRIBUTE (shortVersionString="…").
+# generate_appcast emits it as an ELEMENT:
+#     <sparkle:shortVersionString>0.2.89</sparkle:shortVersionString>
+# so grep matched nothing, exited 1, and `set -e` killed the script on the
+# assignment — printing NOTHING. The run looked like it just stopped. The
+# ordering saved us (neither feed had been touched yet), but a publish script
+# that dies silently is exactly the kind of instrument that gets trusted while
+# doing nothing. `|| true` keeps extraction failures from being fatal so the
+# explicit checks below can report them in words.
+GEN_URL=$(sed -n 's/.*<enclosure[^>]* url="\([^"]*\)".*/\1/p' "$STAGE/appcast.xml" | head -1 || true)
+GEN_VER=$(sed -n 's|.*<sparkle:shortVersionString>\([^<]*\)</sparkle:shortVersionString>.*|\1|p' "$STAGE/appcast.xml" | head -1 || true)
+[ -n "$GEN_URL" ] || die "generated appcast has no enclosure URL (parser out of step with generate_appcast's output?)"
+[ -n "$GEN_VER" ] || die "could not read the version out of the generated appcast (parser out of step with generate_appcast's output?)"
 case "$GEN_URL" in
   "${DOWNLOAD_PREFIX}${DMG_VERSIONED}") ok "enclosure URL: $GEN_URL" ;;
   *) die "enclosure URL is wrong: $GEN_URL (expected ${DOWNLOAD_PREFIX}${DMG_VERSIONED})" ;;
@@ -144,7 +155,10 @@ fi
 say "Waiting for GitHub Pages to serve $VERSION at $NEW_FEED …"
 PAGES_OK=0
 for i in $(seq 1 40); do
-  LIVE=$(curl -sS -L -m 30 "$NEW_FEED" 2>/dev/null | grep -o 'sparkle:shortVersionString="[^"]*"' | head -1 | sed 's/.*="//;s/"//')
+  # Same element-vs-attribute fix as above. A wrong pattern here would never
+  # match, so this loop would spin its full 10 minutes and then abort claiming
+  # Pages never served the version — while Pages was serving it correctly.
+  LIVE=$(curl -sS -L -m 30 "$NEW_FEED" 2>/dev/null | sed -n 's|.*<sparkle:shortVersionString>\([^<]*\)</sparkle:shortVersionString>.*|\1|p' | head -1 || true)
   if [ "$LIVE" = "$VERSION" ]; then PAGES_OK=1; break; fi
   printf "  … not live yet (attempt %s/40, saw '%s')\n" "$i" "${LIVE:-nothing}"
   sleep 15

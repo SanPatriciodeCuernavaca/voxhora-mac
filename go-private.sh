@@ -88,9 +88,27 @@ ok "voxhora.app feed healthy"
 
 # The old feed must currently be serving 0.2.87 too, or old installs have not
 # had their chance to migrate and the shell would preserve a stale feed.
-OLDVER=$(curl -sS -L -m 30 "$OLD_FEED" 2>/dev/null | grep -o 'sparkle:shortVersionString="[^"]*"' | head -1 | sed 's/.*="//;s/"//')
-[ "$OLDVER" = "0.2.87" ] || die "The OLD feed advertises '${OLDVER:-nothing}', not 0.2.87. Run ./publish-appcast.sh v0.2.87 first — otherwise the shell freezes old installs on an old version forever."
-ok "old feed advertises 0.2.87"
+# 2026-08-08: these read the version as an ATTRIBUTE. generate_appcast emits an
+# ELEMENT, so the pattern could never match and this always saw "nothing". Here
+# that merely refused to start; at step 4 (below) the same bug would have
+# aborted AFTER the rename and the shell repo existed, leaving the migration
+# half-done under time pressure. Both now parse the element.
+#
+# The expected version is no longer hardcoded either. What actually matters is
+# that both feeds advertise the SAME build — that is the invariant which proves
+# old installs can migrate. A hardcoded string just goes stale every release.
+feed_version() {
+  curl -sS -L -m 30 "$1" 2>/dev/null \
+    | sed -n 's|.*<sparkle:shortVersionString>\([^<]*\)</sparkle:shortVersionString>.*|\1|p' \
+    | head -1 || true
+}
+
+OLDVER=$(feed_version "$OLD_FEED")
+NEWVER=$(feed_version "$NEW_FEED")
+[ -n "$OLDVER" ] || die "Could not read a version from the OLD feed. Do NOT go private — old installs read that feed."
+[ -n "$NEWVER" ] || die "Could not read a version from $NEW_FEED. Publish it before going private."
+[ "$OLDVER" = "$NEWVER" ] || die "Feeds disagree: old advertises '$OLDVER', voxhora.app advertises '$NEWVER'. Run ./publish-appcast.sh so both serve the same build — otherwise the shell repo freezes old installs on '$OLDVER' forever."
+ok "both feeds advertise $OLDVER"
 
 git -C "$MAC_REPO" diff --quiet && git -C "$MAC_REPO" diff --cached --quiet \
   || die "voxhora-mac working tree is dirty — commit or stash before renaming the remote."
@@ -162,8 +180,10 @@ say "4. Verify the old feed URL still resolves"
 if [ "$DRY" = "0" ]; then
   RESTORED=0
   for i in $(seq 1 20); do
-    V=$(curl -sS -L -m 30 "$OLD_FEED" 2>/dev/null | grep -o 'sparkle:shortVersionString="[^"]*"' | head -1 | sed 's/.*="//;s/"//')
-    if [ "$V" = "0.2.87" ]; then RESTORED=1; break; fi
+    # Element form, and compared against the version the feeds actually agreed
+    # on in pre-flight rather than a hardcoded string that rots each release.
+    V=$(feed_version "$OLD_FEED")
+    if [ "$V" = "$OLDVER" ]; then RESTORED=1; break; fi
     printf "  … not back yet (attempt %s/20, saw '%s')\n" "$i" "${V:-nothing}"
     sleep 10
   done
