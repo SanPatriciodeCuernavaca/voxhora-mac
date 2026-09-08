@@ -3,12 +3,12 @@
     <channel>
         <title>Voxhora-Mac</title>
         <item>
-            <title>0.2.100</title>
-            <pubDate>Tue, 08 Sep 2026 07:50:34 -0500</pubDate>
-            <sparkle:version>106</sparkle:version>
-            <sparkle:shortVersionString>0.2.100</sparkle:shortVersionString>
+            <title>0.2.101</title>
+            <pubDate>Tue, 08 Sep 2026 14:51:28 -0500</pubDate>
+            <sparkle:version>107</sparkle:version>
+            <sparkle:shortVersionString>0.2.101</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.1</sparkle:minimumSystemVersion>
-            <enclosure url="https://voxhora.app/downloads/Voxhora-Mac-0.2.100.dmg" length="59169991" type="application/octet-stream" sparkle:edSignature="JFV4k0lDlCfT61xP8AfwfJU0purRNsQH58PUiuLI7qMhxgeXzzluRDvadXVFLpahKFP43tuHr3vbCY7EwutEAg=="/>
+            <enclosure url="https://voxhora.app/downloads/Voxhora-Mac-0.2.101.dmg" length="59176191" type="application/octet-stream" sparkle:edSignature="JlnvNq5uiaN/XR9zlWOc0b+hZiGD19rs2JhBPgyQwHcnV91UrxWxaD31/mbmbg+b/9w14ASX0EozUHa8kqYwDA=="/>
         </item>
     </channel>
 </rss>
